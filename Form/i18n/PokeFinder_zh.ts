@@ -159,7 +159,7 @@
     </message>
     <message>
         <source>MAC Address</source>
-        <translation>MAC Address</translation>
+        <translation>MAC 地址</translation>
     </message>
     <message>
         <source>Timer0</source>
@@ -1353,7 +1353,7 @@
     </message>
     <message>
         <source>Offset (Held / Pickup)</source>
-        <translation>Offset (生成 / 领取)</translation>
+        <translation>偏移 (生成 / 领取)</translation>
     </message>
 </context>
 <context>
@@ -1408,7 +1408,7 @@
     </message>
     <message>
         <source>Delay</source>
-        <translation>Delay</translation>
+        <translation>延迟</translation>
     </message>
     <message>
         <source>Search</source>
@@ -1483,7 +1483,7 @@
     </message>
     <message>
         <source>Offset (Held / Pickup)</source>
-        <translation>Offset (生成 / 领取)</translation>
+        <translation>偏移 (生成 / 领取)</translation>
     </message>
 </context>
 <context>
@@ -1502,7 +1502,7 @@
     </message>
     <message>
         <source>MAC Address</source>
-        <translation>MAC Address</translation>
+        <translation>MAC 地址</translation>
     </message>
     <message>
         <source>VCount</source>
@@ -1978,11 +1978,11 @@
     </message>
     <message>
         <source>Min Delay</source>
-        <translation>最小Delay</translation>
+        <translation>最小延迟</translation>
     </message>
     <message>
         <source>Max Delay</source>
-        <translation>最大Delay</translation>
+        <translation>最大延迟</translation>
     </message>
     <message>
         <source>Min Advance</source>
@@ -2026,7 +2026,7 @@
     </message>
     <message>
         <source>MAC Address</source>
-        <translation>MAC Address</translation>
+        <translation>MAC 地址</translation>
     </message>
     <message>
         <source>VCount</source>
@@ -3159,11 +3159,11 @@
     </message>
     <message>
         <source>Seth</source>
-        <translation>Seth</translation>
+        <translation>塞斯</translation>
     </message>
     <message>
         <source>Thomas</source>
-        <translation>Thomas</translation>
+        <translation>托马斯</translation>
     </message>
     <message>
         <source>Party Lead</source>
@@ -3215,7 +3215,7 @@
     <message>
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="104"/>
         <source>Result: %1</source>
-        <translation>Result： %1</translation>
+        <translation>结果： %1</translation>
     </message>
     <message>
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="122"/>
@@ -3414,7 +3414,7 @@
     </message>
     <message>
         <source>MAC Address</source>
-        <translation>MAC Address</translation>
+        <translation>MAC 地址</translation>
     </message>
     <message>
         <source>Timer0</source>
@@ -3921,7 +3921,7 @@
     <message>
         <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
         <source>Delay</source>
-        <translation>Delay</translation>
+        <translation>延迟</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
@@ -4072,11 +4072,11 @@
     </message>
     <message>
         <source>Min Delay</source>
-        <translation>最小Delay</translation>
+        <translation>最小延迟</translation>
     </message>
     <message>
         <source>Max Delay</source>
-        <translation>最大Delay</translation>
+        <translation>最大延迟</translation>
     </message>
     <message>
         <source>Infinite Search</source>
@@ -4136,7 +4136,7 @@
     </message>
     <message>
         <source>MAC Address</source>
-        <translation>MAC Address</translation>
+        <translation>MAC 地址</translation>
     </message>
     <message>
         <source>DS Type</source>
@@ -4560,7 +4560,7 @@
     <message>
         <location filename="../../Model/Util/IVToPIDModel.cpp" line="48"/>
         <source>Method 1</source>
-        <translation>Method 1</translation>
+        <translation>方法 1</translation>
     </message>
     <message>
         <location filename="../../Model/Util/IVToPIDModel.cpp" line="50"/>
@@ -4575,7 +4575,7 @@
     <message>
         <location filename="../../Model/Util/IVToPIDModel.cpp" line="54"/>
         <source>Method 4</source>
-        <translation>Method 4</translation>
+        <translation>方法 4</translation>
     </message>
     <message>
         <location filename="../../Model/Util/IVToPIDModel.cpp" line="56"/>
@@ -4926,7 +4926,7 @@
     <message>
         <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="45"/>
         <source>Method 1</source>
-        <translation>Method 1</translation>
+        <translation>方法 1</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="47"/>
@@ -4936,7 +4936,7 @@
     <message>
         <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="49"/>
         <source>Method 4</source>
-        <translation>Method 4</translation>
+        <translation>方法 4</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="51"/>
@@ -5186,11 +5186,11 @@
     </message>
     <message>
         <source>DS Original/Lite</source>
-        <translation>DS Original/Lite</translation>
+        <translation>DS 初代/Lite</translation>
     </message>
     <message>
         <source>DSi/DSi XL</source>
-        <translation>DSi/DSi XL</translation>
+        <translation>DSi/DSi LL/XL</translation>
     </message>
     <message>
         <source>3DS</source>
@@ -5206,7 +5206,7 @@
     </message>
     <message>
         <source>MAC Address</source>
-        <translation>MAC Address</translation>
+        <translation>MAC 地址</translation>
     </message>
     <message>
         <source>Version</source>
@@ -5230,31 +5230,31 @@
     </message>
     <message>
         <source>ENG</source>
-        <translation>ENG</translation>
+        <translation>英语</translation>
     </message>
     <message>
         <source>SPA</source>
-        <translation>SPA</translation>
+        <translation>西班牙语</translation>
     </message>
     <message>
         <source>FRE</source>
-        <translation>FRE</translation>
+        <translation>法语</translation>
     </message>
     <message>
         <source>ITA</source>
-        <translation>ITA</translation>
+        <translation>意大利语</translation>
     </message>
     <message>
         <source>DEU</source>
-        <translation>DEU</translation>
+        <translation>德语</translation>
     </message>
     <message>
         <source>JPN</source>
-        <translation>JPN</translation>
+        <translation>日语</translation>
     </message>
     <message>
         <source>KOR</source>
-        <translation>KOR</translation>
+        <translation>韩语</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -5556,7 +5556,7 @@
     </message>
     <message>
         <source>Timer0 Min</source>
-        <translation>最小Timer0</translation>
+        <translation>最小时间r0</translation>
     </message>
     <message>
         <source>SID</source>
@@ -5572,31 +5572,31 @@
     </message>
     <message>
         <source>ENG</source>
-        <translation>ENG</translation>
+        <translation>英语</translation>
     </message>
     <message>
         <source>SPA</source>
-        <translation>SPA</translation>
+        <translation>西班牙语</translation>
     </message>
     <message>
         <source>FRE</source>
-        <translation>FRE</translation>
+        <translation>法语</translation>
     </message>
     <message>
         <source>ITA</source>
-        <translation>ITA</translation>
+        <translation>意大利语</translation>
     </message>
     <message>
         <source>DEU</source>
-        <translation>DEU</translation>
+        <translation>德语</translation>
     </message>
     <message>
         <source>JPN</source>
-        <translation>JPN</translation>
+        <translation>日语</translation>
     </message>
     <message>
         <source>KOR</source>
-        <translation>KOR</translation>
+        <translation>韩语</translation>
     </message>
     <message>
         <source>VCount</source>
@@ -5612,11 +5612,11 @@
     </message>
     <message>
         <source>DS Original/Lite</source>
-        <translation>DS Original/Lite</translation>
+        <translation>DS 初代/Lite</translation>
     </message>
     <message>
         <source>DSi/DSi XL</source>
-        <translation>DSi/DSi XL</translation>
+        <translation>DSi/DSi LL/XL</translation>
     </message>
     <message>
         <source>3DS</source>
@@ -5636,7 +5636,7 @@
     </message>
     <message>
         <source>Skip L/R</source>
-        <translation>Skip L/R</translation>
+        <translation>跳过 L/R</translation>
     </message>
     <message>
         <source>Memory Link</source>
@@ -6074,7 +6074,7 @@
     <message>
         <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71"/>
         <source>MAC Address</source>
-        <translation>MAC Address</translation>
+        <translation>MAC 地址</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72"/>
@@ -6109,7 +6109,7 @@
     <message>
         <location filename="../../Model/Gen5/ProfileModel5.hpp" line="73"/>
         <source>Skip L/R</source>
-        <translation>Skip L/R</translation>
+        <translation>跳过 L/R</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/ProfileModel5.hpp" line="73"/>
@@ -6749,7 +6749,7 @@
     </message>
     <message>
         <source>MAC Address</source>
-        <translation>MAC Address</translation>
+        <translation>MAC 地址</translation>
     </message>
     <message>
         <source>DS Type</source>
@@ -6954,7 +6954,7 @@
     </message>
     <message>
         <source>DPPt</source>
-        <translation>DPPt</translation>
+        <translation>珍珠/钻石/白金</translation>
     </message>
     <message>
         <source>Calibration</source>
@@ -6970,7 +6970,7 @@
     </message>
     <message>
         <source>Delay</source>
-        <translation>Delay</translation>
+        <translation>延迟</translation>
     </message>
     <message>
         <source>Search Flips</source>
@@ -6994,7 +6994,7 @@
     </message>
     <message>
         <source>HGSS</source>
-        <translation>HGSS</translation>
+        <translation>心金/魂银</translation>
     </message>
     <message>
         <source>Search Calls</source>
@@ -7077,7 +7077,7 @@
     <message>
         <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120"/>
         <source>Delay</source>
-        <translation>Delay</translation>
+        <translation>延迟</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120"/>
@@ -7113,7 +7113,7 @@
     <message>
         <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="71"/>
         <source>Delay</source>
-        <translation>Delay</translation>
+        <translation>延迟</translation>
     </message>
 </context>
 <context>
@@ -7292,11 +7292,11 @@
     </message>
     <message>
         <source>Method 1</source>
-        <translation>Method 1</translation>
+        <translation>方法 1</translation>
     </message>
     <message>
         <source>Method 4</source>
-        <translation>Method 4</translation>
+        <translation>方法 4</translation>
     </message>
     <message>
         <source>Filters</source>
@@ -7460,11 +7460,11 @@
     </message>
     <message>
         <source>Min Delay</source>
-        <translation>最小Delay</translation>
+        <translation>最小延迟</translation>
     </message>
     <message>
         <source>Max Delay</source>
-        <translation>最大Delay</translation>
+        <translation>最大延迟</translation>
     </message>
     <message>
         <source>Min Advance</source>
@@ -7582,7 +7582,7 @@
     </message>
     <message>
         <source>MAC Address</source>
-        <translation>MAC Address</translation>
+        <translation>MAC 地址</translation>
     </message>
     <message>
         <source>DS Type</source>
@@ -9471,7 +9471,7 @@
     </message>
     <message>
         <source>Max Delay</source>
-        <translation>最大Delay</translation>
+        <translation>最大延迟</translation>
     </message>
     <message>
         <source>Min Advance</source>
@@ -9479,7 +9479,7 @@
     </message>
     <message>
         <source>Min Delay</source>
-        <translation>最小Delay</translation>
+        <translation>最小延迟</translation>
     </message>
     <message>
         <source>Max Advance</source>
@@ -9687,7 +9687,7 @@
     </message>
     <message>
         <source>MAC Address</source>
-        <translation>MAC Address</translation>
+        <translation>MAC 地址</translation>
     </message>
     <message>
         <source>DS Type</source>
