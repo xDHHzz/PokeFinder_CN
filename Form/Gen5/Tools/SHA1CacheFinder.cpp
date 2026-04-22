@@ -179,6 +179,6 @@ void SHA1CacheFinder::search()
 
 void SHA1CacheFinder::updateOutputFile()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), QDir::currentPath(), "sha1cache (*.sha1cache)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), QDir::currentPath(), "SHA1 缓存文件 (*.sha1cache)");
     ui->lineEditOutputFile->setText(fileName);
 }
