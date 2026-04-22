@@ -16,8 +16,13 @@ def embed_strings(paths):
 
             string_data = bytes()
             for line in data:
+                if not line:
+                    continue
+
                 if "forms" in file:
                     entries = line.split(",")
+                    if len(entries) != 3:
+                        raise ValueError(f"Invalid forms entry in {file}: {line}")
                     line = f"{(int(entries[1]) << 11) | int(entries[0])},{entries[2]}"
                 string_data += bytes(line, encoding="utf-8")
                 string_data += b"\x00"

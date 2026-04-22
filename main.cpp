@@ -56,7 +56,7 @@ void validateSettings(QSettings &setting)
 
     if (!setting.contains("locale"))
     {
-        setting.setValue("locale", "en");
+        setting.setValue("locale", "zh");
     }
 
     if (!setting.contains("headerSize"))
