@@ -88,6 +88,6 @@ void IVCacheFinder::search()
 
 void IVCacheFinder::updateOutputFile()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), QDir::currentPath(), "ivcache (*.ivcache)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), QDir::currentPath(), "IV 缓存文件 (*.ivcache)");
     ui->lineEditOutputFile->setText(fileName);
 }

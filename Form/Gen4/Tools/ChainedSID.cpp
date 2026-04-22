@@ -134,7 +134,7 @@ void ChainedSID::clear()
     }
 
     model->removeRows(0, model->rowCount());
-    ui->labelPossibleResults->setText("Possible Results: 8192");
+    ui->labelPossibleResults->setText(tr("Possible Results: %1").arg(8192));
 }
 
 void ChainedSID::pokemonIndexChanged(int index)

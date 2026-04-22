@@ -252,7 +252,7 @@ void GameCubeSeedFinder::coloSearch()
                         QMessageBox::Yes | QMessageBox::No);
         if (msg.exec() == QMessageBox::Yes)
         {
-            QString path = QFileDialog::getOpenFileName(this, tr("Select Colo Precalc"), QDir::currentPath(), "precalc (*.precalc)");
+            QString path = QFileDialog::getOpenFileName(this, tr("Select Colo Precalc"), QDir::currentPath(), "预计算文件 (*.precalc)");
 
             QFile f(path);
             if (f.open(QIODevice::ReadOnly))
@@ -371,7 +371,7 @@ void GameCubeSeedFinder::galesSearch()
                         QMessageBox::Yes | QMessageBox::No);
         if (msg.exec() == QMessageBox::Yes)
         {
-            QString path = QFileDialog::getOpenFileName(this, tr("Select Gales Precalc"), QDir::currentPath(), "precalc (*.precalc)");
+            QString path = QFileDialog::getOpenFileName(this, tr("Select Gales Precalc"), QDir::currentPath(), "预计算文件 (*.precalc)");
 
             QFile f(path);
             if (f.open(QIODevice::ReadOnly))
