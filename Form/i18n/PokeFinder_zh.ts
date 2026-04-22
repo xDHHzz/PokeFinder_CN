@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
+<?xml version='1.0' encoding='utf-8'?>
 <TS version="2.1" language="zh_CN">
 <context>
     <name>ChainedSID</name>
@@ -32,12 +31,12 @@
         <translation>清空</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/ChainedSID.cpp" line="37"/>
+        <location filename="../Gen4/Tools/ChainedSID.cpp" line="37" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/ChainedSID.cpp" line="37"/>
+        <location filename="../Gen4/Tools/ChainedSID.cpp" line="37" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
@@ -50,7 +49,7 @@
         <translation>推算</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/ChainedSID.cpp" line="37"/>
+        <location filename="../Gen4/Tools/ChainedSID.cpp" line="37" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
@@ -59,17 +58,17 @@
         <translation>连锁异色查询里ID</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/ChainedSID.cpp" line="37"/>
+        <location filename="../Gen4/Tools/ChainedSID.cpp" line="37" />
         <source>IVs</source>
         <translation>个体</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/ChainedSID.cpp" line="109"/>
+        <location filename="../Gen4/Tools/ChainedSID.cpp" line="109" />
         <source>SID Found: %1</source>
-        <translation></translation>
+        <translation>已找到里ID：%1</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/ChainedSID.cpp" line="113"/>
+        <location filename="../Gen4/Tools/ChainedSID.cpp" line="113" />
         <source>Possible Results: %1</source>
         <translation>可能的结果： %1</translation>
     </message>
@@ -85,8 +84,8 @@
 <context>
     <name>CheckList</name>
     <message>
-        <location filename="../Controls/CheckList.cpp" line="100"/>
-        <location filename="../Controls/CheckList.cpp" line="283"/>
+        <location filename="../Controls/CheckList.cpp" line="100" />
+        <location filename="../Controls/CheckList.cpp" line="283" />
         <source>Any</source>
         <translation>任意</translation>
     </message>
@@ -94,8 +93,8 @@
 <context>
     <name>ComboBoxProxyModel</name>
     <message>
-        <location filename="../Controls/ComboBoxProxy.cpp" line="55"/>
-        <location filename="../Controls/ComboBoxProxy.cpp" line="59"/>
+        <location filename="../Controls/ComboBoxProxy.cpp" line="55" />
+        <location filename="../Controls/ComboBoxProxy.cpp" line="59" />
         <source>None</source>
         <translation>无</translation>
     </message>
@@ -250,142 +249,142 @@
         <translation>起始日期</translation>
     </message>
     <message>
-        <location filename="../Gen5/DreamRadar.cpp" line="89"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="90"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="91"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="92"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="93"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="94"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="96"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="97"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="98"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="99"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="100"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="101"/>
+        <location filename="../Gen5/DreamRadar.cpp" line="89" />
+        <location filename="../Gen5/DreamRadar.cpp" line="90" />
+        <location filename="../Gen5/DreamRadar.cpp" line="91" />
+        <location filename="../Gen5/DreamRadar.cpp" line="92" />
+        <location filename="../Gen5/DreamRadar.cpp" line="93" />
+        <location filename="../Gen5/DreamRadar.cpp" line="94" />
+        <location filename="../Gen5/DreamRadar.cpp" line="96" />
+        <location filename="../Gen5/DreamRadar.cpp" line="97" />
+        <location filename="../Gen5/DreamRadar.cpp" line="98" />
+        <location filename="../Gen5/DreamRadar.cpp" line="99" />
+        <location filename="../Gen5/DreamRadar.cpp" line="100" />
+        <location filename="../Gen5/DreamRadar.cpp" line="101" />
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../Gen5/DreamRadar.cpp" line="311"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="344"/>
+        <location filename="../Gen5/DreamRadar.cpp" line="311" />
+        <location filename="../Gen5/DreamRadar.cpp" line="344" />
         <source>Missing settings</source>
-        <translation></translation>
+        <translation>缺少设置</translation>
     </message>
     <message>
-        <location filename="../Gen5/DreamRadar.cpp" line="311"/>
-        <location filename="../Gen5/DreamRadar.cpp" line="344"/>
+        <location filename="../Gen5/DreamRadar.cpp" line="311" />
+        <location filename="../Gen5/DreamRadar.cpp" line="344" />
         <source>Enter information for at least 1 slot</source>
-        <translation></translation>
+        <translation>至少为 1 个槽位填写信息</translation>
     </message>
     <message>
-        <location filename="../Gen5/DreamRadar.cpp" line="336"/>
+        <location filename="../Gen5/DreamRadar.cpp" line="336" />
         <source>Invalid date range</source>
-        <translation></translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/DreamRadar.cpp" line="336"/>
+        <location filename="../Gen5/DreamRadar.cpp" line="336" />
         <source>Start date is after end date</source>
-        <translation></translation>
+        <translation>开始日期晚于结束日期</translation>
     </message>
     <message>
         <source>Badges</source>
-        <translation></translation>
+        <translation>徽章</translation>
     </message>
 </context>
 <context>
     <name>DreamRadarGeneratorModel5</name>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="51"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="51" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="51"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="51" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="51"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="51" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81" />
         <source>Needle</source>
-        <translation></translation>
+        <translation>指针</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="82" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -393,112 +392,112 @@
 <context>
     <name>DreamRadarSearcherModel5</name>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="128"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="128" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="128"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="128" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="128"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.cpp" line="128" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="141" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="142"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="142" />
         <source>Date/Time</source>
         <translation>日期/时间</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="142"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="142" />
         <source>Timer0</source>
         <translation>Timer0</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="142"/>
+        <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="142" />
         <source>Buttons</source>
         <translation>按键</translation>
     </message>
@@ -506,107 +505,107 @@
 <context>
     <name>EggGeneratorModel4</name>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.cpp" line="63"/>
+        <location filename="../../Model/Gen4/EggModel4.cpp" line="63" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.cpp" line="63"/>
+        <location filename="../../Model/Gen4/EggModel4.cpp" line="63" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.cpp" line="63"/>
+        <location filename="../../Model/Gen4/EggModel4.cpp" line="63" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="95"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="95" />
         <source>Held Advances</source>
         <translation>蛋生成帧</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="96"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="96" />
         <source>Pickup Advances</source>
         <translation>蛋领取帧</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="97"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="97" />
         <source>Call</source>
         <translation>电话</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="98"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="98" />
         <source>Chatot</source>
         <translation>聒噪鸟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="99"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="99" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="100"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="100" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="101"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="101" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="102"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="102" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="103"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="103" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="104"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="104" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="105"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="105" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="106"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="106" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="107"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="107" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="108"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="108" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="109"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="109" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="110"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="110" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="111"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="111" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="112"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="112" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -614,97 +613,97 @@
 <context>
     <name>EggGeneratorModel5</name>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.cpp" line="50"/>
+        <location filename="../../Model/Gen5/EggModel5.cpp" line="50" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.cpp" line="50"/>
+        <location filename="../../Model/Gen5/EggModel5.cpp" line="50" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.cpp" line="50"/>
+        <location filename="../../Model/Gen5/EggModel5.cpp" line="50" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="88"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="88" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="88"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="88" />
         <source>Chatot</source>
         <translation>聒噪鸟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="88"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="88" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="88"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="88" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="88"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="88" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="88"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="88" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="88"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="88" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="88"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="88" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="89"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="89" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="89"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="89" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="89"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="89" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="89"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="89" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="89"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="89" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="89"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="89" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="89"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="89" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="89"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="89" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -712,97 +711,97 @@
 <context>
     <name>EggModel3</name>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.cpp" line="59"/>
+        <location filename="../../Model/Gen3/EggModel3.cpp" line="59" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.cpp" line="59"/>
+        <location filename="../../Model/Gen3/EggModel3.cpp" line="59" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.cpp" line="59"/>
+        <location filename="../../Model/Gen3/EggModel3.cpp" line="59" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="87"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="87" />
         <source>Held Advances</source>
         <translation>蛋生成帧</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="87"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="87" />
         <source>Pickup Advances</source>
         <translation>蛋领取帧</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="88"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="88" />
         <source>Redraws</source>
         <translation>查看图鉴</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="88"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="88" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="89"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="89" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="89"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="89" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="90"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="90" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="90"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="90" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="91"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="91" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="91"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="91" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="92"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="92" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="92"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="92" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="93"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="93" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="93"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="93" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="94"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="94" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/EggModel3.hpp" line="94"/>
+        <location filename="../../Model/Gen3/EggModel3.hpp" line="94" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
@@ -810,92 +809,92 @@
 <context>
     <name>EggModel8</name>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.cpp" line="51"/>
+        <location filename="../../Model/Gen8/EggModel8.cpp" line="51" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.cpp" line="51"/>
+        <location filename="../../Model/Gen8/EggModel8.cpp" line="51" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.cpp" line="51"/>
+        <location filename="../../Model/Gen8/EggModel8.cpp" line="51" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="86" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="86" />
         <source>Egg Seed</source>
-        <translation></translation>
+        <translation>蛋种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="86" />
         <source>EC</source>
-        <translation></translation>
+        <translation>EC</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="86" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="86" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="86" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="86" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="86" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="87"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="87" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="87"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="87" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="87"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="87" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="87"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="87" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="87"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="87" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="87"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="87" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/EggModel8.hpp" line="87"/>
+        <location filename="../../Model/Gen8/EggModel8.hpp" line="87" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -903,102 +902,102 @@
 <context>
     <name>EggSearcherModel4</name>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.cpp" line="168"/>
+        <location filename="../../Model/Gen4/EggModel4.cpp" line="168" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.cpp" line="168"/>
+        <location filename="../../Model/Gen4/EggModel4.cpp" line="168" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.cpp" line="168"/>
+        <location filename="../../Model/Gen4/EggModel4.cpp" line="168" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="187"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="187" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="188"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="188" />
         <source>Held Advances</source>
         <translation>蛋生成帧</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="189"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="189" />
         <source>Pickup Advances</source>
         <translation>蛋领取帧</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="190"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="190" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="191"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="191" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="192"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="192" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="193"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="193" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="194"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="194" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="195"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="195" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="196"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="196" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="197"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="197" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="198"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="198" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="199"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="199" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="200"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="200" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="201"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="201" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="202"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="202" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EggModel4.hpp" line="203"/>
+        <location filename="../../Model/Gen4/EggModel4.hpp" line="203" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -1006,112 +1005,112 @@
 <context>
     <name>EggSearcherModel5</name>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.cpp" line="141"/>
+        <location filename="../../Model/Gen5/EggModel5.cpp" line="141" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.cpp" line="141"/>
+        <location filename="../../Model/Gen5/EggModel5.cpp" line="141" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.cpp" line="141"/>
+        <location filename="../../Model/Gen5/EggModel5.cpp" line="141" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="155" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="155" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="155" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="155" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="155" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="155" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="155" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="155" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="156"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="156" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="156"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="156" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="156"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="156" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="156"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="156" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="156"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="156" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="156"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="156" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="156"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="156" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="156"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="156" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="157"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="157" />
         <source>Date/Time</source>
         <translation>日期/时间</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="157"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="157" />
         <source>Timer0</source>
         <translation>Timer0</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EggModel5.hpp" line="157"/>
+        <location filename="../../Model/Gen5/EggModel5.hpp" line="157" />
         <source>Buttons</source>
         <translation>按键</translation>
     </message>
@@ -1171,56 +1170,56 @@
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../Controls/EggSettings.cpp" line="223"/>
-        <location filename="../Controls/EggSettings.cpp" line="230"/>
+        <location filename="../Controls/EggSettings.cpp" line="223" />
+        <location filename="../Controls/EggSettings.cpp" line="230" />
         <source>Power Weight</source>
         <translation>力量负重</translation>
     </message>
     <message>
-        <location filename="../Controls/EggSettings.cpp" line="224"/>
-        <location filename="../Controls/EggSettings.cpp" line="231"/>
+        <location filename="../Controls/EggSettings.cpp" line="224" />
+        <location filename="../Controls/EggSettings.cpp" line="231" />
         <source>Power Bracer</source>
         <translation>力量护腕</translation>
     </message>
     <message>
-        <location filename="../Controls/EggSettings.cpp" line="225"/>
-        <location filename="../Controls/EggSettings.cpp" line="232"/>
+        <location filename="../Controls/EggSettings.cpp" line="225" />
+        <location filename="../Controls/EggSettings.cpp" line="232" />
         <source>Power Belt</source>
         <translation>力量腰带</translation>
     </message>
     <message>
-        <location filename="../Controls/EggSettings.cpp" line="226"/>
-        <location filename="../Controls/EggSettings.cpp" line="233"/>
+        <location filename="../Controls/EggSettings.cpp" line="226" />
+        <location filename="../Controls/EggSettings.cpp" line="233" />
         <source>Power Lens</source>
         <translation>力量镜</translation>
     </message>
     <message>
-        <location filename="../Controls/EggSettings.cpp" line="227"/>
-        <location filename="../Controls/EggSettings.cpp" line="234"/>
+        <location filename="../Controls/EggSettings.cpp" line="227" />
+        <location filename="../Controls/EggSettings.cpp" line="234" />
         <source>Power Band</source>
         <translation>力量束带</translation>
     </message>
     <message>
-        <location filename="../Controls/EggSettings.cpp" line="228"/>
-        <location filename="../Controls/EggSettings.cpp" line="235"/>
+        <location filename="../Controls/EggSettings.cpp" line="228" />
+        <location filename="../Controls/EggSettings.cpp" line="235" />
         <source>Power Anklet</source>
         <translation>力量护踝</translation>
     </message>
     <message>
-        <location filename="../Controls/EggSettings.cpp" line="244"/>
-        <location filename="../Controls/EggSettings.cpp" line="245"/>
+        <location filename="../Controls/EggSettings.cpp" line="244" />
+        <location filename="../Controls/EggSettings.cpp" line="245" />
         <source>Destiny Knot</source>
         <translation>红线</translation>
     </message>
     <message>
-        <location filename="../Controls/EggSettings.cpp" line="63"/>
-        <location filename="../Controls/EggSettings.cpp" line="66"/>
+        <location filename="../Controls/EggSettings.cpp" line="63" />
+        <location filename="../Controls/EggSettings.cpp" line="66" />
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../Controls/EggSettings.cpp" line="64"/>
-        <location filename="../Controls/EggSettings.cpp" line="67"/>
+        <location filename="../Controls/EggSettings.cpp" line="64" />
+        <location filename="../Controls/EggSettings.cpp" line="67" />
         <source>Everstone</source>
         <translation>不变之石</translation>
     </message>
@@ -1288,7 +1287,7 @@
         <translation>筛选项</translation>
     </message>
     <message>
-        <source>The two don&apos;t seem to like each other</source>
+        <source>The two don't seem to like each other</source>
         <translation>它们似乎不喜欢对方</translation>
     </message>
     <message>
@@ -1305,31 +1304,31 @@
     </message>
     <message>
         <source>Normal</source>
-        <translation></translation>
+        <translation>普通</translation>
     </message>
     <message>
         <source>Split</source>
-        <translation></translation>
+        <translation>分流</translation>
     </message>
     <message>
         <source>Alternate</source>
-        <translation></translation>
+        <translation>替代</translation>
     </message>
     <message>
         <source>Seed (Held / Pickup)</source>
         <translation>种子 (生成 / 领取)</translation>
     </message>
     <message>
-        <location filename="../Gen3/Eggs3.cpp" line="129"/>
-        <location filename="../Gen3/Eggs3.cpp" line="161"/>
+        <location filename="../Gen3/Eggs3.cpp" line="129" />
+        <location filename="../Gen3/Eggs3.cpp" line="161" />
         <source>Incompatible Parents</source>
-        <translation></translation>
+        <translation>父母不兼容</translation>
     </message>
     <message>
-        <location filename="../Gen3/Eggs3.cpp" line="129"/>
-        <location filename="../Gen3/Eggs3.cpp" line="161"/>
+        <location filename="../Gen3/Eggs3.cpp" line="129" />
+        <location filename="../Gen3/Eggs3.cpp" line="161" />
         <source>Gender of selected parents are not compatible for breeding</source>
-        <translation></translation>
+        <translation>所选父母的性别无法繁殖</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1345,7 +1344,7 @@
     </message>
     <message>
         <source>Mixed</source>
-        <translation></translation>
+        <translation>混合</translation>
     </message>
     <message>
         <source>RS/FRLG</source>
@@ -1415,51 +1414,51 @@
         <translation>检索</translation>
     </message>
     <message>
-        <location filename="../Gen4/Eggs4.cpp" line="73"/>
+        <location filename="../Gen4/Eggs4.cpp" line="73" />
         <source>Calculate Poketch</source>
-        <translation></translation>
+        <translation>计算宝可表</translation>
     </message>
     <message>
-        <location filename="../Gen4/Eggs4.cpp" line="78"/>
+        <location filename="../Gen4/Eggs4.cpp" line="78" />
         <source>Generate times for seed</source>
         <translation>为种子生成时间</translation>
     </message>
     <message>
-        <location filename="../Gen4/Eggs4.cpp" line="145"/>
+        <location filename="../Gen4/Eggs4.cpp" line="145" />
         <source>Do not switch to the happiness application at all</source>
-        <translation></translation>
+        <translation>完全不要切换到快乐值应用</translation>
     </message>
     <message>
-        <location filename="../Gen4/Eggs4.cpp" line="155"/>
+        <location filename="../Gen4/Eggs4.cpp" line="155" />
         <source>Switch to the happiness application once but do not click</source>
-        <translation></translation>
+        <translation>切换到快乐值应用一次，但不要点击</translation>
     </message>
     <message>
-        <location filename="../Gen4/Eggs4.cpp" line="159"/>
+        <location filename="../Gen4/Eggs4.cpp" line="159" />
         <source>Happiness Application Double Taps: %1</source>
-        <translation></translation>
+        <translation>快乐值应用双击次数：%1</translation>
     </message>
     <message>
-        <location filename="../Gen4/Eggs4.cpp" line="159"/>
+        <location filename="../Gen4/Eggs4.cpp" line="159" />
         <source>Coin Flip Application Taps: %1</source>
-        <translation></translation>
+        <translation>掷硬币应用点击次数：%1</translation>
     </message>
     <message>
-        <location filename="../Gen4/Eggs4.cpp" line="165"/>
+        <location filename="../Gen4/Eggs4.cpp" line="165" />
         <source>Poketch Taps</source>
-        <translation></translation>
+        <translation>宝可表点击次数</translation>
     </message>
     <message>
-        <location filename="../Gen4/Eggs4.cpp" line="173"/>
-        <location filename="../Gen4/Eggs4.cpp" line="211"/>
+        <location filename="../Gen4/Eggs4.cpp" line="173" />
+        <location filename="../Gen4/Eggs4.cpp" line="211" />
         <source>Incompatible Parents</source>
-        <translation></translation>
+        <translation>父母不兼容</translation>
     </message>
     <message>
-        <location filename="../Gen4/Eggs4.cpp" line="173"/>
-        <location filename="../Gen4/Eggs4.cpp" line="211"/>
+        <location filename="../Gen4/Eggs4.cpp" line="173" />
+        <location filename="../Gen4/Eggs4.cpp" line="211" />
         <source>Gender of selected parents are not compatible for breeding</source>
-        <translation></translation>
+        <translation>所选父母的性别无法繁殖</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1593,42 +1592,42 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen5/Eggs5.cpp" line="136"/>
-        <location filename="../Gen5/Eggs5.cpp" line="174"/>
+        <location filename="../Gen5/Eggs5.cpp" line="136" />
+        <location filename="../Gen5/Eggs5.cpp" line="174" />
         <source>Incompatible Parents</source>
-        <translation></translation>
+        <translation>父母不兼容</translation>
     </message>
     <message>
-        <location filename="../Gen5/Eggs5.cpp" line="136"/>
-        <location filename="../Gen5/Eggs5.cpp" line="174"/>
+        <location filename="../Gen5/Eggs5.cpp" line="136" />
+        <location filename="../Gen5/Eggs5.cpp" line="174" />
         <source>Gender of selected parents are not compatible for breeding</source>
-        <translation></translation>
+        <translation>所选父母的性别无法繁殖</translation>
     </message>
     <message>
-        <location filename="../Gen5/Eggs5.cpp" line="142"/>
-        <location filename="../Gen5/Eggs5.cpp" line="180"/>
+        <location filename="../Gen5/Eggs5.cpp" line="142" />
+        <location filename="../Gen5/Eggs5.cpp" line="180" />
         <source>Parents Reordered</source>
-        <translation></translation>
+        <translation>已重新排序父母</translation>
     </message>
     <message>
-        <location filename="../Gen5/Eggs5.cpp" line="142"/>
-        <location filename="../Gen5/Eggs5.cpp" line="180"/>
+        <location filename="../Gen5/Eggs5.cpp" line="142" />
+        <location filename="../Gen5/Eggs5.cpp" line="180" />
         <source>Parent were swapped to match the game</source>
-        <translation></translation>
+        <translation>已按游戏规则交换父母顺序</translation>
     </message>
     <message>
-        <location filename="../Gen5/Eggs5.cpp" line="167"/>
+        <location filename="../Gen5/Eggs5.cpp" line="167" />
         <source>Invalid date range</source>
-        <translation></translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/Eggs5.cpp" line="167"/>
+        <location filename="../Gen5/Eggs5.cpp" line="167" />
         <source>Start date is after end date</source>
-        <translation></translation>
+        <translation>开始日期晚于结束日期</translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
 </context>
 <context>
@@ -1658,7 +1657,7 @@
         <translation>好感度</translation>
     </message>
     <message>
-        <source>The two don&apos;t seem to like each other</source>
+        <source>The two don't seem to like each other</source>
         <translation>它们似乎不喜欢对方</translation>
     </message>
     <message>
@@ -1702,8 +1701,8 @@
         <translation>圆形护符</translation>
     </message>
     <message>
-        <location filename="../Gen8/Eggs8.cpp" line="156"/>
-        <location filename="../Gen8/Eggs8.cpp" line="157"/>
+        <location filename="../Gen8/Eggs8.cpp" line="156" />
+        <location filename="../Gen8/Eggs8.cpp" line="157" />
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -1720,44 +1719,44 @@
         <translation>闪耀护符</translation>
     </message>
     <message>
-        <location filename="../Gen8/Eggs8.cpp" line="109"/>
+        <location filename="../Gen8/Eggs8.cpp" line="109" />
         <source>Incompatible Parents</source>
-        <translation></translation>
+        <translation>父母不兼容</translation>
     </message>
     <message>
-        <location filename="../Gen8/Eggs8.cpp" line="109"/>
+        <location filename="../Gen8/Eggs8.cpp" line="109" />
         <source>Gender of selected parents are not compatible for breeding</source>
-        <translation></translation>
+        <translation>所选父母的性别无法繁殖</translation>
     </message>
     <message>
-        <location filename="../Gen8/Eggs8.cpp" line="115"/>
+        <location filename="../Gen8/Eggs8.cpp" line="115" />
         <source>Parents Reordered</source>
-        <translation></translation>
+        <translation>已重新排序父母</translation>
     </message>
     <message>
-        <location filename="../Gen8/Eggs8.cpp" line="115"/>
+        <location filename="../Gen8/Eggs8.cpp" line="115" />
         <source>Parent were swapped to match the game</source>
-        <translation></translation>
+        <translation>已按游戏规则交换父母顺序</translation>
     </message>
     <message>
-        <location filename="../Gen8/Eggs8.cpp" line="123"/>
+        <location filename="../Gen8/Eggs8.cpp" line="123" />
         <source>Missing seeds</source>
-        <translation></translation>
+        <translation>缺少种子</translation>
     </message>
     <message>
-        <location filename="../Gen8/Eggs8.cpp" line="123"/>
+        <location filename="../Gen8/Eggs8.cpp" line="123" />
         <source>Please insert missing seed information</source>
-        <translation></translation>
+        <translation>请输入缺失的种子信息</translation>
     </message>
     <message>
-        <location filename="../Gen8/Eggs8.cpp" line="156"/>
-        <location filename="../Gen8/Eggs8.cpp" line="157"/>
+        <location filename="../Gen8/Eggs8.cpp" line="156" />
+        <location filename="../Gen8/Eggs8.cpp" line="157" />
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
 </context>
 <context>
@@ -1775,17 +1774,17 @@
         <translation>查找</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="49"/>
+        <location filename="../Util/EncounterLookup.cpp" line="49" />
         <source>Location</source>
         <translation>地点</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="49"/>
+        <location filename="../Util/EncounterLookup.cpp" line="49" />
         <source>Encounter Type</source>
         <translation>遇敌种类</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="49"/>
+        <location filename="../Util/EncounterLookup.cpp" line="49" />
         <source>Level Range</source>
         <translation>等级范围</translation>
     </message>
@@ -1838,42 +1837,42 @@
         <translation>明亮珍珠</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="86"/>
+        <location filename="../Util/EncounterLookup.cpp" line="86" />
         <source>Grass</source>
         <translation>草丛</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="89"/>
+        <location filename="../Util/EncounterLookup.cpp" line="89" />
         <source>Surfing</source>
         <translation>冲浪</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="91"/>
+        <location filename="../Util/EncounterLookup.cpp" line="91" />
         <source>Old Rod</source>
         <translation>破旧钓竿</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="93"/>
+        <location filename="../Util/EncounterLookup.cpp" line="93" />
         <source>Good Rod</source>
         <translation>好钓竿</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="96"/>
+        <location filename="../Util/EncounterLookup.cpp" line="96" />
         <source>Super Rod</source>
         <translation>厉害钓竿</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="98"/>
+        <location filename="../Util/EncounterLookup.cpp" line="98" />
         <source>Rock Smash</source>
         <translation>碎岩</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="102"/>
+        <location filename="../Util/EncounterLookup.cpp" line="102" />
         <source>Headbutt</source>
         <translation>撞树</translation>
     </message>
     <message>
-        <location filename="../Util/EncounterLookup.cpp" line="104"/>
+        <location filename="../Util/EncounterLookup.cpp" line="104" />
         <source>Bug Catching Contest</source>
         <translation>捕虫大赛</translation>
     </message>
@@ -2001,13 +2000,13 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen4/Event4.cpp" line="79"/>
+        <location filename="../Gen4/Event4.cpp" line="79" />
         <source>Generate times for seed</source>
         <translation>为种子生成时间</translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
 </context>
 <context>
@@ -2130,11 +2129,11 @@
     </message>
     <message>
         <source>♂ Only</source>
-        <translation></translation>
+        <translation>仅♂</translation>
     </message>
     <message>
         <source>♀ Only</source>
-        <translation></translation>
+        <translation>仅♀</translation>
     </message>
     <message>
         <source>Random</source>
@@ -2193,50 +2192,50 @@
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../Gen5/Event5.cpp" line="207"/>
-        <location filename="../Gen5/Event5.cpp" line="352"/>
+        <location filename="../Gen5/Event5.cpp" line="207" />
+        <location filename="../Gen5/Event5.cpp" line="352" />
         <source>Invalid format</source>
-        <translation></translation>
+        <translation>格式无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/Event5.cpp" line="207"/>
-        <location filename="../Gen5/Event5.cpp" line="352"/>
+        <location filename="../Gen5/Event5.cpp" line="207" />
+        <location filename="../Gen5/Event5.cpp" line="352" />
         <source>Wondercard is not the correct size</source>
-        <translation></translation>
+        <translation>配信卡文件大小不正确</translation>
     </message>
     <message>
-        <location filename="../Gen5/Event5.cpp" line="257"/>
-        <location filename="../Gen5/Event5.cpp" line="402"/>
+        <location filename="../Gen5/Event5.cpp" line="257" />
+        <location filename="../Gen5/Event5.cpp" line="402" />
         <source>File error</source>
-        <translation></translation>
+        <translation>文件错误</translation>
     </message>
     <message>
-        <location filename="../Gen5/Event5.cpp" line="257"/>
-        <location filename="../Gen5/Event5.cpp" line="402"/>
+        <location filename="../Gen5/Event5.cpp" line="257" />
+        <location filename="../Gen5/Event5.cpp" line="402" />
         <source>There was a problem opening the wondercard</source>
-        <translation></translation>
+        <translation>打开配信卡时出错</translation>
     </message>
     <message>
-        <location filename="../Gen5/Event5.cpp" line="297"/>
+        <location filename="../Gen5/Event5.cpp" line="297" />
         <source>Invalid date range</source>
-        <translation></translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/Event5.cpp" line="297"/>
+        <location filename="../Gen5/Event5.cpp" line="297" />
         <source>Start date is after end date</source>
-        <translation></translation>
+        <translation>开始日期晚于结束日期</translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation></translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation></translation>
+        <translation>总是</translation>
     </message>
 </context>
 <context>
@@ -2307,7 +2306,7 @@
     </message>
     <message>
         <source>EC</source>
-        <translation></translation>
+        <translation>EC</translation>
     </message>
     <message>
         <source>Egg</source>
@@ -2315,11 +2314,11 @@
     </message>
     <message>
         <source>PID Type</source>
-        <translation></translation>
+        <translation>PID 类型</translation>
     </message>
     <message>
         <source>Nonshiny</source>
-        <translation></translation>
+        <translation>非异色</translation>
     </message>
     <message>
         <source>Random</source>
@@ -2339,7 +2338,7 @@
     </message>
     <message>
         <source>IV Count</source>
-        <translation></translation>
+        <translation>满个体数</translation>
     </message>
     <message>
         <source>Species</source>
@@ -2355,101 +2354,101 @@
     </message>
     <message>
         <source>Nature Locked</source>
-        <translation></translation>
+        <translation>性格锁定</translation>
     </message>
     <message>
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../Gen8/Event8.cpp" line="134"/>
+        <location filename="../Gen8/Event8.cpp" line="134" />
         <source>Invalid format</source>
-        <translation></translation>
+        <translation>格式无效</translation>
     </message>
     <message>
-        <location filename="../Gen8/Event8.cpp" line="134"/>
+        <location filename="../Gen8/Event8.cpp" line="134" />
         <source>Wondercard is not the correct size</source>
-        <translation></translation>
+        <translation>配信卡文件大小不正确</translation>
     </message>
     <message>
-        <location filename="../Gen8/Event8.cpp" line="165"/>
+        <location filename="../Gen8/Event8.cpp" line="165" />
         <source>File error</source>
-        <translation></translation>
+        <translation>文件错误</translation>
     </message>
     <message>
-        <location filename="../Gen8/Event8.cpp" line="165"/>
+        <location filename="../Gen8/Event8.cpp" line="165" />
         <source>There was a problem opening the wondercard</source>
-        <translation></translation>
+        <translation>打开配信卡时出错</translation>
     </message>
     <message>
-        <location filename="../Gen8/Event8.cpp" line="178"/>
+        <location filename="../Gen8/Event8.cpp" line="178" />
         <source>Missing seeds</source>
-        <translation></translation>
+        <translation>缺少种子</translation>
     </message>
     <message>
-        <location filename="../Gen8/Event8.cpp" line="178"/>
+        <location filename="../Gen8/Event8.cpp" line="178" />
         <source>Please insert missing seed information</source>
-        <translation></translation>
+        <translation>请输入缺失的种子信息</translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
 </context>
 <context>
     <name>EventGeneratorModel4</name>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="89" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="89" />
         <source>Call</source>
         <translation>电话</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="89" />
         <source>Chatot</source>
         <translation>聒噪鸟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="89" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="89" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="89" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="90" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="90" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="90" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="90" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="90" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
@@ -2457,97 +2456,97 @@
 <context>
     <name>EventGeneratorModel5</name>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.cpp" line="50"/>
+        <location filename="../../Model/Gen5/EventModel5.cpp" line="50" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.cpp" line="50"/>
+        <location filename="../../Model/Gen5/EventModel5.cpp" line="50" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.cpp" line="50"/>
+        <location filename="../../Model/Gen5/EventModel5.cpp" line="50" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="81" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="81" />
         <source>Chatot</source>
         <translation>聒噪鸟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="81" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="81" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="81" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="81" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="81" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="81" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="82" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="82" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="82" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="82" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="82" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="82" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="82" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="82" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -2555,52 +2554,52 @@
 <context>
     <name>EventSearcherModel4</name>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="158" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="158" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="158" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="158" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="158" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="158" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="158" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="158" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="158" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/EventModel4.hpp" line="158" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
@@ -2608,112 +2607,112 @@
 <context>
     <name>EventSearcherModel5</name>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.cpp" line="128"/>
+        <location filename="../../Model/Gen5/EventModel5.cpp" line="128" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.cpp" line="128"/>
+        <location filename="../../Model/Gen5/EventModel5.cpp" line="128" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.cpp" line="128"/>
+        <location filename="../../Model/Gen5/EventModel5.cpp" line="128" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="140" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="140" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="140" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="140" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="140" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="140" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="140" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="140" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="141" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="141" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="141" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="141" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="141" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="141" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="141" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="141" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="142"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="142" />
         <source>Date/Time</source>
         <translation>日期/时间</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="142"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="142" />
         <source>Timer0</source>
         <translation>Timer0</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/EventModel5.hpp" line="142"/>
+        <location filename="../../Model/Gen5/EventModel5.hpp" line="142" />
         <source>Buttons</source>
         <translation>按键</translation>
     </message>
@@ -2758,36 +2757,36 @@
     </message>
     <message>
         <source>Star/Square</source>
-        <translation></translation>
+        <translation>星星/方块</translation>
     </message>
     <message>
         <source>Disable Filters</source>
         <translation>取消筛选</translation>
     </message>
     <message>
-        <location filename="../Controls/Filter.cpp" line="76"/>
-        <location filename="../Controls/Filter.cpp" line="77"/>
-        <location filename="../Controls/Filter.cpp" line="78"/>
+        <location filename="../Controls/Filter.cpp" line="76" />
+        <location filename="../Controls/Filter.cpp" line="77" />
+        <location filename="../Controls/Filter.cpp" line="78" />
         <source>Click holding ctrl to reset</source>
-        <translation></translation>
+        <translation>按住 Ctrl 点击可重置</translation>
     </message>
     <message>
-        <location filename="../Controls/Filter.cpp" line="80"/>
+        <location filename="../Controls/Filter.cpp" line="80" />
         <source>Click to clear</source>
         <translation>点击清空数值</translation>
     </message>
     <message>
-        <location filename="../Controls/Filter.cpp" line="80"/>
+        <location filename="../Controls/Filter.cpp" line="80" />
         <source>Click holding ctrl to set 31</source>
         <translation>Ctrl+点击设置为31</translation>
     </message>
     <message>
-        <location filename="../Controls/Filter.cpp" line="80"/>
+        <location filename="../Controls/Filter.cpp" line="80" />
         <source>Click holding alt to set 30-31</source>
         <translation>Alt+点击设置为30-31</translation>
     </message>
     <message>
-        <location filename="../Controls/Filter.cpp" line="81"/>
+        <location filename="../Controls/Filter.cpp" line="81" />
         <source>Click holding ctrl+alt to set 0</source>
         <translation>Ctrl+Alt+单击设置为0</translation>
     </message>
@@ -2904,7 +2903,7 @@
     </message>
     <message>
         <source>First Shadow Unset</source>
-        <translation></translation>
+        <translation>首只暗影未设定</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -2916,11 +2915,11 @@
     </message>
     <message>
         <source>Non Shadow Locks</source>
-        <translation></translation>
+        <translation>非暗影锁</translation>
     </message>
     <message>
         <source>Shadow Locks</source>
-        <translation></translation>
+        <translation>暗影锁</translation>
     </message>
     <message>
         <source>Pokemon</source>
@@ -2932,93 +2931,93 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
 </context>
 <context>
     <name>GameCubeGeneratorModel</name>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="47"/>
+        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="47" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="47"/>
+        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="47" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="47"/>
+        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="47" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="80" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
@@ -3026,87 +3025,87 @@
 <context>
     <name>GameCubeSearcherModel</name>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="110"/>
+        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="110" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="110"/>
+        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="110" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="110"/>
+        <location filename="../../Model/Gen3/GameCubeModel.cpp" line="110" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135"/>
+        <location filename="../../Model/Gen3/GameCubeModel.hpp" line="135" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
@@ -3127,7 +3126,7 @@
     </message>
     <message>
         <source>Round #1</source>
-        <translation></translation>
+        <translation>第 1 轮</translation>
     </message>
     <message>
         <source>Possible Results:</source>
@@ -3170,116 +3169,116 @@
         <translation>队伍队首</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="127"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="153"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="127" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="153" />
         <source>Your seed is %1. Copy to clipboard?</source>
-        <translation></translation>
+        <translation>你的种子是 %1。要复制到剪贴板吗？</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="136"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="162"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="136" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="162" />
         <source>Possible Results: %1</source>
         <translation>可能的结果： %1</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="90"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="90" />
         <source>Result: Invalid</source>
         <translation>结果： 无效</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="105"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="105" />
         <source>Your seed(s) is %1. Copy to clipboard?</source>
-        <translation></translation>
+        <translation>你的种子为 %1。要复制到剪贴板吗？</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="369"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="369" />
         <source>Gales Precalc</source>
-        <translation></translation>
+        <translation>Gales 预计算</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="370"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="370" />
         <source>Would you like to use the Gales Precalc file? This decision will be remembered until you close this window.</source>
-        <translation></translation>
+        <translation>是否使用 Gales 预计算文件？此选择会在关闭此窗口前一直记住。</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="374"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="374" />
         <source>Select Gales Precalc</source>
-        <translation></translation>
+        <translation>选择 Gales 预计算文件</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="266"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="385"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="266" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="385" />
         <source>Invalid Precalc File</source>
-        <translation></translation>
+        <translation>预计算文件无效</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="104"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="104" />
         <source>Result: %1</source>
         <translation>结果： %1</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="122"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="148"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="242"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="361"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="122" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="148" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="242" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="361" />
         <source>Round #%1</source>
-        <translation></translation>
+        <translation>第 %1 轮</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="126"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="152"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="126" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="152" />
         <source>Seed: %1</source>
         <translation>种子： %1</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="267"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="386"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="267" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="386" />
         <source>An invalid Precalc file was provided. Please try again.</source>
-        <translation></translation>
+        <translation>提供的预计算文件无效，请重试。</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="274"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="393"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="274" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="393" />
         <source>Unable to open file</source>
-        <translation></translation>
+        <translation>无法打开文件</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="274"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="393"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="274" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="393" />
         <source>Unable to open file. Please try again.</source>
-        <translation></translation>
+        <translation>无法打开文件，请重试。</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="250"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="250" />
         <source>Colo Precalc</source>
-        <translation></translation>
+        <translation>Colo 预计算</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="251"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="251" />
         <source>Would you like to use the Colo Precalc file? This decision will be remembered until you close this window.</source>
-        <translation></translation>
+        <translation>是否使用 Colo 预计算文件？此选择会在关闭此窗口前一直记住。</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="255"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="255" />
         <source>Select Colo Precalc</source>
-        <translation></translation>
+        <translation>选择 Colo 预计算文件</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="198"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="198" />
         <source>Missing info</source>
-        <translation></translation>
+        <translation>缺少信息</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="198"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="198" />
         <source>You must have at least 10 entries</source>
-        <translation></translation>
+        <translation>至少需要 10 条记录</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="105"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="127"/>
-        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="153"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="105" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="127" />
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="153" />
         <source>Seed found</source>
-        <translation></translation>
+        <translation>已找到种子</translation>
     </message>
     <message>
         <source>Channel</source>
@@ -3351,19 +3350,19 @@
     </message>
     <message>
         <source>Top Left HP</source>
-        <translation></translation>
+        <translation>左上 HP</translation>
     </message>
     <message>
         <source>Top Right HP</source>
-        <translation></translation>
+        <translation>右上 HP</translation>
     </message>
     <message>
         <source>Bottom Left HP</source>
-        <translation></translation>
+        <translation>左下 HP</translation>
     </message>
     <message>
         <source>Bottom Right HP</source>
-        <translation></translation>
+        <translation>右下 HP</translation>
     </message>
     <message>
         <source>Trainer</source>
@@ -3454,11 +3453,11 @@
     </message>
     <message>
         <source>Grotto Power</source>
-        <translation></translation>
+        <translation>洞穴力量</translation>
     </message>
     <message>
         <source>S/MAX</source>
-        <translation></translation>
+        <translation>S/MAX</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3470,7 +3469,7 @@
     </message>
     <message>
         <source>Group</source>
-        <translation></translation>
+        <translation>组别</translation>
     </message>
     <message>
         <source>Gender</source>
@@ -3513,61 +3512,61 @@
         <translation>筛选项</translation>
     </message>
     <message>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="98"/>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="101"/>
+        <location filename="../Gen5/HiddenGrotto.cpp" line="98" />
+        <location filename="../Gen5/HiddenGrotto.cpp" line="101" />
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="99"/>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="102"/>
+        <location filename="../Gen5/HiddenGrotto.cpp" line="99" />
+        <location filename="../Gen5/HiddenGrotto.cpp" line="102" />
         <source>Synchronize</source>
         <translation>同步</translation>
     </message>
     <message>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="331"/>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="535"/>
+        <location filename="../Gen5/HiddenGrotto.cpp" line="331" />
+        <location filename="../Gen5/HiddenGrotto.cpp" line="535" />
         <source>Invalid date range</source>
-        <translation></translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="331"/>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="535"/>
+        <location filename="../Gen5/HiddenGrotto.cpp" line="331" />
+        <location filename="../Gen5/HiddenGrotto.cpp" line="535" />
         <source>Start date is after end date</source>
-        <translation></translation>
+        <translation>开始日期晚于结束日期</translation>
     </message>
     <message>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="611"/>
+        <location filename="../Gen5/HiddenGrotto.cpp" line="611" />
         <source>Settings are configured for fast searching</source>
-        <translation></translation>
+        <translation>设置已适合快速搜索</translation>
     </message>
     <message>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="617"/>
+        <location filename="../Gen5/HiddenGrotto.cpp" line="617" />
         <source>Profile does not have a IV cache file configured</source>
-        <translation></translation>
+        <translation>当前存档未配置 IV 缓存文件</translation>
     </message>
     <message>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="622"/>
+        <location filename="../Gen5/HiddenGrotto.cpp" line="622" />
         <source>Settings are not configured for fast searching</source>
-        <translation></translation>
+        <translation>设置不适合快速搜索</translation>
     </message>
     <message>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="623"/>
+        <location filename="../Gen5/HiddenGrotto.cpp" line="623" />
         <source>Keep initial/max advances below %1/%2</source>
-        <translation></translation>
+        <translation>请将初始帧/最大帧数控制在 %1/%2 以下</translation>
     </message>
     <message>
-        <location filename="../Gen5/HiddenGrotto.cpp" line="624"/>
+        <location filename="../Gen5/HiddenGrotto.cpp" line="624" />
         <source>Ensure IV filters are set to common spreads</source>
-        <translation></translation>
+        <translation>请将个体值筛选设为常见分布</translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
     <message>
         <source>Grotto</source>
-        <translation></translation>
+        <translation>洞穴</translation>
     </message>
     <message>
         <source>Lead</source>
@@ -3575,116 +3574,116 @@
     </message>
     <message>
         <source>IV Advances</source>
-        <translation></translation>
+        <translation>个体值帧数</translation>
     </message>
     <message>
         <source>Initial IV Advances</source>
-        <translation></translation>
+        <translation>个体值初始帧</translation>
     </message>
     <message>
         <source>Max IV Advances</source>
-        <translation></translation>
+        <translation>个体值最大帧数</translation>
     </message>
 </context>
 <context>
     <name>HiddenGrottoGeneratorModel5</name>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="157"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="157" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="157"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="157" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="157"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="157" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177" />
         <source>Chatot</source>
         <translation>聒噪鸟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="178" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="179"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="179" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="179"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="179" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="179"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="179" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="179"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="179" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="179"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="179" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -3692,122 +3691,122 @@
 <context>
     <name>HiddenGrottoSearcherModel5</name>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="239"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="239" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="239"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="239" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="239"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.cpp" line="239" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236" />
         <source>IV Advances</source>
-        <translation></translation>
+        <translation>个体值帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="237" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="238" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="239"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="239" />
         <source>Date/Time</source>
         <translation>日期/时间</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="239"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="239" />
         <source>Timer0</source>
         <translation>Timer0</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="239"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="239" />
         <source>Buttons</source>
         <translation>按键</translation>
     </message>
@@ -3815,22 +3814,22 @@
 <context>
     <name>HiddenGrottoSlotGeneratorModel5</name>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="73"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="73" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="73"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="73" />
         <source>Chatot</source>
         <translation>聒噪鸟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="73"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="73" />
         <source>Group</source>
-        <translation></translation>
+        <translation>组别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="73"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="73" />
         <source>Slot</source>
         <translation>卡槽</translation>
     </message>
@@ -3838,37 +3837,37 @@
 <context>
     <name>HiddenGrottoSlotSearcherModel5</name>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121" />
         <source>Group</source>
-        <translation></translation>
+        <translation>组别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121" />
         <source>Slot</source>
         <translation>卡槽</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121" />
         <source>Date/Time</source>
         <translation>日期/时间</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121" />
         <source>Timer0</source>
         <translation>Timer0</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121"/>
+        <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121" />
         <source>Buttons</source>
         <translation>按键</translation>
     </message>
@@ -3876,22 +3875,22 @@
 <context>
     <name>IDModel3</name>
     <message>
-        <location filename="../../Model/Gen3/IDModel3.hpp" line="71"/>
+        <location filename="../../Model/Gen3/IDModel3.hpp" line="71" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/IDModel3.hpp" line="71"/>
+        <location filename="../../Model/Gen3/IDModel3.hpp" line="71" />
         <source>TID</source>
         <translation>表ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/IDModel3.hpp" line="71"/>
+        <location filename="../../Model/Gen3/IDModel3.hpp" line="71" />
         <source>SID</source>
         <translation>里ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/IDModel3.hpp" line="71"/>
+        <location filename="../../Model/Gen3/IDModel3.hpp" line="71" />
         <source>TSV</source>
         <translation>TSV</translation>
     </message>
@@ -3899,32 +3898,32 @@
 <context>
     <name>IDModel4</name>
     <message>
-        <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/IDModel4.hpp" line="71" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/IDModel4.hpp" line="71" />
         <source>TID</source>
         <translation>表ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/IDModel4.hpp" line="71" />
         <source>SID</source>
         <translation>里ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/IDModel4.hpp" line="71" />
         <source>TSV</source>
         <translation>TSV</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/IDModel4.hpp" line="71" />
         <source>Delay</source>
         <translation>延迟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/IDModel4.hpp" line="71" />
         <source>Seconds</source>
         <translation>秒</translation>
     </message>
@@ -3932,47 +3931,47 @@
 <context>
     <name>IDModel5</name>
     <message>
-        <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/IDModel5.hpp" line="81" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/IDModel5.hpp" line="81" />
         <source>Initial Advances</source>
         <translation>初始帧</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/IDModel5.hpp" line="81" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/IDModel5.hpp" line="81" />
         <source>TID</source>
         <translation>表ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/IDModel5.hpp" line="81" />
         <source>SID</source>
         <translation>里ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/IDModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/IDModel5.hpp" line="82" />
         <source>TSV</source>
         <translation>TSV</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/IDModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/IDModel5.hpp" line="82" />
         <source>Date/Time</source>
         <translation>日期/时间</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/IDModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/IDModel5.hpp" line="82" />
         <source>Timer0</source>
         <translation>Timer0</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/IDModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/IDModel5.hpp" line="82" />
         <source>Buttons</source>
         <translation>按键</translation>
     </message>
@@ -3980,27 +3979,27 @@
 <context>
     <name>IDModel8</name>
     <message>
-        <location filename="../../Model/Gen8/IDModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/IDModel8.hpp" line="71" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/IDModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/IDModel8.hpp" line="71" />
         <source>Display TID</source>
-        <translation></translation>
+        <translation>显示表ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/IDModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/IDModel8.hpp" line="71" />
         <source>TID</source>
         <translation>表ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/IDModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/IDModel8.hpp" line="71" />
         <source>SID</source>
         <translation>里ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/IDModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/IDModel8.hpp" line="71" />
         <source>TSV</source>
         <translation>TSV</translation>
     </message>
@@ -4119,7 +4118,7 @@
         <translation>乱数信息</translation>
     </message>
     <message>
-        <location filename="../Gen4/IDs4.cpp" line="52"/>
+        <location filename="../Gen4/IDs4.cpp" line="52" />
         <source>Generate times for seed</source>
         <translation>为种子生成时间</translation>
     </message>
@@ -4176,7 +4175,7 @@
     </message>
     <message>
         <source>Second Range</source>
-        <translation></translation>
+        <translation>秒数范围</translation>
     </message>
     <message>
         <source>Max Advances</source>
@@ -4184,7 +4183,7 @@
     </message>
     <message>
         <source>Hour</source>
-        <translation></translation>
+        <translation>小时</translation>
     </message>
     <message>
         <source>TID</source>
@@ -4196,7 +4195,7 @@
     </message>
     <message>
         <source>Minute</source>
-        <translation></translation>
+        <translation>分钟</translation>
     </message>
     <message>
         <source>Find</source>
@@ -4216,7 +4215,7 @@
     </message>
     <message>
         <source>Start/End Date</source>
-        <translation></translation>
+        <translation>开始/结束日期</translation>
     </message>
     <message>
         <source>Search</source>
@@ -4228,17 +4227,17 @@
     </message>
     <message>
         <source>Static/Wild</source>
-        <translation></translation>
+        <translation>定点/野生</translation>
     </message>
     <message>
-        <location filename="../Gen5/IDs5.cpp" line="142"/>
+        <location filename="../Gen5/IDs5.cpp" line="142" />
         <source>Invalid date range</source>
-        <translation></translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/IDs5.cpp" line="142"/>
+        <location filename="../Gen5/IDs5.cpp" line="142" />
         <source>Start date is after end date</source>
-        <translation></translation>
+        <translation>开始日期晚于结束日期</translation>
     </message>
 </context>
 <context>
@@ -4276,14 +4275,14 @@
         <translation>筛选项</translation>
     </message>
     <message>
-        <location filename="../Gen8/IDs8.cpp" line="67"/>
+        <location filename="../Gen8/IDs8.cpp" line="67" />
         <source>Missing seeds</source>
-        <translation></translation>
+        <translation>缺少种子</translation>
     </message>
     <message>
-        <location filename="../Gen8/IDs8.cpp" line="67"/>
+        <location filename="../Gen8/IDs8.cpp" line="67" />
         <source>Please insert missing seed information</source>
-        <translation></translation>
+        <translation>请输入缺失的种子信息</translation>
     </message>
 </context>
 <context>
@@ -4306,7 +4305,7 @@
     </message>
     <message>
         <source>Display TID</source>
-        <translation></translation>
+        <translation>显示表ID</translation>
     </message>
     <message>
         <source>PID</source>
@@ -4321,7 +4320,7 @@
     <name>IVCacheFinder</name>
     <message>
         <source>IV Cache Finder</source>
-        <translation></translation>
+        <translation>IV 缓存查找器</translation>
     </message>
     <message>
         <source>Search</source>
@@ -4337,26 +4336,26 @@
     </message>
     <message>
         <source>Output File</source>
-        <translation></translation>
+        <translation>输出文件</translation>
     </message>
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen5/Tools/IVCacheFinder.cpp" line="52"/>
+        <location filename="../Gen5/Tools/IVCacheFinder.cpp" line="52" />
         <source>Missing output file</source>
-        <translation></translation>
+        <translation>缺少输出文件</translation>
     </message>
     <message>
-        <location filename="../Gen5/Tools/IVCacheFinder.cpp" line="52"/>
+        <location filename="../Gen5/Tools/IVCacheFinder.cpp" line="52" />
         <source>Please select a file to save the results to</source>
-        <translation></translation>
+        <translation>请选择用于保存结果的文件</translation>
     </message>
     <message>
-        <location filename="../Gen5/Tools/IVCacheFinder.cpp" line="91"/>
+        <location filename="../Gen5/Tools/IVCacheFinder.cpp" line="91" />
         <source>Save File</source>
-        <translation></translation>
+        <translation>保存文件</translation>
     </message>
 </context>
 <context>
@@ -4450,18 +4449,18 @@
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../Util/IVCalculator.cpp" line="45"/>
+        <location filename="../Util/IVCalculator.cpp" line="45" />
         <source>Next level may not be completely accurate without specifying a nature</source>
-        <translation></translation>
+        <translation>未指定性格时，下一等级的结果可能不完全准确</translation>
     </message>
     <message>
-        <location filename="../Util/IVCalculator.cpp" line="78"/>
+        <location filename="../Util/IVCalculator.cpp" line="78" />
         <source>Invalid</source>
         <translation>无效值</translation>
     </message>
     <message>
         <source>Altform</source>
-        <translation></translation>
+        <translation>形态</translation>
     </message>
     <message>
         <source>Level</source>
@@ -4558,67 +4557,67 @@
 <context>
     <name>IVToPIDModel</name>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.cpp" line="48"/>
+        <location filename="../../Model/Util/IVToPIDModel.cpp" line="48" />
         <source>Method 1</source>
         <translation>方法 1</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.cpp" line="50"/>
+        <location filename="../../Model/Util/IVToPIDModel.cpp" line="50" />
         <source>Reverse Method 1</source>
-        <translation></translation>
+        <translation>逆向方法 1</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.cpp" line="52"/>
+        <location filename="../../Model/Util/IVToPIDModel.cpp" line="52" />
         <source>Method 2</source>
-        <translation></translation>
+        <translation>方法 2</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.cpp" line="54"/>
+        <location filename="../../Model/Util/IVToPIDModel.cpp" line="54" />
         <source>Method 4</source>
         <translation>方法 4</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.cpp" line="56"/>
+        <location filename="../../Model/Util/IVToPIDModel.cpp" line="56" />
         <source>Cute Charm (DPPt)</source>
-        <translation></translation>
+        <translation>迷人身躯（DPPt）</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.cpp" line="58"/>
+        <location filename="../../Model/Util/IVToPIDModel.cpp" line="58" />
         <source>Cute Charm (HGSS)</source>
-        <translation></translation>
+        <translation>迷人身躯（HGSS）</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.cpp" line="60"/>
+        <location filename="../../Model/Util/IVToPIDModel.cpp" line="60" />
         <source>XD/Colo</source>
         <translation>XD/竞技场</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.cpp" line="62"/>
+        <location filename="../../Model/Util/IVToPIDModel.cpp" line="62" />
         <source>Channel</source>
         <translation>频道</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.hpp" line="68"/>
+        <location filename="../../Model/Util/IVToPIDModel.hpp" line="68" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.hpp" line="68"/>
+        <location filename="../../Model/Util/IVToPIDModel.hpp" line="68" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.hpp" line="68"/>
+        <location filename="../../Model/Util/IVToPIDModel.hpp" line="68" />
         <source>Method</source>
         <translation>算法</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.hpp" line="68"/>
+        <location filename="../../Model/Util/IVToPIDModel.hpp" line="68" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/IVToPIDModel.hpp" line="68"/>
+        <location filename="../../Model/Util/IVToPIDModel.hpp" line="68" />
         <source>SID</source>
         <translation>里ID</translation>
     </message>
@@ -4643,51 +4642,51 @@
     </message>
     <message>
         <source>Brute Force Range</source>
-        <translation></translation>
+        <translation>暴力枚举范围</translation>
     </message>
     <message>
         <source>Generate</source>
         <translation>生成</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="65"/>
+        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="65" />
         <source>Invalid advance</source>
         <translation>无效帧数</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="65"/>
+        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="65" />
         <source>Target is outside of specified advance range</source>
-        <translation></translation>
+        <translation>目标超出指定帧数范围</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="73"/>
+        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="73" />
         <source>Invalid target</source>
         <translation>无效目标</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="73"/>
+        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="73" />
         <source>Target seed is unobtainable</source>
-        <translation></translation>
+        <translation>目标种子无法达成</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="85"/>
+        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="85" />
         <source>%1: Reload menu</source>
-        <translation></translation>
+        <translation>%1：重新打开菜单</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="89"/>
+        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="89" />
         <source>%1: Reject Jirachi</source>
-        <translation></translation>
+        <translation>%1：拒绝基拉祈</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="93"/>
+        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="93" />
         <source>%1: Special Cutscene</source>
-        <translation></translation>
+        <translation>%1：特殊过场</translation>
     </message>
     <message>
-        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="97"/>
+        <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="97" />
         <source>%1: Accept Jirachi</source>
-        <translation></translation>
+        <translation>%1：接受基拉祈</translation>
     </message>
 </context>
 <context>
@@ -4729,68 +4728,68 @@
         <translation>工具</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="145"/>
+        <location filename="../MainWindow.cpp" line="145" />
         <source>Unable to locate profiles</source>
-        <translation></translation>
+        <translation>无法定位存档信息</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="202"/>
+        <location filename="../MainWindow.cpp" line="202" />
         <source>Update Check</source>
-        <translation></translation>
+        <translation>检查更新</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="203"/>
+        <location filename="../MainWindow.cpp" line="203" />
         <source>An update is available. Would you like to download the newest version?</source>
-        <translation></translation>
+        <translation>发现新版本，是否下载最新版？</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="415"/>
-        <location filename="../MainWindow.cpp" line="438"/>
-        <location filename="../MainWindow.cpp" line="461"/>
-        <location filename="../MainWindow.cpp" line="484"/>
-        <location filename="../MainWindow.cpp" line="507"/>
-        <location filename="../MainWindow.cpp" line="530"/>
-        <location filename="../MainWindow.cpp" line="553"/>
-        <location filename="../MainWindow.cpp" line="590"/>
+        <location filename="../MainWindow.cpp" line="415" />
+        <location filename="../MainWindow.cpp" line="438" />
+        <location filename="../MainWindow.cpp" line="461" />
+        <location filename="../MainWindow.cpp" line="484" />
+        <location filename="../MainWindow.cpp" line="507" />
+        <location filename="../MainWindow.cpp" line="530" />
+        <location filename="../MainWindow.cpp" line="553" />
+        <location filename="../MainWindow.cpp" line="590" />
         <source>No profiles found</source>
-        <translation></translation>
+        <translation>未找到存档信息</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="146"/>
+        <location filename="../MainWindow.cpp" line="146" />
         <source>Please update path to your profiles file to restore existing profiles</source>
-        <translation></translation>
+        <translation>请更新存档信息文件路径以恢复已有存档</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="416"/>
-        <location filename="../MainWindow.cpp" line="439"/>
-        <location filename="../MainWindow.cpp" line="462"/>
-        <location filename="../MainWindow.cpp" line="485"/>
-        <location filename="../MainWindow.cpp" line="508"/>
-        <location filename="../MainWindow.cpp" line="531"/>
-        <location filename="../MainWindow.cpp" line="554"/>
-        <location filename="../MainWindow.cpp" line="591"/>
+        <location filename="../MainWindow.cpp" line="416" />
+        <location filename="../MainWindow.cpp" line="439" />
+        <location filename="../MainWindow.cpp" line="462" />
+        <location filename="../MainWindow.cpp" line="485" />
+        <location filename="../MainWindow.cpp" line="508" />
+        <location filename="../MainWindow.cpp" line="531" />
+        <location filename="../MainWindow.cpp" line="554" />
+        <location filename="../MainWindow.cpp" line="591" />
         <source>Please use the Profile Calibrator under Gen 5 Tools to create one</source>
-        <translation></translation>
+        <translation>请使用第五世代工具下的“存档信息校准”来创建一个</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="701"/>
+        <location filename="../MainWindow.cpp" line="701" />
         <source>Version: %1</source>
-        <translation></translation>
+        <translation>版本：%1</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="701"/>
+        <location filename="../MainWindow.cpp" line="701" />
         <source>Branch: %1</source>
-        <translation></translation>
+        <translation>分支：%1</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="701"/>
+        <location filename="../MainWindow.cpp" line="701" />
         <source>Commit: %1</source>
-        <translation></translation>
+        <translation>提交：%1</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="704"/>
+        <location filename="../MainWindow.cpp" line="704" />
         <source>Copy</source>
-        <translation></translation>
+        <translation>复制</translation>
     </message>
     <message>
         <source>GameCube</source>
@@ -4865,7 +4864,7 @@
         <translation>第八世代工具</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="703"/>
+        <location filename="../MainWindow.cpp" line="703" />
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -4899,11 +4898,11 @@
     </message>
     <message>
         <source>SHA1 Cache</source>
-        <translation></translation>
+        <translation>SHA1 缓存</translation>
     </message>
     <message>
         <source>IV Cache</source>
-        <translation></translation>
+        <translation>IV 缓存</translation>
     </message>
 </context>
 <context>
@@ -4924,42 +4923,42 @@
 <context>
     <name>PIDToIVModel</name>
     <message>
-        <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="45"/>
+        <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="45" />
         <source>Method 1</source>
         <translation>方法 1</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="47"/>
+        <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="47" />
         <source>Method 2</source>
-        <translation></translation>
+        <translation>方法 2</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="49"/>
+        <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="49" />
         <source>Method 4</source>
         <translation>方法 4</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="51"/>
+        <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="51" />
         <source>XD/Colo</source>
         <translation>XD/竞技场</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="53"/>
+        <location filename="../../Model/Gen3/PIDToIVModel.cpp" line="53" />
         <source>Channel</source>
         <translation>频道</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PIDToIVModel.hpp" line="71"/>
+        <location filename="../../Model/Gen3/PIDToIVModel.hpp" line="71" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PIDToIVModel.hpp" line="71"/>
+        <location filename="../../Model/Gen3/PIDToIVModel.hpp" line="71" />
         <source>Method</source>
         <translation>算法</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PIDToIVModel.hpp" line="71"/>
+        <location filename="../../Model/Gen3/PIDToIVModel.hpp" line="71" />
         <source>IVs</source>
         <translation>个体</translation>
     </message>
@@ -5004,15 +5003,15 @@
     </message>
     <message>
         <source>Food Advances</source>
-        <translation></translation>
+        <translation>食物帧数</translation>
     </message>
     <message>
         <source>Seed (Food / Encounter)</source>
-        <translation></translation>
+        <translation>种子（食物 / 遭遇）</translation>
     </message>
     <message>
         <source>Encounter Advances</source>
-        <translation></translation>
+        <translation>遭遇帧数</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -5028,108 +5027,108 @@
     </message>
     <message>
         <source>Offset (Food / Encounter)</source>
-        <translation></translation>
+        <translation>偏移（食物 / 遭遇）</translation>
     </message>
 </context>
 <context>
     <name>PokeSpotModel</name>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.cpp" line="53"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.cpp" line="53" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.cpp" line="53"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.cpp" line="53" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.cpp" line="53"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.cpp" line="53" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="79"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="79" />
         <source>Food Advances</source>
-        <translation></translation>
+        <translation>食物帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="80"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="80" />
         <source>Encounter Advances</source>
-        <translation></translation>
+        <translation>遭遇帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="81"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="81" />
         <source>Slot</source>
         <translation>卡槽</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="82"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="82" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="83"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="83" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="84"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="84" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="85"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="85" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="86"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="86" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="87"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="87" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="88"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="88" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="89"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="89" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="90"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="90" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="91"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="91" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="92"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="92" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="93"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="93" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="94"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="94" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="95"/>
+        <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="95" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
@@ -5142,7 +5141,7 @@
     </message>
     <message>
         <source>Variables</source>
-        <translation></translation>
+        <translation>变量</translation>
     </message>
     <message>
         <source>DS Type</source>
@@ -5313,27 +5312,27 @@
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="75"/>
+        <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="75" />
         <source>Create profile</source>
-        <translation></translation>
+        <translation>创建存档</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="170"/>
+        <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="170" />
         <source>No row selected</source>
-        <translation></translation>
+        <translation>未选择行</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="170"/>
+        <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="170" />
         <source>Please select a row</source>
         <translation>请选择一行</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="242"/>
+        <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="242" />
         <source>Some min values are greater then max values</source>
-        <translation></translation>
+        <translation>某些最小值大于最大值</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="242"/>
+        <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="242" />
         <source>Invalid Input</source>
         <translation>无效的输入</translation>
     </message>
@@ -5405,12 +5404,12 @@
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../Gen3/Profile/ProfileEditor3.cpp" line="79"/>
+        <location filename="../Gen3/Profile/ProfileEditor3.cpp" line="79" />
         <source>Missing name</source>
         <translation>未输入存档名</translation>
     </message>
     <message>
-        <location filename="../Gen3/Profile/ProfileEditor3.cpp" line="79"/>
+        <location filename="../Gen3/Profile/ProfileEditor3.cpp" line="79" />
         <source>Enter a profile name</source>
         <translation>请输入存档名</translation>
     </message>
@@ -5462,12 +5461,12 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen4/Profile/ProfileEditor4.cpp" line="87"/>
+        <location filename="../Gen4/Profile/ProfileEditor4.cpp" line="87" />
         <source>Enter a profile name</source>
         <translation>请输入存档名</translation>
     </message>
     <message>
-        <location filename="../Gen4/Profile/ProfileEditor4.cpp" line="87"/>
+        <location filename="../Gen4/Profile/ProfileEditor4.cpp" line="87" />
         <source>Missing name</source>
         <translation>未输入存档名</translation>
     </message>
@@ -5481,7 +5480,7 @@
     </message>
     <message>
         <source>Unown Puzzles</source>
-        <translation></translation>
+        <translation>未知图腾拼图</translation>
     </message>
     <message>
         <source>A-J</source>
@@ -5501,7 +5500,7 @@
     </message>
     <message>
         <source>Unown Discovered</source>
-        <translation></translation>
+        <translation>已发现的未知图腾</translation>
     </message>
 </context>
 <context>
@@ -5528,7 +5527,7 @@
     </message>
     <message>
         <source>Accept</source>
-        <translation></translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Version</source>
@@ -5604,7 +5603,7 @@
     </message>
     <message>
         <source>Timer0 Max</source>
-        <translation></translation>
+        <translation>Timer0 上限</translation>
     </message>
     <message>
         <source>DS Type</source>
@@ -5647,52 +5646,52 @@
         <translation>闪耀护符</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="147"/>
+        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="147" />
         <source>Enter a profile name</source>
         <translation>请输入存档名</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="147"/>
+        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="147" />
         <source>Missing name</source>
         <translation>未输入存档名</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="157"/>
+        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="157" />
         <source>Open IV Cache</source>
-        <translation></translation>
+        <translation>打开 IV 缓存</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="165"/>
+        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="165" />
         <source>Invalid IV Cache</source>
-        <translation></translation>
+        <translation>IV 缓存无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="165"/>
+        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="165" />
         <source>Provided file is not a valid IV Cache</source>
-        <translation></translation>
+        <translation>提供的文件不是有效的 IV 缓存</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="173"/>
+        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="173" />
         <source>Open SHA1 Cache</source>
-        <translation></translation>
+        <translation>打开 SHA1 缓存</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="180"/>
+        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="180" />
         <source>Invalid SHA Cache</source>
-        <translation></translation>
+        <translation>SHA 缓存无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="180"/>
+        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="180" />
         <source>Provided file is not a valid SHA Cache or was not created from the IV Cache of the profile</source>
-        <translation></translation>
+        <translation>提供的文件不是有效的 SHA 缓存，或并非由该存档的 IV 缓存生成</translation>
     </message>
     <message>
         <source>IV Cache</source>
-        <translation></translation>
+        <translation>IV 缓存</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation></translation>
+        <translation>选择文件</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -5700,7 +5699,7 @@
     </message>
     <message>
         <source>SHA Cache</source>
-        <translation></translation>
+        <translation>SHA 缓存</translation>
     </message>
 </context>
 <context>
@@ -5762,12 +5761,12 @@
         <translation>全国图鉴</translation>
     </message>
     <message>
-        <location filename="../Gen8/Profile/ProfileEditor8.cpp" line="77"/>
+        <location filename="../Gen8/Profile/ProfileEditor8.cpp" line="77" />
         <source>Missing name</source>
         <translation>未输入存档名</translation>
     </message>
     <message>
-        <location filename="../Gen8/Profile/ProfileEditor8.cpp" line="77"/>
+        <location filename="../Gen8/Profile/ProfileEditor8.cpp" line="77" />
         <source>Enter a profile name</source>
         <translation>请输入存档名</translation>
     </message>
@@ -5795,24 +5794,24 @@
         <translation>完成</translation>
     </message>
     <message>
-        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="74"/>
-        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="95"/>
+        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="74" />
+        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="95" />
         <source>No profile selected</source>
         <translation>未选择存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="74"/>
-        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="95"/>
+        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="74" />
+        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="95" />
         <source>Please select a profile</source>
         <translation>请选择一个存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="100"/>
+        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="100" />
         <source>Delete profile</source>
         <translation>删除存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="100"/>
+        <location filename="../Gen3/Profile/ProfileManager3.cpp" line="100" />
         <source>Are you sure you wish to delete this profile?</source>
         <translation>确定要删除此存档信息吗？</translation>
     </message>
@@ -5840,24 +5839,24 @@
         <translation>完成</translation>
     </message>
     <message>
-        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="75"/>
-        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="96"/>
+        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="75" />
+        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="96" />
         <source>No profile selected</source>
         <translation>未选择存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="75"/>
-        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="96"/>
+        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="75" />
+        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="96" />
         <source>Please select a profile</source>
         <translation>请选择一个存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="101"/>
+        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="101" />
         <source>Delete profile</source>
         <translation>删除存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="101"/>
+        <location filename="../Gen4/Profile/ProfileManager4.cpp" line="101" />
         <source>Are you sure you wish to delete this profile?</source>
         <translation>确定要删除此存档信息吗？</translation>
     </message>
@@ -5885,24 +5884,24 @@
         <translation>完成</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="75"/>
-        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="96"/>
+        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="75" />
+        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="96" />
         <source>No profile selected</source>
         <translation>未选择存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="75"/>
-        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="96"/>
+        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="75" />
+        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="96" />
         <source>Please select a profile</source>
         <translation>请选择一个存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="101"/>
+        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="101" />
         <source>Delete profile</source>
         <translation>删除存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="101"/>
+        <location filename="../Gen5/Profile/ProfileManager5.cpp" line="101" />
         <source>Are you sure you wish to delete this profile?</source>
         <translation>确定要删除此存档信息吗？</translation>
     </message>
@@ -5930,24 +5929,24 @@
         <translation>完成</translation>
     </message>
     <message>
-        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="75"/>
-        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="96"/>
+        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="75" />
+        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="96" />
         <source>No profile selected</source>
         <translation>未选择存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="75"/>
-        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="96"/>
+        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="75" />
+        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="96" />
         <source>Please select a profile</source>
         <translation>请选择一个存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="101"/>
+        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="101" />
         <source>Delete profile</source>
         <translation>删除存档信息</translation>
     </message>
     <message>
-        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="101"/>
+        <location filename="../Gen8/Profile/ProfileManager8.cpp" line="101" />
         <source>Are you sure you wish to delete this profile?</source>
         <translation>确定要删除此存档信息吗？</translation>
     </message>
@@ -5955,37 +5954,37 @@
 <context>
     <name>ProfileModel3</name>
     <message>
-        <location filename="../../Model/Gen3/ProfileModel3.cpp" line="51"/>
+        <location filename="../../Model/Gen3/ProfileModel3.cpp" line="51" />
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/ProfileModel3.cpp" line="51"/>
+        <location filename="../../Model/Gen3/ProfileModel3.cpp" line="51" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71"/>
+        <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71" />
         <source>Profile Name</source>
         <translation>存档名</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71"/>
+        <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71" />
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71"/>
+        <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71" />
         <source>TID</source>
         <translation>表ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71"/>
+        <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71" />
         <source>SID</source>
         <translation>里ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71"/>
+        <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71" />
         <source>Dead Battery</source>
         <translation>无电池</translation>
     </message>
@@ -5993,37 +5992,37 @@
 <context>
     <name>ProfileModel4</name>
     <message>
-        <location filename="../../Model/Gen4/ProfileModel4.cpp" line="48"/>
+        <location filename="../../Model/Gen4/ProfileModel4.cpp" line="48" />
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/ProfileModel4.cpp" line="48"/>
+        <location filename="../../Model/Gen4/ProfileModel4.cpp" line="48" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71" />
         <source>Profile Name</source>
         <translation>存档名</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71" />
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71" />
         <source>TID</source>
         <translation>表ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71" />
         <source>SID</source>
         <translation>里ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71" />
         <source>National Dex</source>
         <translation>全国图鉴</translation>
     </message>
@@ -6031,98 +6030,98 @@
 <context>
     <name>ProfileModel5</name>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="64"/>
-        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="66"/>
-        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="68"/>
-        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="70"/>
+        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="64" />
+        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="66" />
+        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="68" />
+        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="70" />
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="64"/>
-        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="66"/>
-        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="68"/>
-        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="70"/>
+        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="64" />
+        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="66" />
+        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="68" />
+        <location filename="../../Model/Gen5/ProfileModel5.cpp" line="70" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71" />
         <source>Profile Name</source>
         <translation>存档名</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71" />
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71" />
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71" />
         <source>TID</source>
         <translation>表ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71" />
         <source>SID</source>
         <translation>里ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71" />
         <source>MAC Address</source>
         <translation>MAC 地址</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72" />
         <source>DS Type</source>
         <translation>机型</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72" />
         <source>VCount</source>
         <translation>VCount</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72" />
         <source>Timer0</source>
         <translation>Timer0</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72" />
         <source>GxStat</source>
         <translation>GxStat</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72" />
         <source>VFrame</source>
         <translation>VFrame</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72" />
         <source>Keypresses</source>
         <translation>按键</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="73"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="73" />
         <source>Skip L/R</source>
         <translation>跳过 L/R</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="73"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="73" />
         <source>Soft Reset</source>
         <translation>软复位</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="73"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="73" />
         <source>Memory Link</source>
         <translation>记忆连接</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="73"/>
+        <location filename="../../Model/Gen5/ProfileModel5.hpp" line="73" />
         <source>Shiny Charm</source>
         <translation>闪耀护符</translation>
     </message>
@@ -6130,44 +6129,44 @@
 <context>
     <name>ProfileModel8</name>
     <message>
-        <location filename="../../Model/Gen8/ProfileModel8.cpp" line="48"/>
-        <location filename="../../Model/Gen8/ProfileModel8.cpp" line="50"/>
+        <location filename="../../Model/Gen8/ProfileModel8.cpp" line="48" />
+        <location filename="../../Model/Gen8/ProfileModel8.cpp" line="50" />
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/ProfileModel8.cpp" line="48"/>
-        <location filename="../../Model/Gen8/ProfileModel8.cpp" line="50"/>
+        <location filename="../../Model/Gen8/ProfileModel8.cpp" line="48" />
+        <location filename="../../Model/Gen8/ProfileModel8.cpp" line="50" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71" />
         <source>Profile Name</source>
         <translation>存档名</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71" />
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71" />
         <source>TID</source>
         <translation>表ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71" />
         <source>SID</source>
         <translation>里ID</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71" />
         <source>Shiny Charm</source>
         <translation>闪耀护符</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71"/>
+        <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71" />
         <source>Oval Charm</source>
         <translation>圆形护符</translation>
     </message>
@@ -6175,32 +6174,32 @@
 <context>
     <name>ProfileSearcherModel5</name>
     <message>
-        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71" />
         <source>Seconds</source>
         <translation>秒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71" />
         <source>VCount</source>
         <translation>VCount</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71" />
         <source>Timer0</source>
         <translation>Timer0</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71" />
         <source>GxStat</source>
         <translation>GxStat</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71"/>
+        <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71" />
         <source>VFrame</source>
         <translation>VFrame</translation>
     </message>
@@ -6233,7 +6232,7 @@
     </message>
     <message>
         <source>Den</source>
-        <translation></translation>
+        <translation>巢穴</translation>
     </message>
     <message>
         <source>Seed</source>
@@ -6257,11 +6256,11 @@
     </message>
     <message>
         <source>Rarity</source>
-        <translation></translation>
+        <translation>稀有度</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation></translation>
+        <translation>普通</translation>
     </message>
     <message>
         <source>Rare</source>
@@ -6289,27 +6288,27 @@
     </message>
     <message>
         <source>Only ♂</source>
-        <translation></translation>
+        <translation>仅♂</translation>
     </message>
     <message>
         <source>Only ♀</source>
-        <translation></translation>
+        <translation>仅♀</translation>
     </message>
     <message>
         <source>IV Count</source>
-        <translation></translation>
+        <translation>满个体数</translation>
     </message>
     <message>
         <source>Shiny Type</source>
-        <translation></translation>
+        <translation>异色类型</translation>
     </message>
     <message>
         <source>Force non-shiny</source>
-        <translation></translation>
+        <translation>强制非异色</translation>
     </message>
     <message>
         <source>Force shiny</source>
-        <translation></translation>
+        <translation>强制异色</translation>
     </message>
     <message>
         <source>Ability</source>
@@ -6317,11 +6316,11 @@
     </message>
     <message>
         <source>Gigantamax</source>
-        <translation></translation>
+        <translation>超极巨化</translation>
     </message>
     <message>
-        <location filename="../Gen8/Raids.cpp" line="273"/>
-        <location filename="../Gen8/Raids.cpp" line="287"/>
+        <location filename="../Gen8/Raids.cpp" line="273" />
+        <location filename="../Gen8/Raids.cpp" line="287" />
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -6354,13 +6353,13 @@
         <translation>配信乱数</translation>
     </message>
     <message>
-        <location filename="../Gen8/Raids.cpp" line="223"/>
+        <location filename="../Gen8/Raids.cpp" line="223" />
         <source>Wild Area Event %1</source>
-        <translation></translation>
+        <translation>旷野地带活动 %1</translation>
     </message>
     <message>
-        <location filename="../Gen8/Raids.cpp" line="273"/>
-        <location filename="../Gen8/Raids.cpp" line="287"/>
+        <location filename="../Gen8/Raids.cpp" line="273" />
+        <location filename="../Gen8/Raids.cpp" line="287" />
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -6370,50 +6369,50 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
 </context>
 <context>
     <name>Researcher</name>
     <message>
         <source>LCRNG</source>
-        <translation></translation>
+        <translation>LCRNG</translation>
     </message>
     <message>
         <source>LCRNG[R]</source>
-        <translation></translation>
+        <translation>LCRNG[R]</translation>
     </message>
     <message>
         <source>XDRNG</source>
-        <translation></translation>
+        <translation>XDRNG</translation>
     </message>
     <message>
         <source>XDRNG[R]</source>
-        <translation></translation>
+        <translation>XDRNG[R]</translation>
     </message>
     <message>
         <source>ARNG</source>
-        <translation></translation>
+        <translation>ARNG</translation>
     </message>
     <message>
         <source>ARNG[R]</source>
-        <translation></translation>
+        <translation>ARNG[R]</translation>
     </message>
     <message>
         <source>Mersenne Twister</source>
-        <translation></translation>
+        <translation>梅森旋转</translation>
     </message>
     <message>
         <source>BWRNG</source>
-        <translation></translation>
+        <translation>BWRNG</translation>
     </message>
     <message>
         <source>BWRNG[R]</source>
-        <translation></translation>
+        <translation>BWRNG[R]</translation>
     </message>
     <message>
         <source>SFMT</source>
-        <translation></translation>
+        <translation>SFMT</translation>
     </message>
     <message>
         <source>64Bit</source>
@@ -6481,7 +6480,7 @@
     </message>
     <message>
         <source>TinyMT</source>
-        <translation></translation>
+        <translation>TinyMT</translation>
     </message>
     <message>
         <source>Custom 1</source>
@@ -6561,11 +6560,11 @@
     </message>
     <message>
         <source>Xoroshiro (BDSP)</source>
-        <translation></translation>
+        <translation>Xoroshiro（BDSP）</translation>
     </message>
     <message>
         <source>Xorshift</source>
-        <translation></translation>
+        <translation>Xorshift</translation>
     </message>
     <message>
         <source>Seed 0</source>
@@ -6577,51 +6576,51 @@
     </message>
     <message>
         <source>Value (Hex)</source>
-        <translation></translation>
+        <translation>数值（十六进制）</translation>
     </message>
     <message>
         <source>Previous 64Bit</source>
-        <translation></translation>
+        <translation>上一个 64 位</translation>
     </message>
     <message>
         <source>Previous 32Bit</source>
-        <translation></translation>
+        <translation>上一个 32 位</translation>
     </message>
     <message>
         <source>Previous 32Bit High</source>
-        <translation></translation>
+        <translation>上一个高 32 位</translation>
     </message>
     <message>
         <source>Previous 32Bit Low</source>
-        <translation></translation>
+        <translation>上一个低 32 位</translation>
     </message>
     <message>
         <source>Previous 16Bit High</source>
-        <translation></translation>
+        <translation>上一个高 16 位</translation>
     </message>
     <message>
         <source>Previous 16Bit Low</source>
-        <translation></translation>
+        <translation>上一个低 16 位</translation>
     </message>
     <message>
-        <location filename="../Util/Researcher.cpp" line="345"/>
+        <location filename="../Util/Researcher.cpp" line="345" />
         <source>Missing setting</source>
-        <translation></translation>
+        <translation>缺少设置项</translation>
     </message>
     <message>
-        <location filename="../Util/Researcher.cpp" line="346"/>
+        <location filename="../Util/Researcher.cpp" line="346" />
         <source>You must check the Hex box in order to use hexadecimal values for Custom %1</source>
-        <translation></translation>
+        <translation>若要为自定义 %1 使用十六进制数值，必须勾选 Hex。</translation>
     </message>
     <message>
-        <location filename="../Util/Researcher.cpp" line="410"/>
-        <location filename="../Util/Researcher.cpp" line="434"/>
+        <location filename="../Util/Researcher.cpp" line="410" />
+        <location filename="../Util/Researcher.cpp" line="434" />
         <source>No result</source>
         <translation>无结果</translation>
     </message>
     <message>
-        <location filename="../Util/Researcher.cpp" line="410"/>
-        <location filename="../Util/Researcher.cpp" line="434"/>
+        <location filename="../Util/Researcher.cpp" line="410" />
+        <location filename="../Util/Researcher.cpp" line="434" />
         <source>Unable to find a result</source>
         <translation>找不到结果</translation>
     </message>
@@ -6633,87 +6632,87 @@
 <context>
     <name>ResearcherModel</name>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="154" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="154" />
         <source>64Bit</source>
         <translation>64位</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="154" />
         <source>32Bit High</source>
         <translation>前32位</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="154" />
         <source>32Bit Low</source>
         <translation>后32位</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="154" />
         <source>32Bit</source>
         <translation>32位</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="154" />
         <source>16Bit High</source>
         <translation>前16位</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="155"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="155" />
         <source>16Bit Low</source>
         <translation>后16位</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="155"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="155" />
         <source>Custom 1</source>
         <translation>自定义1</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="155"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="155" />
         <source>Custom 2</source>
         <translation>自定义2</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="155"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="155" />
         <source>Custom 3</source>
         <translation>自定义3</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="155"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="155" />
         <source>Custom 4</source>
         <translation>自定义4</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="155"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="155" />
         <source>Custom 5</source>
         <translation>自定义5</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="156"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="156" />
         <source>Custom 6</source>
         <translation>自定义6</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="156"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="156" />
         <source>Custom 7</source>
         <translation>自定义7</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="156"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="156" />
         <source>Custom 8</source>
         <translation>自定义8</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="156"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="156" />
         <source>Custom 9</source>
         <translation>自定义9</translation>
     </message>
     <message>
-        <location filename="../../Model/Util/ResearcherModel.hpp" line="156"/>
+        <location filename="../../Model/Util/ResearcherModel.hpp" line="156" />
         <source>Custom 10</source>
         <translation>自定义10</translation>
     </message>
@@ -6729,7 +6728,7 @@
     <name>SHA1CacheFinder</name>
     <message>
         <source>SHA1 Cache Finder</source>
-        <translation></translation>
+        <translation>SHA1 缓存查找器</translation>
     </message>
     <message>
         <source>Profile</source>
@@ -6793,46 +6792,46 @@
     </message>
     <message>
         <source>Output File</source>
-        <translation></translation>
+        <translation>输出文件</translation>
     </message>
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="126"/>
+        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="126" />
         <source>Missing output file</source>
-        <translation></translation>
+        <translation>缺少输出文件</translation>
     </message>
     <message>
-        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="126"/>
+        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="126" />
         <source>Please select a file to save the results to</source>
-        <translation></translation>
+        <translation>请选择用于保存结果的文件</translation>
     </message>
     <message>
-        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="135"/>
+        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="135" />
         <source>Invalid date range</source>
-        <translation></translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="135"/>
+        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="135" />
         <source>Start date is after end date</source>
-        <translation></translation>
+        <translation>开始日期晚于结束日期</translation>
     </message>
     <message>
-        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="143"/>
+        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="143" />
         <source>Invalid IV Cache</source>
-        <translation></translation>
+        <translation>IV 缓存无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="143"/>
+        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="143" />
         <source>Profile does not have a valid IV Cache</source>
-        <translation></translation>
+        <translation>当前存档没有有效的 IV 缓存</translation>
     </message>
     <message>
-        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="182"/>
+        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="182" />
         <source>Save File</source>
-        <translation></translation>
+        <translation>保存文件</translation>
     </message>
 </context>
 <context>
@@ -6847,55 +6846,55 @@
     </message>
     <message>
         <source>Elm</source>
-        <translation></translation>
+        <translation>空木</translation>
     </message>
     <message>
         <source>Irwin</source>
-        <translation></translation>
+        <translation>Irwin</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation></translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SearchCalls.cpp" line="109"/>
-        <source>P - It seems that Pokémon that have been infected with Pokérus level up better. We&apos;re not quite sure why...</source>
-        <translation></translation>
+        <location filename="../Gen4/Tools/SearchCalls.cpp" line="109" />
+        <source>P - It seems that Pokémon that have been infected with Pokérus level up better. We're not quite sure why...</source>
+        <translation>P - 感染宝可梦病毒的宝可梦，好像会更容易成长。至于原因，我们也还不太清楚……</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SearchCalls.cpp" line="107"/>
-        <source>E - There are so many different ways that Pokémon evolve, aren&apos;t there?! Some Pokémon don&apos;t even evolve until they meet certain conditions first!</source>
-        <translation></translation>
+        <location filename="../Gen4/Tools/SearchCalls.cpp" line="107" />
+        <source>E - There are so many different ways that Pokémon evolve, aren't there?! Some Pokémon don't even evolve until they meet certain conditions first!</source>
+        <translation>E - 宝可梦的进化方式真是五花八门，不是吗？！有些宝可梦甚至要满足特定条件才会进化！</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SearchCalls.cpp" line="32"/>
-        <location filename="../Gen4/Tools/SearchCalls.cpp" line="92"/>
+        <location filename="../Gen4/Tools/SearchCalls.cpp" line="32" />
+        <location filename="../Gen4/Tools/SearchCalls.cpp" line="92" />
         <source>Possible Results: %1</source>
         <translation>可能的结果： %1</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SearchCalls.cpp" line="105"/>
-        <source>K - I expect there are some Pokémon in the Kanto region that I don&apos;t know. There are probably methods of evolution that I&apos;m not familiar with yet. I should use that perspective and discover what I can!</source>
-        <translation></translation>
+        <location filename="../Gen4/Tools/SearchCalls.cpp" line="105" />
+        <source>K - I expect there are some Pokémon in the Kanto region that I don't know. There are probably methods of evolution that I'm not familiar with yet. I should use that perspective and discover what I can!</source>
+        <translation>K - 关都地区里应该还有一些我不了解的宝可梦。说不定也有我还不熟悉的进化方式。我要带着这个想法继续发现更多东西！</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SearchCalls.cpp" line="115"/>
-        <source>K - I&apos;m so glad you called! I was just about to call you, too! I guess we must be a good match!</source>
-        <translation></translation>
+        <location filename="../Gen4/Tools/SearchCalls.cpp" line="115" />
+        <source>K - I'm so glad you called! I was just about to call you, too! I guess we must be a good match!</source>
+        <translation>K - 你打来真是太好了！我刚刚也正想打给你！看来我们很合得来呢！</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SearchCalls.cpp" line="116"/>
+        <location filename="../Gen4/Tools/SearchCalls.cpp" line="116" />
         <source>E - Hearing about your escapades rocks my soul! It sure does!</source>
-        <translation></translation>
+        <translation>E - 听你讲那些冒险经历，真让我热血沸腾！真的！</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SearchCalls.cpp" line="117"/>
-        <source>P - How are you? What are you doing? Where are you? How many Badges do you have now? How much money have you saved? How&apos;s your mom? Have you got lots of Pokémon? Is it going to be sunny tomorrow? Arrgh, there&apos;s so much I want to chat about! This is going nowhere!</source>
-        <translation></translation>
+        <location filename="../Gen4/Tools/SearchCalls.cpp" line="117" />
+        <source>P - How are you? What are you doing? Where are you? How many Badges do you have now? How much money have you saved? How's your mom? Have you got lots of Pokémon? Is it going to be sunny tomorrow? Arrgh, there's so much I want to chat about! This is going nowhere!</source>
+        <translation>P - 你最近怎么样？在做什么？人在哪里？现在有几枚徽章了？存了多少钱？你妈妈还好吗？收服很多宝可梦了吗？明天会不会放晴？啊啊，我想聊的事太多了！这样根本聊不完！</translation>
     </message>
 </context>
 <context>
@@ -6910,15 +6909,15 @@
     </message>
     <message>
         <source>Ok</source>
-        <translation></translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SearchCoinFlips.cpp" line="32"/>
-        <location filename="../Gen4/Tools/SearchCoinFlips.cpp" line="82"/>
+        <location filename="../Gen4/Tools/SearchCoinFlips.cpp" line="32" />
+        <location filename="../Gen4/Tools/SearchCoinFlips.cpp" line="82" />
         <source>Possible Results: %1</source>
         <translation>可能的结果： %1</translation>
     </message>
@@ -7006,15 +7005,15 @@
     </message>
     <message>
         <source>R</source>
-        <translation></translation>
+        <translation>R</translation>
     </message>
     <message>
         <source>E</source>
-        <translation></translation>
+        <translation>E</translation>
     </message>
     <message>
         <source>L</source>
-        <translation></translation>
+        <translation>L</translation>
     </message>
     <message>
         <source>Elm Calls:</source>
@@ -7025,34 +7024,34 @@
         <translation>游走：</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="158"/>
-        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="200"/>
+        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="158" />
+        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="200" />
         <source>Invalid selection</source>
-        <translation></translation>
+        <translation>选择无效</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="158"/>
-        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="200"/>
+        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="158" />
+        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="200" />
         <source>Select a valid row</source>
-        <translation></translation>
+        <translation>请选择有效行</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="187"/>
+        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="187" />
         <source>Coin Flips: %1</source>
         <translation>硬币序列： %1</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="237"/>
+        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="237" />
         <source>Elm Calls: %1</source>
         <translation>电话序列： %1</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="239"/>
+        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="239" />
         <source>Roamers: %1</source>
         <translation>游走： %1</translation>
     </message>
     <message>
-        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="239"/>
+        <location filename="../Gen4/Tools/SeedToTime4.cpp" line="239" />
         <source>No roamers</source>
         <translation>无游走</translation>
     </message>
@@ -7060,45 +7059,45 @@
 <context>
     <name>SeedToTimeCalibrateModel4</name>
     <message>
-        <location filename="../../Model/Gen4/SeedToTimeModel4.cpp" line="87"/>
+        <location filename="../../Model/Gen4/SeedToTimeModel4.cpp" line="87" />
         <source>No roamers</source>
         <translation>无游走</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120"/>
+        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120"/>
+        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120" />
         <source>Date/Time</source>
         <translation>日期/时间</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120"/>
+        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120" />
         <source>Delay</source>
         <translation>延迟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120"/>
+        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120" />
         <source>Coin flips</source>
-        <translation></translation>
+        <translation>投硬币</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120"/>
+        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120" />
         <source>Calls</source>
-        <translation></translation>
+        <translation>电话</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120"/>
+        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120" />
         <source>Roamer locations</source>
-        <translation></translation>
+        <translation>游走宝可梦位置</translation>
     </message>
 </context>
 <context>
     <name>SeedToTimeModel3</name>
     <message>
-        <location filename="../../Model/Gen3/SeedToTimeModel3.hpp" line="71"/>
+        <location filename="../../Model/Gen3/SeedToTimeModel3.hpp" line="71" />
         <source>Time</source>
         <translation>时间</translation>
     </message>
@@ -7106,12 +7105,12 @@
 <context>
     <name>SeedToTimeModel4</name>
     <message>
-        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="71" />
         <source>Date/Time</source>
         <translation>日期/时间</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="71"/>
+        <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="71" />
         <source>Delay</source>
         <translation>延迟</translation>
     </message>
@@ -7183,28 +7182,28 @@
         <translation>修改</translation>
     </message>
     <message>
-        <location filename="../Util/Settings.cpp" line="153"/>
+        <location filename="../Util/Settings.cpp" line="153" />
         <source>Language update</source>
         <translation>语言更改</translation>
     </message>
     <message>
-        <location filename="../Util/Settings.cpp" line="153"/>
-        <location filename="../Util/Settings.cpp" line="175"/>
+        <location filename="../Util/Settings.cpp" line="153" />
+        <location filename="../Util/Settings.cpp" line="175" />
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>重新启动以使更改生效，现在重启吗？</translation>
     </message>
     <message>
-        <location filename="../Util/Settings.cpp" line="175"/>
+        <location filename="../Util/Settings.cpp" line="175" />
         <source>Style change</source>
         <translation>主题更改</translation>
     </message>
     <message>
-        <location filename="../Util/Settings.cpp" line="126"/>
+        <location filename="../Util/Settings.cpp" line="126" />
         <source>Profile File</source>
         <translation>存档信息文件</translation>
     </message>
     <message>
-        <location filename="../Util/Settings.cpp" line="126"/>
+        <location filename="../Util/Settings.cpp" line="126" />
         <source>There was a problem creating the file</source>
         <translation>创建文件时出现问题</translation>
     </message>
@@ -7222,7 +7221,7 @@
     </message>
     <message>
         <source>Auto</source>
-        <translation></translation>
+        <translation>自动</translation>
     </message>
 </context>
 <context>
@@ -7315,7 +7314,7 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen3/Static3.cpp" line="64"/>
+        <location filename="../Gen3/Static3.cpp" line="64" />
         <source>Generate times for seed</source>
         <translation>为种子生成时间</translation>
     </message>
@@ -7369,7 +7368,7 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
 </context>
 <context>
@@ -7435,26 +7434,26 @@
         <translation>检索器</translation>
     </message>
     <message>
-        <location filename="../Gen4/Static4.cpp" line="69"/>
-        <location filename="../Gen4/Static4.cpp" line="74"/>
+        <location filename="../Gen4/Static4.cpp" line="69" />
+        <location filename="../Gen4/Static4.cpp" line="74" />
         <source>Synchronize</source>
         <translation>同步</translation>
     </message>
     <message>
-        <location filename="../Gen4/Static4.cpp" line="67"/>
-        <location filename="../Gen4/Static4.cpp" line="72"/>
+        <location filename="../Gen4/Static4.cpp" line="67" />
+        <location filename="../Gen4/Static4.cpp" line="72" />
         <source>Cute Charm</source>
         <translation>迷人身躯</translation>
     </message>
     <message>
-        <location filename="../Gen4/Static4.cpp" line="66"/>
-        <location filename="../Gen4/Static4.cpp" line="71"/>
+        <location filename="../Gen4/Static4.cpp" line="66" />
+        <location filename="../Gen4/Static4.cpp" line="71" />
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../Gen4/Static4.cpp" line="68"/>
-        <location filename="../Gen4/Static4.cpp" line="73"/>
+        <location filename="../Gen4/Static4.cpp" line="68" />
+        <location filename="../Gen4/Static4.cpp" line="73" />
         <source>♀ Lead</source>
         <translation>♀ 队首</translation>
     </message>
@@ -7483,13 +7482,13 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen4/Static4.cpp" line="68"/>
-        <location filename="../Gen4/Static4.cpp" line="73"/>
+        <location filename="../Gen4/Static4.cpp" line="68" />
+        <location filename="../Gen4/Static4.cpp" line="73" />
         <source>♂ Lead</source>
         <translation>♂ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen4/Static4.cpp" line="76"/>
+        <location filename="../Gen4/Static4.cpp" line="76" />
         <source>Generate times for seed</source>
         <translation>为种子生成时间</translation>
     </message>
@@ -7543,7 +7542,7 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
     <message>
         <source>Shiny</source>
@@ -7551,7 +7550,7 @@
     </message>
     <message>
         <source>Never</source>
-        <translation></translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>Random</source>
@@ -7562,7 +7561,7 @@
     <name>Static5</name>
     <message>
         <source>Gen 5 Static</source>
-        <translation></translation>
+        <translation>第五世代定点乱数</translation>
     </message>
     <message>
         <source>Profile</source>
@@ -7630,11 +7629,11 @@
     </message>
     <message>
         <source>IV Advances</source>
-        <translation></translation>
+        <translation>个体值帧数</translation>
     </message>
     <message>
         <source>0</source>
-        <translation></translation>
+        <translation>0</translation>
     </message>
     <message>
         <source>Initial Advances</source>
@@ -7646,15 +7645,15 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
     <message>
         <source>Lucky Power</source>
-        <translation></translation>
+        <translation>幸运力</translation>
     </message>
     <message>
         <source>S/MAX</source>
-        <translation></translation>
+        <translation>S/MAX</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -7710,7 +7709,7 @@
     </message>
     <message>
         <source>Never</source>
-        <translation></translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>Random</source>
@@ -7718,7 +7717,7 @@
     </message>
     <message>
         <source>Always</source>
-        <translation></translation>
+        <translation>总是</translation>
     </message>
     <message>
         <source>Filters</source>
@@ -7730,11 +7729,11 @@
     </message>
     <message>
         <source>Initial IV Advances</source>
-        <translation></translation>
+        <translation>个体值初始帧</translation>
     </message>
     <message>
         <source>Max IV Advances</source>
-        <translation></translation>
+        <translation>个体值最大帧数</translation>
     </message>
     <message>
         <source>Start Date</source>
@@ -7753,77 +7752,77 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="70"/>
-        <location filename="../Gen5/Static5.cpp" line="75"/>
+        <location filename="../Gen5/Static5.cpp" line="70" />
+        <location filename="../Gen5/Static5.cpp" line="75" />
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="71"/>
-        <location filename="../Gen5/Static5.cpp" line="76"/>
+        <location filename="../Gen5/Static5.cpp" line="71" />
+        <location filename="../Gen5/Static5.cpp" line="76" />
         <source>Cute Charm</source>
         <translation>迷人身躯</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="72"/>
-        <location filename="../Gen5/Static5.cpp" line="77"/>
+        <location filename="../Gen5/Static5.cpp" line="72" />
+        <location filename="../Gen5/Static5.cpp" line="77" />
         <source>♂ Lead</source>
         <translation>♂ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="72"/>
-        <location filename="../Gen5/Static5.cpp" line="77"/>
+        <location filename="../Gen5/Static5.cpp" line="72" />
+        <location filename="../Gen5/Static5.cpp" line="77" />
         <source>♀ Lead</source>
         <translation>♀ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="73"/>
-        <location filename="../Gen5/Static5.cpp" line="78"/>
+        <location filename="../Gen5/Static5.cpp" line="73" />
+        <location filename="../Gen5/Static5.cpp" line="78" />
         <source>Synchronize</source>
         <translation>同步</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="342"/>
+        <location filename="../Gen5/Static5.cpp" line="342" />
         <source>Invalid date range</source>
-        <translation></translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="342"/>
+        <location filename="../Gen5/Static5.cpp" line="342" />
         <source>Start date is after end date</source>
-        <translation></translation>
+        <translation>开始日期晚于结束日期</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="443"/>
+        <location filename="../Gen5/Static5.cpp" line="443" />
         <source>Settings are configured for fast searching</source>
-        <translation></translation>
+        <translation>设置已适合快速搜索</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="449"/>
+        <location filename="../Gen5/Static5.cpp" line="449" />
         <source>Profile does not have a IV cache file configured</source>
-        <translation></translation>
+        <translation>当前存档未配置 IV 缓存文件</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="454"/>
+        <location filename="../Gen5/Static5.cpp" line="454" />
         <source>Settings are not configured for fast searching</source>
-        <translation></translation>
+        <translation>设置不适合快速搜索</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="455"/>
+        <location filename="../Gen5/Static5.cpp" line="455" />
         <source>Keep initial/max advances below %1/%2</source>
-        <translation></translation>
+        <translation>请将初始帧/最大帧数控制在 %1/%2 以下</translation>
     </message>
     <message>
-        <location filename="../Gen5/Static5.cpp" line="456"/>
+        <location filename="../Gen5/Static5.cpp" line="456" />
         <source>Ensure IV filters are set to common spreads</source>
-        <translation></translation>
+        <translation>请将个体值筛选设为常见分布</translation>
     </message>
     <message>
         <source>Curtis</source>
-        <translation></translation>
+        <translation>阿铁</translation>
     </message>
     <message>
         <source>Yancy</source>
-        <translation></translation>
+        <translation>琉璃</translation>
     </message>
 </context>
 <context>
@@ -7885,39 +7884,39 @@
         <translation>游戏</translation>
     </message>
     <message>
-        <location filename="../Gen8/Static8.cpp" line="49"/>
+        <location filename="../Gen8/Static8.cpp" line="49" />
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../Gen8/Static8.cpp" line="51"/>
+        <location filename="../Gen8/Static8.cpp" line="51" />
         <source>Synchronize</source>
         <translation>同步</translation>
     </message>
     <message>
-        <location filename="../Gen8/Static8.cpp" line="50"/>
+        <location filename="../Gen8/Static8.cpp" line="50" />
         <source>Cute Charm</source>
         <translation>迷人身躯</translation>
     </message>
     <message>
-        <location filename="../Gen8/Static8.cpp" line="50"/>
+        <location filename="../Gen8/Static8.cpp" line="50" />
         <source>♂ Lead</source>
         <translation>♂ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen8/Static8.cpp" line="50"/>
+        <location filename="../Gen8/Static8.cpp" line="50" />
         <source>♀ Lead</source>
         <translation>♀ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen8/Static8.cpp" line="137"/>
+        <location filename="../Gen8/Static8.cpp" line="137" />
         <source>Missing seeds</source>
-        <translation></translation>
+        <translation>缺少种子</translation>
     </message>
     <message>
-        <location filename="../Gen8/Static8.cpp" line="137"/>
+        <location filename="../Gen8/Static8.cpp" line="137" />
         <source>Please insert missing seed information</source>
-        <translation></translation>
+        <translation>请输入缺失的种子信息</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -7973,7 +7972,7 @@
     </message>
     <message>
         <source>Never</source>
-        <translation></translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>Random</source>
@@ -7981,7 +7980,7 @@
     </message>
     <message>
         <source>IV Count</source>
-        <translation></translation>
+        <translation>满个体数</translation>
     </message>
     <message>
         <source>Starters</source>
@@ -7993,93 +7992,93 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
 </context>
 <context>
     <name>StaticGeneratorModel3</name>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.cpp" line="47"/>
+        <location filename="../../Model/Gen3/StaticModel3.cpp" line="47" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.cpp" line="47"/>
+        <location filename="../../Model/Gen3/StaticModel3.cpp" line="47" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.cpp" line="47"/>
+        <location filename="../../Model/Gen3/StaticModel3.cpp" line="47" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="79" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="80" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
@@ -8087,102 +8086,102 @@
 <context>
     <name>StaticGeneratorModel4</name>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.cpp" line="62"/>
+        <location filename="../../Model/Gen4/StaticModel4.cpp" line="62" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.cpp" line="62"/>
+        <location filename="../../Model/Gen4/StaticModel4.cpp" line="62" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.cpp" line="62"/>
+        <location filename="../../Model/Gen4/StaticModel4.cpp" line="62" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89" />
         <source>Call</source>
         <translation>电话</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89" />
         <source>Chatot</source>
         <translation>聒噪鸟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="89" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="90" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="91"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="91" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="91"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="91" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="91"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="91" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="91"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="91" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="91"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="91" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -8190,97 +8189,97 @@
 <context>
     <name>StaticGeneratorModel5</name>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.cpp" line="50"/>
+        <location filename="../../Model/Gen5/StaticModel5.cpp" line="50" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.cpp" line="50"/>
+        <location filename="../../Model/Gen5/StaticModel5.cpp" line="50" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.cpp" line="50"/>
+        <location filename="../../Model/Gen5/StaticModel5.cpp" line="50" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81" />
         <source>Chatot</source>
         <translation>聒噪鸟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="81" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="82" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -8288,97 +8287,97 @@
 <context>
     <name>StaticModel8</name>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.cpp" line="49"/>
+        <location filename="../../Model/Gen8/StaticModel8.cpp" line="49" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.cpp" line="49"/>
+        <location filename="../../Model/Gen8/StaticModel8.cpp" line="49" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.cpp" line="49"/>
+        <location filename="../../Model/Gen8/StaticModel8.cpp" line="49" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80" />
         <source>EC</source>
-        <translation></translation>
+        <translation>EC</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="80" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81" />
         <source>Height</source>
         <translation>身高</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81" />
         <source>Weight</source>
         <translation>体重</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/StaticModel8.hpp" line="81" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -8386,87 +8385,87 @@
 <context>
     <name>StaticSearcherModel3</name>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.cpp" line="110"/>
+        <location filename="../../Model/Gen3/StaticModel3.cpp" line="110" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.cpp" line="110"/>
+        <location filename="../../Model/Gen3/StaticModel3.cpp" line="110" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.cpp" line="110"/>
+        <location filename="../../Model/Gen3/StaticModel3.cpp" line="110" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="137" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/StaticModel3.hpp" line="138" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
@@ -8474,97 +8473,97 @@
 <context>
     <name>StaticSearcherModel4</name>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.cpp" line="150"/>
+        <location filename="../../Model/Gen4/StaticModel4.cpp" line="150" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.cpp" line="150"/>
+        <location filename="../../Model/Gen4/StaticModel4.cpp" line="150" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.cpp" line="150"/>
+        <location filename="../../Model/Gen4/StaticModel4.cpp" line="150" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="159" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/StaticModel4.hpp" line="160" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -8572,117 +8571,117 @@
 <context>
     <name>StaticSearcherModel5</name>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.cpp" line="130"/>
+        <location filename="../../Model/Gen5/StaticModel5.cpp" line="130" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.cpp" line="130"/>
+        <location filename="../../Model/Gen5/StaticModel5.cpp" line="130" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.cpp" line="130"/>
+        <location filename="../../Model/Gen5/StaticModel5.cpp" line="130" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="139"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="139" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="140" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="141" />
         <source>IV Advances</source>
-        <translation></translation>
+        <translation>个体值帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="142"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="142" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="143"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="143" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="144"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="144" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="145"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="145" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="146"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="146" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="147"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="147" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="148"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="148" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="149"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="149" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="150"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="150" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="151"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="151" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="152"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="152" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="153"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="153" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="154"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="154" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="155"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="155" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="156"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="156" />
         <source>Date/Time</source>
         <translation>日期/时间</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="157"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="157" />
         <source>Timer0</source>
         <translation>Timer0</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/StaticModel5.hpp" line="158"/>
+        <location filename="../../Model/Gen5/StaticModel5.hpp" line="158" />
         <source>Buttons</source>
         <translation>按键</translation>
     </message>
@@ -8690,12 +8689,12 @@
 <context>
     <name>TableView</name>
     <message>
-        <location filename="../Controls/TableView.cpp" line="33"/>
+        <location filename="../Controls/TableView.cpp" line="33" />
         <source>Output Results to TXT</source>
         <translation>导出结果至TXT</translation>
     </message>
     <message>
-        <location filename="../Controls/TableView.cpp" line="34"/>
+        <location filename="../Controls/TableView.cpp" line="34" />
         <source>Output Results to CSV</source>
         <translation>导出结果至CSV</translation>
     </message>
@@ -8716,23 +8715,23 @@
     </message>
     <message>
         <source>Underground Unlocked</source>
-        <translation></translation>
+        <translation>已解锁地下大洞窟</translation>
     </message>
     <message>
         <source>Strength Obtained</source>
-        <translation></translation>
+        <translation>已获得怪力术</translation>
     </message>
     <message>
         <source>Defog Obtained</source>
-        <translation></translation>
+        <translation>已获得清雾</translation>
     </message>
     <message>
         <source>7 Badges</source>
-        <translation></translation>
+        <translation>7 枚徽章</translation>
     </message>
     <message>
         <source>Waterfall Obtained</source>
-        <translation></translation>
+        <translation>已获得攀瀑</translation>
     </message>
     <message>
         <source>National Dex</source>
@@ -8740,7 +8739,7 @@
     </message>
     <message>
         <source>Story Flag</source>
-        <translation></translation>
+        <translation>剧情进度</translation>
     </message>
     <message>
         <source>Pokémon</source>
@@ -8748,39 +8747,39 @@
     </message>
     <message>
         <source>Diglett Bonus</source>
-        <translation></translation>
+        <translation>地鼠加成</translation>
     </message>
     <message>
         <source>Level Flag</source>
-        <translation></translation>
+        <translation>等级标记</translation>
     </message>
     <message>
         <source>0/1 Badges</source>
-        <translation></translation>
+        <translation>0/1 枚徽章</translation>
     </message>
     <message>
         <source>2 Badges</source>
-        <translation></translation>
+        <translation>2 枚徽章</translation>
     </message>
     <message>
         <source>3 Badges</source>
-        <translation></translation>
+        <translation>3 枚徽章</translation>
     </message>
     <message>
         <source>4 Badges</source>
-        <translation></translation>
+        <translation>4 枚徽章</translation>
     </message>
     <message>
         <source>5 Badges</source>
-        <translation></translation>
+        <translation>5 枚徽章</translation>
     </message>
     <message>
         <source>6 Badges</source>
-        <translation></translation>
+        <translation>6 枚徽章</translation>
     </message>
     <message>
         <source>8 Badges</source>
-        <translation></translation>
+        <translation>8 枚徽章</translation>
     </message>
     <message>
         <source>Profile</source>
@@ -8839,184 +8838,184 @@
         <translation>最大帧数</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="52"/>
+        <location filename="../Gen8/Underground.cpp" line="52" />
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="53"/>
+        <location filename="../Gen8/Underground.cpp" line="53" />
         <source>Cute Charm</source>
         <translation>迷人身躯</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="53"/>
+        <location filename="../Gen8/Underground.cpp" line="53" />
         <source>♂ Lead</source>
         <translation>♂ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="53"/>
+        <location filename="../Gen8/Underground.cpp" line="53" />
         <source>♀ Lead</source>
         <translation>♀ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="54"/>
+        <location filename="../Gen8/Underground.cpp" line="54" />
         <source>Item Modifier</source>
-        <translation></translation>
+        <translation>道具修正</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="55"/>
+        <location filename="../Gen8/Underground.cpp" line="55" />
         <source>Compound Eyes</source>
-        <translation></translation>
+        <translation>复眼</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="55"/>
+        <location filename="../Gen8/Underground.cpp" line="55" />
         <source>Super Luck</source>
-        <translation></translation>
+        <translation>超幸运</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="56"/>
+        <location filename="../Gen8/Underground.cpp" line="56" />
         <source>Level Modifier</source>
-        <translation></translation>
+        <translation>等级修正</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="57"/>
+        <location filename="../Gen8/Underground.cpp" line="57" />
         <source>Hustle</source>
-        <translation></translation>
+        <translation>活力</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="58"/>
+        <location filename="../Gen8/Underground.cpp" line="58" />
         <source>Pressure</source>
-        <translation></translation>
+        <translation>压迫感</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="59"/>
+        <location filename="../Gen8/Underground.cpp" line="59" />
         <source>Vital Spirit</source>
-        <translation></translation>
+        <translation>干劲</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="60"/>
+        <location filename="../Gen8/Underground.cpp" line="60" />
         <source>Synchronize</source>
         <translation>同步</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="147"/>
+        <location filename="../Gen8/Underground.cpp" line="147" />
         <source>Missing seeds</source>
-        <translation></translation>
+        <translation>缺少种子</translation>
     </message>
     <message>
-        <location filename="../Gen8/Underground.cpp" line="147"/>
+        <location filename="../Gen8/Underground.cpp" line="147" />
         <source>Please insert missing seed information</source>
-        <translation></translation>
+        <translation>请输入缺失的种子信息</translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
 </context>
 <context>
     <name>UndergroundModel</name>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.cpp" line="58"/>
+        <location filename="../../Model/Gen8/UndergroundModel.cpp" line="58" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.cpp" line="58"/>
+        <location filename="../../Model/Gen8/UndergroundModel.cpp" line="58" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.cpp" line="58"/>
+        <location filename="../../Model/Gen8/UndergroundModel.cpp" line="58" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80" />
         <source>Egg Move</source>
-        <translation></translation>
+        <translation>蛋招式</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80" />
         <source>Item</source>
         <translation>道具</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80" />
         <source>Species</source>
         <translation>种类</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="80" />
         <source>EC</source>
-        <translation></translation>
+        <translation>EC</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82"/>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="82" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -9044,67 +9043,67 @@
         <translation>筛选项</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="71"/>
-        <location filename="../Gen3/Wild3.cpp" line="82"/>
+        <location filename="../Gen3/Wild3.cpp" line="71" />
+        <location filename="../Gen3/Wild3.cpp" line="82" />
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="73"/>
-        <location filename="../Gen3/Wild3.cpp" line="84"/>
+        <location filename="../Gen3/Wild3.cpp" line="73" />
+        <location filename="../Gen3/Wild3.cpp" line="84" />
         <source>♂ Lead</source>
         <translation>♂ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="73"/>
-        <location filename="../Gen3/Wild3.cpp" line="84"/>
+        <location filename="../Gen3/Wild3.cpp" line="73" />
+        <location filename="../Gen3/Wild3.cpp" line="84" />
         <source>♀ Lead</source>
         <translation>♀ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="78"/>
-        <location filename="../Gen3/Wild3.cpp" line="89"/>
+        <location filename="../Gen3/Wild3.cpp" line="78" />
+        <location filename="../Gen3/Wild3.cpp" line="89" />
         <source>Slot Modifier</source>
-        <translation></translation>
+        <translation>槽位修正</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="79"/>
-        <location filename="../Gen3/Wild3.cpp" line="90"/>
+        <location filename="../Gen3/Wild3.cpp" line="79" />
+        <location filename="../Gen3/Wild3.cpp" line="90" />
         <source>Magnet Pull</source>
-        <translation></translation>
+        <translation>磁力</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="79"/>
-        <location filename="../Gen3/Wild3.cpp" line="90"/>
+        <location filename="../Gen3/Wild3.cpp" line="79" />
+        <location filename="../Gen3/Wild3.cpp" line="90" />
         <source>Static</source>
         <translation>定点乱数</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="74"/>
-        <location filename="../Gen3/Wild3.cpp" line="85"/>
+        <location filename="../Gen3/Wild3.cpp" line="74" />
+        <location filename="../Gen3/Wild3.cpp" line="85" />
         <source>Level Modifier</source>
-        <translation></translation>
+        <translation>等级修正</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="75"/>
-        <location filename="../Gen3/Wild3.cpp" line="86"/>
+        <location filename="../Gen3/Wild3.cpp" line="75" />
+        <location filename="../Gen3/Wild3.cpp" line="86" />
         <source>Hustle</source>
-        <translation></translation>
+        <translation>活力</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="76"/>
-        <location filename="../Gen3/Wild3.cpp" line="87"/>
+        <location filename="../Gen3/Wild3.cpp" line="76" />
+        <location filename="../Gen3/Wild3.cpp" line="87" />
         <source>Pressure</source>
-        <translation></translation>
+        <translation>压迫感</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="77"/>
-        <location filename="../Gen3/Wild3.cpp" line="88"/>
+        <location filename="../Gen3/Wild3.cpp" line="77" />
+        <location filename="../Gen3/Wild3.cpp" line="88" />
         <source>Vital Spirit</source>
-        <translation></translation>
+        <translation>干劲</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="96"/>
+        <location filename="../Gen3/Wild3.cpp" line="96" />
         <source>Generate times for seed</source>
         <translation>为种子生成时间</translation>
     </message>
@@ -9118,7 +9117,7 @@
     </message>
     <message>
         <source>SID</source>
-        <translation></translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Seed</source>
@@ -9165,8 +9164,8 @@
         <translation>厉害钓竿</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="80"/>
-        <location filename="../Gen3/Wild3.cpp" line="91"/>
+        <location filename="../Gen3/Wild3.cpp" line="80" />
+        <location filename="../Gen3/Wild3.cpp" line="91" />
         <source>Synchronize</source>
         <translation>同步</translation>
     </message>
@@ -9191,8 +9190,8 @@
         <translation>检索器</translation>
     </message>
     <message>
-        <location filename="../Gen3/Wild3.cpp" line="72"/>
-        <location filename="../Gen3/Wild3.cpp" line="83"/>
+        <location filename="../Gen3/Wild3.cpp" line="72" />
+        <location filename="../Gen3/Wild3.cpp" line="83" />
         <source>Cute Charm</source>
         <translation>迷人身躯</translation>
     </message>
@@ -9210,15 +9209,15 @@
     </message>
     <message>
         <source>Wild 1</source>
-        <translation>Wild 1</translation>
+        <translation>野生 1</translation>
     </message>
     <message>
         <source>Wild 2</source>
-        <translation>Wild 2</translation>
+        <translation>野生 2</translation>
     </message>
     <message>
         <source>Wild 4</source>
-        <translation>Wild 4</translation>
+        <translation>野生 4</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -9230,7 +9229,7 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
 </context>
 <context>
@@ -9320,8 +9319,8 @@
         <translation>厉害钓竿</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="85"/>
-        <location filename="../Gen4/Wild4.cpp" line="103"/>
+        <location filename="../Gen4/Wild4.cpp" line="85" />
+        <location filename="../Gen4/Wild4.cpp" line="103" />
         <source>Synchronize</source>
         <translation>同步</translation>
     </message>
@@ -9342,126 +9341,126 @@
         <translation>队首</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="71"/>
-        <location filename="../Gen4/Wild4.cpp" line="89"/>
+        <location filename="../Gen4/Wild4.cpp" line="71" />
+        <location filename="../Gen4/Wild4.cpp" line="89" />
         <source>Cute Charm</source>
         <translation>迷人身躯</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="72"/>
-        <location filename="../Gen4/Wild4.cpp" line="90"/>
+        <location filename="../Gen4/Wild4.cpp" line="72" />
+        <location filename="../Gen4/Wild4.cpp" line="90" />
         <source>♀ Lead</source>
         <translation>♀ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="78"/>
-        <location filename="../Gen4/Wild4.cpp" line="96"/>
+        <location filename="../Gen4/Wild4.cpp" line="78" />
+        <location filename="../Gen4/Wild4.cpp" line="96" />
         <source>Suction Cups</source>
-        <translation></translation>
+        <translation>吸盘</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="73"/>
-        <location filename="../Gen4/Wild4.cpp" line="91"/>
+        <location filename="../Gen4/Wild4.cpp" line="73" />
+        <location filename="../Gen4/Wild4.cpp" line="91" />
         <source>Encounter Modifier</source>
-        <translation></translation>
+        <translation>遭遇修正</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="74"/>
-        <location filename="../Gen4/Wild4.cpp" line="92"/>
+        <location filename="../Gen4/Wild4.cpp" line="74" />
+        <location filename="../Gen4/Wild4.cpp" line="92" />
         <source>Arena Trap</source>
-        <translation></translation>
+        <translation>沙穴</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="75"/>
-        <location filename="../Gen4/Wild4.cpp" line="93"/>
+        <location filename="../Gen4/Wild4.cpp" line="75" />
+        <location filename="../Gen4/Wild4.cpp" line="93" />
         <source>Illuminate</source>
-        <translation></translation>
+        <translation>发光</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="76"/>
-        <location filename="../Gen4/Wild4.cpp" line="94"/>
+        <location filename="../Gen4/Wild4.cpp" line="76" />
+        <location filename="../Gen4/Wild4.cpp" line="94" />
         <source>No Guard</source>
-        <translation></translation>
+        <translation>无防守</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="77"/>
-        <location filename="../Gen4/Wild4.cpp" line="95"/>
+        <location filename="../Gen4/Wild4.cpp" line="77" />
+        <location filename="../Gen4/Wild4.cpp" line="95" />
         <source>Sticky Hold</source>
-        <translation></translation>
+        <translation>黏着</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="70"/>
-        <location filename="../Gen4/Wild4.cpp" line="88"/>
+        <location filename="../Gen4/Wild4.cpp" line="70" />
+        <location filename="../Gen4/Wild4.cpp" line="88" />
         <source>Compound Eyes</source>
-        <translation></translation>
+        <translation>复眼</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="83"/>
-        <location filename="../Gen4/Wild4.cpp" line="101"/>
+        <location filename="../Gen4/Wild4.cpp" line="83" />
+        <location filename="../Gen4/Wild4.cpp" line="101" />
         <source>Slot Modifier</source>
-        <translation></translation>
+        <translation>槽位修正</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="84"/>
-        <location filename="../Gen4/Wild4.cpp" line="102"/>
+        <location filename="../Gen4/Wild4.cpp" line="84" />
+        <location filename="../Gen4/Wild4.cpp" line="102" />
         <source>Magnet Pull</source>
-        <translation></translation>
+        <translation>磁力</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="84"/>
-        <location filename="../Gen4/Wild4.cpp" line="102"/>
+        <location filename="../Gen4/Wild4.cpp" line="84" />
+        <location filename="../Gen4/Wild4.cpp" line="102" />
         <source>Static</source>
         <translation>定点乱数</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="79"/>
-        <location filename="../Gen4/Wild4.cpp" line="97"/>
+        <location filename="../Gen4/Wild4.cpp" line="79" />
+        <location filename="../Gen4/Wild4.cpp" line="97" />
         <source>Level Modifier</source>
-        <translation></translation>
+        <translation>等级修正</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="80"/>
-        <location filename="../Gen4/Wild4.cpp" line="98"/>
+        <location filename="../Gen4/Wild4.cpp" line="80" />
+        <location filename="../Gen4/Wild4.cpp" line="98" />
         <source>Hustle</source>
-        <translation></translation>
+        <translation>活力</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="81"/>
-        <location filename="../Gen4/Wild4.cpp" line="99"/>
+        <location filename="../Gen4/Wild4.cpp" line="81" />
+        <location filename="../Gen4/Wild4.cpp" line="99" />
         <source>Pressure</source>
-        <translation></translation>
+        <translation>压迫感</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="82"/>
-        <location filename="../Gen4/Wild4.cpp" line="100"/>
+        <location filename="../Gen4/Wild4.cpp" line="82" />
+        <location filename="../Gen4/Wild4.cpp" line="100" />
         <source>Vital Spirit</source>
-        <translation></translation>
+        <translation>干劲</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="348"/>
-        <location filename="../Gen4/Wild4.cpp" line="661"/>
+        <location filename="../Gen4/Wild4.cpp" line="348" />
+        <location filename="../Gen4/Wild4.cpp" line="661" />
         <source>Please select a single encounter slot for Poke Radar</source>
-        <translation></translation>
+        <translation>请为宝可追踪只选择一个遭遇槽位</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="364"/>
-        <location filename="../Gen4/Wild4.cpp" line="677"/>
+        <location filename="../Gen4/Wild4.cpp" line="364" />
+        <location filename="../Gen4/Wild4.cpp" line="677" />
         <source>Please select a single encounter slot for Honey Tree</source>
-        <translation></translation>
+        <translation>请为甜甜蜜树只选择一个遭遇槽位</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="705"/>
+        <location filename="../Gen4/Wild4.cpp" line="705" />
         <source>Missing Flawless IV</source>
-        <translation></translation>
+        <translation>缺少满个体值</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="706"/>
+        <location filename="../Gen4/Wild4.cpp" line="706" />
         <source>This search needs at least one IV at 31</source>
-        <translation></translation>
+        <translation>此搜索至少需要一项个体值为 31</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="69"/>
-        <location filename="../Gen4/Wild4.cpp" line="87"/>
+        <location filename="../Gen4/Wild4.cpp" line="69" />
+        <location filename="../Gen4/Wild4.cpp" line="87" />
         <source>None</source>
         <translation>无</translation>
     </message>
@@ -9486,25 +9485,25 @@
         <translation>最大帧数</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="130"/>
+        <location filename="../Gen4/Wild4.cpp" line="130" />
         <source>Generate times for seed</source>
         <translation>为种子生成时间</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="347"/>
-        <location filename="../Gen4/Wild4.cpp" line="363"/>
-        <location filename="../Gen4/Wild4.cpp" line="660"/>
-        <location filename="../Gen4/Wild4.cpp" line="676"/>
+        <location filename="../Gen4/Wild4.cpp" line="347" />
+        <location filename="../Gen4/Wild4.cpp" line="363" />
+        <location filename="../Gen4/Wild4.cpp" line="660" />
+        <location filename="../Gen4/Wild4.cpp" line="676" />
         <source>Too many slots selected</source>
-        <translation></translation>
+        <translation>选择的槽位过多</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="612"/>
+        <location filename="../Gen4/Wild4.cpp" line="612" />
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="612"/>
+        <location filename="../Gen4/Wild4.cpp" line="612" />
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -9513,8 +9512,8 @@
         <translation>碎岩</translation>
     </message>
     <message>
-        <location filename="../Gen4/Wild4.cpp" line="72"/>
-        <location filename="../Gen4/Wild4.cpp" line="90"/>
+        <location filename="../Gen4/Wild4.cpp" line="72" />
+        <location filename="../Gen4/Wild4.cpp" line="90" />
         <source>♂ Lead</source>
         <translation>♂ 队首</translation>
     </message>
@@ -9568,11 +9567,11 @@
     </message>
     <message>
         <source>Headbutt Alt</source>
-        <translation></translation>
+        <translation>头锤（备选）</translation>
     </message>
     <message>
         <source>Headbutt Special</source>
-        <translation></translation>
+        <translation>头锤（特殊）</translation>
     </message>
     <message>
         <source>Ruby</source>
@@ -9604,23 +9603,23 @@
     </message>
     <message>
         <source>Replacement</source>
-        <translation></translation>
+        <translation>替换</translation>
     </message>
     <message>
         <source>Forest Block</source>
-        <translation></translation>
+        <translation>森林方块</translation>
     </message>
     <message>
         <source>Peak Block</source>
-        <translation></translation>
+        <translation>山峰方块</translation>
     </message>
     <message>
         <source>Plains Block</source>
-        <translation></translation>
+        <translation>平原方块</translation>
     </message>
     <message>
         <source>Water Block</source>
-        <translation></translation>
+        <translation>水域方块</translation>
     </message>
     <message>
         <source>Mysterious Transmission</source>
@@ -9628,27 +9627,27 @@
     </message>
     <message>
         <source>Happiness</source>
-        <translation></translation>
+        <translation>亲密度</translation>
     </message>
     <message>
         <source>+0%</source>
-        <translation></translation>
+        <translation>+0%</translation>
     </message>
     <message>
         <source>+20%</source>
-        <translation></translation>
+        <translation>+20%</translation>
     </message>
     <message>
         <source>+30%</source>
-        <translation></translation>
+        <translation>+30%</translation>
     </message>
     <message>
         <source>+40%</source>
-        <translation></translation>
+        <translation>+40%</translation>
     </message>
     <message>
         <source>+50%</source>
-        <translation></translation>
+        <translation>+50%</translation>
     </message>
     <message>
         <source>Feebas Tile</source>
@@ -9656,18 +9655,18 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
     <message>
         <source>Honey Tree</source>
-        <translation></translation>
+        <translation>甜甜蜜树</translation>
     </message>
 </context>
 <context>
     <name>Wild5</name>
     <message>
         <source>Gen 5 Wild</source>
-        <translation></translation>
+        <translation>第五世代野生乱数</translation>
     </message>
     <message>
         <source>Profile</source>
@@ -9735,11 +9734,11 @@
     </message>
     <message>
         <source>IV Advances</source>
-        <translation></translation>
+        <translation>个体值帧数</translation>
     </message>
     <message>
         <source>0</source>
-        <translation></translation>
+        <translation>0</translation>
     </message>
     <message>
         <source>Initial Advances</source>
@@ -9751,15 +9750,15 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
     <message>
         <source>Lucky Power</source>
-        <translation></translation>
+        <translation>幸运力</translation>
     </message>
     <message>
         <source>S/MAX</source>
-        <translation></translation>
+        <translation>S/MAX</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -9779,11 +9778,11 @@
     </message>
     <message>
         <source>Dark Grass</source>
-        <translation></translation>
+        <translation>深色草丛</translation>
     </message>
     <message>
         <source>Rustling Grass</source>
-        <translation></translation>
+        <translation>摇晃草丛</translation>
     </message>
     <message>
         <source>Surfing</source>
@@ -9791,15 +9790,15 @@
     </message>
     <message>
         <source>Rippling Surfing</source>
-        <translation></translation>
+        <translation>波纹冲浪</translation>
     </message>
     <message>
         <source>Fishing</source>
-        <translation></translation>
+        <translation>钓鱼</translation>
     </message>
     <message>
         <source>Rippling Fishing</source>
-        <translation></translation>
+        <translation>波纹钓鱼</translation>
     </message>
     <message>
         <source>Location</source>
@@ -9811,23 +9810,23 @@
     </message>
     <message>
         <source>Season</source>
-        <translation></translation>
+        <translation>季节</translation>
     </message>
     <message>
         <source>Spring</source>
-        <translation></translation>
+        <translation>春季</translation>
     </message>
     <message>
         <source>Summer</source>
-        <translation></translation>
+        <translation>夏季</translation>
     </message>
     <message>
         <source>Autumn</source>
-        <translation></translation>
+        <translation>秋季</translation>
     </message>
     <message>
         <source>Winter</source>
-        <translation></translation>
+        <translation>冬季</translation>
     </message>
     <message>
         <source>Filters</source>
@@ -9839,11 +9838,11 @@
     </message>
     <message>
         <source>Initial IV Advances</source>
-        <translation></translation>
+        <translation>个体值初始帧</translation>
     </message>
     <message>
         <source>Max IV Advances</source>
-        <translation></translation>
+        <translation>个体值最大帧数</translation>
     </message>
     <message>
         <source>Start Date</source>
@@ -9862,117 +9861,117 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="87"/>
-        <location filename="../Gen5/Wild5.cpp" line="99"/>
+        <location filename="../Gen5/Wild5.cpp" line="87" />
+        <location filename="../Gen5/Wild5.cpp" line="99" />
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="88"/>
-        <location filename="../Gen5/Wild5.cpp" line="100"/>
+        <location filename="../Gen5/Wild5.cpp" line="88" />
+        <location filename="../Gen5/Wild5.cpp" line="100" />
         <source>Compound Eyes</source>
-        <translation></translation>
+        <translation>复眼</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="89"/>
-        <location filename="../Gen5/Wild5.cpp" line="101"/>
+        <location filename="../Gen5/Wild5.cpp" line="89" />
+        <location filename="../Gen5/Wild5.cpp" line="101" />
         <source>Cute Charm</source>
         <translation>迷人身躯</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="90"/>
-        <location filename="../Gen5/Wild5.cpp" line="102"/>
+        <location filename="../Gen5/Wild5.cpp" line="90" />
+        <location filename="../Gen5/Wild5.cpp" line="102" />
         <source>♂ Lead</source>
         <translation>♂ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="90"/>
-        <location filename="../Gen5/Wild5.cpp" line="102"/>
+        <location filename="../Gen5/Wild5.cpp" line="90" />
+        <location filename="../Gen5/Wild5.cpp" line="102" />
         <source>♀ Lead</source>
         <translation>♀ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="91"/>
-        <location filename="../Gen5/Wild5.cpp" line="103"/>
+        <location filename="../Gen5/Wild5.cpp" line="91" />
+        <location filename="../Gen5/Wild5.cpp" line="103" />
         <source>Level Modifier</source>
-        <translation></translation>
+        <translation>等级修正</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="92"/>
-        <location filename="../Gen5/Wild5.cpp" line="104"/>
+        <location filename="../Gen5/Wild5.cpp" line="92" />
+        <location filename="../Gen5/Wild5.cpp" line="104" />
         <source>Hustle</source>
-        <translation></translation>
+        <translation>活力</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="93"/>
-        <location filename="../Gen5/Wild5.cpp" line="105"/>
+        <location filename="../Gen5/Wild5.cpp" line="93" />
+        <location filename="../Gen5/Wild5.cpp" line="105" />
         <source>Pressure</source>
-        <translation></translation>
+        <translation>压迫感</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="94"/>
-        <location filename="../Gen5/Wild5.cpp" line="106"/>
+        <location filename="../Gen5/Wild5.cpp" line="94" />
+        <location filename="../Gen5/Wild5.cpp" line="106" />
         <source>Vital Spirit</source>
-        <translation></translation>
+        <translation>干劲</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="95"/>
-        <location filename="../Gen5/Wild5.cpp" line="107"/>
+        <location filename="../Gen5/Wild5.cpp" line="95" />
+        <location filename="../Gen5/Wild5.cpp" line="107" />
         <source>Slot Modifier</source>
-        <translation></translation>
+        <translation>槽位修正</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="96"/>
-        <location filename="../Gen5/Wild5.cpp" line="108"/>
+        <location filename="../Gen5/Wild5.cpp" line="96" />
+        <location filename="../Gen5/Wild5.cpp" line="108" />
         <source>Magnet Pull</source>
-        <translation></translation>
+        <translation>磁力</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="96"/>
-        <location filename="../Gen5/Wild5.cpp" line="108"/>
+        <location filename="../Gen5/Wild5.cpp" line="96" />
+        <location filename="../Gen5/Wild5.cpp" line="108" />
         <source>Static</source>
         <translation>定点乱数</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="97"/>
-        <location filename="../Gen5/Wild5.cpp" line="109"/>
+        <location filename="../Gen5/Wild5.cpp" line="97" />
+        <location filename="../Gen5/Wild5.cpp" line="109" />
         <source>Synchronize</source>
         <translation>同步</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="381"/>
+        <location filename="../Gen5/Wild5.cpp" line="381" />
         <source>Invalid date range</source>
-        <translation></translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="381"/>
+        <location filename="../Gen5/Wild5.cpp" line="381" />
         <source>Start date is after end date</source>
-        <translation></translation>
+        <translation>开始日期晚于结束日期</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="472"/>
+        <location filename="../Gen5/Wild5.cpp" line="472" />
         <source>Settings are configured for fast searching</source>
-        <translation></translation>
+        <translation>设置已适合快速搜索</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="478"/>
+        <location filename="../Gen5/Wild5.cpp" line="478" />
         <source>Profile does not have a IV cache file configured</source>
-        <translation></translation>
+        <translation>当前存档未配置 IV 缓存文件</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="483"/>
+        <location filename="../Gen5/Wild5.cpp" line="483" />
         <source>Settings are not configured for fast searching</source>
-        <translation></translation>
+        <translation>设置不适合快速搜索</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="484"/>
+        <location filename="../Gen5/Wild5.cpp" line="484" />
         <source>Keep initial/max advances below %1/%2</source>
-        <translation></translation>
+        <translation>请将初始帧/最大帧数控制在 %1/%2 以下</translation>
     </message>
     <message>
-        <location filename="../Gen5/Wild5.cpp" line="485"/>
+        <location filename="../Gen5/Wild5.cpp" line="485" />
         <source>Ensure IV filters are set to common spreads</source>
-        <translation></translation>
+        <translation>请将个体值筛选设为常见分布</translation>
     </message>
 </context>
 <context>
@@ -10062,112 +10061,112 @@
         <translation>筛选项</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="53"/>
+        <location filename="../Gen8/Wild8.cpp" line="53" />
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="61"/>
+        <location filename="../Gen8/Wild8.cpp" line="61" />
         <source>Slot Modifier</source>
-        <translation></translation>
+        <translation>槽位修正</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="62"/>
+        <location filename="../Gen8/Wild8.cpp" line="62" />
         <source>Harvest</source>
-        <translation></translation>
+        <translation>收获</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="63"/>
+        <location filename="../Gen8/Wild8.cpp" line="63" />
         <source>Flash Fire</source>
-        <translation></translation>
+        <translation>引火</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="64"/>
+        <location filename="../Gen8/Wild8.cpp" line="64" />
         <source>Magnet Pull</source>
-        <translation></translation>
+        <translation>磁力</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="65"/>
+        <location filename="../Gen8/Wild8.cpp" line="65" />
         <source>Static</source>
         <translation>定点乱数</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="66"/>
+        <location filename="../Gen8/Wild8.cpp" line="66" />
         <source>Storm Drain</source>
-        <translation></translation>
+        <translation>引水</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="55"/>
+        <location filename="../Gen8/Wild8.cpp" line="55" />
         <source>Item Modifier</source>
-        <translation></translation>
+        <translation>道具修正</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="56"/>
+        <location filename="../Gen8/Wild8.cpp" line="56" />
         <source>Compound Eyes</source>
-        <translation></translation>
+        <translation>复眼</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="56"/>
+        <location filename="../Gen8/Wild8.cpp" line="56" />
         <source>Super Luck</source>
-        <translation></translation>
+        <translation>超幸运</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="57"/>
+        <location filename="../Gen8/Wild8.cpp" line="57" />
         <source>Level Modifier</source>
-        <translation></translation>
+        <translation>等级修正</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="58"/>
+        <location filename="../Gen8/Wild8.cpp" line="58" />
         <source>Hustle</source>
-        <translation></translation>
+        <translation>活力</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="59"/>
+        <location filename="../Gen8/Wild8.cpp" line="59" />
         <source>Pressure</source>
-        <translation></translation>
+        <translation>压迫感</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="60"/>
+        <location filename="../Gen8/Wild8.cpp" line="60" />
         <source>Vital Spirit</source>
-        <translation></translation>
+        <translation>干劲</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="67"/>
+        <location filename="../Gen8/Wild8.cpp" line="67" />
         <source>Synchronize</source>
         <translation>同步</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="201"/>
+        <location filename="../Gen8/Wild8.cpp" line="201" />
         <source>Missing seeds</source>
-        <translation></translation>
+        <translation>缺少种子</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="201"/>
+        <location filename="../Gen8/Wild8.cpp" line="201" />
         <source>Please insert missing seed information</source>
-        <translation></translation>
+        <translation>请输入缺失的种子信息</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="214"/>
+        <location filename="../Gen8/Wild8.cpp" line="214" />
         <source>Too many slots selected</source>
-        <translation></translation>
+        <translation>选择的槽位过多</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="215"/>
+        <location filename="../Gen8/Wild8.cpp" line="215" />
         <source>Please select a single encounter slot for Honey Tree</source>
-        <translation></translation>
+        <translation>请为甜甜蜜树只选择一个遭遇槽位</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="54"/>
+        <location filename="../Gen8/Wild8.cpp" line="54" />
         <source>Cute Charm</source>
         <translation>迷人身躯</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="54"/>
+        <location filename="../Gen8/Wild8.cpp" line="54" />
         <source>♂ Lead</source>
         <translation>♂ 队首</translation>
     </message>
     <message>
-        <location filename="../Gen8/Wild8.cpp" line="54"/>
+        <location filename="../Gen8/Wild8.cpp" line="54" />
         <source>♀ Lead</source>
         <translation>♀ 队首</translation>
     </message>
@@ -10201,7 +10200,7 @@
     </message>
     <message>
         <source>Replacement</source>
-        <translation></translation>
+        <translation>替换</translation>
     </message>
     <message>
         <source>Swarm</source>
@@ -10213,107 +10212,107 @@
     </message>
     <message>
         <source>Offset</source>
-        <translation></translation>
+        <translation>偏移</translation>
     </message>
     <message>
         <source>Honey Tree</source>
-        <translation></translation>
+        <translation>甜甜蜜树</translation>
     </message>
 </context>
 <context>
     <name>WildGeneratorModel3</name>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.cpp" line="53"/>
+        <location filename="../../Model/Gen3/WildModel3.cpp" line="53" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.cpp" line="53"/>
+        <location filename="../../Model/Gen3/WildModel3.cpp" line="53" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.cpp" line="53"/>
+        <location filename="../../Model/Gen3/WildModel3.cpp" line="53" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="79" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="79" />
         <source>Slot</source>
         <translation>卡槽</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="79" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="79" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="79" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="79" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="79" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="79" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="80" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="80" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="80" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="80" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="80" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="80" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="80" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="80"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="80" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
@@ -10321,122 +10320,122 @@
 <context>
     <name>WildGeneratorModel4</name>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.cpp" line="73"/>
+        <location filename="../../Model/Gen4/WildModel4.cpp" line="73" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.cpp" line="73"/>
+        <location filename="../../Model/Gen4/WildModel4.cpp" line="73" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.cpp" line="73"/>
+        <location filename="../../Model/Gen4/WildModel4.cpp" line="73" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="89" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="89" />
         <source>Battle Advances</source>
-        <translation></translation>
+        <translation>战斗帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="89" />
         <source>Call</source>
         <translation>电话</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="89" />
         <source>Chatot</source>
         <translation>聒噪鸟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="89" />
         <source>Item</source>
         <translation>道具</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="89" />
         <source>Slot</source>
         <translation>卡槽</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="89" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="89"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="89" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="90" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="90" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="90" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="90" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="90" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="90" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="90" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="90"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="90" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="91"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="91" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="91"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="91" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="91"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="91" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="91"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="91" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="91"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="91" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -10444,112 +10443,112 @@
 <context>
     <name>WildGeneratorModel5</name>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.cpp" line="58"/>
+        <location filename="../../Model/Gen5/WildModel5.cpp" line="58" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.cpp" line="58"/>
+        <location filename="../../Model/Gen5/WildModel5.cpp" line="58" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.cpp" line="58"/>
+        <location filename="../../Model/Gen5/WildModel5.cpp" line="58" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="80"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="80" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="80"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="80" />
         <source>Chatot</source>
         <translation>聒噪鸟</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="80"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="80" />
         <source>Item</source>
         <translation>道具</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="80"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="80" />
         <source>Slot</source>
         <translation>卡槽</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="80"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="80" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="80"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="80" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="80"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="80" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="81" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="81" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="81" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="81" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="81" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="81" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="81"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="81" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="82" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="82" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="82" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="82" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="82"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="82" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -10557,117 +10556,117 @@
 <context>
     <name>WildModel8</name>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.cpp" line="57"/>
+        <location filename="../../Model/Gen8/WildModel8.cpp" line="57" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.cpp" line="57"/>
+        <location filename="../../Model/Gen8/WildModel8.cpp" line="57" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.cpp" line="57"/>
+        <location filename="../../Model/Gen8/WildModel8.cpp" line="57" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="79" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="79" />
         <source>Item</source>
         <translation>道具</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="79" />
         <source>Slot</source>
         <translation>卡槽</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="79" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="79" />
         <source>EC</source>
-        <translation></translation>
+        <translation>EC</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="79" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="79" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="80" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="80" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="80" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="80" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="80" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="80" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="80"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="80" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="81" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="81" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="81" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="81" />
         <source>Height</source>
         <translation>身高</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="81" />
         <source>Weight</source>
         <translation>体重</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen8/WildModel8.hpp" line="81"/>
+        <location filename="../../Model/Gen8/WildModel8.hpp" line="81" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -10675,97 +10674,97 @@
 <context>
     <name>WildSearcherModel3</name>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.cpp" line="122"/>
+        <location filename="../../Model/Gen3/WildModel3.cpp" line="122" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.cpp" line="122"/>
+        <location filename="../../Model/Gen3/WildModel3.cpp" line="122" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.cpp" line="122"/>
+        <location filename="../../Model/Gen3/WildModel3.cpp" line="122" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="137" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="137" />
         <source>Slot</source>
         <translation>卡槽</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="137" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="137" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="137" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="137" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="137" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="137" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="138" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="138" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="138" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="138" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="138" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="138" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="138" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen3/WildModel3.hpp" line="138"/>
+        <location filename="../../Model/Gen3/WildModel3.hpp" line="138" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
@@ -10773,112 +10772,112 @@
 <context>
     <name>WildSearcherModel4</name>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.cpp" line="170"/>
+        <location filename="../../Model/Gen4/WildModel4.cpp" line="170" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.cpp" line="170"/>
+        <location filename="../../Model/Gen4/WildModel4.cpp" line="170" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.cpp" line="170"/>
+        <location filename="../../Model/Gen4/WildModel4.cpp" line="170" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="158" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="158" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="158" />
         <source>Item</source>
         <translation>道具</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="158" />
         <source>Slot</source>
         <translation>卡槽</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="158" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="158" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="158" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="159" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="159" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="159" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="159" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="159" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="159" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="159"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="159" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="160" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="160" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="160" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="160" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen4/WildModel4.hpp" line="160"/>
+        <location filename="../../Model/Gen4/WildModel4.hpp" line="160" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
@@ -10886,132 +10885,132 @@
 <context>
     <name>WildSearcherModel5</name>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.cpp" line="146"/>
+        <location filename="../../Model/Gen5/WildModel5.cpp" line="146" />
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.cpp" line="146"/>
+        <location filename="../../Model/Gen5/WildModel5.cpp" line="146" />
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.cpp" line="146"/>
+        <location filename="../../Model/Gen5/WildModel5.cpp" line="146" />
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="139"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="139" />
         <source>Seed</source>
         <translation>种子</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="139"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="139" />
         <source>Advances</source>
         <translation>帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="139"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="139" />
         <source>IV Advances</source>
-        <translation></translation>
+        <translation>个体值帧数</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="139"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="139" />
         <source>Item</source>
         <translation>道具</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="139"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="139" />
         <source>Slot</source>
         <translation>卡槽</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="140" />
         <source>Level</source>
         <translation>等级</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="140" />
         <source>PID</source>
         <translation>性格值</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="140" />
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="140" />
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="140"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="140" />
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="141" />
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="141" />
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="141" />
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="141" />
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="141"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="141" />
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="142"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="142" />
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="142"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="142" />
         <source>Hidden</source>
         <translation>觉醒</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="142"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="142" />
         <source>Power</source>
         <translation>威力</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="142"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="142" />
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="142"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="142" />
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="143"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="143" />
         <source>Date/Time</source>
         <translation>日期/时间</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="143"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="143" />
         <source>Timer0</source>
         <translation>Timer0</translation>
     </message>
     <message>
-        <location filename="../../Model/Gen5/WildModel5.hpp" line="143"/>
+        <location filename="../../Model/Gen5/WildModel5.hpp" line="143" />
         <source>Buttons</source>
         <translation>按键</translation>
     </message>
