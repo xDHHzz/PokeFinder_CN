@@ -123,7 +123,7 @@ WB8 Event8::getParameters() const
 
 void Event8::importEvent()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, "Select a wondercard file", QDir::currentPath(), "Wondercard (*.wb8)");
+    QString fileName = QFileDialog::getOpenFileName(this, "选择配信卡文件", QDir::currentPath(), "配信卡文件 (*.wb8)");
     if (!fileName.isEmpty())
     {
         QFile file(fileName);

@@ -94,8 +94,8 @@ void TableView::setModel(QAbstractItemModel *model)
 
 void TableView::outputModel(bool csv) const
 {
-    QString caption = tr(csv ? "Save Output to CSV" : "Save Output to TXT");
-    QString filter = tr(csv ? "CSV File (*.csv);;All Files (*)" : "Text File (*.txt);;All Files (*)");
+    QString caption = tr(csv ? "将输出保存为 CSV" : "将输出保存为 TXT");
+    QString filter = tr(csv ? "CSV 文件 (*.csv);;所有文件 (*)" : "文本文件 (*.txt);;所有文件 (*)");
 
     QString fileName = QFileDialog::getSaveFileName(nullptr, caption, QDir::currentPath(), filter);
 

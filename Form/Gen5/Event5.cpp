@@ -199,7 +199,7 @@ void Event5::generate()
 
 void Event5::generatorImportEvent()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, "Select a wondercard file", QDir::currentPath(), "Wondercard (*.pgf)");
+    QString fileName = QFileDialog::getOpenFileName(this, "选择配信卡文件", QDir::currentPath(), "配信卡文件 (*.pgf)");
     if (!fileName.isEmpty())
     {
         QFile file(fileName);
@@ -344,7 +344,7 @@ void Event5::search()
 
 void Event5::searcherImportEvent()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, "Select a wondercard file", QDir::currentPath(), "Wondercard (*.pgf)");
+    QString fileName = QFileDialog::getOpenFileName(this, "选择配信卡文件", QDir::currentPath(), "配信卡文件 (*.pgf)");
     if (!fileName.isEmpty())
     {
         QFile file(fileName);
