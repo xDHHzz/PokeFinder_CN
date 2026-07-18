@@ -278,7 +278,7 @@
     <message>
         <location filename="../Gen5/DreamRadar.cpp" line="345"/>
         <source>Invalid date range</source>
-        <translation>请输入正确的日期范围</translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
         <location filename="../Gen5/DreamRadar.cpp" line="345"/>
@@ -1626,18 +1626,18 @@
         <location filename="../Gen5/Eggs5.cpp" line="145"/>
         <location filename="../Gen5/Eggs5.cpp" line="189"/>
         <source>Parents Reordered</source>
-        <translation>父母已重新排序</translation>
+        <translation>亲代顺序已重新排列</translation>
     </message>
     <message>
         <location filename="../Gen5/Eggs5.cpp" line="145"/>
         <location filename="../Gen5/Eggs5.cpp" line="189"/>
         <source>Parent were swapped to match the game</source>
-        <translation>已交换父母顺序以匹配游戏</translation>
+        <translation>已交换亲代顺序以匹配游戏规则</translation>
     </message>
     <message>
         <location filename="../Gen5/Eggs5.cpp" line="175"/>
         <source>Invalid date range</source>
-        <translation>请输入正确的日期范围</translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
         <location filename="../Gen5/Eggs5.cpp" line="175"/>
@@ -1750,12 +1750,12 @@
     <message>
         <location filename="../Gen8/Eggs8.cpp" line="115"/>
         <source>Parents Reordered</source>
-        <translation>父母已重新排序</translation>
+        <translation>亲代顺序已重新排列</translation>
     </message>
     <message>
         <location filename="../Gen8/Eggs8.cpp" line="115"/>
         <source>Parent were swapped to match the game</source>
-        <translation>已交换父母顺序以匹配游戏</translation>
+        <translation>已交换亲代顺序以匹配游戏规则</translation>
     </message>
     <message>
         <location filename="../Gen8/Eggs8.cpp" line="123"/>
@@ -2237,7 +2237,7 @@
     <message>
         <location filename="../Gen5/Event5.cpp" line="307"/>
         <source>Invalid date range</source>
-        <translation>请输入正确的日期范围</translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
         <location filename="../Gen5/Event5.cpp" line="307"/>
@@ -2357,7 +2357,7 @@
     </message>
     <message>
         <source>IV Count</source>
-        <translation>IV 数量</translation>
+        <translation>满个体数</translation>
     </message>
     <message>
         <source>Species</source>
@@ -2373,7 +2373,7 @@
     </message>
     <message>
         <source>Nature Locked</source>
-        <translation>锁性格</translation>
+        <translation>性格锁定</translation>
     </message>
     <message>
         <source>Level</source>
@@ -2994,7 +2994,7 @@
     </message>
     <message>
         <source>First Shadow Unset</source>
-        <translation>第一个暗影未设置</translation>
+        <translation>首只暗影未设定</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3618,7 +3618,7 @@
         <location filename="../Gen5/HiddenGrotto.cpp" line="337"/>
         <location filename="../Gen5/HiddenGrotto.cpp" line="546"/>
         <source>Invalid date range</source>
-        <translation>请输入正确的日期范围</translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
         <location filename="../Gen5/HiddenGrotto.cpp" line="337"/>
@@ -4330,7 +4330,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen5/IDs5.cpp" line="142"/>
         <source>Invalid date range</source>
-        <translation>请输入正确的日期范围</translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
         <location filename="../Gen5/IDs5.cpp" line="142"/>
@@ -5574,7 +5574,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Unown Puzzles</source>
-        <translation>未知图腾拼图谜题</translation>
+        <translation>未知图腾拼图</translation>
     </message>
     <message>
         <source>A-J</source>
@@ -5594,7 +5594,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Unown Discovered</source>
-        <translation>已捕捉未知图腾</translation>
+        <translation>已发现的未知图腾</translation>
     </message>
 </context>
 <context>
@@ -6403,7 +6403,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>IV Count</source>
-        <translation>IV 数量</translation>
+        <translation>满个体数</translation>
     </message>
     <message>
         <source>Shiny Type</source>
@@ -6695,29 +6695,29 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Previous 32Bit High</source>
-        <translation>上一个 32 位高位</translation>
+        <translation>上一值的高 32 位</translation>
     </message>
     <message>
         <source>Previous 32Bit Low</source>
-        <translation>上一个 32 位低位</translation>
+        <translation>上一值的低 32 位</translation>
     </message>
     <message>
         <source>Previous 16Bit High</source>
-        <translation>上一个 16 位高位</translation>
+        <translation>上一值的高 16 位</translation>
     </message>
     <message>
         <source>Previous 16Bit Low</source>
-        <translation>上一个 16 位低位</translation>
+        <translation>上一值的低 16 位</translation>
     </message>
     <message>
         <location filename="../Util/Researcher.cpp" line="345"/>
         <source>Missing setting</source>
-        <translation>缺少设置</translation>
+        <translation>缺少设置项</translation>
     </message>
     <message>
         <location filename="../Util/Researcher.cpp" line="346"/>
         <source>You must check the Hex box in order to use hexadecimal values for Custom %1</source>
-        <translation>要为自定义 %1 使用十六进制值，必须勾选 Hex 选项</translation>
+        <translation>若要为自定义 %1 使用十六进制数值，必须勾选 Hex。</translation>
     </message>
     <message>
         <location filename="../Util/Researcher.cpp" line="410"/>
@@ -6918,7 +6918,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="135"/>
         <source>Invalid date range</source>
-        <translation>请输入正确的日期范围</translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
         <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="135"/>
@@ -6970,12 +6970,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen4/Tools/SearchCalls.cpp" line="109"/>
         <source>P - It seems that Pokémon that have been infected with Pokérus level up better. We&apos;re not quite sure why...</source>
-        <translation>P - 听说感染了宝可病毒的宝可梦升级会更好。我们还不太清楚为什么……</translation>
+        <translation>P - 感染宝可病毒的宝可梦，好像会更容易成长。至于原因，我们也还不太清楚……</translation>
     </message>
     <message>
         <location filename="../Gen4/Tools/SearchCalls.cpp" line="107"/>
         <source>E - There are so many different ways that Pokémon evolve, aren&apos;t there?! Some Pokémon don&apos;t even evolve until they meet certain conditions first!</source>
-        <translation>E - 宝可梦有许多不同的进化方式，不是吗？！有些宝可梦甚至要先满足某些条件才会进化！</translation>
+        <translation>E - 宝可梦的进化方式真是五花八门，不是吗？！有些宝可梦甚至要满足特定条件才会进化！</translation>
     </message>
     <message>
         <location filename="../Gen4/Tools/SearchCalls.cpp" line="32"/>
@@ -6986,22 +6986,22 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen4/Tools/SearchCalls.cpp" line="105"/>
         <source>K - I expect there are some Pokémon in the Kanto region that I don&apos;t know. There are probably methods of evolution that I&apos;m not familiar with yet. I should use that perspective and discover what I can!</source>
-        <translation>K - 我想关都地区还有一些我不知道的宝可梦。可能还有我不熟悉的进化方式。我应该从这个角度出发，发现我能发现的东西！</translation>
+        <translation>K - 关都地区里应该还有一些我不了解的宝可梦。说不定也有我还不熟悉的进化方式。我要带着这个想法继续发现更多东西！</translation>
     </message>
     <message>
         <location filename="../Gen4/Tools/SearchCalls.cpp" line="115"/>
         <source>K - I&apos;m so glad you called! I was just about to call you, too! I guess we must be a good match!</source>
-        <translation>K - 你打来我真高兴！我正想给你打电话呢。我想我们一定很合拍！</translation>
+        <translation>K - 你打来真是太好了！我刚刚也正想打给你！看来我们很合得来呢！</translation>
     </message>
     <message>
         <location filename="../Gen4/Tools/SearchCalls.cpp" line="116"/>
         <source>E - Hearing about your escapades rocks my soul! It sure does!</source>
-        <translation>E - 听到你的冒险经历真让我热血沸腾！真的！</translation>
+        <translation>E - 听你讲那些冒险经历，真让我热血沸腾！真的！</translation>
     </message>
     <message>
         <location filename="../Gen4/Tools/SearchCalls.cpp" line="117"/>
         <source>P - How are you? What are you doing? Where are you? How many Badges do you have now? How much money have you saved? How&apos;s your mom? Have you got lots of Pokémon? Is it going to be sunny tomorrow? Arrgh, there&apos;s so much I want to chat about! This is going nowhere!</source>
-        <translation>P - 你好吗？你在做什么？你在哪里？现在有几枚徽章了？存了多少钱？你妈妈怎么样？宝可梦多吗？明天会晴吗？啊，我想聊的太多了！这样聊不完啊！</translation>
+        <translation>P - 你最近怎么样？在做什么？人在哪里？现在有几枚徽章了？存了多少钱？你妈妈还好吗？收服很多宝可梦了吗？明天会不会放晴？啊啊，我想聊的事太多了！这样根本聊不完！</translation>
     </message>
 </context>
 <context>
@@ -7328,7 +7328,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Auto</source>
-        <translation>自适应</translation>
+        <translation>自动</translation>
     </message>
 </context>
 <context>
@@ -7887,7 +7887,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen5/Static5.cpp" line="358"/>
         <source>Invalid date range</source>
-        <translation>请输入正确的日期范围</translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
         <location filename="../Gen5/Static5.cpp" line="358"/>
@@ -8090,7 +8090,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>IV Count</source>
-        <translation>IV 数量</translation>
+        <translation>满个体数</translation>
     </message>
     <message>
         <source>Starters</source>
@@ -8838,15 +8838,15 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Underground Unlocked</source>
-        <translation>解锁地下大洞窟</translation>
+        <translation>已解锁地下大洞窟</translation>
     </message>
     <message>
         <source>Strength Obtained</source>
-        <translation>获得怪力秘传</translation>
+        <translation>已获得怪力术</translation>
     </message>
     <message>
         <source>Defog Obtained</source>
-        <translation>获得清除浓雾秘传</translation>
+        <translation>已获得清除浓雾</translation>
     </message>
     <message>
         <source>7 Badges</source>
@@ -8854,7 +8854,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Waterfall Obtained</source>
-        <translation>获得攀瀑秘传</translation>
+        <translation>已获得攀瀑</translation>
     </message>
     <message>
         <source>National Dex</source>
@@ -8983,7 +8983,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen8/Underground.cpp" line="54"/>
         <source>Item Modifier</source>
-        <translation>道具机率修正</translation>
+        <translation>道具概率修正</translation>
     </message>
     <message>
         <location filename="../Gen8/Underground.cpp" line="55"/>
@@ -8998,7 +8998,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen8/Underground.cpp" line="56"/>
         <source>Level Modifier</source>
-        <translation>遭遇等级机率修正</translation>
+        <translation>遭遇等级概率修正</translation>
     </message>
     <message>
         <location filename="../Gen8/Underground.cpp" line="57"/>
@@ -9205,7 +9205,7 @@ Profile is missing or has an incompatible SHA cache.</source>
         <location filename="../Gen3/Wild3.cpp" line="74"/>
         <location filename="../Gen3/Wild3.cpp" line="85"/>
         <source>Level Modifier</source>
-        <translation>遭遇等级机率修正</translation>
+        <translation>遭遇等级概率修正</translation>
     </message>
     <message>
         <location filename="../Gen3/Wild3.cpp" line="75"/>
@@ -9539,7 +9539,7 @@ Profile is missing or has an incompatible SHA cache.</source>
         <location filename="../Gen4/Wild4.cpp" line="79"/>
         <location filename="../Gen4/Wild4.cpp" line="97"/>
         <source>Level Modifier</source>
-        <translation>遭遇等级机率修正</translation>
+        <translation>遭遇等级概率修正</translation>
     </message>
     <message>
         <location filename="../Gen4/Wild4.cpp" line="80"/>
@@ -9563,13 +9563,13 @@ Profile is missing or has an incompatible SHA cache.</source>
         <location filename="../Gen4/Wild4.cpp" line="355"/>
         <location filename="../Gen4/Wild4.cpp" line="673"/>
         <source>Please select a single encounter slot for Poke Radar</source>
-        <translation>请为宝可追踪选择单个遇敌槽位</translation>
+        <translation>请为宝可追踪选择一个遭遇槽位</translation>
     </message>
     <message>
         <location filename="../Gen4/Wild4.cpp" line="371"/>
         <location filename="../Gen4/Wild4.cpp" line="689"/>
         <source>Please select a single encounter slot for Honey Tree</source>
-        <translation>请为甜蜜树选择单个遇敌槽位</translation>
+        <translation>请为甜甜蜜树选择一个遭遇槽位</translation>
     </message>
     <message>
         <location filename="../Gen4/Wild4.cpp" line="717"/>
@@ -10013,7 +10013,7 @@ Profile is missing or has an incompatible SHA cache.</source>
         <location filename="../Gen5/Wild5.cpp" line="83"/>
         <location filename="../Gen5/Wild5.cpp" line="95"/>
         <source>Level Modifier</source>
-        <translation>遭遇等级机率修正</translation>
+        <translation>遭遇等级概率修正</translation>
     </message>
     <message>
         <location filename="../Gen5/Wild5.cpp" line="84"/>
@@ -10060,7 +10060,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen5/Wild5.cpp" line="374"/>
         <source>Invalid date range</source>
-        <translation>请输入正确的日期范围</translation>
+        <translation>日期范围无效</translation>
     </message>
     <message>
         <location filename="../Gen5/Wild5.cpp" line="374"/>
@@ -10224,7 +10224,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="55"/>
         <source>Item Modifier</source>
-        <translation>道具机率修正</translation>
+        <translation>道具概率修正</translation>
     </message>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="56"/>
@@ -10239,7 +10239,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="57"/>
         <source>Level Modifier</source>
-        <translation>遭遇等级机率修正</translation>
+        <translation>遭遇等级概率修正</translation>
     </message>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="58"/>
@@ -10279,7 +10279,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="229"/>
         <source>Please select a single encounter slot for Honey Tree</source>
-        <translation>请为甜蜜树选择单个遇敌槽位</translation>
+        <translation>请为甜甜蜜树选择一个遭遇槽位</translation>
     </message>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="54"/>
