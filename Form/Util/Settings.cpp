@@ -115,7 +115,7 @@ Settings::~Settings()
 
 void Settings::changeProfiles()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Select Profile json", QDir::currentPath(), "json (*.json)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Select Profile json"), QDir::currentPath(), tr("json (*.json)"));
     if (!fileName.isEmpty())
     {
         if (!QFile::exists(fileName))

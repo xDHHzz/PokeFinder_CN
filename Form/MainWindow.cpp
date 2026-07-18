@@ -79,7 +79,7 @@
 MainWindow::MainWindow(bool profile, QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setWindowTitle(QString("Pok\303\251Finder %1").arg(POKEFINDER_VERSION));
+    setWindowTitle(tr("Pok\303\251Finder %1").arg(POKEFINDER_VERSION));
 
     connect(ui->pushButtonEgg3, &QPushButton::clicked, this, &MainWindow::openEgg3);
     connect(ui->pushButtonGameCube, &QPushButton::clicked, this, &MainWindow::openGameCube);

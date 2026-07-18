@@ -2413,6 +2413,16 @@
         <source>Offset</source>
         <translation>偏移</translation>
     </message>
+    <message>
+        <location filename="../Gen8/Event8.cpp" line="126"/>
+        <source>Select a wondercard file</source>
+        <translation>选择 wondercard 文件</translation>
+    </message>
+    <message>
+        <location filename="../Gen8/Event8.cpp" line="126"/>
+        <source>Wondercard (*.wb8)</source>
+        <translation>wondercard 文件 (*.wb8)</translation>
+    </message>
 </context>
 <context>
     <name>EventGeneratorModel4</name>
@@ -5002,6 +5012,11 @@ Profile is missing or has an incompatible SHA cache.</source>
         <source>IV Cache</source>
         <translation>IV 缓存</translation>
     </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="82"/>
+        <source>PokéFinder %1</source>
+        <translation>PokéFinder %1</translation>
+    </message>
 </context>
 <context>
     <name>PIDToIV</name>
@@ -7330,6 +7345,16 @@ Profile is missing or has an incompatible SHA cache.</source>
         <source>Auto</source>
         <translation>自动</translation>
     </message>
+    <message>
+        <location filename="../Util/Settings.cpp" line="118"/>
+        <source>Select Profile json</source>
+        <translation>选择配置文件</translation>
+    </message>
+    <message>
+        <location filename="../Util/Settings.cpp" line="118"/>
+        <source>json (*.json)</source>
+        <translation>JSON 文件 (*.json)</translation>
+    </message>
 </context>
 <context>
     <name>SpindaPainter</name>
@@ -8820,6 +8845,26 @@ Profile is missing or has an incompatible SHA cache.</source>
         <location filename="../Controls/TableView.cpp" line="34"/>
         <source>Output Results to CSV</source>
         <translation>导出结果至 CSV</translation>
+    </message>
+    <message>
+        <location filename="../Controls/TableView.cpp" line="90"/>
+        <source>Save Output to CSV</source>
+        <translation>将输出保存为 CSV</translation>
+    </message>
+    <message>
+        <location filename="../Controls/TableView.cpp" line="90"/>
+        <source>Save Output to TXT</source>
+        <translation>将输出保存为 TXT</translation>
+    </message>
+    <message>
+        <location filename="../Controls/TableView.cpp" line="91"/>
+        <source>CSV File (*.csv);;All Files (*)</source>
+        <translation>CSV 文件 (*.csv);;所有文件 (*)</translation>
+    </message>
+    <message>
+        <location filename="../Controls/TableView.cpp" line="91"/>
+        <source>Text File (*.txt);;All Files (*)</source>
+        <translation>文本文件 (*.txt);;所有文件 (*)</translation>
     </message>
 </context>
 <context>
