@@ -152,7 +152,7 @@ void ProfileEditor5::okay()
 
 void ProfileEditor5::selectIVCache()
 {
-    QString file = QFileDialog::getOpenFileName(this, tr("Open IV Cache"), QDir::currentPath(), "ivcache (*.ivcache)");
+    QString file = QFileDialog::getOpenFileName(this, tr("Open IV Cache"), QDir::currentPath(), tr("ivcache (*.ivcache)"));
     IVCache cache(file.toStdString(), false);
     if (cache.isValid())
     {
@@ -169,7 +169,7 @@ void ProfileEditor5::selectIVCache()
 
 void ProfileEditor5::selectSHACache()
 {
-    QString file = QFileDialog::getOpenFileName(this, tr("Open SHA1 Cache"), QDir::currentPath(), "sha1cache (*.sha1cache)");
+    QString file = QFileDialog::getOpenFileName(this, tr("Open SHA1 Cache"), QDir::currentPath(), tr("sha1cache (*.sha1cache)"));
     SHA1Cache cache(file.toStdString());
     if (cache.isValid(getProfile()))
     {

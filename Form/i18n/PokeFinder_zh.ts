@@ -2256,6 +2256,18 @@
         <source>Always</source>
         <translation>必定</translation>
     </message>
+    <message>
+        <location filename="../Gen5/Event5.cpp" line="209"/>
+        <location filename="../Gen5/Event5.cpp" line="359"/>
+        <source>Select a wondercard file</source>
+        <translation>选择 wondercard 文件</translation>
+    </message>
+    <message>
+        <location filename="../Gen5/Event5.cpp" line="209"/>
+        <location filename="../Gen5/Event5.cpp" line="359"/>
+        <source>Wondercard (*.pgf)</source>
+        <translation>wondercard 文件 (*.pgf)</translation>
+    </message>
 </context>
 <context>
     <name>Event8</name>
@@ -3473,6 +3485,12 @@
         <source>Clear</source>
         <translation>清空</translation>
     </message>
+    <message>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="255"/>
+        <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="374"/>
+        <source>precalc (*.precalc)</source>
+        <translation>预计算文件 (*.precalc)</translation>
+    </message>
 </context>
 <context>
     <name>HiddenGrotto</name>
@@ -4464,6 +4482,11 @@ Profile is missing or has an incompatible SHA cache.</source>
         <location filename="../Gen5/Tools/IVCacheFinder.cpp" line="91"/>
         <source>Save File</source>
         <translation>保存文件</translation>
+    </message>
+    <message>
+        <location filename="../Gen5/Tools/IVCacheFinder.cpp" line="91"/>
+        <source>ivcache (*.ivcache)</source>
+        <translation>IV 缓存文件 (*.ivcache)</translation>
     </message>
 </context>
 <context>
@@ -5806,6 +5829,16 @@ Profile is missing or has an incompatible SHA cache.</source>
         <source>SHA Cache</source>
         <translation>SHA 缓存</translation>
     </message>
+    <message>
+        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="155"/>
+        <source>ivcache (*.ivcache)</source>
+        <translation>IV 缓存文件 (*.ivcache)</translation>
+    </message>
+    <message>
+        <location filename="../Gen5/Profile/ProfileEditor5.cpp" line="172"/>
+        <source>sha1cache (*.sha1cache)</source>
+        <translation>SHA1 缓存文件 (*.sha1cache)</translation>
+    </message>
 </context>
 <context>
     <name>ProfileEditor8</name>
@@ -6954,6 +6987,11 @@ Profile is missing or has an incompatible SHA cache.</source>
         <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="182"/>
         <source>Save File</source>
         <translation>保存文件</translation>
+    </message>
+    <message>
+        <location filename="../Gen5/Tools/SHA1CacheFinder.cpp" line="182"/>
+        <source>sha1cache (*.sha1cache)</source>
+        <translation>SHA1 缓存文件 (*.sha1cache)</translation>
     </message>
 </context>
 <context>
