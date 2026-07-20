@@ -43,7 +43,7 @@
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Calculate</source>
@@ -129,7 +129,7 @@
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -165,7 +165,7 @@
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>VFrame</source>
@@ -189,7 +189,7 @@
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -320,7 +320,7 @@
     <message>
         <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
@@ -408,7 +408,7 @@
     <message>
         <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
@@ -418,7 +418,7 @@
     <message>
         <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
@@ -541,7 +541,7 @@
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="99"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="100"/>
@@ -639,7 +639,7 @@
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="88"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="88"/>
@@ -742,7 +742,7 @@
     <message>
         <location filename="../../Model/Gen3/EggModel3.hpp" line="88"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/EggModel3.hpp" line="89"/>
@@ -840,7 +840,7 @@
     <message>
         <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
@@ -918,7 +918,7 @@
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="187"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="188"/>
@@ -933,7 +933,7 @@
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="190"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="191"/>
@@ -1021,7 +1021,7 @@
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
@@ -1031,7 +1031,7 @@
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="155"/>
@@ -1271,11 +1271,11 @@
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -1386,7 +1386,7 @@
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -1402,7 +1402,7 @@
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Generator</source>
@@ -1516,7 +1516,7 @@
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>MAC Address</source>
@@ -1540,7 +1540,7 @@
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>DS Type</source>
@@ -1580,7 +1580,7 @@
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -1689,11 +1689,11 @@
     </message>
     <message>
         <source>Seed 0</source>
-        <translation>Seed 0</translation>
+        <translation>种子 0</translation>
     </message>
     <message>
         <source>Seed 1</source>
-        <translation>Seed 1</translation>
+        <translation>种子 1</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -1709,7 +1709,7 @@
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -1731,7 +1731,7 @@
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Shiny Charm</source>
@@ -1932,11 +1932,11 @@
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -1956,7 +1956,7 @@
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Initial Advances</source>
@@ -2040,7 +2040,7 @@
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>MAC Address</source>
@@ -2064,7 +2064,7 @@
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>DS Type</source>
@@ -2100,7 +2100,7 @@
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -2289,7 +2289,7 @@
     </message>
     <message>
         <source>Seed 0</source>
-        <translation>Seed 0</translation>
+        <translation>种子 0</translation>
     </message>
     <message>
         <source>Initial Advances</source>
@@ -2297,7 +2297,7 @@
     </message>
     <message>
         <source>Seed 1</source>
-        <translation>Seed 1</translation>
+        <translation>种子 1</translation>
     </message>
     <message>
         <source>Profile</source>
@@ -2305,11 +2305,11 @@
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Manager</source>
@@ -2333,7 +2333,7 @@
     </message>
     <message>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <source>EC</source>
@@ -2524,7 +2524,7 @@
     <message>
         <location filename="../../Model/Gen5/EventModel5.hpp" line="81"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EventModel5.hpp" line="81"/>
@@ -2597,7 +2597,7 @@
     <message>
         <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/EventModel4.hpp" line="158"/>
@@ -2665,7 +2665,7 @@
     <message>
         <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
@@ -2675,7 +2675,7 @@
     <message>
         <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EventModel5.hpp" line="140"/>
@@ -2956,7 +2956,7 @@
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -2968,7 +2968,7 @@
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Generator</source>
@@ -2984,7 +2984,7 @@
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Filters</source>
@@ -3072,7 +3072,7 @@
     <message>
         <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
@@ -3155,12 +3155,12 @@
     <message>
         <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/GameCubeModel.hpp" line="134"/>
@@ -3271,11 +3271,11 @@
     </message>
     <message>
         <source>Seth</source>
-        <translation>Seth</translation>
+        <translation>塞斯</translation>
     </message>
     <message>
         <source>Thomas</source>
-        <translation>Thomas</translation>
+        <translation>托马斯</translation>
     </message>
     <message>
         <source>Party Lead</source>
@@ -3504,7 +3504,7 @@
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -3540,7 +3540,7 @@
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>VFrame</source>
@@ -3556,7 +3556,7 @@
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Initial Advances</source>
@@ -3746,7 +3746,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="177"/>
@@ -3834,7 +3834,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236"/>
@@ -3854,7 +3854,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="236"/>
@@ -3965,7 +3965,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="121"/>
@@ -4008,12 +4008,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/IDModel3.hpp" line="71"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/IDModel3.hpp" line="71"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/IDModel3.hpp" line="71"/>
@@ -4026,17 +4026,17 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/IDModel4.hpp" line="71"/>
@@ -4059,7 +4059,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
@@ -4074,12 +4074,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/IDModel5.hpp" line="82"/>
@@ -4117,12 +4117,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen8/IDModel8.hpp" line="71"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/IDModel8.hpp" line="71"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/IDModel8.hpp" line="71"/>
@@ -4142,11 +4142,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Dead Battery</source>
@@ -4313,7 +4313,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Date</source>
@@ -4333,11 +4333,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Start/End Date</source>
@@ -4390,11 +4390,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed 1</source>
-        <translation>Seed 1</translation>
+        <translation>种子 1</translation>
     </message>
     <message>
         <source>Seed 0</source>
-        <translation>Seed 0</translation>
+        <translation>种子 0</translation>
     </message>
     <message>
         <source>Filters</source>
@@ -4415,15 +4415,15 @@ Profile is missing or has an incompatible SHA cache.</source>
     <name>IDsFilter</name>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>TID/SID</source>
-        <translation>TID/SID</translation>
+        <translation>表ID/里ID</translation>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>TSV</source>
@@ -4435,11 +4435,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <source>TID/PID</source>
-        <translation>TID/PID</translation>
+        <translation>表ID/性格值</translation>
     </message>
 </context>
 <context>
@@ -4682,7 +4682,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
 </context>
 <context>
@@ -4730,12 +4730,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Util/IVToPIDModel.hpp" line="68"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Util/IVToPIDModel.hpp" line="68"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Util/IVToPIDModel.hpp" line="68"/>
@@ -4750,7 +4750,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Util/IVToPIDModel.hpp" line="68"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
 </context>
 <context>
@@ -5049,7 +5049,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -5086,7 +5086,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/PIDToIVModel.hpp" line="71"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/PIDToIVModel.hpp" line="71"/>
@@ -5119,11 +5119,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Profile</source>
@@ -5206,7 +5206,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="83"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="84"/>
@@ -5317,11 +5317,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>DS Original/Lite</source>
-        <translation>DS Original/Lite</translation>
+        <translation>DS 初代/Lite</translation>
     </message>
     <message>
         <source>DSi/DSi XL</source>
-        <translation>DSi/DSi XL</translation>
+        <translation>DSi/DSi LL/XL</translation>
     </message>
     <message>
         <source>3DS</source>
@@ -5361,31 +5361,31 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>ENG</source>
-        <translation>ENG</translation>
+        <translation>英语</translation>
     </message>
     <message>
         <source>SPA</source>
-        <translation>SPA</translation>
+        <translation>西班牙语</translation>
     </message>
     <message>
         <source>FRE</source>
-        <translation>FRE</translation>
+        <translation>法语</translation>
     </message>
     <message>
         <source>ITA</source>
-        <translation>ITA</translation>
+        <translation>意大利语</translation>
     </message>
     <message>
         <source>DEU</source>
-        <translation>DEU</translation>
+        <translation>德语</translation>
     </message>
     <message>
         <source>JPN</source>
-        <translation>JPN</translation>
+        <translation>日语</translation>
     </message>
     <message>
         <source>KOR</source>
-        <translation>KOR</translation>
+        <translation>韩语</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -5441,7 +5441,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../Gen5/Profile/ProfileCalibrator5.cpp" line="75"/>
@@ -5485,7 +5485,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Version</source>
@@ -5521,7 +5521,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5554,7 +5554,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Version</source>
@@ -5566,7 +5566,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Diamond</source>
@@ -5655,7 +5655,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Accept</source>
@@ -5691,7 +5691,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -5703,31 +5703,31 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>ENG</source>
-        <translation>ENG</translation>
+        <translation>英语</translation>
     </message>
     <message>
         <source>SPA</source>
-        <translation>SPA</translation>
+        <translation>西班牙语</translation>
     </message>
     <message>
         <source>FRE</source>
-        <translation>FRE</translation>
+        <translation>法语</translation>
     </message>
     <message>
         <source>ITA</source>
-        <translation>ITA</translation>
+        <translation>意大利语</translation>
     </message>
     <message>
         <source>DEU</source>
-        <translation>DEU</translation>
+        <translation>德语</translation>
     </message>
     <message>
         <source>JPN</source>
-        <translation>JPN</translation>
+        <translation>日语</translation>
     </message>
     <message>
         <source>KOR</source>
-        <translation>KOR</translation>
+        <translation>韩语</translation>
     </message>
     <message>
         <source>VCount</source>
@@ -5743,11 +5743,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>DS Original/Lite</source>
-        <translation>DS Original/Lite</translation>
+        <translation>DS 初代/Lite</translation>
     </message>
     <message>
         <source>DSi/DSi XL</source>
-        <translation>DSi/DSi XL</translation>
+        <translation>DSi/DSi LL/XL</translation>
     </message>
     <message>
         <source>3DS</source>
@@ -5880,7 +5880,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Version</source>
@@ -5888,7 +5888,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Okay</source>
@@ -6138,12 +6138,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/ProfileModel3.hpp" line="71"/>
@@ -6176,12 +6176,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/ProfileModel4.hpp" line="71"/>
@@ -6223,12 +6223,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/ProfileModel5.hpp" line="71"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/ProfileModel5.hpp" line="72"/>
@@ -6308,12 +6308,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/ProfileModel8.hpp" line="71"/>
@@ -6331,7 +6331,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/ProfileSearcherModel5.hpp" line="71"/>
@@ -6391,7 +6391,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Initial Advances</source>
@@ -6489,7 +6489,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -6497,7 +6497,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Manager</source>
@@ -6627,7 +6627,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -6723,11 +6723,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed 0</source>
-        <translation>Seed 0</translation>
+        <translation>种子 0</translation>
     </message>
     <message>
         <source>Seed 1</source>
-        <translation>Seed 1</translation>
+        <translation>种子 1</translation>
     </message>
     <message>
         <source>Value (Hex)</source>
@@ -6895,11 +6895,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>MAC Address</source>
@@ -7010,7 +7010,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Irwin</source>
-        <translation>Irwin</translation>
+        <translation>麦克</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -7113,7 +7113,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>DPPt</source>
-        <translation>DPPt</translation>
+        <translation>珍珠/钻石/白金</translation>
     </message>
     <message>
         <source>Calibration</source>
@@ -7145,7 +7145,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Coin Flips:</source>
@@ -7153,7 +7153,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>HGSS</source>
-        <translation>HGSS</translation>
+        <translation>心金/魂银</translation>
     </message>
     <message>
         <source>Search Calls</source>
@@ -7226,7 +7226,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/SeedToTimeModel4.hpp" line="120"/>
@@ -7402,7 +7402,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
 </context>
 <context>
@@ -7417,7 +7417,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -7429,7 +7429,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Generator</source>
@@ -7449,7 +7449,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Method</source>
@@ -7553,7 +7553,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -7565,7 +7565,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Generator</source>
@@ -7577,7 +7577,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Max Advances</source>
@@ -7743,11 +7743,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>MAC Address</source>
@@ -7795,7 +7795,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>IV Advances</source>
@@ -8018,7 +8018,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed 1</source>
-        <translation>Seed 1</translation>
+        <translation>种子 1</translation>
     </message>
     <message>
         <source>Max Advances</source>
@@ -8026,7 +8026,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed 0</source>
-        <translation>Seed 0</translation>
+        <translation>种子 0</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -8042,7 +8042,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Manager</source>
@@ -8050,7 +8050,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -8193,7 +8193,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
@@ -8291,7 +8291,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/StaticModel4.hpp" line="89"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/StaticModel4.hpp" line="89"/>
@@ -8389,7 +8389,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="81"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="81"/>
@@ -8487,7 +8487,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
@@ -8575,12 +8575,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/StaticModel3.hpp" line="137"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/StaticModel3.hpp" line="137"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/StaticModel3.hpp" line="137"/>
@@ -8663,7 +8663,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
@@ -8673,7 +8673,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/StaticModel4.hpp" line="159"/>
@@ -8761,7 +8761,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="139"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="140"/>
@@ -8776,7 +8776,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="142"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="143"/>
@@ -8993,7 +8993,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -9009,7 +9009,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Filters</source>
@@ -9025,7 +9025,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed 1</source>
-        <translation>Seed 1</translation>
+        <translation>种子 1</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -9033,7 +9033,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed 0</source>
-        <translation>Seed 0</translation>
+        <translation>种子 0</translation>
     </message>
     <message>
         <source>Initial Advances</source>
@@ -9168,7 +9168,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81"/>
@@ -9323,15 +9323,15 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Method</source>
@@ -9450,7 +9450,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -9462,7 +9462,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>Generator</source>
@@ -9532,7 +9532,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -9884,11 +9884,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>MAC Address</source>
@@ -9936,7 +9936,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <source>IV Advances</source>
@@ -10195,7 +10195,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>表ID</translation>
     </message>
     <message>
         <source>Game</source>
@@ -10207,7 +10207,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>里ID</translation>
     </message>
     <message>
         <source>RNG Info</source>
@@ -10235,7 +10235,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed 1</source>
-        <translation>Seed 1</translation>
+        <translation>种子 1</translation>
     </message>
     <message>
         <source>Location</source>
@@ -10243,7 +10243,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed 0</source>
-        <translation>Seed 0</translation>
+        <translation>种子 0</translation>
     </message>
     <message>
         <source>Morning</source>
@@ -10467,7 +10467,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
@@ -10585,7 +10585,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="89"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="90"/>
@@ -10698,7 +10698,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="80"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="80"/>
@@ -10811,7 +10811,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
@@ -10904,7 +10904,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
@@ -10919,7 +10919,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/WildModel3.hpp" line="137"/>
@@ -11002,7 +11002,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
@@ -11027,7 +11027,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="158"/>
@@ -11115,7 +11115,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="139"/>
         <source>Seed</source>
-        <translation>Seed</translation>
+        <translation>种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="139"/>
@@ -11145,7 +11145,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="140"/>
         <source>PID</source>
-        <translation>PID</translation>
+        <translation>性格值</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="140"/>
