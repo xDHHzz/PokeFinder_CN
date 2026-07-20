@@ -70,8 +70,9 @@
     </message>
     <message>
         <location filename="../Gen4/Tools/ChainedSID.cpp" line="113"/>
+        <location filename="../Gen4/Tools/ChainedSID.cpp" line="137"/>
         <source>Possible Results: %1</source>
-        <translation>可能的结果： %1</translation>
+        <translation>可能的结果：%1</translation>
     </message>
     <message>
         <source>Pokemon</source>
@@ -1373,6 +1374,11 @@
         <source>Offset (Held / Pickup)</source>
         <translation>偏移（生成 / 领取）</translation>
     </message>
+    <message>
+        <location filename="../Gen3/Eggs3.cpp" line="114"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
 </context>
 <context>
     <name>Eggs4</name>
@@ -1502,6 +1508,11 @@
     <message>
         <source>Offset (Held / Pickup)</source>
         <translation>偏移（生成 / 领取）</translation>
+    </message>
+    <message>
+        <location filename="../Gen4/Eggs4.cpp" line="123"/>
+        <source>None</source>
+        <translation>无</translation>
     </message>
 </context>
 <context>
@@ -2026,6 +2037,11 @@
     <message>
         <source>Offset</source>
         <translation>偏移</translation>
+    </message>
+    <message>
+        <location filename="../Gen4/Event4.cpp" line="141"/>
+        <source>None</source>
+        <translation>无</translation>
     </message>
 </context>
 <context>
@@ -7540,6 +7556,11 @@ Profile is missing or has an incompatible SHA cache.</source>
         <source>Offset</source>
         <translation>偏移</translation>
     </message>
+    <message>
+        <location filename="../Gen3/Static3.cpp" line="113"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
 </context>
 <context>
     <name>Static4</name>
@@ -7618,6 +7639,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen4/Static4.cpp" line="66"/>
         <location filename="../Gen4/Static4.cpp" line="71"/>
+        <location filename="../Gen4/Static4.cpp" line="148"/>
         <source>None</source>
         <translation>无</translation>
     </message>
@@ -9225,6 +9247,16 @@ Profile is missing or has an incompatible SHA cache.</source>
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
+    <message>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="83"/>
+        <source>Height</source>
+        <translation>身高</translation>
+    </message>
+    <message>
+        <location filename="../../Model/Gen8/UndergroundModel.hpp" line="83"/>
+        <source>Weight</source>
+        <translation>体重</translation>
+    </message>
 </context>
 <context>
     <name>Wild3</name>
@@ -9251,6 +9283,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen3/Wild3.cpp" line="71"/>
         <location filename="../Gen3/Wild3.cpp" line="82"/>
+        <location filename="../Gen3/Wild3.cpp" line="149"/>
         <source>None</source>
         <translation>无</translation>
     </message>
@@ -9667,6 +9700,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen4/Wild4.cpp" line="69"/>
         <location filename="../Gen4/Wild4.cpp" line="87"/>
+        <location filename="../Gen4/Wild4.cpp" line="265"/>
         <source>None</source>
         <translation>无</translation>
     </message>

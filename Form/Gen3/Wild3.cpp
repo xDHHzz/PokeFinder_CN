@@ -144,9 +144,9 @@ void Wild3::updateProfiles()
                  [](const Profile3 &profile) { return (profile.getVersion() & Game::GC) == Game::None; });
 
     ui->comboBoxProfiles->clear();
-    for (const auto &profile : profiles)
+    for (std::size_t i = 0; i < profiles.size(); i++)
     {
-        ui->comboBoxProfiles->addItem(QString::fromStdString(profile.getName()));
+        ui->comboBoxProfiles->addItem(i == 0 ? tr("None") : QString::fromStdString(profiles[i].getName()));
     }
 
     QSettings setting;

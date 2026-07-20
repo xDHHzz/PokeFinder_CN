@@ -260,9 +260,9 @@ void Wild4::updateProfiles()
     profiles.insert(profiles.begin(), Profile4("None", Game::Diamond, 12345, 54321, false));
 
     ui->comboBoxProfiles->clear();
-    for (const auto &profile : profiles)
+    for (std::size_t i = 0; i < profiles.size(); i++)
     {
-        ui->comboBoxProfiles->addItem(QString::fromStdString(profile.getName()));
+        ui->comboBoxProfiles->addItem(i == 0 ? tr("None") : QString::fromStdString(profiles[i].getName()));
     }
 
     QSettings setting;
