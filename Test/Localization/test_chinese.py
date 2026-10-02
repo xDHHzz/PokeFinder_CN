@@ -22,7 +22,7 @@ class ChineseCatalogTests(unittest.TestCase):
         self.assertEqual(missing, [])
     def test_rng_advances_are_not_mislabeled_as_video_frames(self):
         for message in self.root.findall('.//message'):
-            if 'Advance' in message.findtext('source',''):
+            if 'advance' in message.findtext('source','').lower():
                 self.assertNotIn('帧',message.findtext('translation',''),message.findtext('source'))
     def test_placeholders_are_preserved(self):
         pattern = r'%(?:L?\d+|n)'
@@ -38,6 +38,10 @@ class ChineseCatalogTests(unittest.TestCase):
         self.assertEqual(messages['AdjacentSeeds','Adjacent Seeds'], '邻近种子')
         self.assertEqual(messages['AdvanceFinder','Advance Finder'], '推进数查找器')
         self.assertEqual(messages['Phenomenon','Phenomenon'], '特殊现象')
+    def test_context_sensitive_technical_labels(self):
+        messages={(c.findtext('name'),m.findtext('source')):m.findtext('translation') for c in self.root.findall('context') for m in c.findall('message')}
+        expected={('Wild4','Swarm'):'大量出现',('Wild5','Swarm'):'大量出现',('Wild8','Swarm'):'大量出现',('Settings','Threads'):'计算线程数',('Filter','Encounter Slot'):'遭遇槽位',('EggGeneratorModel5','Egg'):'是否生成蛋',('Event4','Wondercard IVs'):'配信卡个体值'}
+        for key,value in expected.items():self.assertEqual(messages[key],value,key)
     def test_language_choice_preserves_english_and_chinese(self):
         source = (ROOT/'Form/Util/Settings.cpp').read_text(encoding="utf-8")
         self.assertIn('"zh"', source)

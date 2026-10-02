@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
@@ -450,7 +450,7 @@
     </message>
     <message>
         <source>End Date</source>
-        <translation>最后日期</translation>
+        <translation>结束日期</translation>
     </message>
     <message>
         <source>Search</source>
@@ -831,7 +831,7 @@
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="108"/>
         <source>Egg</source>
-        <translation>孵化乱数</translation>
+        <translation>是否生成蛋</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EggModel5.cpp" line="48"/>
@@ -1063,7 +1063,7 @@
     <message>
         <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
         <source>Egg Seed</source>
-        <translation>蛋 Seed</translation>
+        <translation>蛋 种子</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
@@ -1569,7 +1569,7 @@
     </message>
     <message>
         <source>Seed (Held / Pickup)</source>
-        <translation>Seed（生成 / 领取）</translation>
+        <translation>种子（生成 / 领取）</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1643,7 +1643,7 @@
     <message>
         <location filename="../Gen4/Eggs4.cpp" line="82"/>
         <source>Generate times for seed</source>
-        <translation>为 Seed 生成时间</translation>
+        <translation>为 种子 生成时间</translation>
     </message>
     <message>
         <location filename="../Gen4/Eggs4.cpp" line="139"/>
@@ -1680,7 +1680,7 @@
     </message>
     <message>
         <source>Seed (Held / Pickup)</source>
-        <translation>Seed（生成 / 领取）</translation>
+        <translation>种子（生成 / 领取）</translation>
     </message>
     <message>
         <source>Held Advances</source>
@@ -1748,7 +1748,7 @@
     </message>
     <message>
         <source>End Date</source>
-        <translation>最后日期</translation>
+        <translation>结束日期</translation>
     </message>
     <message>
         <source>Search</source>
@@ -1836,12 +1836,12 @@
     <message>
         <location filename="../Gen8/Eggs8.cpp" line="106"/>
         <source>Missing seeds</source>
-        <translation>缺失 Seed</translation>
+        <translation>缺失 种子</translation>
     </message>
     <message>
         <location filename="../Gen8/Eggs8.cpp" line="106"/>
         <source>Please insert missing seed information</source>
-        <translation>请填写缺失的 Seed 信息</translation>
+        <translation>请填写缺失的 种子 信息</translation>
     </message>
     <message>
         <source>Offset</source>
@@ -1870,7 +1870,7 @@
     <message>
         <location filename="../Util/EncounterLookup.cpp" line="49"/>
         <source>Encounter Type</source>
-        <translation>遇敌种类</translation>
+        <translation>遭遇类型</translation>
     </message>
     <message>
         <location filename="../Util/EncounterLookup.cpp" line="49"/>
@@ -1995,7 +1995,7 @@
     </message>
     <message>
         <source>Wondercard IVs</source>
-        <translation>第四世代配信乱数</translation>
+        <translation>配信卡个体值</translation>
     </message>
     <message>
         <source>Generator</source>
@@ -2072,7 +2072,7 @@
     <message>
         <location filename="../Gen4/Event4.cpp" line="83"/>
         <source>Generate times for seed</source>
-        <translation>为 Seed 生成时间</translation>
+        <translation>为 种子 生成时间</translation>
     </message>
     <message>
         <source>Offset</source>
@@ -2184,7 +2184,7 @@
     </message>
     <message>
         <source>Egg</source>
-        <translation>孵化乱数</translation>
+        <translation>宝可梦的蛋</translation>
     </message>
     <message>
         <source>Import</source>
@@ -2204,7 +2204,7 @@
     </message>
     <message>
         <source>End Date</source>
-        <translation>最后日期</translation>
+        <translation>结束日期</translation>
     </message>
     <message>
         <source>Search</source>
@@ -2325,7 +2325,7 @@
     </message>
     <message>
         <source>Egg</source>
-        <translation>孵化乱数</translation>
+        <translation>宝可梦的蛋</translation>
     </message>
     <message>
         <source>PID Type</source>
@@ -2398,12 +2398,12 @@
     <message>
         <location filename="../Gen8/Event8.cpp" line="164"/>
         <source>Missing seeds</source>
-        <translation>缺失 Seed</translation>
+        <translation>缺失 种子</translation>
     </message>
     <message>
         <location filename="../Gen8/Event8.cpp" line="164"/>
         <source>Please insert missing seed information</source>
-        <translation>请填写缺失的 Seed 信息</translation>
+        <translation>请填写缺失的 种子 信息</translation>
     </message>
     <message>
         <source>Offset</source>
@@ -2758,7 +2758,7 @@
     </message>
     <message>
         <source>Encounter Slot</source>
-        <translation>遇敌种类</translation>
+        <translation>遭遇槽位</translation>
     </message>
     <message>
         <source>Hidden Power</source>
@@ -3103,7 +3103,7 @@
     <name>GameCubeSeedFinder</name>
     <message>
         <source>GameCube Seed Finder</source>
-        <translation>NGC Seed 查询</translation>
+        <translation>NGC 种子 查询</translation>
     </message>
     <message>
         <source>Gales</source>
@@ -3161,7 +3161,7 @@
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="121"/>
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="142"/>
         <source>Your seed is %1. Copy to clipboard?</source>
-        <translation>你的 Seed 是 %1。是否复制到剪贴板？</translation>
+        <translation>你的 种子 是 %1。是否复制到剪贴板？</translation>
     </message>
     <message>
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="130"/>
@@ -3177,7 +3177,7 @@
     <message>
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="104"/>
         <source>Your seed(s) is %1. Copy to clipboard?</source>
-        <translation>你的 Seed 为 %1。是否复制到剪贴板？</translation>
+        <translation>你的 种子 为 %1。是否复制到剪贴板？</translation>
     </message>
     <message>
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="366"/>
@@ -3217,7 +3217,7 @@
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="120"/>
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="141"/>
         <source>Seed: %1</source>
-        <translation>Seed：%1</translation>
+        <translation>种子：%1</translation>
     </message>
     <message>
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="258"/>
@@ -3267,7 +3267,7 @@
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="121"/>
         <location filename="../Gen3/Tools/GameCubeSeedFinder.cpp" line="142"/>
         <source>Seed found</source>
-        <translation>找到 Seed</translation>
+        <translation>找到 种子</translation>
     </message>
     <message>
         <source>Channel</source>
@@ -3436,7 +3436,7 @@
     </message>
     <message>
         <source>End Date</source>
-        <translation>最后日期</translation>
+        <translation>结束日期</translation>
     </message>
     <message>
         <source>Location</source>
@@ -3508,7 +3508,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen5/HiddenGrotto.cpp" line="677"/>
         <source>Keep initial/max advances below %1/%2</source>
-        <translation>请将初始/最大帧数保持在 %1/%2 以下</translation>
+        <translation>请将初始／最大推进数保持在 %1/%2 以下</translation>
     </message>
     <message>
         <location filename="../Gen5/HiddenGrotto.cpp" line="678"/>
@@ -3993,7 +3993,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Dead Battery</source>
-        <translation>无电池</translation>
+        <translation>电池耗尽</translation>
     </message>
     <message>
         <source>Initial Advances</source>
@@ -4056,7 +4056,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed Finder</source>
-        <translation>反查 Seed</translation>
+        <translation>反查 种子</translation>
     </message>
     <message>
         <source>TID Obtained</source>
@@ -4089,7 +4089,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen4/IDs4.cpp" line="51"/>
         <source>Generate times for seed</source>
-        <translation>为 Seed 生成时间</translation>
+        <translation>为 种子 生成时间</translation>
     </message>
 </context>
 <context>
@@ -4100,7 +4100,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed Finder</source>
-        <translation>反查 Seed</translation>
+        <translation>反查 种子</translation>
     </message>
     <message>
         <source>Second Range</source>
@@ -4206,12 +4206,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen8/IDs8.cpp" line="67"/>
         <source>Missing seeds</source>
-        <translation>缺失 Seed</translation>
+        <translation>缺失 种子</translation>
     </message>
     <message>
         <location filename="../Gen8/IDs8.cpp" line="67"/>
         <source>Please insert missing seed information</source>
-        <translation>请填写缺失的 Seed 信息</translation>
+        <translation>请填写缺失的 种子 信息</translation>
     </message>
 </context>
 <context>
@@ -4356,27 +4356,27 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Base HP</source>
-        <translation>基础 HP</translation>
+        <translation>HP 种族值</translation>
     </message>
     <message>
         <source>Base Atk</source>
-        <translation>攻击</translation>
+        <translation>攻击种族值</translation>
     </message>
     <message>
         <source>Base Def</source>
-        <translation>防御</translation>
+        <translation>防御种族值</translation>
     </message>
     <message>
         <source>Base SpA</source>
-        <translation>特攻</translation>
+        <translation>特攻种族值</translation>
     </message>
     <message>
         <source>Base SpD</source>
-        <translation>特防</translation>
+        <translation>特防种族值</translation>
     </message>
     <message>
         <source>Base Spe</source>
-        <translation>速度</translation>
+        <translation>速度种族值</translation>
     </message>
     <message>
         <location filename="../Util/IVCalculator.cpp" line="44"/>
@@ -4675,11 +4675,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Starting Seed</source>
-        <translation>起始 Seed</translation>
+        <translation>起始 种子</translation>
     </message>
     <message>
         <source>Target Seed</source>
-        <translation>目标 Seed</translation>
+        <translation>目标 种子</translation>
     </message>
     <message>
         <source>Max Advances</source>
@@ -4696,12 +4696,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="65"/>
         <source>Invalid advance</source>
-        <translation>无效帧数</translation>
+        <translation>无效推进数</translation>
     </message>
     <message>
         <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="65"/>
         <source>Target is outside of specified advance range</source>
-        <translation>目标超出指定帧数范围</translation>
+        <translation>目标超出指定推进数范围</translation>
     </message>
     <message>
         <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="73"/>
@@ -4711,7 +4711,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="73"/>
         <source>Target seed is unobtainable</source>
-        <translation>目标 Seed 无法获得</translation>
+        <translation>目标 种子 无法获得</translation>
     </message>
     <message>
         <location filename="../Gen3/Tools/JirachiAdvancer.cpp" line="85"/>
@@ -4762,7 +4762,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed to Time</source>
-        <translation>Seed 查询时间</translation>
+        <translation>种子 查询时间</translation>
     </message>
     <message>
         <source>Wild</source>
@@ -4866,7 +4866,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>GameCube Seed Finder</source>
-        <translation>NGC Seed 查询</translation>
+        <translation>NGC 种子 查询</translation>
     </message>
     <message>
         <source>Gen 5</source>
@@ -5080,7 +5080,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>End Date</source>
-        <translation>最后日期</translation>
+        <translation>结束日期</translation>
     </message>
     <message>
         <source>Search</source>
@@ -5196,7 +5196,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed (Food / Encounter)</source>
-        <translation>Seed（食物 / 遭遇）</translation>
+        <translation>种子（食物 / 遭遇）</translation>
     </message>
     <message>
         <source>Encounter Advances</source>
@@ -5490,7 +5490,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Seed Search</source>
-        <translation>Seed 检索</translation>
+        <translation>种子 检索</translation>
     </message>
     <message>
         <source>Seed</source>
@@ -5762,7 +5762,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Dead Battery</source>
-        <translation>无电池</translation>
+        <translation>电池耗尽</translation>
     </message>
     <message>
         <source>Okay</source>
@@ -6379,7 +6379,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/ProfileModel3.hpp" line="94"/>
         <source>Dead Battery</source>
-        <translation>无电池</translation>
+        <translation>电池耗尽</translation>
     </message>
 </context>
 <context>
@@ -6815,19 +6815,19 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>32Bit High</source>
-        <translation>前32位</translation>
+        <translation>高 32 位</translation>
     </message>
     <message>
         <source>32Bit Low</source>
-        <translation>后32位</translation>
+        <translation>低 32 位</translation>
     </message>
     <message>
         <source>16Bit High</source>
-        <translation>前16位</translation>
+        <translation>高 16 位</translation>
     </message>
     <message>
         <source>16Bit Low</source>
-        <translation>后16位</translation>
+        <translation>低 16 位</translation>
     </message>
     <message>
         <source>None</source>
@@ -7031,12 +7031,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
         <source>32Bit High</source>
-        <translation>前32位</translation>
+        <translation>高 32 位</translation>
     </message>
     <message>
         <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
         <source>32Bit Low</source>
-        <translation>后32位</translation>
+        <translation>低 32 位</translation>
     </message>
     <message>
         <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
@@ -7046,12 +7046,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
         <source>16Bit High</source>
-        <translation>前16位</translation>
+        <translation>高 16 位</translation>
     </message>
     <message>
         <location filename="../../Model/Util/ResearcherModel.hpp" line="155"/>
         <source>16Bit Low</source>
-        <translation>后16位</translation>
+        <translation>低 16 位</translation>
     </message>
     <message>
         <location filename="../../Model/Util/ResearcherModel.hpp" line="155"/>
@@ -7127,7 +7127,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>End Date</source>
-        <translation>最后日期</translation>
+        <translation>结束日期</translation>
     </message>
     <message>
         <source>Output File</source>
@@ -7283,11 +7283,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     <name>SeedToTime3</name>
     <message>
         <source>Gen 3 Seed to Time</source>
-        <translation>第三世代 Seed 查询时间</translation>
+        <translation>第三世代 种子 查询时间</translation>
     </message>
     <message>
         <source>16/32-Bit Seed</source>
-        <translation>16/32 位 Seed</translation>
+        <translation>16/32 位 种子</translation>
     </message>
     <message>
         <source>Year</source>
@@ -7306,7 +7306,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <name>SeedToTime4</name>
     <message>
         <source>Gen 4 Seed to Time</source>
-        <translation>第四世代 Seed 查询时间</translation>
+        <translation>第四世代 种子 查询时间</translation>
     </message>
     <message>
         <source>DPPt</source>
@@ -7532,7 +7532,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Threads</source>
-        <translation>计算进程数</translation>
+        <translation>计算线程数</translation>
     </message>
     <message>
         <source>Profiles Path</source>
@@ -7657,7 +7657,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen3/Static3.cpp" line="67"/>
         <source>Generate times for seed</source>
-        <translation>为 Seed 生成时间</translation>
+        <translation>为 种子 生成时间</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -7816,7 +7816,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen4/Static4.cpp" line="81"/>
         <source>Generate times for seed</source>
-        <translation>为 Seed 生成时间</translation>
+        <translation>为 种子 生成时间</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -8020,7 +8020,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>End Date</source>
-        <translation>最后日期</translation>
+        <translation>结束日期</translation>
     </message>
     <message>
         <source>Search</source>
@@ -8100,7 +8100,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen5/Static5.cpp" line="483"/>
         <source>Keep initial/max advances below %1/%2</source>
-        <translation>请将初始/最大帧数保持在 %1/%2 以下</translation>
+        <translation>请将初始／最大推进数保持在 %1/%2 以下</translation>
     </message>
     <message>
         <location filename="../Gen5/Static5.cpp" line="484"/>
@@ -8182,12 +8182,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen8/Static8.cpp" line="122"/>
         <source>Missing seeds</source>
-        <translation>缺失 Seed</translation>
+        <translation>缺失 种子</translation>
     </message>
     <message>
         <location filename="../Gen8/Static8.cpp" line="122"/>
         <source>Please insert missing seed information</source>
-        <translation>请填写缺失的 Seed 信息</translation>
+        <translation>请填写缺失的 种子 信息</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -9175,12 +9175,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen8/Underground.cpp" line="131"/>
         <source>Missing seeds</source>
-        <translation>缺失 Seed</translation>
+        <translation>缺失 种子</translation>
     </message>
     <message>
         <location filename="../Gen8/Underground.cpp" line="131"/>
         <source>Please insert missing seed information</source>
-        <translation>请填写缺失的 Seed 信息</translation>
+        <translation>请填写缺失的 种子 信息</translation>
     </message>
     <message>
         <source>Offset</source>
@@ -9349,7 +9349,7 @@ Profile is missing or has an incompatible SHA cache.</source>
         <location filename="../Gen3/Wild3.cpp" line="85"/>
         <location filename="../Gen3/Wild3.cpp" line="96"/>
         <source>Slot Modifier</source>
-        <translation>遭遇种类修正</translation>
+        <translation>遭遇槽位修正</translation>
     </message>
     <message>
         <location filename="../Gen3/Wild3.cpp" line="86"/>
@@ -9390,7 +9390,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen3/Wild3.cpp" line="103"/>
         <source>Generate times for seed</source>
-        <translation>为 Seed 生成时间</translation>
+        <translation>为 种子 生成时间</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -9660,7 +9660,7 @@ Profile is missing or has an incompatible SHA cache.</source>
         <location filename="../Gen4/Wild4.cpp" line="88"/>
         <location filename="../Gen4/Wild4.cpp" line="106"/>
         <source>Slot Modifier</source>
-        <translation>遭遇种类修正</translation>
+        <translation>遭遇槽位修正</translation>
     </message>
     <message>
         <location filename="../Gen4/Wild4.cpp" line="89"/>
@@ -9749,7 +9749,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen4/Wild4.cpp" line="135"/>
         <source>Generate times for seed</source>
-        <translation>为 Seed 生成时间</translation>
+        <translation>为 种子 生成时间</translation>
     </message>
     <message>
         <location filename="../Gen4/Wild4.cpp" line="347"/>
@@ -9783,7 +9783,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Swarm</source>
-        <translation>虫之预感</translation>
+        <translation>大量出现</translation>
     </message>
     <message>
         <source>Poke Radar</source>
@@ -10073,7 +10073,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>End Date</source>
-        <translation>最后日期</translation>
+        <translation>结束日期</translation>
     </message>
     <message>
         <source>Search</source>
@@ -10141,7 +10141,7 @@ Profile is missing or has an incompatible SHA cache.</source>
         <location filename="../Gen5/Wild5.cpp" line="96"/>
         <location filename="../Gen5/Wild5.cpp" line="110"/>
         <source>Slot Modifier</source>
-        <translation>遭遇种类修正</translation>
+        <translation>遭遇槽位修正</translation>
     </message>
     <message>
         <location filename="../Gen5/Wild5.cpp" line="97"/>
@@ -10201,7 +10201,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen5/Wild5.cpp" line="532"/>
         <source>Keep initial/max advances below %1/%2</source>
-        <translation>请将初始/最大帧数保持在 %1/%2 以下</translation>
+        <translation>请将初始／最大推进数保持在 %1/%2 以下</translation>
     </message>
     <message>
         <location filename="../Gen5/Wild5.cpp" line="533"/>
@@ -10214,7 +10214,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Swarm</source>
-        <translation>虫之预感</translation>
+        <translation>大量出现</translation>
     </message>
 </context>
 <context>
@@ -10291,7 +10291,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="65"/>
         <source>Slot Modifier</source>
-        <translation>遭遇种类修正</translation>
+        <translation>遭遇槽位修正</translation>
     </message>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="66"/>
@@ -10361,12 +10361,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="196"/>
         <source>Missing seeds</source>
-        <translation>缺失 Seed</translation>
+        <translation>缺失 种子</translation>
     </message>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="196"/>
         <source>Please insert missing seed information</source>
-        <translation>请填写缺失的 Seed 信息</translation>
+        <translation>请填写缺失的 种子 信息</translation>
     </message>
     <message>
         <location filename="../Gen8/Wild8.cpp" line="214"/>
@@ -10427,7 +10427,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Swarm</source>
-        <translation>虫之预感</translation>
+        <translation>大量出现</translation>
     </message>
     <message>
         <source>Radar</source>
