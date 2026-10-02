@@ -1,3 +1,5 @@
+[简体中文使用说明 / Chinese language option](README.zh-CN.md)
+
 # PokéFinder
 
 Join the PokéFinder Discord server to talk about development and contribute.
