@@ -22,20 +22,20 @@ jobs:
           - os: windows-2025
             platform-name: Windows
             cache-key: windows
-            qt-archives: qtbase qtsvg qttools
+            qt-archives: qtbase qtsvg qttools qttranslations
             tools: tools_opensslv3_x64
 
           - os: ubuntu-24.04
             platform-name: Ubuntu
             cache-key: ubuntu
-            qt-archives: icu qtbase qtsvg qttools
+            qt-archives: icu qtbase qtsvg qttools qttranslations
             tools: ""
             env: { CC: gcc-14, CXX: g++-14 }
 
           - os: macos-15
             platform-name: macOS
             cache-key: macos
-            qt-archives: qtbase qtsvg qttools
+            qt-archives: qtbase qtsvg qttools qttranslations
             tools: ""
 
     steps:

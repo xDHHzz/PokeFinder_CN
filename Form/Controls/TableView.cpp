@@ -93,8 +93,8 @@ void TableView::mouseDoubleClickEvent(QMouseEvent *event)
 
 void TableView::outputModel(bool csv) const
 {
-    QString caption = tr(csv ? "Save Output to CSV" : "Save Output to TXT");
-    QString filter = tr(csv ? "CSV File (*.csv);;All Files (*)" : "Text File (*.txt);;All Files (*)");
+    QString caption = csv ? tr("Save Output to CSV") : tr("Save Output to TXT");
+    QString filter = csv ? tr("CSV File (*.csv);;All Files (*)") : tr("Text File (*.txt);;All Files (*)");
 
     QString fileName = QFileDialog::getSaveFileName(nullptr, caption, QDir::currentPath(), filter);
 

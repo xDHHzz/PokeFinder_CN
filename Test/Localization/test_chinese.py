@@ -68,5 +68,24 @@ class ResourceIntegrityTests(unittest.TestCase):
         self.assertEqual(len(en),len(zh))
         for a,b in zip(en,zh):self.assertEqual(sorted(g for v in a.values() for g in v),sorted(g for v in b.values() for g in v))
 
+
+class DesktopTranslationTests(unittest.TestCase):
+    def test_release_installs_qt_standard_translations(self):
+        workflows=list((ROOT/'.github/workflows').glob('*.y*ml'))
+        archives=[line for path in workflows for line in path.read_text().splitlines() if 'qt-archives:' in line]
+        self.assertEqual(len(archives),3)
+        for line in archives:self.assertIn('qttranslations',line)
+    def test_dynamic_dialog_sources_are_extractable(self):
+        for path in (ROOT/'Form').rglob('*.cpp'):
+            text=path.read_text()
+            self.assertNotRegex(text,r'tr\(csv\s*\?',str(path))
+            self.assertNotRegex(text,r'QFileDialog::get(?:Open|Save)FileName\(this,\s*"',str(path))
+            self.assertNotIn('setText("Possible Results: 8192")',text,str(path))
+    def test_dialog_captions_exist_in_chinese_catalog(self):
+        root=ET.parse(ROOT/'Form/i18n/PokeFinder_zh.ts').getroot()
+        texts={(c.findtext('name'),m.findtext('source')):m.findtext('translation') for c in root.findall('context') for m in c.findall('message')}
+        for key in [('Settings','Select Profile json'),('Event5','Select a wondercard file'),('Event8','Select a wondercard file'),('TableView','Save Output to CSV'),('TableView','Save Output to TXT')]:
+            self.assertTrue(texts.get(key),key)
+
 if __name__ == '__main__':
     unittest.main()

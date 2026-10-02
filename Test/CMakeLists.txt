@@ -128,3 +128,11 @@ add_test(NAME Test COMMAND PokeFinderTest)
 
 target_include_directories(PokeFinderTest PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/generated)
 target_link_libraries(PokeFinderTest PRIVATE PokeFinderCore PokeFinderIncludes Qt6::Core Qt6::Test)
+
+# Check the actual merged release catalog, not only nonempty TS entries.
+qt_add_executable(QtChineseTest Localization/QtChineseTest.cpp)
+target_link_libraries(QtChineseTest PRIVATE Qt6::Core Qt6::Widgets)
+add_test(NAME ChineseDialogs COMMAND QtChineseTest "${CMAKE_BINARY_DIR}/Form/PokeFinder_zh.qm")
+set_tests_properties(ChineseDialogs PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
+add_test(NAME ChineseCatalog COMMAND ${Python3_EXECUTABLE} -m unittest discover
+    -s "${CMAKE_CURRENT_SOURCE_DIR}/Localization" -v)

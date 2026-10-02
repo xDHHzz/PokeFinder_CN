@@ -2082,6 +2082,14 @@
 <context>
     <name>Event5</name>
     <message>
+        <source>Select a wondercard file</source>
+        <translation>选择配信卡文件</translation>
+    </message>
+    <message>
+        <source>Wondercard (*.pgf)</source>
+        <translation>配信卡 (*.pgf)</translation>
+    </message>
+    <message>
         <location filename="../Gen5/Event5.cpp" line="78"/>
         <source>Advance Finder</source>
         <translation>推进数查找器</translation>
@@ -2267,6 +2275,14 @@
 </context>
 <context>
     <name>Event8</name>
+    <message>
+        <source>Select a wondercard file</source>
+        <translation>选择配信卡文件</translation>
+    </message>
+    <message>
+        <source>Wondercard (*.wb8)</source>
+        <translation>配信卡 (*.wb8)</translation>
+    </message>
     <message>
         <source>Gen 8 Event</source>
         <translation>第八世代配信乱数</translation>
@@ -7479,6 +7495,10 @@ Profile is missing or has an incompatible SHA cache.</source>
 <context>
     <name>Settings</name>
     <message>
+        <source>Select Profile json</source>
+        <translation>选择存档信息 JSON 文件</translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -8987,6 +9007,22 @@ Profile is missing or has an incompatible SHA cache.</source>
 </context>
 <context>
     <name>TableView</name>
+    <message>
+        <source>Save Output to CSV</source>
+        <translation>将结果保存为 CSV</translation>
+    </message>
+    <message>
+        <source>Save Output to TXT</source>
+        <translation>将结果保存为 TXT</translation>
+    </message>
+    <message>
+        <source>CSV File (*.csv);;All Files (*)</source>
+        <translation>CSV 文件 (*.csv);;所有文件 (*)</translation>
+    </message>
+    <message>
+        <source>Text File (*.txt);;All Files (*)</source>
+        <translation>文本文件 (*.txt);;所有文件 (*)</translation>
+    </message>
     <message>
         <location filename="../Controls/TableView.cpp" line="33"/>
         <source>Output Results to TXT</source>
