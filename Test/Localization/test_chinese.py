@@ -72,12 +72,12 @@ class ResourceIntegrityTests(unittest.TestCase):
 class DesktopTranslationTests(unittest.TestCase):
     def test_release_installs_qt_standard_translations(self):
         workflows=list((ROOT/'.github/workflows').glob('*.y*ml'))
-        archives=[line for path in workflows for line in path.read_text().splitlines() if 'qt-archives:' in line]
+        archives=[line for path in workflows for line in path.read_text(encoding='utf-8').splitlines() if 'qt-archives:' in line]
         self.assertEqual(len(archives),3)
         for line in archives:self.assertIn('qttranslations',line)
     def test_dynamic_dialog_sources_are_extractable(self):
         for path in (ROOT/'Form').rglob('*.cpp'):
-            text=path.read_text()
+            text=path.read_text(encoding='utf-8')
             self.assertNotRegex(text,r'tr\(csv\s*\?',str(path))
             self.assertNotRegex(text,r'QFileDialog::get(?:Open|Save)FileName\(this,\s*"',str(path))
             self.assertNotIn('setText("Possible Results: 8192")',text,str(path))
