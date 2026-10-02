@@ -20,6 +20,10 @@ class ChineseCatalogTests(unittest.TestCase):
                 if translation is None or translation.get('type') == 'unfinished' or not ''.join(translation.itertext()).strip():
                     missing.append((context.findtext('name'), message.findtext('source')))
         self.assertEqual(missing, [])
+    def test_rng_advances_are_not_mislabeled_as_video_frames(self):
+        for message in self.root.findall('.//message'):
+            if 'Advance' in message.findtext('source',''):
+                self.assertNotIn('帧',message.findtext('translation',''),message.findtext('source'))
     def test_placeholders_are_preserved(self):
         pattern = r'%(?:L?\d+|n)'
         for message in self.root.findall('.//message'):
@@ -35,7 +39,7 @@ class ChineseCatalogTests(unittest.TestCase):
         self.assertEqual(messages['AdvanceFinder','Advance Finder'], '推进数查找器')
         self.assertEqual(messages['Phenomenon','Phenomenon'], '特殊现象')
     def test_language_choice_preserves_english_and_chinese(self):
-        source = (ROOT/'Form/Util/Settings.cpp').read_text()
+        source = (ROOT/'Form/Util/Settings.cpp').read_text(encoding="utf-8")
         self.assertIn('"zh"', source)
         self.assertIn('"en"', source)
 
@@ -55,8 +59,8 @@ class ResourceIntegrityTests(unittest.TestCase):
     def test_characteristic_generation_ids_are_preserved(self):
         import json
         root=ROOT/'Core/Resources/i18n'
-        en=json.loads((root/'en/characteristic_en.json').read_text())
-        zh=json.loads((root/'zh/characteristic_zh.json').read_text())
+        en=json.loads((root/'en/characteristic_en.json').read_text(encoding="utf-8"))
+        zh=json.loads((root/'zh/characteristic_zh.json').read_text(encoding="utf-8"))
         self.assertEqual(len(en),len(zh))
         for a,b in zip(en,zh):self.assertEqual(sorted(g for v in a.values() for g in v),sorted(g for v in b.values() for g in v))
 

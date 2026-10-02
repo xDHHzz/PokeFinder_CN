@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Max IV Advances</source>
-        <translation>最大 IV 帧</translation>
+        <translation>最大个体值推进数</translation>
     </message>
     <message>
         <source>Keypresses</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Initial IV Advances</source>
-        <translation>初始 IV 帧</translation>
+        <translation>初始个体值推进数</translation>
     </message>
     <message>
         <source>Wild / Static / Grotto</source>
@@ -398,11 +398,11 @@
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Seed</source>
@@ -527,7 +527,7 @@
     <message>
         <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="81"/>
@@ -630,7 +630,7 @@
     <message>
         <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/DreamRadarModel.hpp" line="140"/>
@@ -738,12 +738,12 @@
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="116"/>
         <source>Held Advances</source>
-        <translation>蛋生成帧</translation>
+        <translation>蛋生成推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="117"/>
         <source>Pickup Advances</source>
-        <translation>蛋领取帧</translation>
+        <translation>蛋领取推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="118"/>
@@ -857,7 +857,7 @@
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="108"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="108"/>
@@ -960,12 +960,12 @@
     <message>
         <location filename="../../Model/Gen3/EggModel3.hpp" line="87"/>
         <source>Held Advances</source>
-        <translation>蛋生成帧</translation>
+        <translation>蛋生成推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/EggModel3.hpp" line="87"/>
         <source>Pickup Advances</source>
-        <translation>蛋领取帧</translation>
+        <translation>蛋领取推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/EggModel3.hpp" line="88"/>
@@ -1058,7 +1058,7 @@
     <message>
         <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/EggModel8.hpp" line="86"/>
@@ -1161,12 +1161,12 @@
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="208"/>
         <source>Held Advances</source>
-        <translation>蛋生成帧</translation>
+        <translation>蛋生成推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="208"/>
         <source>Pickup Advances</source>
-        <translation>蛋领取帧</translation>
+        <translation>蛋领取推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/EggModel4.hpp" line="209"/>
@@ -1264,7 +1264,7 @@
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="176"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EggModel5.hpp" line="176"/>
@@ -1577,11 +1577,11 @@
     </message>
     <message>
         <source>Held Advances</source>
-        <translation>蛋生成帧</translation>
+        <translation>蛋生成推进数</translation>
     </message>
     <message>
         <source>Pickup Advances</source>
-        <translation>蛋领取帧</translation>
+        <translation>蛋领取推进数</translation>
     </message>
     <message>
         <source>Mixed</source>
@@ -1684,11 +1684,11 @@
     </message>
     <message>
         <source>Held Advances</source>
-        <translation>蛋生成帧</translation>
+        <translation>蛋生成推进数</translation>
     </message>
     <message>
         <source>Pickup Advances</source>
-        <translation>蛋领取帧</translation>
+        <translation>蛋领取推进数</translation>
     </message>
     <message>
         <source>Offset (Held / Pickup)</source>
@@ -1720,11 +1720,11 @@
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Seed</source>
@@ -1801,11 +1801,11 @@
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Seed 0</source>
@@ -2011,11 +2011,11 @@
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -2055,11 +2055,11 @@
     </message>
     <message>
         <source>Min Advance</source>
-        <translation>最小帧数</translation>
+        <translation>最小推进数</translation>
     </message>
     <message>
         <source>Max Advance</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Search</source>
@@ -2100,11 +2100,11 @@
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Seed</source>
@@ -2281,7 +2281,7 @@
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Seed 0</source>
@@ -2289,7 +2289,7 @@
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Seed 1</source>
@@ -2415,7 +2415,7 @@
     <message>
         <location filename="../../Model/Gen4/EventModel4.hpp" line="109"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/EventModel4.hpp" line="109"/>
@@ -2488,7 +2488,7 @@
     <message>
         <location filename="../../Model/Gen5/EventModel5.hpp" line="101"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EventModel5.hpp" line="101"/>
@@ -2581,7 +2581,7 @@
     <message>
         <location filename="../../Model/Gen4/EventModel4.hpp" line="177"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/EventModel4.hpp" line="177"/>
@@ -2654,7 +2654,7 @@
     <message>
         <location filename="../../Model/Gen5/EventModel5.hpp" line="161"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/EventModel5.hpp" line="161"/>
@@ -2884,11 +2884,11 @@
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>First Shadow Unset</source>
@@ -2943,7 +2943,7 @@
     <message>
         <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/GameCubeModel.hpp" line="79"/>
@@ -3388,11 +3388,11 @@
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -3529,15 +3529,15 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>IV Advances</source>
-        <translation>IV 帧数</translation>
+        <translation>个体值推进数</translation>
     </message>
     <message>
         <source>Initial IV Advances</source>
-        <translation>初始 IV 帧</translation>
+        <translation>初始个体值推进数</translation>
     </message>
     <message>
         <source>Max IV Advances</source>
-        <translation>最大 IV 帧</translation>
+        <translation>最大个体值推进数</translation>
     </message>
     <message>
         <source>Levels</source>
@@ -3564,7 +3564,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="218"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="218"/>
@@ -3677,12 +3677,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="277"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="277"/>
         <source>IV Advances</source>
-        <translation>IV 帧数</translation>
+        <translation>个体值推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="277"/>
@@ -3780,7 +3780,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="94"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="94"/>
@@ -3813,7 +3813,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="142"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/HiddenGrottoModel.hpp" line="142"/>
@@ -3846,7 +3846,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/IDModel3.hpp" line="71"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/IDModel3.hpp" line="71"/>
@@ -3907,12 +3907,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/IDModel5.hpp" line="81"/>
@@ -3950,7 +3950,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen8/IDModel8.hpp" line="71"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/IDModel8.hpp" line="71"/>
@@ -3997,11 +3997,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>RNG Info</source>
@@ -4108,7 +4108,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Hour</source>
@@ -4181,7 +4181,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -4189,7 +4189,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Seed 1</source>
@@ -4257,11 +4257,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Output File</source>
@@ -4671,7 +4671,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <name>JirachiAdvancer</name>
     <message>
         <source>Jirachi Advancer</source>
-        <translation>基拉祈帧数查询</translation>
+        <translation>基拉祈推进规划器</translation>
     </message>
     <message>
         <source>Starting Seed</source>
@@ -4683,7 +4683,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Brute Force Range</source>
@@ -4943,7 +4943,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Jirachi Advancer</source>
-        <translation>基拉祈帧数查询</translation>
+        <translation>基拉祈推进规划器</translation>
     </message>
     <message>
         <source>SHA1 Cache</source>
@@ -5040,11 +5040,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Offset</source>
@@ -5106,7 +5106,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/PhenomenonModel.hpp" line="73"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/PhenomenonModel.hpp" line="73"/>
@@ -5149,7 +5149,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/PhenomenonModel.hpp" line="121"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/PhenomenonModel.hpp" line="121"/>
@@ -5192,7 +5192,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Food Advances</source>
-        <translation>食物帧数</translation>
+        <translation>食物推进数</translation>
     </message>
     <message>
         <source>Seed (Food / Encounter)</source>
@@ -5200,7 +5200,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Encounter Advances</source>
-        <translation>遭遇帧数</translation>
+        <translation>遭遇推进数</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -5239,12 +5239,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="79"/>
         <source>Food Advances</source>
-        <translation>食物帧数</translation>
+        <translation>食物推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="80"/>
         <source>Encounter Advances</source>
-        <translation>遭遇帧数</translation>
+        <translation>遭遇推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/PokeSpotModel.hpp" line="81"/>
@@ -6647,11 +6647,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -6939,11 +6939,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Xoroshiro (BDSP)</source>
@@ -7021,7 +7021,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Util/ResearcherModel.hpp" line="154"/>
@@ -7299,7 +7299,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
 </context>
 <context>
@@ -7612,7 +7612,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -7628,7 +7628,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Method 1</source>
@@ -7737,11 +7737,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -7793,11 +7793,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Min Advance</source>
-        <translation>最小帧数</translation>
+        <translation>最小推进数</translation>
     </message>
     <message>
         <source>Max Advance</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Search</source>
@@ -7912,7 +7912,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>IV Advances</source>
-        <translation>IV 帧数</translation>
+        <translation>个体值推进数</translation>
     </message>
     <message>
         <source>0</source>
@@ -7920,11 +7920,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Offset</source>
@@ -8008,11 +8008,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial IV Advances</source>
-        <translation>初始 IV 帧</translation>
+        <translation>初始个体值推进数</translation>
     </message>
     <message>
         <source>Max IV Advances</source>
-        <translation>最大 IV 帧</translation>
+        <translation>最大个体值推进数</translation>
     </message>
     <message>
         <source>Start Date</source>
@@ -8128,7 +8128,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Lead</source>
@@ -8140,7 +8140,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Seed 0</source>
@@ -8286,7 +8286,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/StaticModel3.hpp" line="79"/>
@@ -8374,7 +8374,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/StaticModel4.hpp" line="109"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/StaticModel4.hpp" line="109"/>
@@ -8477,7 +8477,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="101"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="101"/>
@@ -8580,7 +8580,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/StaticModel8.hpp" line="80"/>
@@ -8776,7 +8776,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/StaticModel4.hpp" line="178"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/StaticModel4.hpp" line="178"/>
@@ -8879,12 +8879,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="161"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="162"/>
         <source>IV Advances</source>
-        <translation>IV 帧数</translation>
+        <translation>个体值推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/StaticModel5.hpp" line="163"/>
@@ -9106,11 +9106,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <location filename="../Gen8/Underground.cpp" line="56"/>
@@ -9207,7 +9207,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/UndergroundModel.hpp" line="81"/>
@@ -9466,11 +9466,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Wild 1</source>
@@ -9736,7 +9736,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Min Advance</source>
-        <translation>最小帧数</translation>
+        <translation>最小推进数</translation>
     </message>
     <message>
         <source>Min Delay</source>
@@ -9744,7 +9744,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Max Advance</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <location filename="../Gen4/Wild4.cpp" line="135"/>
@@ -9791,11 +9791,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Poke Radar Shiny</source>
@@ -9961,7 +9961,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>IV Advances</source>
-        <translation>IV 帧数</translation>
+        <translation>个体值推进数</translation>
     </message>
     <message>
         <source>0</source>
@@ -9969,11 +9969,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Offset</source>
@@ -10061,11 +10061,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial IV Advances</source>
-        <translation>初始 IV 帧</translation>
+        <translation>初始个体值推进数</translation>
     </message>
     <message>
         <source>Max IV Advances</source>
-        <translation>最大 IV 帧</translation>
+        <translation>最大个体值推进数</translation>
     </message>
     <message>
         <source>Start Date</source>
@@ -10233,11 +10233,11 @@ Profile is missing or has an incompatible SHA cache.</source>
     </message>
     <message>
         <source>Initial Advances</source>
-        <translation>初始帧</translation>
+        <translation>初始推进数</translation>
     </message>
     <message>
         <source>Max Advances</source>
-        <translation>最大帧数</translation>
+        <translation>最大推进数</translation>
     </message>
     <message>
         <source>Encounter</source>
@@ -10470,7 +10470,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen3/WildModel3.hpp" line="79"/>
@@ -10568,12 +10568,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="110"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="110"/>
         <source>Battle Advances</source>
-        <translation>战斗帧数</translation>
+        <translation>战斗推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="110"/>
@@ -10697,7 +10697,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="108"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="108"/>
@@ -10820,7 +10820,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen8/WildModel8.hpp" line="79"/>
@@ -11046,7 +11046,7 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="179"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen4/WildModel4.hpp" line="179"/>
@@ -11164,12 +11164,12 @@ Profile is missing or has an incompatible SHA cache.</source>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="177"/>
         <source>Advances</source>
-        <translation>帧数</translation>
+        <translation>推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="177"/>
         <source>IV Advances</source>
-        <translation>IV 帧数</translation>
+        <translation>个体值推进数</translation>
     </message>
     <message>
         <location filename="../../Model/Gen5/WildModel5.hpp" line="177"/>
