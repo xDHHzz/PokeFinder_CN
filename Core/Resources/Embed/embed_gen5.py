@@ -5,10 +5,10 @@ import compression.zstd as zstd
 from .embed_util import write_data
 
 
-def embed_encounters5():
+def embed_encounters5(parent_dir: str, input_dir: str, output_dir: str):
     arrays = []
 
-    with open("EncounterTables/Gen5/encounters.json") as f:
+    with open(f"{parent_dir}/EncounterTables/Gen5/encounters.json") as f:
         data = json.load(f)
         for type, encounters in data.items():
             if "dreamRadar" in type:
@@ -28,9 +28,9 @@ def embed_encounters5():
             string += " };"
             arrays.append(string)
 
-    files = ("black", "black2", "bw2_grotto", "white", "white2")
+    files = ("black", "b_swarm", "black2", "b2_swarm", "bw2_grotto", "white", "w_swarm", "white2", "w2_swarm")
     for file in files:
-        with open(f"EncounterTables/{file}.bin", "rb") as f:
+        with open(f"{input_dir}/{file}.bin", "rb") as f:
             data = f.read()
 
         data = zstd.compress(data, 22)
@@ -46,4 +46,4 @@ def embed_encounters5():
         string += " };"
         arrays.append(string)
 
-    write_data(arrays, "EncounterData5.hpp", ("Core/Gen5/DreamRadarTemplate.hpp", "Core/Gen5/StaticTemplate5.hpp", "array"))
+    write_data(arrays, f"{output_dir}/EncounterData5.hpp", ("Core/Gen5/DreamRadarTemplate.hpp", "Core/Gen5/StaticTemplate5.hpp", "array"))

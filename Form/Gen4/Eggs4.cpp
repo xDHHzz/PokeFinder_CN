@@ -28,20 +28,24 @@
 #include <Form/Controls/Controls.hpp>
 #include <Form/Gen4/Profile/ProfileManager4.hpp>
 #include <Form/Gen4/Tools/SeedToTime4.hpp>
+#include <Form/Util/AdvanceFinder.hpp>
 #include <Model/Gen4/EggModel4.hpp>
 #include <Model/SortFilterProxyModel.hpp>
 #include <QAction>
 #include <QMessageBox>
 #include <QSettings>
-#include <QThread>
 #include <QTimer>
+
+static const QString settingPrefix = QStringLiteral("eggs4");
 
 Eggs4::Eggs4(QWidget *parent) : QWidget(parent), ui(new Ui::Eggs4)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
 
-    generatorModel = new EggGeneratorModel4(ui->tableViewGenerator, Game::DPPt);
+    ui->profileDisplay->setup(settingPrefix, Game::Gen4);
+
+    generatorModel = new EggGeneratorModel4(ui->tableViewGenerator);
     searcherModel = new EggSearcherModel4(ui->tableViewSearcher);
     proxyModel = new SortFilterProxyModel(ui->tableViewSearcher, searcherModel);
 
@@ -64,8 +68,8 @@ Eggs4::Eggs4(QWidget *parent) : QWidget(parent), ui(new Ui::Eggs4)
     ui->textBoxSearcherMinDelay->setValues(InputType::Advance32Bit);
     ui->textBoxSearcherMaxDelay->setValues(InputType::Advance32Bit);
 
-    ui->filterGenerator->disableControls(Controls::EncounterSlots | Controls::Height | Controls::Weight);
-    ui->filterSearcher->disableControls(Controls::DisableFilter | Controls::EncounterSlots | Controls::Height | Controls::Weight);
+    ui->filterGenerator->disableControls(Controls::Height | Controls::Weight | Controls::Wild);
+    ui->filterSearcher->disableControls(Controls::Height | Controls::Searcher | Controls::Weight | Controls::Wild);
 
     ui->eggSettingsGenerator->setup(Game::Gen4);
     ui->eggSettingsSearcher->setup(Game::Gen4);
@@ -79,12 +83,15 @@ Eggs4::Eggs4(QWidget *parent) : QWidget(parent), ui(new Ui::Eggs4)
     connect(seedToTime, &QAction::triggered, this, &Eggs4::seedToTime);
     ui->tableViewSearcher->addAction(seedToTime);
 
+    auto *advanceFinder = ui->tableViewGenerator->addAction(tr("Advance Finder"));
+    connect(advanceFinder, &QAction::triggered, this, &Eggs4::openAdvanceFinder);
+
+    connect(ui->profileDisplay, &ProfileDisplay4::profileChanged, this, &Eggs4::profileChanged);
+    connect(ui->profileDisplay, &ProfileDisplay4::profilesChanged, this, &Eggs4::profilesChanged);
     connect(ui->tabEggSelection, &TabWidget::transferFilters, this, &Eggs4::transferFilters);
     connect(ui->tabEggSelection, &TabWidget::transferSettings, this, &Eggs4::transferSettings);
-    connect(ui->comboBoxProfiles, &QComboBox::currentIndexChanged, this, &Eggs4::profileIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &Eggs4::generate);
     connect(ui->pushButtonSearch, &QPushButton::clicked, this, &Eggs4::search);
-    connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &Eggs4::profileManager);
     connect(ui->eggSettingsGenerator, &EggSettings::showInheritanceChanged, generatorModel, &EggGeneratorModel4::setShowInheritance);
     connect(ui->eggSettingsSearcher, &EggSettings::showInheritanceChanged, searcherModel, &EggSearcherModel4::setShowInheritance);
     connect(ui->filterGenerator, &Filter::showStatsChanged, generatorModel, &EggGeneratorModel4::setShowStats);
@@ -93,7 +100,7 @@ Eggs4::Eggs4(QWidget *parent) : QWidget(parent), ui(new Ui::Eggs4)
     updateProfiles();
 
     QSettings setting;
-    setting.beginGroup("eggs4");
+    setting.beginGroup(settingPrefix);
     if (setting.contains("geometry"))
     {
         this->restoreGeometry(setting.value("geometry").toByteArray());
@@ -104,8 +111,7 @@ Eggs4::Eggs4(QWidget *parent) : QWidget(parent), ui(new Ui::Eggs4)
 Eggs4::~Eggs4()
 {
     QSettings setting;
-    setting.beginGroup("eggs4");
-    setting.setValue("profile", ui->comboBoxProfiles->currentIndex());
+    setting.beginGroup(settingPrefix);
     setting.setValue("geometry", this->saveGeometry());
     setting.endGroup();
 
@@ -114,21 +120,7 @@ Eggs4::~Eggs4()
 
 void Eggs4::updateProfiles()
 {
-    profiles = ProfileLoader4::getProfiles();
-    profiles.insert(profiles.begin(), Profile4("None", Game::Diamond, 12345, 54321, false));
-
-    ui->comboBoxProfiles->clear();
-    for (std::size_t i = 0; i < profiles.size(); i++)
-    {
-        ui->comboBoxProfiles->addItem(i == 0 ? tr("None") : QString::fromStdString(profiles[i].getName()));
-    }
-
-    QSettings setting;
-    int val = setting.value("eggs4/profile", 0).toInt();
-    if (val < ui->comboBoxProfiles->count())
-    {
-        ui->comboBoxProfiles->setCurrentIndex(val);
-    }
+    ui->profileDisplay->updateProfiles();
 }
 
 void Eggs4::calcPoketch()
@@ -170,13 +162,11 @@ void Eggs4::calcPoketch()
 
 void Eggs4::generate()
 {
-    if (!ui->eggSettingsGenerator->compatibleParents())
+    if (!ui->eggSettingsGenerator->isValid())
     {
-        QMessageBox box(QMessageBox::Warning, tr("Incompatible Parents"), tr("Gender of selected parents are not compatible for breeding"));
-        box.exec();
         return;
     }
-    
+
     if (!ui->filterGenerator->isValid())
     {
         return;
@@ -205,21 +195,30 @@ void Eggs4::generate()
 
     auto filter = ui->filterGenerator->getFilter<StateFilter>();
     EggGenerator4 generator(initialAdvancesHeld, maxAdvancesHeld, offsetHeld, initialAdvancesPickup, maxAdvancesPickup, offsetPickup,
-                            ui->eggSettingsGenerator->getDaycare(), *currentProfile, filter);
+                            ui->eggSettingsGenerator->getDaycare(false), *currentProfile, filter);
 
     auto states = generator.generate(seedHeld, seedPickup);
     generatorModel->addItems(states);
 }
 
+void Eggs4::openAdvanceFinder()
+{
+    auto *advanceFinder = new AdvanceFinder(generatorModel, ui->tableViewGenerator, currentProfile, this);
+    advanceFinder->show();
+}
+
+void Eggs4::profileChanged(const Profile4 &profile)
+{
+    currentProfile = &profile;
+}
+
 void Eggs4::search()
 {
-    if (!ui->eggSettingsSearcher->compatibleParents())
+    if (!ui->eggSettingsSearcher->isValid())
     {
-        QMessageBox box(QMessageBox::Warning, tr("Incompatible Parents"), tr("Gender of selected parents are not compatible for breeding"));
-        box.exec();
         return;
     }
-    
+
     if (!ui->filterSearcher->isValid())
     {
         return;
@@ -239,51 +238,37 @@ void Eggs4::search()
 
     auto filter = ui->filterSearcher->getFilter<StateFilter>();
     EggGenerator4 generator(initialAdvancesHeld, maxAdvancesHeld, 0, initialAdvancesPickup, maxAdvancesPickup, 0,
-                            ui->eggSettingsSearcher->getDaycare(), *currentProfile, filter);
+                            ui->eggSettingsSearcher->getDaycare(false), *currentProfile, filter);
 
     auto *searcher = new EggSearcher4(minDelay, maxDelay, *currentProfile);
     searcher->setMaxProgress(256 * 24 * (maxDelay - minDelay + 1));
 
-    auto *thread = QThread::create([=] { searcher->startSearch(generator); });
-    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
-    connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
-
-    auto *timer = new QTimer();
-    connect(timer, &QTimer::timeout, this, [=] {
-        searcherModel->addItems(searcher->getResults());
-        ui->progressBar->setValue(searcher->getProgress());
-    });
-    connect(thread, &QThread::finished, timer, &QTimer::stop);
-    connect(thread, &QThread::finished, timer, &QTimer::deleteLater);
-    connect(timer, &QTimer::destroyed, this, [=] {
-        ui->pushButtonSearch->setEnabled(true);
+    auto *timer = new QTimer(this);
+    connect(ui->pushButtonCancel, &QPushButton::clicked, timer, [this, searcher] {
+        searcher->cancelSearch();
         ui->pushButtonCancel->setEnabled(false);
+    });
+    connect(timer, &QTimer::timeout, this, [this, searcher, timer] {
         searcherModel->addItems(searcher->getResults());
         ui->progressBar->setValue(searcher->getProgress());
-        delete searcher;
+
+        if (!searcher->isSearching())
+        {
+            timer->stop();
+
+            searcherModel->addItems(searcher->getResults());
+            ui->progressBar->setValue(searcher->getProgress());
+
+            ui->pushButtonSearch->setEnabled(true);
+            ui->pushButtonCancel->setEnabled(false);
+
+            delete searcher;
+            timer->deleteLater();
+        }
     });
 
-    thread->start();
+    searcher->startSearch(generator);
     timer->start(1000);
-}
-
-void Eggs4::profileIndexChanged(int index)
-{
-    if (index >= 0)
-    {
-        currentProfile = &profiles[index];
-
-        ui->labelProfileTIDValue->setText(QString::number(currentProfile->getTID()));
-        ui->labelProfileSIDValue->setText(QString::number(currentProfile->getSID()));
-        ui->labelProfileGameValue->setText(QString::fromStdString(Translator::getGame(currentProfile->getVersion())));
-    }
-}
-
-void Eggs4::profileManager()
-{
-    auto *manager = new ProfileManager4();
-    connect(manager, &ProfileManager4::profilesModified, this, [=](int num) { emit profilesModified(num); });
-    manager->show();
 }
 
 void Eggs4::seedToTime()

@@ -31,29 +31,47 @@ public:
     /**
      * @brief Construct a new HiddenGrottoState object
      *
-     * @param prng PRNG call to determine Chatot pitch
+     * @param prng PRNG call to determine chatot pitch and needle
      * @param advances Advances of the state
      * @param group Pokemon group
      * @param slot Pokemon slot
      * @param specie Pokemon specie
      * @param gender Pokemon gender
+     * @param valid Whether state is valid to encounter or not
      */
-    HiddenGrottoState(u16 prng, u32 advances, u8 group, u8 slot, u16 specie, u8 gender) :
-        advances(advances), data(specie), item(false), chatot(prng / 82), gender(gender), group(group), slot(slot)
+    HiddenGrottoState(u32 prng, u32 advances, u8 group, u8 slot, u16 specie, u8 gender, bool valid) :
+        advances(advances),
+        data(specie),
+        item(false),
+        valid(valid),
+        chatot(((static_cast<u64>(prng) * 0x1fff) >> 32) / 82),
+        gender(gender),
+        group(group),
+        needle((static_cast<u64>(prng) * 8) >> 32),
+        slot(slot)
     {
     }
 
     /**
      * @brief Construct a new HiddenGrottoState object
      *
-     * @param prng PRNG call to determine Chatot pitch
+     * @param prng PRNG call to determine chatot pitch and needle
      * @param advances Advances of the state
      * @param group Item group
      * @param slot Item slot
      * @param item Item number
+     * @param valid Whether state is valid to encounter or not
      */
-    HiddenGrottoState(u16 prng, u32 advances, u8 group, u8 slot, u16 item) :
-        advances(advances), data(item), item(true), chatot(prng / 82), gender(0), group(group), slot(slot)
+    HiddenGrottoState(u32 prng, u32 advances, u8 group, u8 slot, u16 item, bool valid) :
+        advances(advances),
+        data(item),
+        item(true),
+        valid(valid),
+        chatot(((static_cast<u64>(prng) * 0x1fff) >> 32) / 82),
+        gender(0),
+        group(group),
+        needle((static_cast<u64>(prng) * 8) >> 32),
+        slot(slot)
     {
     }
 
@@ -120,6 +138,27 @@ public:
     }
 
     /**
+     * @brief Determines if the state can be hit
+     *
+     * @return true State can be hit
+     * @return false State cannot be hit
+     */
+    bool isValid() const
+    {
+        return valid;
+    }
+
+    /**
+     * @brief Returns the needle value
+     *
+     * @return Needle value
+     */
+    u8 getNeedle() const
+    {
+        return needle;
+    }
+
+    /**
      * @brief Returns the slot of the state
      *
      * @return State slot
@@ -133,9 +172,11 @@ private:
     u32 advances;
     u16 data;
     bool item;
+    bool valid;
     u8 chatot;
     u8 gender;
     u8 group;
+    u8 needle;
     u8 slot;
 };
 

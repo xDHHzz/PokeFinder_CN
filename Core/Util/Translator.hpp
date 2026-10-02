@@ -28,6 +28,15 @@
 enum class Buttons : u16;
 enum class Game : u32;
 
+enum class CharacteristicGeneration : u8
+{
+    Gen4,
+    Gen5,
+    Gen6,
+    Gen7,
+    Gen8
+};
+
 /**
  * @brief Provides methods to get strings in the desired language
  */
@@ -43,20 +52,32 @@ namespace Translator
     const std::string &getAbility(u16 ability);
 
     /**
-     * @brief Gets the string for the \p characteristic
+     * @brief Gets the string for the \p characteristic for \p generation
      *
      * @param characteristic Characteristic number
+     * @param generation Generation context
      *
      * @return Characteristic string
      */
-    const std::string &getCharacteristic(u8 characteristic);
+    const std::string &getCharacteristic(u8 characteristic, CharacteristicGeneration generation);
 
     /**
-     * @brief Gets all the characteristic strings
+     * @brief Gets all the characteristic strings for \p generation
+     *
+     * @param generation Generation context
      *
      * @return Vector of characteristic strings
      */
-    const std::vector<std::string> &getCharacteristics();
+    const std::vector<std::string> &getCharacteristics(CharacteristicGeneration generation);
+
+    /**
+     * @brief Gets all the characteristic strings for \p version
+     *
+     * @param version Game version
+     *
+     * @return Vector of characteristic strings
+     */
+    const std::vector<std::string> &getCharacteristics(Game version);
 
     /**
      * @brief Gets the string for the \p specie and \p form
@@ -181,6 +202,15 @@ namespace Translator
     const std::vector<std::string> &getNatures();
 
     /**
+     * @brief Gets the string for the \p needle
+     *
+     * @param needle Needle value
+     *
+     * @return Needle string
+     */
+    const std::string &getNeedle(u8 needle);
+
+    /**
      * @brief Gets the string for the \p specie
      *
      * @param specie Specie number
@@ -223,7 +253,7 @@ namespace Translator
      *
      * @param locale Language
      */
-    void init(const std::string &locale);
+    void init(std::string_view locale);
 }
 
 #endif // TRANSLATOR_HPP

@@ -35,14 +35,14 @@ namespace Ui
 /**
  * @brief Provides settings and filters to RNG event encounters in Gen 4 games
  */
-class Event4 : public QWidget
+class Event4 final : public QWidget
 {
     Q_OBJECT
 signals:
     /**
-     * @brief Emits that the profiles have been modified
+     * @brief Emits that the profiles have been changed
      */
-    void profilesModified(int);
+    void profilesChanged(int);
 
 public:
     /**
@@ -68,9 +68,8 @@ private:
 
     EventGeneratorModel4 *generatorModel;
     EventSearcherModel4 *searcherModel;
-    Profile4 *currentProfile;
+    const Profile4 *currentProfile;
     SortFilterProxyModel *proxyModel;
-    std::vector<Profile4> profiles;
 
 private slots:
     /**
@@ -79,16 +78,16 @@ private slots:
     void generate();
 
     /**
-     * @brief Updates displayed information for a profile
-     *
-     * @param index Profile index
+     * @brief Opens the advance finder dialog
      */
-    void profileIndexChanged(int index);
+    void openAdvanceFinder();
 
     /**
-     * @brief Opens the profile manager
+     * @brief Updates showing profile related information
+     *
+     * @param profile Selected profile
      */
-    void profileManager();
+    void profileChanged(const Profile4 &profile);
 
     /**
      * @brief Searches static encounters from the provided IVs

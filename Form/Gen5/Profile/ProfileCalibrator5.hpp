@@ -34,14 +34,14 @@ namespace Ui
 /**
  * @brief Provides interface to calibrate and create new profiles
  */
-class ProfileCalibrator5 : public QWidget
+class ProfileCalibrator5 final : public QWidget
 {
     Q_OBJECT
 signals:
     /**
-     * @brief Emits that the profiles have been modified
+     * @brief Emits that the profiles have been changed
      */
-    void profilesModified(int);
+    void profilesChanged(int);
 
 public:
     /**

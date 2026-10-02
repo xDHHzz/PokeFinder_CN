@@ -36,10 +36,14 @@
 #include <QMessageBox>
 #include <QSettings>
 
+static const QString settingPrefix = QStringLiteral("underground");
+
 Wild8::Wild8(QWidget *parent) : QWidget(parent), ui(new Ui::Wild8)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
+
+    ui->profileDisplay->setup(settingPrefix, Game::BDSP);
 
     model = new WildModel8(ui->tableView);
     ui->tableView->setModel(model);
@@ -72,38 +76,38 @@ Wild8::Wild8(QWidget *parent) : QWidget(parent), ui(new Ui::Wild8)
 
     ui->comboBoxLocation->enableAutoComplete();
 
-    connect(ui->comboBoxProfiles, &QComboBox::currentIndexChanged, this, &Wild8::profileIndexChanged);
+    connect(ui->profileDisplay, &ProfileDisplay8::profileChanged, this, &Wild8::profileChanged);
+    connect(ui->profileDisplay, &ProfileDisplay8::profilesChanged, this, &Wild8::profilesChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &Wild8::generate);
     connect(ui->comboBoxEncounter, &QComboBox::currentIndexChanged, this, &Wild8::encounterIndexChanged);
     connect(ui->comboBoxLocation, &QComboBox::currentIndexChanged, this, &Wild8::locationIndexChanged);
     connect(ui->comboBoxPokemon, &QComboBox::currentIndexChanged, this, &Wild8::pokemonIndexChanged);
     connect(ui->checkBoxFeebasTile, &QCheckBox::checkStateChanged, this, &Wild8::feebasTileStateChanged);
-    connect(ui->comboBoxReplacement0, &QComboBox::currentIndexChanged, this, [=] {
+    connect(ui->comboBoxReplacement0, &QComboBox::currentIndexChanged, this, [this] {
         if (ui->checkBoxReplacement->isChecked())
         {
             updateEncounters();
             locationIndexChanged(0);
         }
     });
-    connect(ui->comboBoxReplacement1, &QComboBox::currentIndexChanged, this, [=] {
+    connect(ui->comboBoxReplacement1, &QComboBox::currentIndexChanged, this, [this] {
         if (ui->checkBoxReplacement->isChecked())
         {
             updateEncounters();
             locationIndexChanged(0);
         }
     });
-    connect(ui->buttonGroup, &QButtonGroup::buttonClicked, this, [=] {
+    connect(ui->buttonGroup, &QButtonGroup::buttonClicked, this, [this] {
         updateEncounters();
         locationIndexChanged(0);
     });
-    connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &Wild8::profileManager);
     connect(ui->filter, &Filter::showStatsChanged, model, &WildModel8::setShowStats);
 
     updateProfiles();
     encounterIndexChanged(0);
 
     QSettings setting;
-    setting.beginGroup("wild8");
+    setting.beginGroup(settingPrefix);
     if (setting.contains("geometry"))
     {
         this->restoreGeometry(setting.value("geometry").toByteArray());
@@ -114,8 +118,7 @@ Wild8::Wild8(QWidget *parent) : QWidget(parent), ui(new Ui::Wild8)
 Wild8::~Wild8()
 {
     QSettings setting;
-    setting.beginGroup("wild8");
-    setting.setValue("profile", ui->comboBoxProfiles->currentIndex());
+    setting.beginGroup(settingPrefix);
     setting.setValue("geometry", this->saveGeometry());
     setting.endGroup();
 
@@ -124,25 +127,7 @@ Wild8::~Wild8()
 
 void Wild8::updateProfiles()
 {
-    profiles.clear();
-    auto completeProfiles = ProfileLoader8::getProfiles();
-    std::copy_if(completeProfiles.begin(), completeProfiles.end(), std::back_inserter(profiles),
-                 [](const Profile8 &profile) { return (profile.getVersion() & Game::BDSP) != Game::None; });
-    profiles.insert(profiles.begin(), Profile8("-", Game::BD, 12345, 54321, false, false, false));
-
-    ui->comboBoxProfiles->clear();
-
-    for (const auto &profile : profiles)
-    {
-        ui->comboBoxProfiles->addItem(QString::fromStdString(profile.getName()));
-    }
-
-    QSettings setting;
-    int val = setting.value("wild8/profile", 0).toInt();
-    if (val < ui->comboBoxProfiles->count())
-    {
-        ui->comboBoxProfiles->setCurrentIndex(val);
-    }
+    ui->profileDisplay->updateProfiles();
 }
 
 void Wild8::updateEncounters()
@@ -168,6 +153,7 @@ void Wild8::encounterIndexChanged(int index)
     if (index >= 0)
     {
         auto encounter = ui->comboBoxEncounter->getEnum<Encounter>();
+        u16 currentLocation = ui->comboBoxLocation->getCurrentUShort();
 
         bool honey = encounter == Encounter::HoneyTree;
 
@@ -187,11 +173,11 @@ void Wild8::encounterIndexChanged(int index)
         updateEncounters();
 
         std::vector<u16> locs;
-        std::transform(encounters.begin(), encounters.end(), std::back_inserter(locs),
-                       [](const EncounterArea8 &area) { return area.getLocation(); });
+        std::ranges::transform(encounters, std::back_inserter(locs), [](const EncounterArea8 &area) { return area.getLocation(); });
 
         ui->comboBoxLocation->clear();
-        ui->comboBoxLocation->addItems(Translator::getLocations(locs, currentProfile->getVersion()));
+        ui->comboBoxLocation->addItems(Translator::getLocations(locs, currentProfile->getVersion()), locs);
+        ui->comboBoxLocation->setCurrentIndexByData(currentLocation);
     }
 }
 
@@ -212,7 +198,7 @@ void Wild8::generate()
         return;
     }
 
-    if (!ui->filter->isValid())
+    if (!ui->filter->isValid(ui->spinBoxLevelMin->value(), ui->spinBoxLevelMax->value()))
     {
         return;
     }
@@ -222,8 +208,8 @@ void Wild8::generate()
     u8 fixedSlot = 0;
     if (encounter == Encounter::HoneyTree)
     {
-        std::array<bool, 12> encounters = ui->filter->getEncounterSlots();
-        if (std::count(encounters.begin(), encounters.end(), true) != 1)
+        auto encounters = ui->filter->getEncounterSlots();
+        if (std::ranges::count(encounters, true) != 1)
         {
             QMessageBox msg(QMessageBox::Warning, tr("Too many slots selected"),
                             tr("Please select a single encounter slot for Honey Tree"));
@@ -233,7 +219,7 @@ void Wild8::generate()
         else
         {
             method = Method::HoneyTree;
-            fixedSlot = std::find(encounters.begin(), encounters.end(), true) - encounters.begin();
+            fixedSlot = std::ranges::find(encounters, true) - encounters.begin();
         }
     }
 
@@ -246,8 +232,8 @@ void Wild8::generate()
     bool feebasTile = ui->checkBoxFeebasTile->isChecked();
 
     auto filter = ui->filter->getFilter<WildStateFilter, true>();
-    WildGenerator8 generator(initialAdvances, maxAdvances, offset, method, lead, feebasTile, encounters[ui->comboBoxLocation->currentIndex()],
-                             *currentProfile, filter);
+    WildGenerator8 generator(initialAdvances, maxAdvances, offset, method, lead, feebasTile,
+                             encounters[ui->comboBoxLocation->currentIndex()], *currentProfile, filter);
 
     auto states = generator.generate(seed0, seed1, fixedSlot);
     model->addItems(states);
@@ -316,11 +302,11 @@ void Wild8::locationIndexChanged(int index)
 
         if (feebas && (encounter == Encounter::OldRod || encounter == Encounter::GoodRod || encounter == Encounter::SuperRod))
         {
-            ui->checkBoxFeebasTile->setVisible(true);
+            ui->checkBoxFeebasTile->show();
         }
         else
         {
-            ui->checkBoxFeebasTile->setVisible(false);
+            ui->checkBoxFeebasTile->hide();
             ui->checkBoxFeebasTile->setChecked(false);
         }
     }
@@ -331,32 +317,26 @@ void Wild8::pokemonIndexChanged(int index)
     if (index <= 0)
     {
         ui->filter->resetEncounterSlots();
+        ui->spinBoxLevelMin->setValue(0);
+        ui->spinBoxLevelMax->setValue(0);
+        ui->filter->setLevelRange(1, 100);
     }
     else
     {
         u16 num = ui->comboBoxPokemon->getCurrentUShort();
         auto flags = encounters[ui->comboBoxLocation->currentIndex()].getSlots(num);
         ui->filter->toggleEncounterSlots(flags);
+
+        auto range = encounters[ui->comboBoxLocation->currentIndex()].getLevelRange(num);
+        ui->spinBoxLevelMin->setValue(range.first);
+        ui->spinBoxLevelMax->setValue(range.second);
+        ui->filter->setLevelRange(range.first, range.second);
     }
 }
 
-void Wild8::profileIndexChanged(int index)
+void Wild8::profileChanged(const Profile8 &profile)
 {
-    if (index >= 0)
-    {
-        currentProfile = &profiles[index];
+    currentProfile = &profile;
 
-        ui->labelProfileTIDValue->setText(QString::number(currentProfile->getTID()));
-        ui->labelProfileSIDValue->setText(QString::number(currentProfile->getSID()));
-        ui->labelProfileGameValue->setText(QString::fromStdString(Translator::getGame(currentProfile->getVersion())));
-
-        encounterIndexChanged(0);
-    }
-}
-
-void Wild8::profileManager()
-{
-    auto *manager = new ProfileManager8();
-    connect(manager, &ProfileManager8::profilesModified, this, [=](int num) { emit profilesModified(num); });
-    manager->show();
+    encounterIndexChanged(0);
 }

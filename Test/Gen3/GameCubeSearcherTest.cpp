@@ -78,10 +78,15 @@ void GameCubeSearcherTest::searchChannel()
     Profile3 profile("-", Game::GC, 12345, 54321, false);
 
     const StaticTemplate3 *staticTemplate = Encounters3::getStaticEncounter(9, 0);
-    StateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers);
+    StateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers);
     GameCubeSearcher searcher(Method::Channel, false, profile, filter);
 
     searcher.startSearch(min, max, staticTemplate);
+    while (searcher.isSearching())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
     auto states = searcher.getResults();
     QCOMPARE(states.size(), results);
 
@@ -129,11 +134,16 @@ void GameCubeSearcherTest::searchColoShadow()
     Profile3 profile("-", Game::Colosseum, 12345, 54321, false);
 
     const ShadowTemplate *shadowTemplate = Encounters3::getShadowTeam(pokemon);
-    StateFilter filter(255, 255, 255, 0, 255, 0, 255, false, shadowTemplate->getType() == ShadowType::EReader ? zero : min,
+    StateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, shadowTemplate->getType() == ShadowType::EReader ? zero : min,
                        shadowTemplate->getType() == ShadowType::EReader ? zero : max, natures, powers);
     GameCubeSearcher searcher(Method::None, false, profile, filter);
 
     searcher.startSearch(min, max, shadowTemplate);
+    while (searcher.isSearching())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
     auto states = searcher.getResults();
     QCOMPARE(states.size(), results);
 
@@ -146,7 +156,7 @@ void GameCubeSearcherTest::searchColoShadow()
         QCOMPARE(generatorStates.size(), 1);
         if (shadowTemplate->getType() == ShadowType::EReader)
         {
-            QVERIFY(operator==<false>(state, generatorStates[0]));
+            QVERIFY(operator== <false>(state, generatorStates[0]));
         }
         else
         {
@@ -188,10 +198,15 @@ void GameCubeSearcherTest::searchGalesShadow()
     Profile3 profile("-", Game::Gales, 12345, 54321, false);
 
     const ShadowTemplate *shadowTemplate = Encounters3::getShadowTeam(pokemon);
-    StateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers);
+    StateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers);
     GameCubeSearcher searcher(Method::None, unset, profile, filter);
 
     searcher.startSearch(min, max, shadowTemplate);
+    while (searcher.isSearching())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
     auto states = searcher.getResults();
     QCOMPARE(states.size(), results);
 
@@ -239,10 +254,15 @@ void GameCubeSearcherTest::searchNonLock()
     Profile3 profile("-", version, 12345, 54321, false);
 
     const StaticTemplate3 *staticTemplate = Encounters3::getStaticEncounter(8, pokemon);
-    StateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers);
+    StateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers);
     GameCubeSearcher searcher(Method::None, false, profile, filter);
 
     searcher.startSearch(min, max, staticTemplate);
+    while (searcher.isSearching())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
     auto states = searcher.getResults();
     QCOMPARE(states.size(), results);
 

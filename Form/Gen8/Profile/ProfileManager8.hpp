@@ -32,14 +32,14 @@ namespace Ui
 /**
  * @brief Provides interface to view/edit/delete existing profiles and create new ones
  */
-class ProfileManager8 : public QWidget
+class ProfileManager8 final : public QWidget
 {
     Q_OBJECT
 signals:
     /**
-     * @brief Emits that the profiles have been modified
+     * @brief Emits that the profiles have been changed
      */
-    void profilesModified(int);
+    void profilesChanged(int);
 
 public:
     /**

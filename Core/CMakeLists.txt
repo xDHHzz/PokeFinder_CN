@@ -1,39 +1,68 @@
 project(PokeFinderCore)
 
-if (MSVC)
-    add_compile_options(/Zc:inline)
-endif ()
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/Config.hpp.in
+    ${CMAKE_CURRENT_BINARY_DIR}/generated_public/Core/Config.hpp
+)
 
-if (SIMD)
-    add_definitions(-DSIMD)
+# Modify raw encounter data into format PokeFinder uses
+file(GLOB_RECURSE ALL_ENCOUNTER_FILES ${CMAKE_CURRENT_SOURCE_DIR}/Resources/EncounterTables/*)
+list(FILTER ALL_ENCOUNTER_FILES EXCLUDE REGEX "(/\\.git($|/)|\\.pyc$|/__pycache__/)")
 
-    if (APPLE)
-        add_compile_options(-msse2 -mssse3 -mavx -mavx2 -mfpu=neon)
-    elseif (MINGW OR UNIX)
-        include(GetTargetArch)
-        get_target_arch(ARCH)
-        if ((ARCH STREQUAL "x86_64") OR (ARCH STREQUAL "i686"))
-            add_compile_options(-msse2 -mssse3 -mavx -mavx2)
-        elseif (ARCH STREQUAL "arm")
-            add_compile_options(-mfpu=neon)
-        endif ()
-    endif ()
-endif()
+set(ENCOUNTER_DATA_FILES ${ALL_ENCOUNTER_FILES})
+list(FILTER ENCOUNTER_DATA_FILES EXCLUDE REGEX "\\.py$")
 
-find_package(Python3 3.14 COMPONENTS Interpreter REQUIRED)
-execute_process(COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/Resources/EncounterTables/main.py)
-execute_process(COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/Resources/embed.py)
+set(ENCOUNTER_PYTHON_FILES ${ALL_ENCOUNTER_FILES})
+list(FILTER ENCOUNTER_PYTHON_FILES INCLUDE REGEX "\\.py$")
+
+set(ENCOUNTER_BIN   ${CMAKE_CURRENT_BINARY_DIR}/bin)
+set(ENCOUNTER_STAMP ${CMAKE_CURRENT_BINARY_DIR}/bin.stamp)
+
+add_custom_command(
+    OUTPUT ${ENCOUNTER_STAMP}
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/Resources/EncounterTables/main.py ${ENCOUNTER_BIN} ${ENCOUNTER_STAMP}
+    DEPENDS ${ENCOUNTER_DATA_FILES} ${ENCOUNTER_PYTHON_FILES}
+)
+
+# Convert modified encounter data into header files
+file(GLOB_RECURSE ALL_EMBED_FILES ${CMAKE_CURRENT_SOURCE_DIR}/Resources/*)
+list(FILTER ALL_EMBED_FILES EXCLUDE REGEX "/EncounterTables/")
+
+set(EMBED_DATA_FILES ${ALL_EMBED_FILES})
+list(FILTER EMBED_DATA_FILES INCLUDE REGEX "\\.(bin|txt)$")
+
+set(EMBED_PYTHON_FILES ${ALL_EMBED_FILES})
+list(FILTER EMBED_PYTHON_FILES INCLUDE REGEX "\\.py$")
+
+set(EMBED_PATH ${CMAKE_CURRENT_BINARY_DIR}/generated_private/Core/Resources)
+set(EMBED_HEADERS 
+    ${EMBED_PATH}/EncounterData3.hpp
+    ${EMBED_PATH}/EncounterData4.hpp
+    ${EMBED_PATH}/EncounterData5.hpp
+    ${EMBED_PATH}/EncounterData8.hpp
+    ${EMBED_PATH}/i18n.hpp
+    ${EMBED_PATH}/Personal.hpp
+)
+
+add_custom_command(
+    OUTPUT ${EMBED_HEADERS}
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/Resources/embed.py ${ENCOUNTER_BIN} ${EMBED_PATH}
+    DEPENDS ${ENCOUNTER_STAMP} ${EMBED_DATA_FILES} ${EMBED_PYTHON_FILES}
+)
 
 add_subdirectory(External)
 
 add_library(PokeFinderCore STATIC
+    ${EMBED_HEADERS}
     Enum/Buttons.hpp
     Enum/DSType.hpp
     Enum/Encounter.hpp
     Enum/Game.hpp
+    Enum/Item.hpp
     Enum/Language.hpp
     Enum/Lead.hpp
     Enum/Method.hpp
+    Enum/PassPower.hpp
     Enum/ShadowType.hpp
     Enum/Shiny.hpp
     Gen3/EncounterArea3.cpp
@@ -118,6 +147,7 @@ add_library(PokeFinderCore STATIC
     Gen4/Tools/SeedToTimeCalculator4.cpp
     Gen4/Tools/SeedToTimeCalculator4.hpp
     Gen5/DreamRadarTemplate.hpp
+    Gen5/EncounterArea5.cpp
     Gen5/EncounterArea5.hpp
     Gen5/Encounters5.cpp
     Gen5/Encounters5.hpp
@@ -125,6 +155,8 @@ add_library(PokeFinderCore STATIC
     Gen5/Keypresses.hpp
     Gen5/Filters/HiddenGrottoFilter.cpp
     Gen5/Filters/HiddenGrottoFilter.hpp
+    Gen5/Filters/PhenomenonFilter.cpp
+    Gen5/Filters/PhenomenonFilter.hpp
     Gen5/Generators/DreamRadarGenerator.cpp
     Gen5/Generators/DreamRadarGenerator.hpp
     Gen5/Generators/EggGenerator5.cpp
@@ -137,6 +169,8 @@ add_library(PokeFinderCore STATIC
     Gen5/Generators/HiddenGrottoGenerator.hpp
     Gen5/Generators/IDGenerator5.cpp
     Gen5/Generators/IDGenerator5.hpp
+    Gen5/Generators/PhenomenonGenerator.cpp
+    Gen5/Generators/PhenomenonGenerator.hpp
     Gen5/Generators/StaticGenerator5.cpp
     Gen5/Generators/StaticGenerator5.hpp
     Gen5/Generators/WildGenerator5.cpp
@@ -150,28 +184,42 @@ add_library(PokeFinderCore STATIC
     Gen5/PGF.hpp
     Gen5/Profile5.cpp
     Gen5/Profile5.hpp
+    Gen5/Searchers/DreamRadarSearcher.hpp
+    Gen5/Searchers/EggSearcher5.hpp
+    Gen5/Searchers/EventSearcher5.hpp
+    Gen5/Searchers/HiddenGrottoSearcher.hpp
     Gen5/Searchers/IDSearcher5.cpp
     Gen5/Searchers/IDSearcher5.hpp
     Gen5/Searchers/IVCacheSearcher.cpp
     Gen5/Searchers/IVCacheSearcher.hpp
+    Gen5/Searchers/IVSearcher5.cpp
     Gen5/Searchers/IVSearcher5.hpp
+    Gen5/Searchers/PhenomenonSearcher.hpp
     Gen5/Searchers/ProfileSearcher5.cpp
     Gen5/Searchers/ProfileSearcher5.hpp
     Gen5/Searchers/SHA1CacheSearcher.cpp
     Gen5/Searchers/SHA1CacheSearcher.hpp
+    Gen5/Searchers/SearcherBase5.cpp
     Gen5/Searchers/SearcherBase5.hpp
+    Gen5/Searchers/Searcher5.cpp
     Gen5/Searchers/Searcher5.hpp
+    Gen5/Searchers/StaticSearcher5.hpp
+    Gen5/Searchers/WildSearcher5.hpp
     Gen5/SHA1Cache.cpp
     Gen5/SHA1Cache.hpp
+    Gen5/States/AdjacentSeedsState.hpp
     Gen5/States/DreamRadarState.hpp
     Gen5/States/EggState5.hpp
     Gen5/States/EventState5.hpp
     Gen5/States/HiddenGrottoState.hpp
+    Gen5/States/PhenomenonState.hpp
     Gen5/States/ProfileSearcherState5.hpp
     Gen5/States/SearcherState5.hpp
     Gen5/States/State5.hpp
     Gen5/States/WildState5.hpp
     Gen5/StaticTemplate5.hpp
+    Gen5/Tools/AdjacentSeedsCalculator.cpp
+    Gen5/Tools/AdjacentSeedsCalculator.hpp
     Gen8/Den.hpp
     Gen8/EncounterArea8.cpp
     Gen8/EncounterArea8.hpp
@@ -238,15 +286,14 @@ add_library(PokeFinderCore STATIC
     Parents/States/State.hpp
     Parents/States/WildState.hpp
     Parents/StaticTemplate.hpp
-    RNG/LCRNG.cpp
+    RNG/Jump.cpp
+    RNG/Jump.hpp
     RNG/LCRNG.hpp
     RNG/LCRNGReverse.cpp
     RNG/LCRNGReverse.hpp
-    RNG/LCRNG64.cpp
     RNG/LCRNG64.hpp
     RNG/MT.cpp
     RNG/MT.hpp
-    RNG/MTFast.hpp
     RNG/RNGList.hpp
     RNG/SFMT.cpp
     RNG/SFMT.hpp
@@ -261,6 +308,8 @@ add_library(PokeFinderCore STATIC
     RNG/Xorshift.hpp
     Util/DateTime.cpp
     Util/DateTime.hpp
+    Util/AdvanceSearcher.cpp
+    Util/AdvanceSearcher.hpp
     Util/EncounterSlot.cpp
     Util/EncounterSlot.hpp
     Util/IVChecker.cpp
@@ -269,11 +318,45 @@ add_library(PokeFinderCore STATIC
     Util/IVToPIDCalculator.hpp
     Util/Nature.cpp
     Util/Nature.hpp
+    Util/StackVector.hpp
     Util/Translator.cpp
     Util/Translator.hpp
     Util/Utilities.cpp
     Util/Utilities.hpp
 )
 
-target_include_directories(PokeFinderCore PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/External)
-target_link_libraries(PokeFinderCore libzstd_static)
+target_include_directories(PokeFinderCore PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/External ${CMAKE_CURRENT_BINARY_DIR}/generated_public PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated_private)
+target_link_libraries(PokeFinderCore PUBLIC nlohmann_json::nlohmann_json PokeFinderIncludes)
+target_link_libraries(PokeFinderCore PRIVATE gf2::gf2 libzstd_static)
+
+if (MSVC)
+    add_compile_options(PokeFinderCore PRIVATE /Zc:inline)
+endif ()
+
+if (ENABLE_SIMD)
+    if (APPLE)
+        if ("x86_64" IN_LIST CMAKE_OSX_ARCHITECTURES AND "arm64" IN_LIST CMAKE_OSX_ARCHITECTURES)
+            # Universal binary: scope x86 SIMD flags to the x86_64 slice only.
+            # arm64 always has NEON; -mfpu= is ARMv7-only and must not be passed.
+            # Use SHELL: to prevent CMake from deduplicating the -Xarch_x86_64 pairs.
+            target_compile_options(PokeFinderCore PUBLIC "SHELL:-Xarch_x86_64 -msse4.2" "SHELL:-Xarch_x86_64 -mpclmul")
+        elseif ("x86_64" IN_LIST CMAKE_OSX_ARCHITECTURES)
+            # x86_64 only: Add
+            target_compile_options(PokeFinderCore PUBLIC -msse4.2 -mpclmul)
+        endif()
+        # arm64-only: NEON is always enabled by default, no explicit flag needed.
+    elseif (MINGW OR UNIX)
+        include(GetTargetArch)
+        get_target_arch(ARCH)
+
+        if ((ARCH STREQUAL "x86_64") OR (ARCH STREQUAL "i686"))
+            target_compile_options(PokeFinderCore PUBLIC -msse4.2 -mpclmul)
+        elseif (ARCH STREQUAL "arm")
+            target_compile_options(PokeFinderCore PRIVATE -mfpu=neon -mfpu=crypto-neon-fp-armv8)
+        elseif (ARCH STREQUAL "aarch64")
+            target_compile_options(PokeFinderCore PRIVATE -march=armv8-a+crypto)
+        endif ()
+    elseif (MSVC)
+        target_compile_options(PokeFinderCore PUBLIC /arch:SSE4.2)
+    endif ()
+endif()

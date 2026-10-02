@@ -18,17 +18,10 @@
  */
 
 #include "TinyMT.hpp"
+#include <Core/RNG/Jump.hpp>
 
-constexpr u64 jumpTable[25][2]
-    = { { 0xb0a48045db1bfe95, 0x1b98a18f31f57486 }, { 0xe29d1503ee564039, 0x342d0c6dc777e228 }, { 0xfd7a37b1acaa7823, 0x9951a06456708b7e },
-        { 0x5ab81fcd13ccd9fa, 0xce6673b3d158340e }, { 0xe7d0c5907aee0eea, 0x90d98e45a895878 },  { 0x2e1bd6473d093826, 0x61def4964ec4ab34 },
-        { 0x33ae14e5d2005a71, 0x334a0fe77ab182de }, { 0xd654b5930b12fe3e, 0x3794cc23a5de8a5e }, { 0x586e1d6b2670a75, 0x86bf0979d37c9a1e },
-        { 0x8d859b2a345b1a3f, 0xe2d08ec75db83196 }, { 0x9d2132eac57edc3a, 0xd8731c41bcf9f318 }, { 0xa5c8c0d51e112335, 0x2ebb41367c1e3386 },
-        { 0x7c5c99ea483c815a, 0x9f1173b680f6752e }, { 0x658cd2f421d18c04, 0x41fbd20233bcb628 }, { 0x694898799783db46, 0xc8fc1f0f485cc220 },
-        { 0x4cf6c5ecc4826e0b, 0x8e695f0109724eb6 }, { 0xf20cef18f4cd9a96, 0x7478b18cfd3ccb36 }, { 0x9f0de9fe452bc110, 0x7feb70c475efda16 },
-        { 0xabf913e20fcbe635, 0x1ad541a07a6c610a }, { 0x20999170716ca869, 0x203777ca7d356342 }, { 0x5dcb2d78b3e9ca0f, 0x7222f0529a9dd99c },
-        { 0x197365ac9569a8b4, 0x6dd7a644730f081a }, { 0xf2156d44b37e61be, 0x80bfd2b6153ed5cc }, { 0xac7a0ab2f43b15a9, 0x227df3de640734f4 },
-        { 0x40afea91e9ad4b2c, 0x58440d15ded1d336 } };
+static const vuint128 polynomial = vuint128(0x8dcc50c798faba43, 0xd8524022ed8dff4a);
+static const vuint128 inverse = vuint128(0x80968734aa4c6306, 0xe3cdfeee6d61d04b);
 
 TinyMT::TinyMT(u32 seed) : state(seed, 0x8f7011ee, 0xfc78ff1f, 0x3793fdff)
 {
@@ -63,30 +56,28 @@ void TinyMT::advance(u32 advances)
 
 void TinyMT::jump(u32 advances)
 {
-    advance(advances & 0x7f);
-    advances >>= 7;
-
-    for (int i = 0; advances; advances >>= 1, i++)
+    if (advances < 256)
     {
-        if (advances & 1)
+        advance(advances);
+    }
+    else
+    {
+        auto jump = Jump::computeJumpPolynomial<127>(polynomial, inverse, advances);
+
+        vuint128 temp(0);
+        for (int i = 0; i < 2; i++)
         {
-            vuint128 jump(0);
-
-            for (int j = 1; j >= 0; j--)
+            for (int j = 0; j < 64; j++)
             {
-                u64 val = jumpTable[i][j];
-                for (int k = 0; k < 64; k++, val >>= 1)
+                if (jump.uint64[i] & (1ULL << j))
                 {
-                    if (val & 1)
-                    {
-                        jump = jump ^ state;
-                    }
-                    nextState();
+                    temp = temp ^ state;
                 }
+                next();
             }
-
-            state = jump;
         }
+
+        state = temp;
     }
 }
 

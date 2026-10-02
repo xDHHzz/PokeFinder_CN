@@ -26,7 +26,7 @@
 /**
  * @brief Provides a table model implementation to show Seed to Time information for Gen 4
  */
-class SeedToTimeModel4 : public TableModel<SeedTime4>
+class SeedToTimeModel4 final : public TableModel<SeedTime4>
 {
     Q_OBJECT
 public:
@@ -74,7 +74,7 @@ private:
 /**
  * @brief Provides a table model implementation to show Seed to Time Calibration information for Gen 4
  */
-class SeedToTimeCalibrateModel4 : public TableModel<SeedTimeCalibrate4>
+class SeedToTimeCalibrateModel4 final : public TableModel<SeedTimeCalibrate4>
 {
     Q_OBJECT
 public:
@@ -117,7 +117,7 @@ public:
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
 private:
-    QStringList header = { tr("Seed"), tr("Date/Time"), tr("Delay"), tr("Coin flips"), tr("Calls"), tr("Roamer locations") };
+    QStringList header = { tr("Seed"), tr("Date/Time"), tr("Delay"), tr("Coin flips"), tr("Calls"), tr("Roamers") };
     bool dppt;
 
     /**

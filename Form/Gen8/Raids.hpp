@@ -33,14 +33,14 @@ namespace Ui
 /**
  * @brief Provides settings and filters to RNG raid encounters in Gen 8 games
  */
-class Raids : public QWidget
+class Raids final : public QWidget
 {
     Q_OBJECT
 signals:
     /**
-     * @brief Emits that the profiles have been modified
+     * @brief Emits that the profiles have been changed
      */
-    void profilesModified(int);
+    void profilesChanged(int);
 
 public:
     /**
@@ -64,9 +64,8 @@ public slots:
 private:
     Ui::Raids *ui;
 
-    Profile8 *currentProfile;
+    const Profile8 *currentProfile;
     StaticModel8 *model;
-    std::vector<Profile8> profiles;
 
 private slots:
     /**
@@ -89,16 +88,11 @@ private slots:
     void locationIndexChanged(int index);
 
     /**
-     * @brief Updates displayed information for a profile
+     * @brief Updates showing profile related information
      *
-     * @param index Profile index
+     * @param profile Selected profile
      */
-    void profileIndexChanged(int index);
-
-    /**
-     * @brief Opens the profile manager
-     */
-    void profileManager();
+    void profileChanged(const Profile8 &profile);
 
     /**
      * @brief Updates the pokemon listed

@@ -250,7 +250,7 @@ std::vector<UndergroundState> UndergroundGenerator::generate(u64 seed0, u64 seed
     const auto &levelInfo = levelInfoList[levelFlag];
     u8 pidRolls = diglett ? 2 : 1;
 
-    auto createPokemon = [=, &rngList](u32 advances, u16 specie) {
+    auto createPokemon = [this, &rngList, base, &levelInfo, pidRolls](u32 advances, u16 specie) {
         u8 level;
         if (lead == Lead::Pressure)
         {
@@ -290,7 +290,7 @@ std::vector<UndergroundState> UndergroundGenerator::generate(u64 seed0, u64 seed
         }
 
         std::array<u8, 6> ivs;
-        std::generate(ivs.begin(), ivs.end(), [&rngList] { return rngList.next(rand) % 32; });
+        std::ranges::generate(ivs, [&rngList] { return rngList.next(rand) % 32; });
 
         u8 ability = rngList.next(rand) % 2;
 
@@ -371,7 +371,7 @@ std::vector<UndergroundState> UndergroundGenerator::generate(u64 seed0, u64 seed
         {
             u16 pokemon = area.getPokemon(rngList, slots[i]);
             UndergroundState state = createPokemon(cnt, pokemon);
-            if (filter.compareState(state))
+            if (filter.compare(state))
             {
                 states.emplace_back(state);
             }
@@ -380,7 +380,7 @@ std::vector<UndergroundState> UndergroundGenerator::generate(u64 seed0, u64 seed
         if (specialPokemon != 0)
         {
             UndergroundState state = createPokemon(cnt, specialPokemon);
-            if (filter.compareState(state))
+            if (filter.compare(state))
             {
                 states.emplace_back(state);
             }

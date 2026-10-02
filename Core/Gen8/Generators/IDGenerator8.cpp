@@ -31,7 +31,7 @@ IDGenerator8::IDGenerator8(u32 initialAdvances, u32 maxAdvances, const IDFilter 
 {
 }
 
-std::vector<IDState8> IDGenerator8::generate(u64 seed0, u64 seed1)
+std::vector<IDState8> IDGenerator8::generate(u64 seed0, u64 seed1) const
 {
     RNGList<u32, Xorshift, 2, gen> rngList(seed0, seed1, initialAdvances);
 
@@ -49,7 +49,7 @@ std::vector<IDState8> IDGenerator8::generate(u64 seed0, u64 seed1)
         u32 displayTID = sidtid % 1000000;
 
         IDState8 state(initialAdvances + cnt, tid, sid, displayTID);
-        if (filter.compareState(state))
+        if (filter.compare(state))
         {
             states.emplace_back(state);
         }

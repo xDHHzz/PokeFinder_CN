@@ -19,6 +19,7 @@
 
 #include "ProfileManager3.hpp"
 #include "ui_ProfileManager3.h"
+#include <Core/Enum/Game.hpp>
 #include <Core/Parents/ProfileLoader.hpp>
 #include <Form/Gen3/Profile/ProfileEditor3.hpp>
 #include <Model/Gen3/ProfileModel3.hpp>
@@ -31,14 +32,27 @@ ProfileManager3::ProfileManager3(QWidget *parent) : QWidget(parent), ui(new Ui::
     setAttribute(Qt::WA_QuitOnClose, false);
     setAttribute(Qt::WA_DeleteOnClose);
 
-    model->addItems(ProfileLoader3::getProfiles());
+    model->addItems(ProfileLoader3::getProfiles(Game::Gen3));
     ui->tableView->setModel(model);
+
+    ui->tableView->setAcceptDrops(true);
+    ui->tableView->setDefaultDropAction(Qt::MoveAction);
+    ui->tableView->setDragDropMode(QAbstractItemView::InternalMove);
+    ui->tableView->setDragDropOverwriteMode(false);
+    ui->tableView->setDragEnabled(true);
+    ui->tableView->setDropIndicatorShown(true);
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
 
     connect(ui->pushButtonNew, &QPushButton::clicked, this, &ProfileManager3::create);
     connect(ui->pushButtonEdit, &QPushButton::clicked, this, &ProfileManager3::edit);
     connect(ui->pushButtonDuplicate, &QPushButton::clicked, this, &ProfileManager3::duplicate);
     connect(ui->pushButtonDelete, &QPushButton::clicked, this, &ProfileManager3::remove);
     connect(ui->pushButtonOk, &QPushButton::clicked, this, &ProfileManager3::close);
+    connect(model, &ProfileModel3::rowsMoved, this, [this] {
+        ProfileLoader3::setProfiles(model->getModel());
+        emit profilesChanged(3);
+    });
 
     QSettings setting;
     if (setting.contains("profileManager3/geometry"))
@@ -63,7 +77,7 @@ void ProfileManager3::create()
         Profile3 profile = dialog->getProfile();
         ProfileLoader3::addProfile(profile);
         model->addItem(profile);
-        emit profilesModified(3);
+        emit profilesChanged(3);
     }
 }
 
@@ -80,7 +94,7 @@ void ProfileManager3::duplicate()
     const Profile3 &profile = model->getItem(row);
     ProfileLoader3::addProfile(profile);
     model->addItem(profile);
-    emit profilesModified(3);
+    emit profilesChanged(3);
 }
 
 void ProfileManager3::edit()
@@ -100,7 +114,7 @@ void ProfileManager3::edit()
         Profile3 update = dialog->getProfile();
         ProfileLoader3::updateProfile(update, original);
         model->updateItem(update, row);
-        emit profilesModified(3);
+        emit profilesChanged(3);
     }
 }
 
@@ -121,6 +135,6 @@ void ProfileManager3::remove()
         const Profile3 &profile = model->getItem(row);
         ProfileLoader3::removeProfile(profile);
         model->removeItem(row);
-        emit profilesModified(3);
+        emit profilesChanged(3);
     }
 }

@@ -1,15 +1,26 @@
 project(PokeFinderTest)
 
 find_package(Qt6 COMPONENTS Test REQUIRED)
-find_package(Python3 3.14 COMPONENTS Interpreter REQUIRED)
 
-execute_process(COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/enum_map.py)
+file(GLOB_RECURSE ENUM_HEADERS
+    {CMAKE_SOURCE_DIR}/Core/Enum/*.hpp
+)
 
-add_executable(PokeFinderTest
+set(ENUM_HPP ${CMAKE_CURRENT_BINARY_DIR}/generated/Test/Enum.hpp)
+
+add_custom_command(
+    OUTPUT "${ENUM_HPP}"
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/enum_map.py ${ENUM_HPP}
+    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/enum_map.py ${ENUM_HEADERS}
+)
+
+qt_add_resources(PROJECT_RESOURCES data.qrc)
+
+qt_add_executable(PokeFinderTest
     Data.cpp
     Data.hpp
-    data.qrc
-    Enum.hpp
+    ${PROJECT_RESOURCES}
+    ${ENUM_HPP}
     Gen3/EggGenerator3Test.cpp
     Gen3/EggGenerator3Test.hpp
     Gen3/GameCubeGeneratorTest.cpp
@@ -62,6 +73,8 @@ add_executable(PokeFinderTest
     Gen5/HiddenGrottoGeneratorTest.hpp
     Gen5/IDGenerator5Test.cpp
     Gen5/IDGenerator5Test.hpp
+    Gen5/PhenomenonGeneratorTest.cpp
+    Gen5/PhenomenonGeneratorTest.hpp
     Gen5/ProfileSearcher5Test.cpp
     Gen5/ProfileSearcher5Test.hpp
     Gen5/StaticGenerator5Test.cpp
@@ -113,4 +126,5 @@ add_executable(PokeFinderTest
 
 add_test(NAME Test COMMAND PokeFinderTest)
 
-target_link_libraries(PokeFinderTest PRIVATE PokeFinderCore Qt6::Core Qt6::Test)
+target_include_directories(PokeFinderTest PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/generated)
+target_link_libraries(PokeFinderTest PRIVATE PokeFinderCore PokeFinderIncludes Qt6::Core Qt6::Test)

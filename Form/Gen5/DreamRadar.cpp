@@ -23,7 +23,7 @@
 #include <Core/Gen5/Generators/DreamRadarGenerator.hpp>
 #include <Core/Gen5/Keypresses.hpp>
 #include <Core/Gen5/Profile5.hpp>
-#include <Core/Gen5/Searchers/Searcher5.hpp>
+#include <Core/Gen5/Searchers/DreamRadarSearcher.hpp>
 #include <Core/Parents/PersonalInfo.hpp>
 #include <Core/Parents/PersonalLoader.hpp>
 #include <Core/Parents/ProfileLoader.hpp>
@@ -34,8 +34,9 @@
 #include <Model/SortFilterProxyModel.hpp>
 #include <QMessageBox>
 #include <QSettings>
-#include <QThread>
 #include <QTimer>
+
+static const QString settingPrefix = QStringLiteral("dreamRadar");
 
 /**
  * @brief Updates available genders for the select Pokemon
@@ -79,6 +80,8 @@ DreamRadar::DreamRadar(QWidget *parent) : QWidget(parent), ui(new Ui::DreamRadar
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
 
+    ui->profileDisplay->setup(settingPrefix, Game::BW2);
+
     generatorModel = new DreamRadarGeneratorModel5(ui->tableViewGenerator);
     ui->tableViewGenerator->setModel(generatorModel);
 
@@ -110,10 +113,10 @@ DreamRadar::DreamRadar(QWidget *parent) : QWidget(parent), ui(new Ui::DreamRadar
     ui->textBoxSearcherInitialAdvances->setValues(InputType::Advance32Bit);
     ui->textBoxSearcherMaxAdvances->setValues(InputType::Advance32Bit);
 
-    ui->filterGenerator->disableControls(Controls::Ability | Controls::EncounterSlots | Controls::Gender | Controls::Height
-                                         | Controls::Shiny | Controls::Weight);
-    ui->filterSearcher->disableControls(Controls::Ability | Controls::DisableFilter | Controls::EncounterSlots | Controls::Gender
-                                        | Controls::Height | Controls::Shiny | Controls::Weight);
+    ui->filterGenerator->disableControls(Controls::Ability | Controls::Gender | Controls::Height | Controls::Shiny | Controls::Weight
+                                         | Controls::Wild);
+    ui->filterSearcher->disableControls(Controls::Ability | Controls::Gender | Controls::Height | Controls::Searcher | Controls::Shiny
+                                        | Controls::Weight | Controls::Wild);
 
     ui->comboBoxGeneratorSpecie1->enableAutoComplete();
     ui->comboBoxGeneratorSpecie2->enableAutoComplete();
@@ -129,40 +132,40 @@ DreamRadar::DreamRadar(QWidget *parent) : QWidget(parent), ui(new Ui::DreamRadar
     ui->comboBoxSearcherSpecie5->enableAutoComplete();
     ui->comboBoxSearcherSpecie6->enableAutoComplete();
 
-    connect(ui->comboBoxProfiles, &QComboBox::currentIndexChanged, this, &DreamRadar::profileIndexChanged);
+    connect(ui->profileDisplay, &ProfileDisplay5::profileChanged, this, &DreamRadar::profileChanged);
+    connect(ui->profileDisplay, &ProfileDisplay5::profilesChanged, this, &DreamRadar::profilesChanged);
     connect(ui->tabRNGSelector, &TabWidget::transferFilters, this, &DreamRadar::transferFilters);
     connect(ui->tabRNGSelector, &TabWidget::transferSettings, this, &DreamRadar::transferSettings);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &DreamRadar::generate);
     connect(ui->pushButtonSearch, &QPushButton::clicked, this, &DreamRadar::search);
-    connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &DreamRadar::profileManager);
     connect(ui->filterGenerator, &Filter::showStatsChanged, generatorModel, &DreamRadarGeneratorModel5::setShowStats);
     connect(ui->filterSearcher, &Filter::showStatsChanged, searcherModel, &DreamRadarSearcherModel5::setShowStats);
 
     connect(ui->comboBoxGeneratorSpecie1, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxGeneratorSpecie1, ui->comboBoxGeneratorGender1); });
+            [this] { updateGenders(ui->comboBoxGeneratorSpecie1, ui->comboBoxGeneratorGender1); });
     connect(ui->comboBoxGeneratorSpecie2, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxGeneratorSpecie2, ui->comboBoxGeneratorGender2); });
+            [this] { updateGenders(ui->comboBoxGeneratorSpecie2, ui->comboBoxGeneratorGender2); });
     connect(ui->comboBoxGeneratorSpecie3, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxGeneratorSpecie3, ui->comboBoxGeneratorGender3); });
+            [this] { updateGenders(ui->comboBoxGeneratorSpecie3, ui->comboBoxGeneratorGender3); });
     connect(ui->comboBoxGeneratorSpecie4, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxGeneratorSpecie4, ui->comboBoxGeneratorGender4); });
+            [this] { updateGenders(ui->comboBoxGeneratorSpecie4, ui->comboBoxGeneratorGender4); });
     connect(ui->comboBoxGeneratorSpecie5, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxGeneratorSpecie5, ui->comboBoxGeneratorGender5); });
+            [this] { updateGenders(ui->comboBoxGeneratorSpecie5, ui->comboBoxGeneratorGender5); });
     connect(ui->comboBoxGeneratorSpecie6, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxGeneratorSpecie6, ui->comboBoxGeneratorGender6); });
+            [this] { updateGenders(ui->comboBoxGeneratorSpecie6, ui->comboBoxGeneratorGender6); });
 
     connect(ui->comboBoxSearcherSpecie1, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxSearcherSpecie1, ui->comboBoxSearcherGender1); });
+            [this] { updateGenders(ui->comboBoxSearcherSpecie1, ui->comboBoxSearcherGender1); });
     connect(ui->comboBoxSearcherSpecie2, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxSearcherSpecie2, ui->comboBoxSearcherGender2); });
+            [this] { updateGenders(ui->comboBoxSearcherSpecie2, ui->comboBoxSearcherGender2); });
     connect(ui->comboBoxSearcherSpecie3, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxSearcherSpecie3, ui->comboBoxSearcherGender3); });
+            [this] { updateGenders(ui->comboBoxSearcherSpecie3, ui->comboBoxSearcherGender3); });
     connect(ui->comboBoxSearcherSpecie4, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxSearcherSpecie4, ui->comboBoxSearcherGender4); });
+            [this] { updateGenders(ui->comboBoxSearcherSpecie4, ui->comboBoxSearcherGender4); });
     connect(ui->comboBoxSearcherSpecie5, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxSearcherSpecie5, ui->comboBoxSearcherGender5); });
+            [this] { updateGenders(ui->comboBoxSearcherSpecie5, ui->comboBoxSearcherGender5); });
     connect(ui->comboBoxSearcherSpecie6, &ComboBox::currentIndexChanged, this,
-            [=]() { updateGenders(ui->comboBoxSearcherSpecie6, ui->comboBoxSearcherGender6); });
+            [this] { updateGenders(ui->comboBoxSearcherSpecie6, ui->comboBoxSearcherGender6); });
 
     int size;
     const DreamRadarTemplate *dreamRadarTemplates = Encounters5::getDreamRadarEncounters(&size);
@@ -196,7 +199,7 @@ DreamRadar::DreamRadar(QWidget *parent) : QWidget(parent), ui(new Ui::DreamRadar
     updateProfiles();
 
     QSettings setting;
-    setting.beginGroup("dreamRadar");
+    setting.beginGroup(settingPrefix);
     if (setting.contains("geometry"))
     {
         this->restoreGeometry(setting.value("geometry").toByteArray());
@@ -215,8 +218,7 @@ DreamRadar::DreamRadar(QWidget *parent) : QWidget(parent), ui(new Ui::DreamRadar
 DreamRadar::~DreamRadar()
 {
     QSettings setting;
-    setting.beginGroup("dreamRadar");
-    setting.setValue("profile", ui->comboBoxProfiles->currentIndex());
+    setting.beginGroup(settingPrefix);
     setting.setValue("geometry", this->saveGeometry());
     setting.setValue("startDate", ui->dateEditSearcherStartDate->date());
     setting.setValue("endDate", ui->dateEditSearcherEndDate->date());
@@ -227,28 +229,12 @@ DreamRadar::~DreamRadar()
 
 bool DreamRadar::hasProfiles() const
 {
-    return !profiles.empty();
+    return ui->profileDisplay->hasProfiles();
 }
 
 void DreamRadar::updateProfiles()
 {
-    profiles.clear();
-    auto completeProfiles = ProfileLoader5::getProfiles();
-    std::copy_if(completeProfiles.begin(), completeProfiles.end(), std::back_inserter(profiles),
-                 [](const Profile5 &profile) { return (profile.getVersion() & Game::BW2) != Game::None; });
-
-    ui->comboBoxProfiles->clear();
-    for (const auto &profile : profiles)
-    {
-        ui->comboBoxProfiles->addItem(QString::fromStdString(profile.getName()));
-    }
-
-    QSettings setting;
-    int val = setting.value("dreamRadar/profile", 0).toInt();
-    if (val < ui->comboBoxProfiles->count())
-    {
-        ui->comboBoxProfiles->setCurrentIndex(val);
-    }
+    ui->profileDisplay->updateProfiles();
 }
 
 std::vector<DreamRadarTemplate> DreamRadar::getGeneratorSettings() const
@@ -371,60 +357,43 @@ void DreamRadar::search()
     auto filter = ui->filterSearcher->getFilter<StateFilter>();
     DreamRadarGenerator generator(initialAdvances, maxAdvances, ui->spinBoxSearcherBadges->value(), radarTemplates, *currentProfile,
                                   filter);
-    auto *searcher = new Searcher5<DreamRadarGenerator, DreamRadarState>(generator, *currentProfile);
+    auto *searcher = new DreamRadarSearcher(generator, *currentProfile);
     searcher->setMaxProgress(searcher->getMaxProgress(start, end));
 
     QSettings settings;
     int threads = settings.value("settings/threads").toInt();
 
-    auto *thread = QThread::create([=] { searcher->startSearch(threads, start, end); });
-    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
-    connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
-
-    auto *timer = new QTimer();
-    connect(timer, &QTimer::timeout, this, [=] {
-        searcherModel->addItems(searcher->getResults());
-        ui->progressBar->setValue(searcher->getProgress());
-    });
-    connect(thread, &QThread::finished, timer, &QTimer::stop);
-    connect(thread, &QThread::finished, timer, &QTimer::deleteLater);
-    connect(timer, &QTimer::destroyed, this, [=] {
-        ui->pushButtonSearch->setEnabled(true);
+    auto *timer = new QTimer(this);
+    connect(ui->pushButtonCancel, &QPushButton::clicked, timer, [this, searcher] {
+        searcher->cancelSearch();
         ui->pushButtonCancel->setEnabled(false);
+    });
+    connect(timer, &QTimer::timeout, this, [this, searcher, timer] {
         searcherModel->addItems(searcher->getResults());
         ui->progressBar->setValue(searcher->getProgress());
-        delete searcher;
+
+        if (!searcher->isSearching())
+        {
+            timer->stop();
+
+            searcherModel->addItems(searcher->getResults());
+            ui->progressBar->setValue(searcher->getProgress());
+
+            ui->pushButtonSearch->setEnabled(true);
+            ui->pushButtonCancel->setEnabled(false);
+
+            delete searcher;
+            timer->deleteLater();
+        }
     });
 
-    thread->start();
+    searcher->startSearch(threads, start, end);
     timer->start(1000);
 }
 
-void DreamRadar::profileIndexChanged(int index)
+void DreamRadar::profileChanged(const Profile5 &profile)
 {
-    if (index >= 0)
-    {
-        currentProfile = &profiles[index];
-
-        ui->labelProfileTIDValue->setText(QString::number(currentProfile->getTID()));
-        ui->labelProfileSIDValue->setText(QString::number(currentProfile->getSID()));
-        ui->labelProfileMACAddressValue->setText(QString::number(currentProfile->getMac(), 16));
-        ui->labelProfileDSTypeValue->setText(QString::fromStdString(currentProfile->getDSTypeString()));
-        ui->labelProfileVCountValue->setText(QString::number(currentProfile->getVCount(), 16));
-        ui->labelProfileTimer0Value->setText(QString::number(currentProfile->getTimer0Min(), 16) + "-"
-                                             + QString::number(currentProfile->getTimer0Max(), 16));
-        ui->labelProfileGxStatValue->setText(QString::number(currentProfile->getGxStat()));
-        ui->labelProfileVFrameValue->setText(QString::number(currentProfile->getVFrame()));
-        ui->labelProfileKeypressesValue->setText(QString::fromStdString(currentProfile->getKeypressesString()));
-        ui->labelProfileGameValue->setText(QString::fromStdString(Translator::getGame(currentProfile->getVersion())));
-    }
-}
-
-void DreamRadar::profileManager()
-{
-    auto *manager = new ProfileManager5();
-    connect(manager, &ProfileManager5::profilesModified, this, [=](int num) { emit profilesModified(num); });
-    manager->show();
+    currentProfile = &profile;
 }
 
 void DreamRadar::transferFilters(int index)

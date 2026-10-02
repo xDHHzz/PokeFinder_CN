@@ -34,7 +34,7 @@ namespace Ui
 /**
  * @brief Provides selection of settings for parents and other relevant daycare options
  */
-class EggSettings : public QWidget
+class EggSettings final : public QWidget
 {
     Q_OBJECT
 signals:
@@ -64,12 +64,15 @@ public:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
     /**
-     * @brief Determines if selected settings for valid for parents in the daycare
+     * @brief Determines if selected settings are valid for parents in the daycare
      *
-     * @return true Parents are compatible
-     * @return false Parents are not compatible
+     * @param hiddenAbility Whether parents must be compatible for passing hidden ability
+     * @param hiddenAbilityMode Hidden ability inheritance rules to validate against
+     *
+     * @return true Settings are valid
+     * @return false Settings are not valid
      */
-    bool compatibleParents() const;
+    bool isValid(bool hiddenAbility = false) const;
 
     /**
      * @brief Copies the values from another EggSettings
@@ -81,9 +84,11 @@ public:
     /**
      * @brief Gets various parent information: IVs, ability, gender, item masuda, etc.
      *
+     * @param ovalCharm Whether Oval Charm has been obtained
+     *
      * @return Parent information
      */
-    Daycare getDaycare() const;
+    Daycare getDaycare(bool ovalCharm) const;
 
     /**
      * @brief Changes order of the parents to match what the game does
@@ -102,6 +107,8 @@ public:
 
 private:
     Ui::EggSettings *ui;
+
+    Game game;
 
 private slots:
     /**

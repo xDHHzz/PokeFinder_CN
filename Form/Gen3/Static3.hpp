@@ -35,14 +35,14 @@ namespace Ui
 /**
  * @brief Provides settings and filters to RNG static encounters in Gen 3 games
  */
-class Static3 : public QWidget
+class Static3 final : public QWidget
 {
     Q_OBJECT
 signals:
     /**
-     * @brief Emits that the profiles have been modified
+     * @brief Emits that the profiles have been changed
      */
-    void profilesModified(int);
+    void profilesChanged(int);
 
 public:
     /**
@@ -66,11 +66,10 @@ public slots:
 private:
     Ui::Static3 *ui;
 
-    Profile3 *currentProfile;
+    const Profile3 *currentProfile;
     SortFilterProxyModel *proxyModel;
     StaticGeneratorModel3 *generatorModel;
     StaticSearcherModel3 *searcherModel;
-    std::vector<Profile3> profiles;
 
 private slots:
     /**
@@ -93,16 +92,11 @@ private slots:
     void generatorPokemonIndexChanged(int index);
 
     /**
-     * @brief Updates displayed information for a profile
+     * @brief Updates showing profile related information
      *
-     * @param index Profile index
+     * @param profile Selected profile
      */
-    void profileIndexChanged(int index);
-
-    /**
-     * @brief Opens the profile manager
-     */
-    void profileManager();
+    void profileChanged(const Profile3 &profile);
 
     /**
      * @brief Searches static encounters from the provided IVs

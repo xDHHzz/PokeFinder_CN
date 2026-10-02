@@ -22,12 +22,13 @@
 
 #include <Core/Gen5/States/SearcherState5.hpp>
 #include <Core/Gen5/States/WildState5.hpp>
+#include <Model/Gen5/IRNGProvider5.hpp>
 #include <Model/TableModel.hpp>
 
 /**
  * @brief Provides a table model implementation to show wild encounter information for Gen 5
  */
-class WildGeneratorModel5 : public TableModel<WildState5>
+class WildGeneratorModel5 final : public TableModel<WildState5>, public IRNGProvider5
 {
     Q_OBJECT
 public:
@@ -58,6 +59,26 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
 
     /**
+     * @brief Returns chatot pitch for given \p row
+     *
+     * @return Row chatot pitch
+     */
+    u8 getChatot(int row) const override
+    {
+        return model[row].getChatot();
+    }
+
+    /**
+     * @brief Returns needle value for given \p row
+     *
+     * @return Row needle value
+     */
+    u8 getNeedle(int row) const override
+    {
+        return model[row].getNeedle();
+    }
+
+    /**
      * @brief Returns header text at the \p section, \p orientation, and \p role
      *
      * @param section Column index
@@ -68,6 +89,13 @@ public:
      */
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
+    /**
+     * @brief Sets flag that controls whether the model display phenomenon
+     *
+     * @param flag Whether to show phenomenon or not
+     */
+    void setPhenomenon(bool flag);
+
 public slots:
     /**
      * @brief Sets flag that controls whether the model display stats or IVs
@@ -77,16 +105,26 @@ public slots:
     void setShowStats(bool flag);
 
 private:
-    QStringList header = { tr("Advances"), tr("Chatot"),  tr("Item"),  tr("Slot"),   tr("Level"),         tr("PID"), tr("Shiny"),
-                           tr("Nature"),   tr("Ability"), tr("HP"),    tr("Atk"),    tr("Def"),           tr("SpA"), tr("SpD"),
-                           tr("Spe"),      tr("Hidden"),  tr("Power"), tr("Gender"), tr("Characteristic") };
+    QStringList header = { tr("Advances"), tr("Chatot"), tr("Needle"), tr("Phenomenon"), tr("Item"),  tr("Slot"),   tr("Level"),
+                           tr("PID"),      tr("Shiny"),  tr("Nature"), tr("Ability"),    tr("HP"),    tr("Atk"),    tr("Def"),
+                           tr("SpA"),      tr("SpD"),    tr("Spe"),    tr("Hidden"),     tr("Power"), tr("Gender"), tr("Characteristic") };
+    bool phenomenon;
     bool showStats;
+
+    /**
+     * @brief Gets modified column index based on model method
+     *
+     * @param column Original column
+     *
+     * @return Modified column
+     */
+    int getColumn(int column) const;
 };
 
 /**
  * @brief Provides a table model implementation to show wild encounter information for Gen 5
  */
-class WildSearcherModel5 : public TableModel<SearcherState5<WildState5>>
+class WildSearcherModel5 final : public TableModel<SearcherState5<WildState5>>
 {
     Q_OBJECT
 public:

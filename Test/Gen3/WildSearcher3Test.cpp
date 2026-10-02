@@ -18,6 +18,7 @@
  */
 
 #include "WildSearcher3Test.hpp"
+#include <Core/Enum/Item.hpp>
 #include <Core/Gen3/EncounterArea3.hpp>
 #include <Core/Gen3/Encounters3.hpp>
 #include <Core/Gen3/Generators/WildGenerator3.hpp>
@@ -54,6 +55,7 @@ void WildSearcher3Test::search_data()
     QTest::addColumn<Encounter>("encounter");
     QTest::addColumn<Lead>("lead");
     QTest::addColumn<bool>("feebasTile");
+    QTest::addColumn<Item>("item");
     QTest::addColumn<int>("location");
     QTest::addColumn<int>("results");
 
@@ -62,8 +64,8 @@ void WildSearcher3Test::search_data()
     {
         QTest::newRow(d["name"].get<std::string>().data())
             << d["min"].get<IVs>() << d["max"].get<IVs>() << d["version"].get<Game>() << d["method"].get<Method>()
-            << d["encounter"].get<Encounter>() << d["lead"].get<Lead>() << d.value("feebasTile", false) << d["location"].get<int>()
-            << d["results"].get<int>();
+            << d["encounter"].get<Encounter>() << d["lead"].get<Lead>() << d.value("feebasTile", false) << d.value("item", Item::None)
+            << d["location"].get<int>() << d["results"].get<int>();
     }
 }
 
@@ -76,6 +78,7 @@ void WildSearcher3Test::search()
     QFETCH(Encounter, encounter);
     QFETCH(Lead, lead);
     QFETCH(bool, feebasTile);
+    QFETCH(Item, item);
     QFETCH(int, location);
     QFETCH(int, results);
 
@@ -85,7 +88,7 @@ void WildSearcher3Test::search()
     std::array<bool, 16> powers;
     powers.fill(true);
 
-    std::array<bool, 12> encounterSlots;
+    StackVector<bool, 13> encounterSlots;
     encounterSlots.fill(true);
 
     Profile3 profile("-", version, 12345, 54321, false);
@@ -93,22 +96,26 @@ void WildSearcher3Test::search()
     EncounterSettings3 settings;
     settings.feebasTile = feebasTile;
 
-    std::vector<EncounterArea3> encounterAreas = Encounters3::getEncounters(encounter, settings, version);
-    auto encounterArea = std::find_if(encounterAreas.begin(), encounterAreas.end(),
-                                      [location](const EncounterArea3 &encounterArea) { return encounterArea.getLocation() == location; });
+    auto areas = Encounters3::getEncounters(encounter, settings, version);
+    auto area = std::ranges::find_if(areas, [location](const auto &area) { return area.getLocation() == location; });
 
-    WildStateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
-    WildSearcher3 searcher(method, lead, settings.feebasTile, *encounterArea, profile, filter);
+    WildStateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
+    WildSearcher3 searcher(method, lead, settings.feebasTile, item, *area, profile, filter);
 
     searcher.startSearch(min, max);
+    while (searcher.isSearching())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
     auto states = searcher.getResults();
     QCOMPARE(states.size(), results);
 
     for (const auto &state : states)
     {
         // Ensure generator agrees
-        WildGenerator3 generator(0, 0, 0, method, lead != Lead::Synchronize ? lead : lead + state.getNature(), settings.feebasTile,
-                                 *encounterArea, profile, filter);
+        WildGenerator3 generator(0, 0, 0, method, lead != Lead::Synchronize ? lead : lead + state.getNature(), settings.feebasTile, item,
+                                 *area, profile, filter);
         auto generatorStates = generator.generate(state.getSeed());
 
         QCOMPARE(generatorStates.size(), 1);

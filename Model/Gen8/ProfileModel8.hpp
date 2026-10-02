@@ -26,7 +26,7 @@
 /**
  * @brief Provides a table model implementation to show profile information for Gen 8
  */
-class ProfileModel8 : public TableModel<Profile8>
+class ProfileModel8 final : public TableModel<Profile8>
 {
     Q_OBJECT
 public:
@@ -57,6 +57,15 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
 
     /**
+     * @brief Returns item flags for drag and drop support
+     *
+     * @param index Row/column index
+     *
+     * @return Item flags
+     */
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+
+    /**
      * @brief Returns header text at the \p section, \p orientation, and \p role
      *
      * @param section Column index
@@ -67,8 +76,23 @@ public:
      */
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
+    /**
+     * @brief Returns supported drag actions
+     *
+     * @return Supported drag actions
+     */
+    Qt::DropActions supportedDragActions() const override;
+
+    /**
+     * @brief Returns supported drop actions
+     *
+     * @return Supported drop actions
+     */
+    Qt::DropActions supportedDropActions() const override;
+
 private:
-    QStringList header = { tr("Profile Name"), tr("Version"), tr("TID"), tr("SID"), tr("Shiny Charm"), tr("Oval Charm") };
+    QStringList header
+        = { tr("Profile Name"), tr("Version"), tr("TID"), tr("SID"), tr("National Dex"), tr("Oval Charm"), tr("Shiny Charm") };
 };
 
 #endif // PROFILE8MODEL_HPP

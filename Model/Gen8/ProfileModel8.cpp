@@ -26,7 +26,7 @@ ProfileModel8::ProfileModel8(QObject *parent) : TableModel(parent)
 
 int ProfileModel8::columnCount(const QModelIndex &parent) const
 {
-    return 6;
+    return 7;
 }
 
 QVariant ProfileModel8::data(const QModelIndex &index, int role) const
@@ -45,12 +45,28 @@ QVariant ProfileModel8::data(const QModelIndex &index, int role) const
         case 3:
             return profile.getSID();
         case 4:
-            return profile.getShinyCharm() ? tr("Yes") : tr("No");
+            return profile.getNationalDex() ? tr("Yes") : tr("No");
         case 5:
             return profile.getOvalCharm() ? tr("Yes") : tr("No");
+        case 6:
+            return profile.getShinyCharm() ? tr("Yes") : tr("No");
         }
     }
     return QVariant();
+}
+
+Qt::ItemFlags ProfileModel8::flags(const QModelIndex &index) const
+{
+    Qt::ItemFlags flags = TableModel::flags(index);
+    if (index.isValid())
+    {
+        flags = (flags | Qt::ItemIsDragEnabled) & ~Qt::ItemIsDropEnabled;
+    }
+    else
+    {
+        flags |= Qt::ItemIsDropEnabled;
+    }
+    return flags;
 }
 
 QVariant ProfileModel8::headerData(int section, Qt::Orientation orientation, int role) const
@@ -60,4 +76,14 @@ QVariant ProfileModel8::headerData(int section, Qt::Orientation orientation, int
         return header[section];
     }
     return QVariant();
+}
+
+Qt::DropActions ProfileModel8::supportedDragActions() const
+{
+    return Qt::MoveAction;
+}
+
+Qt::DropActions ProfileModel8::supportedDropActions() const
+{
+    return Qt::MoveAction;
 }

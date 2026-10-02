@@ -24,6 +24,7 @@
 #include <Core/Util/Utilities.hpp>
 #include <fstream>
 #include <numeric>
+#include <variant>
 
 struct SeedCache
 {
@@ -34,21 +35,7 @@ struct SeedCache
 };
 static_assert(sizeof(SeedCache) == 48);
 
-static bool compareIVs(const std::array<u8, 6> &ivs, const StateFilter &filter)
-{
-    constexpr u8 order[6] = { 0, 1, 2, 5, 3, 4 };
-
-    u8 hiddenPower = 0;
-    for (int i = 0; i < 6; i++)
-    {
-        hiddenPower |= (ivs[order[i]] & 1) << i;
-    }
-    hiddenPower = hiddenPower * 15 / 63;
-
-    return filter.compareIV(ivs) && filter.compareHiddenPower(hiddenPower);
-}
-
-static std::array<u8, 6> computeIVs(u32 seed, u8 advance, CacheType type)
+static std::array<u8, 6> computeIVs(u32 seed, u32 advance, CacheType type)
 {
     std::array<u8, 6> ivs;
 
@@ -61,29 +48,47 @@ static std::array<u8, 6> computeIVs(u32 seed, u8 advance, CacheType type)
         advance += 1;
     }
 
-    MT mt(seed, advance);
+    using MTVariant = std::variant<MTFast, MT>;
+    MTVariant mtVariant = [&]() {
+        u32 size = advance + 6;
+        if (size < 227)
+        {
+            return MTVariant(std::in_place_type<MTFast>, seed, advance, size, true);
+        }
+        else
+        {
+            return MTVariant(std::in_place_type<MT>, seed, advance);
+        }
+    }();
 
-    ivs[0] = mt.next() >> 27;
-    ivs[1] = mt.next() >> 27;
-    ivs[2] = mt.next() >> 27;
+    std::visit(
+        [&]<typename T>(T &mt) {
+            constexpr bool fast = std::is_same_v<T, MTFast>;
+            constexpr int shift = fast ? 0 : 27;
 
-    if (type == CacheType::Roamer)
-    {
-        ivs[4] = mt.next() >> 27;
-        ivs[5] = mt.next() >> 27;
-        ivs[3] = mt.next() >> 27;
-    }
-    else
-    {
-        ivs[3] = mt.next() >> 27;
-        ivs[4] = mt.next() >> 27;
-        ivs[5] = mt.next() >> 27;
-    }
+            ivs[0] = mt.next() >> shift;
+            ivs[1] = mt.next() >> shift;
+            ivs[2] = mt.next() >> shift;
+
+            if (type == CacheType::Roamer)
+            {
+                ivs[4] = mt.next() >> shift;
+                ivs[5] = mt.next() >> shift;
+                ivs[3] = mt.next() >> shift;
+            }
+            else
+            {
+                ivs[3] = mt.next() >> shift;
+                ivs[4] = mt.next() >> shift;
+                ivs[5] = mt.next() >> shift;
+            }
+        },
+        mtVariant);
 
     return ivs;
 }
 
-IVCache::IVCache(const std::string &file, bool read) : valid(false)
+IVCache::IVCache(std::string_view file, bool read) : valid(false)
 {
     std::ifstream stream(file.data(), std::ios_base::in | std::ios_base::binary);
     if (stream.is_open())
@@ -180,7 +185,7 @@ std::vector<u32> IVCache::getSeeds(Game version, CacheType type) const
         }
     }
 
-    std::sort(seeds.begin(), seeds.end());
+    std::ranges::sort(seeds);
     seeds.erase(std::unique(seeds.begin(), seeds.end()), seeds.end());
 
     return seeds;
@@ -200,7 +205,7 @@ fph::MetaFphMap<u64, std::array<u8, 6>> IVCache::getEntralinkCache(u32 initialAd
         for (u32 seed : entralinkSeeds[i])
         {
             auto ivs = computeIVs(seed, i, CacheType::Entralink);
-            if (compareIVs(ivs, filter))
+            if (filter.compareIV(ivs) && filter.compareHiddenPower(ivs))
             {
                 cache.emplace((i << 32) | seed, ivs);
             }
@@ -224,7 +229,7 @@ fph::MetaFphMap<u64, std::array<u8, 6>> IVCache::getNormalCache(u32 initialAdvan
         for (u32 seed : normalSeeds[i + (bw ? 0 : 2)])
         {
             auto ivs = computeIVs(seed, i + (bw ? 0 : 2), CacheType::Normal);
-            if (compareIVs(ivs, filter))
+            if (filter.compareIV(ivs) && filter.compareHiddenPower(ivs))
             {
                 cache.emplace((i << 32) | seed, ivs);
             }
@@ -246,7 +251,7 @@ fph::MetaFphMap<u64, std::array<u8, 6>> IVCache::getRoamerCache(u32 initialAdvan
         for (u32 seed : roamerSeeds[i])
         {
             auto ivs = computeIVs(seed, i, CacheType::Roamer);
-            if (compareIVs(ivs, filter))
+            if (filter.compareIV(ivs) && filter.compareHiddenPower(ivs))
             {
                 cache.emplace((i << 32) | seed, ivs);
             }

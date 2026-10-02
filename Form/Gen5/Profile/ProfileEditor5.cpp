@@ -54,6 +54,14 @@ ProfileEditor5::ProfileEditor5(QWidget *parent) : QDialog(parent), ui(new Ui::Pr
     connect(ui->pushButtonAccept, &QPushButton::clicked, this, &ProfileEditor5::okay);
     connect(ui->pushButtonCancel, &QPushButton::clicked, this, &ProfileEditor5::reject);
     connect(ui->pushButtonFindParameters, &QPushButton::clicked, this, &ProfileEditor5::findParameters);
+    connect(ui->checkBoxMemoryLink, &QCheckBox::toggled, this, &ProfileEditor5::memoryLinkToggled);
+    connect(ui->checkBoxOvalCharm, &QCheckBox::toggled, this, [this](bool checked) {
+        ui->checkBoxShinyCharm->setEnabled(checked);
+        if (!checked)
+        {
+            ui->checkBoxShinyCharm->setChecked(false);
+        }
+    });
     connect(ui->comboBoxVersion, &QComboBox::currentIndexChanged, this, &ProfileEditor5::versionIndexChanged);
     connect(ui->pushButtonSelectIVCache, &QPushButton::clicked, this, &ProfileEditor5::selectIVCache);
     connect(ui->pushButtonSelectSHACache, &QPushButton::clicked, this, &ProfileEditor5::selectSHACache);
@@ -85,6 +93,8 @@ ProfileEditor5::ProfileEditor5(const Profile5 &profile, QWidget *parent) : Profi
 
     ui->checkBoxSkipLR->setChecked(profile.getSkipLR());
     ui->checkBoxMemoryLink->setChecked(profile.getMemoryLink());
+    ui->checkBoxNsPokemonReleased->setChecked(profile.getMemoryLink() && profile.getNsPokemonReleased());
+    ui->checkBoxOvalCharm->setChecked(profile.getOvalCharm());
     ui->checkBoxShinyCharm->setChecked(profile.getShinyCharm());
 }
 
@@ -115,6 +125,7 @@ Profile5 ProfileEditor5::getProfile()
                     ui->textBoxMAC->getULong(), ui->comboBoxKeypresses->getCheckedArray<9>(), ui->textBoxVCount->getUChar(),
                     ui->textBoxGxStat->getUChar(), ui->textBoxVFrame->getUChar(), ui->checkBoxSkipLR->isChecked(),
                     ui->textBoxTimer0Min->getUShort(), ui->textBoxTimer0Max->getUShort(), ui->checkBoxMemoryLink->isChecked(),
+                    ui->checkBoxMemoryLink->isChecked() && ui->checkBoxNsPokemonReleased->isChecked(), ui->checkBoxOvalCharm->isChecked(),
                     ui->checkBoxShinyCharm->isChecked(), ui->comboBoxDSType->getEnum<DSType>(), ui->comboBoxLanguage->getEnum<Language>());
 }
 
@@ -150,9 +161,18 @@ void ProfileEditor5::okay()
     done(QDialog::Accepted);
 }
 
+void ProfileEditor5::memoryLinkToggled(bool checked)
+{
+    ui->checkBoxNsPokemonReleased->setEnabled(checked);
+    if (!checked)
+    {
+        ui->checkBoxNsPokemonReleased->setChecked(false);
+    }
+}
+
 void ProfileEditor5::selectIVCache()
 {
-    QString file = QFileDialog::getOpenFileName(this, tr("Open IV Cache"), QDir::currentPath(), tr("ivcache (*.ivcache)"));
+    QString file = QFileDialog::getOpenFileName(this, tr("Open IV Cache"), QDir::currentPath(), "ivcache (*.ivcache)");
     IVCache cache(file.toStdString(), false);
     if (cache.isValid())
     {
@@ -169,7 +189,7 @@ void ProfileEditor5::selectIVCache()
 
 void ProfileEditor5::selectSHACache()
 {
-    QString file = QFileDialog::getOpenFileName(this, tr("Open SHA1 Cache"), QDir::currentPath(), tr("sha1cache (*.sha1cache)"));
+    QString file = QFileDialog::getOpenFileName(this, tr("Open SHA1 Cache"), QDir::currentPath(), "sha1cache (*.sha1cache)");
     SHA1Cache cache(file.toStdString());
     if (cache.isValid(getProfile()))
     {
@@ -191,14 +211,22 @@ void ProfileEditor5::versionIndexChanged(int index)
         Game version = static_cast<Game>(ui->comboBoxVersion->currentData().toUInt());
         if ((version & Game::BW2) != Game::None)
         {
-            ui->checkBoxMemoryLink->setVisible(true);
-            ui->checkBoxShinyCharm->setVisible(true);
+            ui->checkBoxMemoryLink->show();
+            ui->checkBoxNsPokemonReleased->show();
+            ui->checkBoxNsPokemonReleased->setEnabled(ui->checkBoxMemoryLink->isChecked());
+            ui->checkBoxOvalCharm->show();
+            ui->checkBoxShinyCharm->show();
+            ui->checkBoxShinyCharm->setEnabled(ui->checkBoxOvalCharm->isChecked());
         }
         else
         {
-            ui->checkBoxMemoryLink->setVisible(false);
+            ui->checkBoxMemoryLink->hide();
             ui->checkBoxMemoryLink->setChecked(false);
-            ui->checkBoxShinyCharm->setVisible(false);
+            ui->checkBoxNsPokemonReleased->hide();
+            ui->checkBoxNsPokemonReleased->setChecked(false);
+            ui->checkBoxOvalCharm->hide();
+            ui->checkBoxOvalCharm->setChecked(false);
+            ui->checkBoxShinyCharm->hide();
             ui->checkBoxShinyCharm->setChecked(false);
         }
     }

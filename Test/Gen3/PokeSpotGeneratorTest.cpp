@@ -74,19 +74,18 @@ void PokeSpotGeneratorTest::generate()
     std::array<bool, 16> powers;
     powers.fill(true);
 
-    std::array<bool, 12> encounterSlots;
+    StackVector<bool, 13> encounterSlots;
     encounterSlots.fill(true);
 
     Profile3 profile("-", Game::Gales, 12345, 54321, false);
 
-    std::vector<EncounterArea> encounterAreas = Encounters3::getPokeSpotEncounters();
-    auto encounterArea = std::find_if(encounterAreas.begin(), encounterAreas.end(),
-                                      [location](const EncounterArea &encounterArea) { return encounterArea.getLocation() == location; });
+    auto areas = Encounters3::getPokeSpotEncounters();
+    auto area = std::ranges::find_if(areas, [location](const auto &area) { return area.getLocation() == location; });
 
-    WildStateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
+    WildStateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
     PokeSpotGenerator generator(0, 9, 0, 0, 9, 0, profile, filter);
 
-    auto states = generator.generate(seed, seed, *encounterArea);
+    auto states = generator.generate(seed, seed, *area);
     QCOMPARE(states.size(), j.size());
 
     for (size_t i = 0; i < states.size(); i++)

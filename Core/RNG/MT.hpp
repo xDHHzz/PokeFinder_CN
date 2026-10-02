@@ -70,9 +70,69 @@ private:
     u16 index;
 
     /**
+     * @brief Construct a new MT object
+     */
+    MT();
+
+    /**
+     * @brief XOR combines two rng states with proper wrap around
+     */
+    void addState(const MT *other);
+
+    /**
+     * @brief Jumps the RNG by \p advances amount
+     * Uses a precomputed jump table to complete in O()
+     * With how the table is primarily shuffled all in one go this should only be called by a constructor
+     *
+     * @param advances Number of advances
+     */
+    void jump(u32 advances);
+
+    /**
+     * @brief Generates the next MT state after 1 state has been consumed
+     */
+    void nextState();
+
+    /**
      * @brief Generates the next MT state after all 624 states have been consumed
      */
     void shuffle();
+};
+
+/**
+ * @brief Provides random numbers via the Mersenne Twister algorithm.
+ * The assumptions of MTFast allow some simplifications to be made from normal MT
+ * 1. Computing less of the internal MT array
+ * 2. Storing less of the internal MT array
+ * 3. Skipping the shuffle check when generating numbers for use
+ * 4. If the fast parameter is true skip the last bit shift operation and shift by 27 during shuffle (only in gen 5)
+ * 5. Temper the results in the initial shuffle to take advantage of SIMD
+ *
+ */
+class MTFast
+{
+public:
+    /**
+     * @brief Construct a new MTFast object
+     *
+     * @param seed Starting PRNG state
+     * @param advances Number of initial advances
+     * @param size Number of values to have generated
+     * @param fast Whether to skip last bit shift operations
+     */
+    MTFast(u32 seed, u32 advances, u16 size, bool fast = false);
+
+    /**
+     * @brief Gets the next 32bit PRNG state
+     *
+     * @return PRNG value
+     */
+    u32 next();
+
+private:
+    vuint128 state[57]; // Fits 227
+    u16 index;
+    u16 size;
 };
 
 #endif // MT_HPP

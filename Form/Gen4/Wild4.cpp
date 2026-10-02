@@ -34,19 +34,24 @@
 #include <Form/Controls/Controls.hpp>
 #include <Form/Gen4/Profile/ProfileManager4.hpp>
 #include <Form/Gen4/Tools/SeedToTime4.hpp>
+#include <Form/Util/AdvanceFinder.hpp>
 #include <Model/Gen4/WildModel4.hpp>
 #include <Model/SortFilterProxyModel.hpp>
+#include <QAction>
 #include <QMessageBox>
 #include <QSettings>
-#include <QThread>
 #include <QTimer>
+
+static const QString settingPrefix = QStringLiteral("wild4");
 
 Wild4::Wild4(QWidget *parent) : QWidget(parent), ui(new Ui::Wild4)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
 
-    generatorModel = new WildGeneratorModel4(ui->tableViewGenerator, Method::MethodJ);
+    ui->profileDisplay->setup(settingPrefix, Game::Gen4);
+
+    generatorModel = new WildGeneratorModel4(ui->tableViewGenerator);
     searcherModel = new WildSearcherModel4(ui->tableViewSearcher);
     proxyModel = new SortFilterProxyModel(ui->tableViewSearcher, searcherModel);
 
@@ -64,7 +69,7 @@ Wild4::Wild4(QWidget *parent) : QWidget(parent), ui(new Ui::Wild4)
     ui->textBoxSearcherMaxAdvance->setValues(InputType::Advance32Bit);
 
     ui->filterGenerator->disableControls(Controls::Height | Controls::Weight);
-    ui->filterSearcher->disableControls(Controls::DisableFilter | Controls::Height | Controls::Weight);
+    ui->filterSearcher->disableControls(Controls::Height | Controls::Searcher | Controls::Weight);
 
     ui->comboMenuGeneratorLead->addAction(tr("None"), toInt(Lead::None));
     ui->comboMenuGeneratorLead->addAction(tr("Compound Eyes"), toInt(Lead::CompoundEyes));
@@ -118,8 +123,8 @@ Wild4::Wild4(QWidget *parent) : QWidget(parent), ui(new Ui::Wild4)
     ui->comboBoxSearcherDualSlot->setup(
         { toInt(Game::Ruby), toInt(Game::Sapphire), toInt(Game::FireRed), toInt(Game::LeafGreen), toInt(Game::Emerald) });
 
-    ui->checkBoxGeneratorPokeRadarShiny->setVisible(false);
-    ui->checkBoxSearcherPokeRadarShiny->setVisible(false);
+    ui->checkBoxGeneratorPokeRadarShiny->hide();
+    ui->checkBoxSearcherPokeRadarShiny->hide();
 
     ui->comboBoxGeneratorLocation->enableAutoComplete();
     ui->comboBoxSearcherLocation->enableAutoComplete();
@@ -131,7 +136,11 @@ Wild4::Wild4(QWidget *parent) : QWidget(parent), ui(new Ui::Wild4)
     connect(seedToTime, &QAction::triggered, this, &Wild4::seedToTime);
     ui->tableViewSearcher->addAction(seedToTime);
 
-    connect(ui->comboBoxProfiles, &QComboBox::currentIndexChanged, this, &Wild4::profileIndexChanged);
+    auto *advanceFinder = ui->tableViewGenerator->addAction(tr("Advance Finder"));
+    connect(advanceFinder, &QAction::triggered, this, &Wild4::openAdvanceFinder);
+
+    connect(ui->profileDisplay, &ProfileDisplay4::profileChanged, this, &Wild4::profileChanged);
+    connect(ui->profileDisplay, &ProfileDisplay4::profilesChanged, this, &Wild4::profilesChanged);
     connect(ui->tabRNGSelector, &TabWidget::transferFilters, this, &Wild4::transferFilters);
     connect(ui->tabRNGSelector, &TabWidget::transferSettings, this, &Wild4::transferSettings);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &Wild4::generate);
@@ -142,80 +151,79 @@ Wild4::Wild4(QWidget *parent) : QWidget(parent), ui(new Ui::Wild4)
     connect(ui->comboBoxSearcherLocation, &QComboBox::currentIndexChanged, this, &Wild4::searcherLocationIndexChanged);
     connect(ui->comboBoxGeneratorPokemon, &QComboBox::currentIndexChanged, this, &Wild4::generatorPokemonIndexChanged);
     connect(ui->comboBoxSearcherPokemon, &QComboBox::currentIndexChanged, this, &Wild4::searcherPokemonIndexChanged);
-    connect(ui->comboBoxGeneratorTime, &QComboBox::currentIndexChanged, this, [=] { generatorEncounterUpdate(); });
-    connect(ui->comboBoxSearcherTime, &QComboBox::currentIndexChanged, this, [=] { searcherEncounterUpdate(); });
-    connect(ui->comboBoxGeneratorDualSlot, &QComboBox::currentIndexChanged, this, [=] {
+    connect(ui->comboBoxGeneratorTime, &QComboBox::currentIndexChanged, this, &Wild4::generatorEncounterUpdate);
+    connect(ui->comboBoxSearcherTime, &QComboBox::currentIndexChanged, this, &Wild4::searcherEncounterUpdate);
+    connect(ui->comboBoxGeneratorDualSlot, &QComboBox::currentIndexChanged, this, [this] {
         if (ui->checkBoxGeneratorDualSlot->isChecked())
         {
             generatorEncounterUpdate();
         }
     });
-    connect(ui->comboBoxSearcherDualSlot, &QComboBox::currentIndexChanged, this, [=] {
+    connect(ui->comboBoxSearcherDualSlot, &QComboBox::currentIndexChanged, this, [this] {
         if (ui->checkBoxSearcherDualSlot->isChecked())
         {
             searcherEncounterUpdate();
         }
     });
-    connect(ui->comboBoxGeneratorRadio, &QComboBox::currentIndexChanged, this, [=] {
+    connect(ui->comboBoxGeneratorRadio, &QComboBox::currentIndexChanged, this, [this] {
         if (ui->checkBoxGeneratorRadio->isChecked())
         {
             generatorEncounterUpdate();
         }
     });
-    connect(ui->comboBoxSearcherRadio, &QComboBox::currentIndexChanged, this, [=] {
+    connect(ui->comboBoxSearcherRadio, &QComboBox::currentIndexChanged, this, [this] {
         if (ui->checkBoxSearcherRadio->isChecked())
         {
             searcherEncounterUpdate();
         }
     });
-    connect(ui->comboBoxGeneratorReplacement0, &QComboBox::currentIndexChanged, this, [=] {
+    connect(ui->comboBoxGeneratorReplacement0, &QComboBox::currentIndexChanged, this, [this] {
         if (ui->checkBoxGeneratorReplacement->isChecked())
         {
             generatorEncounterUpdate();
         }
     });
-    connect(ui->comboBoxGeneratorReplacement1, &QComboBox::currentIndexChanged, this, [=] {
+    connect(ui->comboBoxGeneratorReplacement1, &QComboBox::currentIndexChanged, this, [this] {
         if (ui->checkBoxGeneratorReplacement->isChecked())
         {
             generatorEncounterUpdate();
         }
     });
-    connect(ui->comboBoxSearcherReplacement0, &QComboBox::currentIndexChanged, this, [=] {
+    connect(ui->comboBoxSearcherReplacement0, &QComboBox::currentIndexChanged, this, [this] {
         if (ui->checkBoxSearcherReplacement->isChecked())
         {
             searcherEncounterUpdate();
         }
     });
-    connect(ui->comboBoxSearcherReplacement1, &QComboBox::currentIndexChanged, this, [=] {
+    connect(ui->comboBoxSearcherReplacement1, &QComboBox::currentIndexChanged, this, [this] {
         if (ui->checkBoxSearcherReplacement->isChecked())
         {
             searcherEncounterUpdate();
         }
     });
-    connect(ui->buttonGroupGenerator, &QButtonGroup::buttonClicked, this, [=] { generatorEncounterUpdate(); });
-    connect(ui->buttonGroupSearcher, &QButtonGroup::buttonClicked, this, [=] { searcherEncounterUpdate(); });
+    connect(ui->buttonGroupGenerator, &QButtonGroup::buttonClicked, this, &Wild4::generatorEncounterUpdate);
+    connect(ui->buttonGroupSearcher, &QButtonGroup::buttonClicked, this, &Wild4::searcherEncounterUpdate);
     connect(ui->checkBoxGeneratorFeebasTile, &QCheckBox::checkStateChanged, this, &Wild4::generatorFeebasTileStateChanged);
     connect(ui->checkBoxSearcherFeebasTile, &QCheckBox::checkStateChanged, this, &Wild4::searcherFeebasTileStateChanged);
     connect(ui->checkBoxGeneratorPokeRadar, &QCheckBox::checkStateChanged, this, &Wild4::generatorPokeRadarStateChanged);
     connect(ui->checkBoxSearcherPokeRadar, &QCheckBox::checkStateChanged, this, &Wild4::searcherPokeRadarStateChanged);
-    connect(ui->spinBoxGeneratorPlainsBlock, &QSpinBox::valueChanged, this, [=] { generatorEncounterUpdate(); });
-    connect(ui->spinBoxGeneratorForestBlock, &QSpinBox::valueChanged, this, [=] { generatorEncounterUpdate(); });
-    connect(ui->spinBoxGeneratorPeakBlock, &QSpinBox::valueChanged, this, [=] { generatorEncounterUpdate(); });
-    connect(ui->spinBoxGeneratorWaterBlock, &QSpinBox::valueChanged, this, [=] { generatorEncounterUpdate(); });
-    connect(ui->spinBoxSearcherPlainsBlock, &QSpinBox::valueChanged, this, [=] { searcherEncounterUpdate(); });
-    connect(ui->spinBoxSearcherForestBlock, &QSpinBox::valueChanged, this, [=] { searcherEncounterUpdate(); });
-    connect(ui->spinBoxSearcherPeakBlock, &QSpinBox::valueChanged, this, [=] { searcherEncounterUpdate(); });
-    connect(ui->spinBoxSearcherWaterBlock, &QSpinBox::valueChanged, this, [=] { searcherEncounterUpdate(); });
+    connect(ui->spinBoxGeneratorPlainsBlock, &QSpinBox::valueChanged, this, &Wild4::generatorEncounterUpdate);
+    connect(ui->spinBoxGeneratorForestBlock, &QSpinBox::valueChanged, this, &Wild4::generatorEncounterUpdate);
+    connect(ui->spinBoxGeneratorPeakBlock, &QSpinBox::valueChanged, this, &Wild4::generatorEncounterUpdate);
+    connect(ui->spinBoxGeneratorWaterBlock, &QSpinBox::valueChanged, this, &Wild4::generatorEncounterUpdate);
+    connect(ui->spinBoxSearcherPlainsBlock, &QSpinBox::valueChanged, this, &Wild4::searcherEncounterUpdate);
+    connect(ui->spinBoxSearcherForestBlock, &QSpinBox::valueChanged, this, &Wild4::searcherEncounterUpdate);
+    connect(ui->spinBoxSearcherPeakBlock, &QSpinBox::valueChanged, this, &Wild4::searcherEncounterUpdate);
+    connect(ui->spinBoxSearcherWaterBlock, &QSpinBox::valueChanged, this, &Wild4::searcherEncounterUpdate);
     connect(ui->filterGenerator, &Filter::showStatsChanged, generatorModel, &WildGeneratorModel4::setShowStats);
     connect(ui->filterSearcher, &Filter::showStatsChanged, searcherModel, &WildSearcherModel4::setShowStats);
-    connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &Wild4::profileManager);
 
     updateProfiles();
     generatorEncounterIndexChanged(0);
     searcherEncounterIndexChanged(0);
 
     QSettings setting;
-    setting.beginGroup("wild4");
+    setting.beginGroup(settingPrefix);
     if (setting.contains("minDelay"))
     {
         ui->textBoxSearcherMinDelay->setText(setting.value("minDelay").toString());
@@ -242,12 +250,11 @@ Wild4::Wild4(QWidget *parent) : QWidget(parent), ui(new Ui::Wild4)
 Wild4::~Wild4()
 {
     QSettings setting;
-    setting.beginGroup("wild4");
+    setting.beginGroup(settingPrefix);
     setting.setValue("minDelay", ui->textBoxSearcherMinDelay->text());
     setting.setValue("maxDelay", ui->textBoxSearcherMaxDelay->text());
     setting.setValue("minAdvance", ui->textBoxSearcherMinAdvance->text());
     setting.setValue("maxAdvance", ui->textBoxSearcherMaxAdvance->text());
-    setting.setValue("profile", ui->comboBoxProfiles->currentIndex());
     setting.setValue("geometry", this->saveGeometry());
     setting.endGroup();
 
@@ -256,28 +263,14 @@ Wild4::~Wild4()
 
 void Wild4::updateProfiles()
 {
-    profiles = ProfileLoader4::getProfiles();
-    profiles.insert(profiles.begin(), Profile4("None", Game::Diamond, 12345, 54321, false));
-
-    ui->comboBoxProfiles->clear();
-    for (std::size_t i = 0; i < profiles.size(); i++)
-    {
-        ui->comboBoxProfiles->addItem(i == 0 ? tr("None") : QString::fromStdString(profiles[i].getName()));
-    }
-
-    QSettings setting;
-    int val = setting.value("wild4/profile", 0).toInt();
-    if (val < ui->comboBoxProfiles->count())
-    {
-        ui->comboBoxProfiles->setCurrentIndex(val);
-    }
+    ui->profileDisplay->updateProfiles();
 }
 
 void Wild4::updateEncounterGenerator()
 {
     auto encounter = ui->comboBoxGeneratorEncounter->getEnum<Encounter>();
 
-    EncounterSettings4 settings = {};
+    EncounterSettings4 settings = { };
     if ((currentProfile->getVersion() & Game::DPPt) != Game::None)
     {
         settings.dppt.dual = ui->checkBoxGeneratorDualSlot->isChecked() ? ui->comboBoxGeneratorDualSlot->getEnum<Game>() : Game::None;
@@ -307,7 +300,7 @@ void Wild4::updateEncounterSearcher()
 {
     auto encounter = ui->comboBoxSearcherEncounter->getEnum<Encounter>();
 
-    EncounterSettings4 settings = {};
+    EncounterSettings4 settings = { };
     if ((currentProfile->getVersion() & Game::DPPt) != Game::None)
     {
         settings.dppt.dual = ui->checkBoxSearcherDualSlot->isChecked() ? ui->comboBoxSearcherDualSlot->getEnum<Game>() : Game::None;
@@ -335,7 +328,7 @@ void Wild4::updateEncounterSearcher()
 
 void Wild4::generate()
 {
-    if (!ui->filterGenerator->isValid())
+    if (!ui->filterGenerator->isValid(ui->spinBoxGeneratorLevelMin->value(), ui->spinBoxGeneratorLevelMax->value()))
     {
         return;
     }
@@ -348,8 +341,8 @@ void Wild4::generate()
         if (ui->checkBoxGeneratorPokeRadar->isChecked())
         {
             method = Method::PokeRadar;
-            std::array<bool, 12> encounters = ui->filterGenerator->getEncounterSlots();
-            if (std::count(encounters.begin(), encounters.end(), true) != 1)
+            auto encounters = ui->filterGenerator->getEncounterSlots();
+            if (std::ranges::count(encounters, true) != 1)
             {
                 QMessageBox msg(QMessageBox::Warning, tr("Too many slots selected"),
                                 tr("Please select a single encounter slot for Poke Radar"));
@@ -358,14 +351,14 @@ void Wild4::generate()
             }
             else
             {
-                fixedSlot = std::find(encounters.begin(), encounters.end(), true) - encounters.begin();
+                fixedSlot = std::ranges::find(encounters, true) - encounters.begin();
             }
         }
         else if (encounter == Encounter::HoneyTree)
         {
             method = Method::HoneyTree;
-            std::array<bool, 12> encounters = ui->filterGenerator->getEncounterSlots();
-            if (std::count(encounters.begin(), encounters.end(), true) != 1)
+            auto encounters = ui->filterGenerator->getEncounterSlots();
+            if (std::ranges::count(encounters, true) != 1)
             {
                 QMessageBox msg(QMessageBox::Warning, tr("Too many slots selected"),
                                 tr("Please select a single encounter slot for Honey Tree"));
@@ -374,7 +367,7 @@ void Wild4::generate()
             }
             else
             {
-                fixedSlot = std::find(encounters.begin(), encounters.end(), true) - encounters.begin();
+                fixedSlot = std::ranges::find(encounters, true) - encounters.begin();
             }
         }
         else
@@ -388,7 +381,7 @@ void Wild4::generate()
     }
 
     generatorModel->clearModel();
-    generatorModel->setMethod(method);
+    generatorModel->setGame(currentProfile->getVersion());
 
     u32 seed = ui->textBoxGeneratorSeed->getUInt();
     u32 initialAdvances = ui->textBoxGeneratorInitialAdvances->getUInt();
@@ -413,6 +406,7 @@ void Wild4::generatorEncounterIndexChanged(int index)
     if (index >= 0)
     {
         auto encounter = ui->comboBoxGeneratorEncounter->getEnum<Encounter>();
+        u16 currentLocation = ui->comboBoxGeneratorLocation->getCurrentUShort();
 
         bool bug = encounter == Encounter::BugCatchingContest;
         bool fish = encounter == Encounter::OldRod || encounter == Encounter::GoodRod || encounter == Encounter::SuperRod;
@@ -462,11 +456,11 @@ void Wild4::generatorEncounterIndexChanged(int index)
         updateEncounterGenerator();
 
         std::vector<u16> locs;
-        std::transform(encounterGenerator.begin(), encounterGenerator.end(), std::back_inserter(locs),
-                       [](const EncounterArea4 &area) { return area.getLocation(); });
+        std::ranges::transform(encounterGenerator, std::back_inserter(locs), [](const EncounterArea4 &area) { return area.getLocation(); });
 
         ui->comboBoxGeneratorLocation->clear();
-        ui->comboBoxGeneratorLocation->addItems(Translator::getLocations(locs, currentProfile->getVersion()), !bug);
+        ui->comboBoxGeneratorLocation->addItems(Translator::getLocations(locs, currentProfile->getVersion()), locs);
+        ui->comboBoxGeneratorLocation->setCurrentIndexByData(currentLocation);
     }
 }
 
@@ -556,8 +550,8 @@ void Wild4::generatorLocationIndexChanged(int index)
         // Account for safari zone not being its own encounter method
         if (safari)
         {
-            ui->labelGeneratorTime->setVisible(true);
-            ui->comboBoxGeneratorTime->setVisible(true);
+            ui->labelGeneratorTime->show();
+            ui->comboBoxGeneratorTime->show();
         }
         else
         {
@@ -571,11 +565,11 @@ void Wild4::generatorLocationIndexChanged(int index)
 
         if (feebas && (encounter == Encounter::OldRod || encounter == Encounter::GoodRod || encounter == Encounter::SuperRod))
         {
-            ui->checkBoxGeneratorFeebasTile->setVisible(true);
+            ui->checkBoxGeneratorFeebasTile->show();
         }
         else
         {
-            ui->checkBoxGeneratorFeebasTile->setVisible(false);
+            ui->checkBoxGeneratorFeebasTile->hide();
             ui->checkBoxGeneratorFeebasTile->setChecked(false);
         }
     }
@@ -586,12 +580,20 @@ void Wild4::generatorPokemonIndexChanged(int index)
     if (index <= 0)
     {
         ui->filterGenerator->resetEncounterSlots();
+        ui->spinBoxGeneratorLevelMin->setValue(0);
+        ui->spinBoxGeneratorLevelMax->setValue(0);
+        ui->filterGenerator->setLevelRange(1, 100);
     }
     else
     {
         u16 num = ui->comboBoxGeneratorPokemon->getCurrentUShort();
         auto flags = encounterGenerator[ui->comboBoxGeneratorLocation->currentIndex()].getSlots(num);
         ui->filterGenerator->toggleEncounterSlots(flags);
+
+        auto range = encounterGenerator[ui->comboBoxGeneratorLocation->currentIndex()].getLevelRange(num);
+        ui->spinBoxGeneratorLevelMin->setValue(range.first);
+        ui->spinBoxGeneratorLevelMax->setValue(range.second);
+        ui->filterGenerator->setLevelRange(range.first, range.second);
     }
 }
 
@@ -607,53 +609,43 @@ void Wild4::generatorPokeRadarStateChanged(Qt::CheckState state)
     ui->comboMenuGeneratorLead->hideAction(toInt(Lead::Static), state == Qt::Checked);
 }
 
-void Wild4::profileIndexChanged(int index)
+void Wild4::openAdvanceFinder()
 {
-    if (index >= 0)
-    {
-        currentProfile = &profiles[index];
-
-        ui->labelProfileTIDValue->setText(QString::number(currentProfile->getTID()));
-        ui->labelProfileSIDValue->setText(QString::number(currentProfile->getSID()));
-        ui->labelProfileGameValue->setText(QString::fromStdString(Translator::getGame(currentProfile->getVersion())));
-        ui->labelProfileNationalDexValue->setText(currentProfile->getNationalDex() ? tr("Yes") : tr("No"));
-
-        bool hgss = (currentProfile->getVersion() & Game::HGSS) != Game::None;
-
-        ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::HoneyTree)), hgss);
-        ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::RockSmash)), !hgss);
-        ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::BugCatchingContest)),
-                                                      !hgss);
-        ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::Headbutt)), !hgss);
-        ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::HeadbuttAlt)), !hgss);
-        ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::HeadbuttSpecial)), !hgss);
-        ui->comboMenuGeneratorLead->hideAction(toInt(Lead::ArenaTrap), !hgss); // Also handles Illuminate and No Guard
-        ui->comboMenuGeneratorLead->hideAction(toInt(Lead::StickyHold), !hgss); // Also handles Suction Cups
-
-        ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::HoneyTree)), hgss);
-        ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::RockSmash)), !hgss);
-        ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::BugCatchingContest)), !hgss);
-        ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::Headbutt)), !hgss);
-        ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::HeadbuttAlt)), !hgss);
-        ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::HeadbuttSpecial)), !hgss);
-        ui->comboMenuSearcherLead->hideAction(toInt(Lead::ArenaTrap), !hgss); // Also handles Illuminate and No Guard
-        ui->comboMenuSearcherLead->hideAction(toInt(Lead::StickyHold), !hgss); // Also handles Suction Cups
-
-        generatorEncounterIndexChanged(0);
-        searcherEncounterIndexChanged(0);
-    }
+    auto *advanceFinder = new AdvanceFinder(generatorModel, ui->tableViewGenerator, currentProfile, this);
+    advanceFinder->show();
 }
 
-void Wild4::profileManager()
+void Wild4::profileChanged(const Profile4 &profile)
 {
-    auto *manager = new ProfileManager4();
-    connect(manager, &ProfileManager4::profilesModified, this, [=](int num) { emit profilesModified(num); });
-    manager->show();
+    currentProfile = &profile;
+
+    bool hgss = (currentProfile->getVersion() & Game::HGSS) != Game::None;
+
+    ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::HoneyTree)), hgss);
+    ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::RockSmash)), !hgss);
+    ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::BugCatchingContest)), !hgss);
+    ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::Headbutt)), !hgss);
+    ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::HeadbuttAlt)), !hgss);
+    ui->comboBoxGeneratorEncounter->setItemHidden(ui->comboBoxGeneratorEncounter->findData(toInt(Encounter::HeadbuttSpecial)), !hgss);
+    ui->comboMenuGeneratorLead->hideAction(toInt(Lead::ArenaTrap), !hgss); // Also handles Illuminate and No Guard
+    ui->comboMenuGeneratorLead->hideAction(toInt(Lead::StickyHold), !hgss); // Also handles Suction Cups
+
+    ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::HoneyTree)), hgss);
+    ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::RockSmash)), !hgss);
+    ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::BugCatchingContest)), !hgss);
+    ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::Headbutt)), !hgss);
+    ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::HeadbuttAlt)), !hgss);
+    ui->comboBoxSearcherEncounter->setItemHidden(ui->comboBoxSearcherEncounter->findData(toInt(Encounter::HeadbuttSpecial)), !hgss);
+    ui->comboMenuSearcherLead->hideAction(toInt(Lead::ArenaTrap), !hgss); // Also handles Illuminate and No Guard
+    ui->comboMenuSearcherLead->hideAction(toInt(Lead::StickyHold), !hgss); // Also handles Suction Cups
+
+    generatorEncounterIndexChanged(0);
+    searcherEncounterIndexChanged(0);
 }
 
 void Wild4::search()
 {
-    if (!ui->filterSearcher->isValid())
+    if (!ui->filterSearcher->isValid(ui->spinBoxSearcherLevelMin->value(), ui->spinBoxSearcherLevelMax->value()))
     {
         return;
     }
@@ -666,8 +658,8 @@ void Wild4::search()
         if (ui->checkBoxSearcherPokeRadar->isChecked())
         {
             method = Method::PokeRadar;
-            std::array<bool, 12> encounters = ui->filterSearcher->getEncounterSlots();
-            if (std::count(encounters.begin(), encounters.end(), true) != 1)
+            auto encounters = ui->filterSearcher->getEncounterSlots();
+            if (std::ranges::count(encounters, true) != 1)
             {
                 QMessageBox msg(QMessageBox::Warning, tr("Too many slots selected"),
                                 tr("Please select a single encounter slot for Poke Radar"));
@@ -676,14 +668,14 @@ void Wild4::search()
             }
             else
             {
-                fixedSlot = std::find(encounters.begin(), encounters.end(), true) - encounters.begin();
+                fixedSlot = std::ranges::find(encounters, true) - encounters.begin();
             }
         }
         else if (encounter == Encounter::HoneyTree)
         {
             method = Method::HoneyTree;
-            std::array<bool, 12> encounters = ui->filterSearcher->getEncounterSlots();
-            if (std::count(encounters.begin(), encounters.end(), true) != 1)
+            auto encounters = ui->filterSearcher->getEncounterSlots();
+            if (std::ranges::count(encounters, true) != 1)
             {
                 QMessageBox msg(QMessageBox::Warning, tr("Too many slots selected"),
                                 tr("Please select a single encounter slot for Honey Tree"));
@@ -692,7 +684,7 @@ void Wild4::search()
             }
             else
             {
-                fixedSlot = std::find(encounters.begin(), encounters.end(), true) - encounters.begin();
+                fixedSlot = std::ranges::find(encounters, true) - encounters.begin();
             }
         }
         else
@@ -711,7 +703,7 @@ void Wild4::search()
     auto &area = encounterSearcher[ui->comboBoxSearcherLocation->currentIndex()];
     if (encounter == Encounter::BugCatchingContest || area.safariZone(currentProfile->getVersion()))
     {
-        bool flag = std::any_of(min.begin(), min.end(), [](u8 iv) { return iv == 31; });
+        bool flag = std::ranges::any_of(min, [](u8 iv) { return iv == 31; });
         if (!flag)
         {
             QMessageBox msg(QMessageBox::Warning, tr("Missing Flawless IV"), tr("This search needs at least one IV at 31"));
@@ -746,26 +738,31 @@ void Wild4::search()
     }
     searcher->setMaxProgress(maxProgress);
 
-    auto *thread = QThread::create([=] { searcher->startSearch(min, max, fixedSlot); });
-    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
-    connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
-
-    auto *timer = new QTimer();
-    timer->callOnTimeout(this, [=] {
-        searcherModel->addItems(searcher->getResults());
-        ui->progressBar->setValue(searcher->getProgress());
-    });
-    connect(thread, &QThread::finished, timer, &QTimer::stop);
-    connect(thread, &QThread::finished, timer, &QTimer::deleteLater);
-    connect(timer, &QTimer::destroyed, this, [=] {
-        ui->pushButtonSearch->setEnabled(true);
+    auto *timer = new QTimer(this);
+    connect(ui->pushButtonCancel, &QPushButton::clicked, timer, [this, searcher] {
+        searcher->cancelSearch();
         ui->pushButtonCancel->setEnabled(false);
+    });
+    connect(timer, &QTimer::timeout, this, [this, searcher, timer] {
         searcherModel->addItems(searcher->getResults());
         ui->progressBar->setValue(searcher->getProgress());
-        delete searcher;
+
+        if (!searcher->isSearching())
+        {
+            timer->stop();
+
+            searcherModel->addItems(searcher->getResults());
+            ui->progressBar->setValue(searcher->getProgress());
+
+            ui->pushButtonSearch->setEnabled(true);
+            ui->pushButtonCancel->setEnabled(false);
+
+            delete searcher;
+            timer->deleteLater();
+        }
     });
 
-    thread->start();
+    searcher->startSearch(min, max, fixedSlot);
     timer->start(1000);
 }
 
@@ -774,6 +771,7 @@ void Wild4::searcherEncounterIndexChanged(int index)
     if (index >= 0)
     {
         auto encounter = ui->comboBoxSearcherEncounter->getEnum<Encounter>();
+        u16 currentLocation = ui->comboBoxSearcherLocation->getCurrentUShort();
 
         bool bug = encounter == Encounter::BugCatchingContest;
         bool fish = encounter == Encounter::OldRod || encounter == Encounter::GoodRod || encounter == Encounter::SuperRod;
@@ -823,11 +821,11 @@ void Wild4::searcherEncounterIndexChanged(int index)
         updateEncounterSearcher();
 
         std::vector<u16> locs;
-        std::transform(encounterSearcher.begin(), encounterSearcher.end(), std::back_inserter(locs),
-                       [](const EncounterArea4 &area) { return area.getLocation(); });
+        std::ranges::transform(encounterSearcher, std::back_inserter(locs), [](const EncounterArea4 &area) { return area.getLocation(); });
 
         ui->comboBoxSearcherLocation->clear();
-        ui->comboBoxSearcherLocation->addItems(Translator::getLocations(locs, currentProfile->getVersion()), !bug);
+        ui->comboBoxSearcherLocation->addItems(Translator::getLocations(locs, currentProfile->getVersion()), locs);
+        ui->comboBoxSearcherLocation->setCurrentIndexByData(currentLocation);
     }
 }
 
@@ -917,8 +915,8 @@ void Wild4::searcherLocationIndexChanged(int index)
         // Account for safari zone not being its own encounter method
         if (safari)
         {
-            ui->labelSearcherTime->setVisible(true);
-            ui->comboBoxSearcherTime->setVisible(true);
+            ui->labelSearcherTime->show();
+            ui->comboBoxSearcherTime->show();
         }
         else if ((currentProfile->getVersion() & Game::HGSS) == Game::None)
         {
@@ -929,11 +927,11 @@ void Wild4::searcherLocationIndexChanged(int index)
 
         if (feebas && (encounter == Encounter::OldRod || encounter == Encounter::GoodRod || encounter == Encounter::SuperRod))
         {
-            ui->checkBoxSearcherFeebasTile->setVisible(true);
+            ui->checkBoxSearcherFeebasTile->show();
         }
         else
         {
-            ui->checkBoxSearcherFeebasTile->setVisible(false);
+            ui->checkBoxSearcherFeebasTile->hide();
             ui->checkBoxSearcherFeebasTile->setChecked(false);
         }
     }
@@ -944,12 +942,20 @@ void Wild4::searcherPokemonIndexChanged(int index)
     if (index <= 0)
     {
         ui->filterSearcher->resetEncounterSlots();
+        ui->spinBoxSearcherLevelMin->setValue(0);
+        ui->spinBoxSearcherLevelMax->setValue(0);
+        ui->filterSearcher->setLevelRange(1, 100);
     }
     else
     {
         u16 num = ui->comboBoxSearcherPokemon->getCurrentUShort();
         auto flags = encounterSearcher[ui->comboBoxSearcherLocation->currentIndex()].getSlots(num);
         ui->filterSearcher->toggleEncounterSlots(flags);
+
+        auto range = encounterSearcher[ui->comboBoxSearcherLocation->currentIndex()].getLevelRange(num);
+        ui->spinBoxSearcherLevelMin->setValue(range.first);
+        ui->spinBoxSearcherLevelMax->setValue(range.second);
+        ui->filterSearcher->setLevelRange(range.first, range.second);
     }
 }
 

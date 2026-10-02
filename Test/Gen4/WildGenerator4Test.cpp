@@ -42,8 +42,9 @@ static bool operator==(const WildGeneratorState4 &left, const json &right)
         && left.getNature() == right["nature"].get<u8>() && left.getShiny() == right["shiny"].get<u8>()
         && left.getItem() == right["item"].get<u16>() && left.getSpecie() == right["specie"].get<u16>()
         && left.getEncounterSlot() == right["encounterSlot"].get<u8>() && left.getForm() == right["form"].get<u8>()
-        && left.getAdvances() == right["advances"].get<u32>() && left.getBattleAdvances() == right["battleAdvances"].get<u32>()
-        && left.getCall() == right["call"].get<u8>() && left.getChatot() == right["chatot"].get<u8>();
+        && left.getAdvances() == right["advances"].get<u32>() && left.isValid() == right["valid"].get<bool>()
+        && left.getBattleAdvances() == right["battleAdvances"].get<u32>() && left.getCall() == right["call"].get<u8>()
+        && left.getChatot() == right["chatot"].get<u8>();
 }
 
 void WildGenerator4Test::generateMethodJ_data()
@@ -89,20 +90,19 @@ void WildGenerator4Test::generateMethodJ()
     std::array<bool, 16> powers;
     powers.fill(true);
 
-    std::array<bool, 12> encounterSlots;
+    StackVector<bool, 13> encounterSlots;
     encounterSlots.fill(true);
 
     Profile4 profile("", version, 12345, 54321, false);
-    EncounterSettings4 settings = {};
+    EncounterSettings4 settings = { };
 
     settings.dppt.feebasTile = feebasTile;
 
-    std::vector<EncounterArea4> encounterAreas = Encounters4::getEncounters(encounter, settings, &profile);
-    auto encounterArea = std::find_if(encounterAreas.begin(), encounterAreas.end(),
-                                      [location](const EncounterArea4 &encounterArea) { return encounterArea.getLocation() == location; });
+    auto areas = Encounters4::getEncounters(encounter, settings, &profile);
+    auto area = std::ranges::find_if(areas, [location](const auto &area) { return area.getLocation() == location; });
 
-    WildStateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
-    WildGenerator4 generator(0, 9, 0, Method::MethodJ, lead, settings.dppt.feebasTile, false, false, 50, *encounterArea, profile, filter);
+    WildStateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
+    WildGenerator4 generator(0, 9, 0, Method::MethodJ, lead, settings.dppt.feebasTile, false, false, 50, *area, profile, filter);
 
     auto states = generator.generate(seed, 0);
     QCOMPARE(states.size(), j.size());
@@ -155,7 +155,7 @@ void WildGenerator4Test::generateMethodK()
     std::array<bool, 16> powers;
     powers.fill(true);
 
-    std::array<bool, 12> encounterSlots;
+    StackVector<bool, 13> encounterSlots;
     encounterSlots.fill(true);
 
     std::array<bool, 26> unownDiscovered;
@@ -165,14 +165,13 @@ void WildGenerator4Test::generateMethodK()
     unownPuzzles.fill(true);
 
     Profile4 profile("", version, 12345, 54321, false, unownDiscovered, unownPuzzles);
-    EncounterSettings4 settings = {};
+    EncounterSettings4 settings = { };
 
-    std::vector<EncounterArea4> encounterAreas = Encounters4::getEncounters(encounter, settings, &profile);
-    auto encounterArea = std::find_if(encounterAreas.begin(), encounterAreas.end(),
-                                      [location](const EncounterArea4 &encounterArea) { return encounterArea.getLocation() == location; });
+    auto areas = Encounters4::getEncounters(encounter, settings, &profile);
+    auto area = std::ranges::find_if(areas, [location](const auto &area) { return area.getLocation() == location; });
 
-    WildStateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
-    WildGenerator4 generator(0, 9, 0, Method::MethodK, lead, false, false, false, 50, *encounterArea, profile, filter);
+    WildStateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
+    WildGenerator4 generator(0, 9, 0, Method::MethodK, lead, false, false, false, 50, *area, profile, filter);
 
     auto states = generator.generate(seed, 0);
     QCOMPARE(states.size(), j.size());
@@ -227,18 +226,17 @@ void WildGenerator4Test::generateHoneyTree()
     std::array<bool, 16> powers;
     powers.fill(true);
 
-    std::array<bool, 12> encounterSlots;
+    StackVector<bool, 13> encounterSlots;
     encounterSlots.fill(true);
 
     Profile4 profile("", version, 12345, 54321, false);
-    EncounterSettings4 settings = {};
+    EncounterSettings4 settings = { };
 
-    std::vector<EncounterArea4> encounterAreas = Encounters4::getEncounters(encounter, settings, &profile);
-    auto encounterArea = std::find_if(encounterAreas.begin(), encounterAreas.end(),
-                                      [location](const EncounterArea4 &encounterArea) { return encounterArea.getLocation() == location; });
+    auto areas = Encounters4::getEncounters(encounter, settings, &profile);
+    auto area = std::ranges::find_if(areas, [location](const auto &area) { return area.getLocation() == location; });
 
-    WildStateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
-    WildGenerator4 generator(0, 9, 0, Method::HoneyTree, lead, false, false, false, 50, *encounterArea, profile, filter);
+    WildStateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
+    WildGenerator4 generator(0, 9, 0, Method::HoneyTree, lead, false, false, false, 50, *area, profile, filter);
 
     auto states = generator.generate(seed, index);
     QCOMPARE(states.size(), j.size());
@@ -295,20 +293,19 @@ void WildGenerator4Test::generatePokeRadar()
     std::array<bool, 16> powers;
     powers.fill(true);
 
-    std::array<bool, 12> encounterSlots;
+    StackVector<bool, 13> encounterSlots;
     encounterSlots.fill(true);
 
     Profile4 profile("", version, 12345, 54321, false);
-    EncounterSettings4 settings = {};
+    EncounterSettings4 settings = { };
 
     settings.dppt.radar = true;
 
-    std::vector<EncounterArea4> encounterAreas = Encounters4::getEncounters(encounter, settings, &profile);
-    auto encounterArea = std::find_if(encounterAreas.begin(), encounterAreas.end(),
-                                      [location](const EncounterArea4 &encounterArea) { return encounterArea.getLocation() == location; });
+    auto areas = Encounters4::getEncounters(encounter, settings, &profile);
+    auto area = std::ranges::find_if(areas, [location](const auto &area) { return area.getLocation() == location; });
 
-    WildStateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
-    WildGenerator4 generator(0, 9, 0, Method::PokeRadar, lead, false, shiny, false, 50, *encounterArea, profile, filter);
+    WildStateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
+    WildGenerator4 generator(0, 9, 0, Method::PokeRadar, lead, false, shiny, false, 50, *area, profile, filter);
 
     auto states = generator.generate(seed, index);
     QCOMPARE(states.size(), j.size());

@@ -92,8 +92,15 @@ WildSearcher4::WildSearcher4(u32 minAdvance, u32 maxAdvance, u32 minDelay, u32 m
 
 void WildSearcher4::startSearch(const std::array<u8, 6> &min, const std::array<u8, 6> &max, u8 index)
 {
-    searching = true;
+    activeThreads.store(1);
+    threadContainer.emplace_back([this, min, max, index] {
+        search(min, max, index);
+        activeThreads.fetch_sub(1);
+    });
+}
 
+void WildSearcher4::search(const std::array<u8, 6> &min, const std::array<u8, 6> &max, u8 index)
+{
     for (u8 hp = min[0]; hp <= max[0]; hp++)
     {
         for (u8 atk = min[1]; atk <= max[1]; atk++)
@@ -106,16 +113,18 @@ void WildSearcher4::startSearch(const std::array<u8, 6> &min, const std::array<u
                     {
                         for (u8 spe = min[5]; spe <= max[5]; spe++)
                         {
-                            if (!searching)
+                            if (cancelled.load(std::memory_order_relaxed))
                             {
                                 return;
                             }
 
                             auto states = search(hp, atk, def, spa, spd, spe, index);
-
-                            std::lock_guard<std::mutex> guard(mutex);
-                            results.insert(results.end(), states.begin(), states.end());
-                            progress++;
+                            if (!states.empty())
+                            {
+                                std::lock_guard<std::mutex> guard(mutex);
+                                results.insert(results.end(), states.begin(), states.end());
+                            }
+                            progress.fetch_add(1, std::memory_order_relaxed);
                         }
                     }
                 }
@@ -193,12 +202,11 @@ std::vector<WildSearcherState4> WildSearcher4::searchMethodJ(u8 hp, u8 atk, u8 d
         || area.getEncounter() == Encounter::SuperRod;
 
     auto seeds = LCRNGReverse::recoverPokeRNGIV(hp, atk, def, spa, spd, spe, Method::Method1);
-    for (int i = 0; i < seeds.count; i++)
+    for (u32 origin : seeds)
     {
-        PokeRNGR rng(seeds[i]);
+        PokeRNGR rng(origin);
 
-        PokeRNG forward(seeds[i]);
-        forward.advance(1);
+        PokeRNG forward(origin, 1);
         u8 itemRand = forward.nextUShort(100);
         u8 unownForm = area.unownForm(forward.nextUShort());
 
@@ -279,7 +287,7 @@ std::vector<WildSearcherState4> WildSearcher4::searchMethodJ(u8 hp, u8 atk, u8 d
                     u32 pid = nature + buffer;
                     WildSearcherState4 state(rng.next(), pid, ivs, pid & 1, Utilities::getGender(pid, info), level, nature,
                                              Utilities::getShiny<true>(pid, tsv), encounterSlot, item, slot.getSpecie(), form, info);
-                    if (filter.compareState(static_cast<const WildSearcherState &>(state)))
+                    if (filter.compare(static_cast<const WildSearcherState &>(state)))
                     {
                         states.emplace_back(state);
                     }
@@ -563,7 +571,7 @@ std::vector<WildSearcherState4> WildSearcher4::searchMethodJ(u8 hp, u8 atk, u8 d
 
                         WildSearcherState4 state(test[i].next(), pid, ivs, pid & 1, Utilities::getGender(pid, info), level, nature,
                                                  Utilities::getShiny<true>(pid, tsv), encounterSlot[i], item, slot.getSpecie(), form, info);
-                        if (filter.compareState(static_cast<const WildSearcherState &>(state)))
+                        if (filter.compare(static_cast<const WildSearcherState &>(state)))
                         {
                             states.emplace_back(state);
                         }
@@ -590,12 +598,12 @@ std::vector<WildSearcherState4> WildSearcher4::searchMethodK(u8 hp, u8 atk, u8 d
         || area.getEncounter() == Encounter::GoodRod || area.getEncounter() == Encounter::SuperRod;
 
     auto seeds = LCRNGReverse::recoverPokeRNGIV(hp, atk, def, spa, spd, spe, Method::Method1);
-    for (int i = 0; i < seeds.count; i++)
+    for (u32 origin : seeds)
     {
-        PokeRNGR rng(seeds[i]);
+        PokeRNGR rng(origin);
 
-        PokeRNG forward(seeds[i]);
-        u8 itemRand = (forward.advance(2) >> 16) % 100;
+        PokeRNG forward(origin, 1);
+        u8 itemRand = forward.nextUShort(100);
 
         u8 form = 0;
         if (area.getLocation() == 10)
@@ -679,7 +687,7 @@ std::vector<WildSearcherState4> WildSearcher4::searchMethodK(u8 hp, u8 atk, u8 d
                     WildSearcherState4 state(rng.next(), pid, ivs, pid & 1, Utilities::getGender(pid, info), level, nature,
                                              Utilities::getShiny<true>(pid, tsv), encounterSlot, item, slot.getSpecie(),
                                              slot.getSpecie() == 201 ? form : 0, info);
-                    if (filter.compareState(static_cast<const WildSearcherState &>(state)))
+                    if (filter.compare(static_cast<const WildSearcherState &>(state)))
                     {
                         states.emplace_back(state);
                     }
@@ -845,7 +853,7 @@ std::vector<WildSearcherState4> WildSearcher4::searchMethodK(u8 hp, u8 atk, u8 d
                         WildSearcherState4 state(test[i].next(), pid, ivs, pid & 1, Utilities::getGender(pid, info), level, nature,
                                                  Utilities::getShiny<true>(pid, tsv), encounterSlot[i], item, slot.getSpecie(),
                                                  slot.getSpecie() == 201 ? form : 0, info);
-                        if (filter.compareState(static_cast<const WildSearcherState &>(state)))
+                        if (filter.compare(static_cast<const WildSearcherState &>(state)))
                         {
                             states.emplace_back(state);
                         }
@@ -882,10 +890,10 @@ std::vector<WildSearcherState4> WildSearcher4::searchHoneyTree(u8 hp, u8 atk, u8
     }
 
     auto seeds = LCRNGReverse::recoverPokeRNGIV(hp, atk, def, spa, spd, spe, Method::Method1);
-    for (int i = 0; i < seeds.count; i++)
+    for (u32 seed:seeds)
     {
-        PokeRNGR rng(seeds[i]);
-        u16 item = getItem((PokeRNG(seeds[i]).advance(2) >> 16) % 100, lead, info);
+        PokeRNGR rng(seed);
+        u16 item = getItem((PokeRNG(seed).advance(2) >> 16) % 100, lead, info);
 
         if (cuteCharm)
         {
@@ -901,7 +909,7 @@ std::vector<WildSearcherState4> WildSearcher4::searchHoneyTree(u8 hp, u8 atk, u8
                 u32 pid = nature + buffer;
                 WildSearcherState4 state(rng.next(), pid, ivs, pid & 1, Utilities::getGender(pid, info), level, nature,
                                          Utilities::getShiny<true>(pid, tsv), index, item, slot.getSpecie(), 0, info);
-                if (filter.compareState(static_cast<const WildSearcherState &>(state)))
+                if (filter.compare(static_cast<const WildSearcherState &>(state)))
                 {
                     states.emplace_back(state);
                 }
@@ -970,7 +978,7 @@ std::vector<WildSearcherState4> WildSearcher4::searchHoneyTree(u8 hp, u8 atk, u8
                         u8 level = area.calculateLevel<true, true>(index, levelRand[i], force);
                         WildSearcherState4 state(test[i].next(), pid, ivs, pid & 1, Utilities::getGender(pid, info), level, nature,
                                                  Utilities::getShiny<true>(pid, tsv), index, item, slot.getSpecie(), 0, info);
-                        if (filter.compareState(static_cast<const WildSearcherState &>(state)))
+                        if (filter.compare(static_cast<const WildSearcherState &>(state)))
                         {
                             states.emplace_back(state);
                         }
@@ -1007,10 +1015,10 @@ std::vector<WildSearcherState4> WildSearcher4::searchPokeRadar(u8 hp, u8 atk, u8
     }
 
     auto seeds = LCRNGReverse::recoverPokeRNGIV(hp, atk, def, spa, spd, spe, Method::Method1);
-    for (int i = 0; i < seeds.count; i++)
+    for (u32 origin : seeds)
     {
-        PokeRNGR rng(seeds[i]);
-        u16 item = getItem((PokeRNG(seeds[i]).advance(2) >> 16) % 100, lead, info);
+        PokeRNGR rng(origin);
+        u16 item = getItem((PokeRNG(origin).advance(2) >> 16) % 100, lead, info);
 
         if (cuteCharm)
         {
@@ -1025,7 +1033,7 @@ std::vector<WildSearcherState4> WildSearcher4::searchPokeRadar(u8 hp, u8 atk, u8
                 u32 pid = nature + buffer;
                 WildSearcherState4 state(rng.next(), pid, ivs, pid & 1, Utilities::getGender(pid, info), slot.getMaxLevel(), nature,
                                          Utilities::getShiny<true>(pid, tsv), index, item, slot.getSpecie(), 0, info);
-                if (filter.compareState(static_cast<const WildSearcherState &>(state)))
+                if (filter.compare(static_cast<const WildSearcherState &>(state)))
                 {
                     states.emplace_back(state);
                 }
@@ -1082,7 +1090,7 @@ std::vector<WildSearcherState4> WildSearcher4::searchPokeRadar(u8 hp, u8 atk, u8
                 {
                     WildSearcherState4 state(seed, pid, ivs, pid & 1, Utilities::getGender(pid, info), slot.getMaxLevel(), nature,
                                              Utilities::getShiny<true>(pid, tsv), index, item, slot.getSpecie(), 0, info);
-                    if (filter.compareState(static_cast<const WildSearcherState &>(state)))
+                    if (filter.compare(static_cast<const WildSearcherState &>(state)))
                     {
                         states.emplace_back(state);
                     }
@@ -1117,10 +1125,10 @@ std::vector<WildSearcherState4> WildSearcher4::searchPokeRadarShiny(u8 hp, u8 at
     };
 
     auto seeds = LCRNGReverse::recoverPokeRNGIV(hp, atk, def, spa, spd, spe, Method::Method1);
-    for (int i = 0; i < seeds.count; i++)
+    for (u32 origin : seeds)
     {
-        PokeRNGR rng(seeds[i]);
-        u16 item = getItem((PokeRNG(seeds[i]).advance(2) >> 16) % 100, lead, info);
+        PokeRNGR rng(origin);
+        u16 item = getItem((PokeRNG(origin).advance(2) >> 16) % 100, lead, info);
 
         auto shinyPID = [this](PokeRNGR &rng) {
             u16 low = 0;
@@ -1163,7 +1171,7 @@ std::vector<WildSearcherState4> WildSearcher4::searchPokeRadarShiny(u8 hp, u8 at
                 {
                     WildSearcherState4 state(test.next(), pid, ivs, pid & 1, Utilities::getGender(pid, info), slot.getMaxLevel(), nature,
                                              Utilities::getShiny<true>(pid, tsv), index, item, slot.getSpecie(), 0, info);
-                    if (filter.compareState(static_cast<const WildSearcherState &>(state)))
+                    if (filter.compare(static_cast<const WildSearcherState &>(state)))
                     {
                         states.emplace_back(state);
                     }
@@ -1181,7 +1189,7 @@ std::vector<WildSearcherState4> WildSearcher4::searchPokeRadarShiny(u8 hp, u8 at
         {
             WildSearcherState4 state(rng.next(), pid, ivs, pid & 1, Utilities::getGender(pid, info), slot.getMaxLevel(), nature,
                                      Utilities::getShiny<true>(pid, tsv), index, item, slot.getSpecie(), 0, info);
-            if (filter.compareState(static_cast<const WildSearcherState &>(state)))
+            if (filter.compare(static_cast<const WildSearcherState &>(state)))
             {
                 states.emplace_back(state);
             }

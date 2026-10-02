@@ -36,7 +36,8 @@ static bool operator==(const EventState5 &left, const json &right)
         && left.getGender() == right["gender"].get<u8>() && left.getHiddenPower() == right["hiddenPower"].get<u8>()
         && left.getHiddenPowerStrength() == right["hiddenPowerStrength"].get<u8>() && left.getLevel() == right["level"].get<u8>()
         && left.getNature() == right["nature"].get<u8>() && left.getShiny() == right["shiny"].get<u8>()
-        && left.getAdvances() == right["advances"].get<u32>() && left.getChatot() == right["chatot"].get<u8>();
+        && left.getAdvances() == right["advances"].get<u32>() && left.getChatot() == right["chatot"].get<u8>()
+        && left.getNeedle() == right["needle"].get<u8>();
 }
 
 void EventGenerator5Test::generate_data()
@@ -107,11 +108,11 @@ void EventGenerator5Test::generate()
     powers.fill(true);
 
     Profile5 profile("-", version, 12345, 54321, "", "", 0, { false, false, false, false, false, false, false, false, false }, 0, 0, 0,
-                     false, 0, 0, false, false, DSType::DS, Language::English);
+                     false, 0, 0, false, false, false, false, DSType::DS, Language::English);
 
     PGF pgf(tid, sid, specie, nature, gender, ability, shiny, level, hp, atk, def, spa, spd, spe, egg);
 
-    StateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers);
+    StateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers);
     EventGenerator5 generator(0, 9, 0, pgf, profile, filter);
 
     auto states = generator.generate(seed);

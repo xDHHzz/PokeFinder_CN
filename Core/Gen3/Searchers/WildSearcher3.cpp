@@ -20,6 +20,7 @@
 #include "WildSearcher3.hpp"
 #include <Core/Enum/Encounter.hpp>
 #include <Core/Enum/Game.hpp>
+#include <Core/Enum/Item.hpp>
 #include <Core/Enum/Lead.hpp>
 #include <Core/Enum/Method.hpp>
 #include <Core/Parents/PersonalInfo.hpp>
@@ -55,24 +56,37 @@ static u8 unownLetter(u32 pid)
     return (((pid & 0x3000000) >> 18) | ((pid & 0x30000) >> 12) | ((pid & 0x300) >> 6) | (pid & 0x3)) % 0x1c;
 }
 
-WildSearcher3::WildSearcher3(Method method, Lead lead, bool feebasTile, const EncounterArea3 &area, const Profile3 &profile,
+WildSearcher3::WildSearcher3(Method method, Lead lead, bool feebasTile, Item item, const EncounterArea3 &area, const Profile3 &profile,
                              const WildStateFilter &filter) :
     WildSearcher(method, lead, area, profile, filter),
-    ivAdvance(method == Method::Method2),
-    feebasTile(feebasTile),
     rate(0),
+    feebasTile(feebasTile),
+    ivAdvance(method == Method::Method2),
+    item(item),
     modifiedSlots(area.getSlots(lead))
 {
     if ((profile.getVersion() & Game::RSE) != Game::None && area.getEncounter() == Encounter::RockSmash)
     {
         rate = area.getRate() * 16;
+
+        if (item == Item::WhiteFlute)
+        {
+            rate += rate / 2;
+        }
     }
 }
 
 void WildSearcher3::startSearch(const std::array<u8, 6> &min, const std::array<u8, 6> &max)
 {
-    searching = true;
+    activeThreads.store(1);
+    threadContainer.emplace_back([this, min, max] {
+        search(min, max);
+        activeThreads.fetch_sub(1);
+    });
+}
 
+void WildSearcher3::search(const std::array<u8, 6> &min, const std::array<u8, 6> &max)
+{
     bool feebas = area.feebasLocation(profile.getVersion())
         && (area.getEncounter() == Encounter::OldRod || area.getEncounter() == Encounter::GoodRod
             || area.getEncounter() == Encounter::SuperRod);
@@ -91,16 +105,18 @@ void WildSearcher3::startSearch(const std::array<u8, 6> &min, const std::array<u
                     {
                         for (u8 spe = min[5]; spe <= max[5]; spe++)
                         {
-                            if (!searching)
+                            if (cancelled.load(std::memory_order_relaxed))
                             {
                                 return;
                             }
 
                             auto states = search(hp, atk, def, spa, spd, spe, feebas, safari, tanoby);
-
-                            std::lock_guard<std::mutex> guard(mutex);
-                            results.insert(results.end(), states.begin(), states.end());
-                            progress++;
+                            if (!states.empty())
+                            {
+                                std::lock_guard<std::mutex> guard(mutex);
+                                results.insert(results.end(), states.begin(), states.end());
+                            }
+                            progress.fetch_add(1, std::memory_order_relaxed);
                         }
                     }
                 }
@@ -116,9 +132,9 @@ std::vector<WildSearcherState> WildSearcher3::search(u8 hp, u8 atk, u8 def, u8 s
     std::array<u8, 6> ivs = { hp, atk, def, spa, spd, spe };
 
     auto seeds = LCRNGReverse::recoverPokeRNGIV(hp, atk, def, spa, spd, spe, method);
-    for (int i = 0; i < seeds.count; i++)
+    for (u32 origin : seeds)
     {
-        PokeRNGR rng(seeds[i]);
+        PokeRNGR rng(origin);
         if (ivAdvance)
         {
             rng.next();
@@ -400,7 +416,7 @@ std::vector<WildSearcherState> WildSearcher3::search(u8 hp, u8 atk, u8 def, u8 s
                         WildSearcherState state(test[i].next(), pid, ivs, pid & 1, Utilities::getGender(pid, info), level, nature,
                                                 Utilities::getShiny<true>(pid, tsv), encounterSlot[i], 0, slot.getSpecie(), slot.getForm(),
                                                 info);
-                        if (filter.compareState(state))
+                        if (filter.compare(state))
                         {
                             states.emplace_back(state);
                         }

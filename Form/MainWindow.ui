@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>358</width>
-    <height>293</height>
+    <width>359</width>
+    <height>322</height>
    </rect>
   </property>
   <property name="windowIcon">
@@ -223,7 +223,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>358</width>
+     <width>359</width>
      <height>22</height>
     </rect>
    </property>
@@ -263,7 +263,9 @@
     <property name="title">
      <string>Gen 5 Tools</string>
     </property>
+    <addaction name="actionAdjacentSeed"/>
     <addaction name="actionIVCache"/>
+    <addaction name="actionPhenomenon"/>
     <addaction name="actionProfileCalibrator"/>
     <addaction name="actionProfileManager5"/>
     <addaction name="actionSHA1Cache"/>
@@ -394,6 +396,16 @@
   <action name="actionIVCache">
    <property name="text">
     <string>IV Cache</string>
+   </property>
+  </action>
+  <action name="actionAdjacentSeed">
+   <property name="text">
+    <string>Adjacent Seeds</string>
+   </property>
+  </action>
+  <action name="actionPhenomenon">
+   <property name="text">
+    <string>Phenomenon</string>
    </property>
   </action>
  </widget>

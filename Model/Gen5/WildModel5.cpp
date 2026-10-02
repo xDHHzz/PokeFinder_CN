@@ -20,22 +20,53 @@
 #include "WildModel5.hpp"
 #include <Core/Util/Translator.hpp>
 #include <Core/Util/Utilities.hpp>
+#include <QColor>
+#include <QFont>
 
-WildGeneratorModel5::WildGeneratorModel5(QObject *parent) : TableModel(parent), showStats(false)
+WildGeneratorModel5::WildGeneratorModel5(QObject *parent) : TableModel(parent), phenomenon(false), showStats(false)
 {
 }
 
 int WildGeneratorModel5::columnCount(const QModelIndex &parent) const
 {
-    return 19;
+    if (phenomenon)
+    {
+        return 21;
+    }
+    else
+    {
+        return 20;
+    }
 }
 
 QVariant WildGeneratorModel5::data(const QModelIndex &index, int role) const
 {
-    if (role == Qt::DisplayRole)
+    const auto &state = model[index.row()];
+    if (role == Qt::FontRole)
     {
-        const auto &state = model[index.row()];
-        int column = index.column();
+        if (!state.isValid())
+        {
+            QFont font;
+            font.setItalic(true);
+            return font;
+        }
+    }
+    else if (role == Qt::ForegroundRole)
+    {
+        if (!state.isValid())
+        {
+            return QColor(128, 128, 128);
+        }
+    }
+    else if (role == Qt::DisplayRole)
+    {
+        int column = getColumn(index.column());
+        // This would normally hide the Phenomenon data, but since valid can only be false during normal fishing this is fine
+        if (!state.isValid() && column > 2)
+        {
+            return "-";
+        }
+
         switch (column)
         {
         case 0:
@@ -43,23 +74,27 @@ QVariant WildGeneratorModel5::data(const QModelIndex &index, int role) const
         case 1:
             return QString::fromStdString(Utilities5::getChatot(state.getChatot()));
         case 2:
-            return QString::fromStdString(Translator::getItem(state.getItem()));
+            return QString::fromStdString(Translator::getNeedle(state.getNeedle()));
         case 3:
+            return state.getPhenomenon() ? tr("Yes") : tr("No");
+        case 4:
+            return QString::fromStdString(Translator::getItem(state.getItem()));
+        case 5:
             return QString("%1: %2")
                 .arg(state.getEncounterSlot())
                 .arg(QString::fromStdString(Translator::getSpecie(state.getSpecie(), state.getForm())));
-        case 4:
-            return state.getLevel();
-        case 5:
-            return QString::number(state.getPID(), 16).toUpper().rightJustified(8, '0');
         case 6:
+            return state.getLevel();
+        case 7:
+            return QString::number(state.getPID(), 16).toUpper().rightJustified(8, '0');
+        case 8:
         {
             u8 shiny = state.getShiny();
             return shiny == 2 ? tr("Square") : shiny == 1 ? tr("Star") : tr("No");
         }
-        case 7:
+        case 9:
             return QString::fromStdString(Translator::getNature(state.getNature()));
-        case 8:
+        case 10:
             if (state.getAbility() == 0 || state.getAbility() == 1)
             {
                 return QString("%1: %2")
@@ -70,21 +105,21 @@ QVariant WildGeneratorModel5::data(const QModelIndex &index, int role) const
             {
                 return QString("H (%2)").arg(QString::fromStdString(Translator::getAbility(state.getAbilityIndex())));
             }
-        case 9:
-        case 10:
         case 11:
         case 12:
         case 13:
         case 14:
-            return showStats ? state.getStat(column - 9) : state.getIV(column - 9);
         case 15:
-            return QString::fromStdString(Translator::getHiddenPower(state.getHiddenPower()));
         case 16:
-            return state.getHiddenPowerStrength();
+            return showStats ? state.getStat(column - 11) : state.getIV(column - 11);
         case 17:
-            return QString::fromStdString(Translator::getGender(state.getGender()));
+            return QString::fromStdString(Translator::getHiddenPower(state.getHiddenPower()));
         case 18:
-            return QString::fromStdString(Translator::getCharacteristic(state.getCharacteristic()));
+            return state.getHiddenPowerStrength();
+        case 19:
+            return QString::fromStdString(Translator::getGender(state.getGender()));
+        case 20:
+            return QString::fromStdString(Translator::getCharacteristic(state.getCharacteristic(), CharacteristicGeneration::Gen5));
         }
     }
 
@@ -95,15 +130,34 @@ QVariant WildGeneratorModel5::headerData(int section, Qt::Orientation orientatio
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal)
     {
+        section = getColumn(section);
         return header[section];
     }
     return QVariant();
 }
 
+void WildGeneratorModel5::setPhenomenon(bool flag)
+{
+    phenomenon = flag;
+    emit headerDataChanged(Qt::Horizontal, 0, columnCount());
+}
+
 void WildGeneratorModel5::setShowStats(bool flag)
 {
     showStats = flag;
-    emit dataChanged(index(0, 9), index(rowCount() - 1, 14), { Qt::DisplayRole });
+    emit dataChanged(index(0, 11), index(rowCount() - 1, 16), { Qt::DisplayRole });
+}
+
+int WildGeneratorModel5::getColumn(int column) const
+{
+    if (phenomenon)
+    {
+        return column;
+    }
+    else
+    {
+        return column > 2 ? column + 1 : column;
+    }
 }
 
 WildSearcherModel5::WildSearcherModel5(QObject *parent) : TableModel(parent), showStats(false)
@@ -172,7 +226,7 @@ QVariant WildSearcherModel5::data(const QModelIndex &index, int role) const
         case 18:
             return QString::fromStdString(Translator::getGender(state.getGender()));
         case 19:
-            return QString::fromStdString(Translator::getCharacteristic(state.getCharacteristic()));
+            return QString::fromStdString(Translator::getCharacteristic(state.getCharacteristic(), CharacteristicGeneration::Gen5));
         case 20:
             return QString::fromStdString(display.getDateTime().toString());
         case 21:

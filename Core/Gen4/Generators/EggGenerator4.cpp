@@ -117,7 +117,7 @@ static void setInheritance(const Daycare &daycare, std::array<u8, 6> &ivs, std::
 
 EggGenerator4::EggGenerator4(u32 initialAdvances, u32 maxAdvances, u32 offset, u32 initialAdvancesPickup, u32 maxAdvancesPickup,
                              u32 offsetPickup, const Daycare &daycare, const Profile4 &profile, const StateFilter &filter) :
-    EggGenerator(initialAdvances, maxAdvances, offset, Method::None, 0, daycare, profile, filter),
+    EggGenerator(initialAdvances, maxAdvances, offset, Method::None, daycare, profile, filter),
 
     initialAdvancesPickup(initialAdvancesPickup),
     maxAdvancesPickup(maxAdvancesPickup),
@@ -246,6 +246,6 @@ std::vector<EggGeneratorState4> EggGenerator4::generatePickup(u32 seed, const st
         }
     }
 
-    std::sort(states.begin(), states.end(), compare);
+    std::ranges::sort(states, compare);
     return states;
 }

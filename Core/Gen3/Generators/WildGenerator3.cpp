@@ -20,6 +20,7 @@
 #include "WildGenerator3.hpp"
 #include <Core/Enum/Encounter.hpp>
 #include <Core/Enum/Game.hpp>
+#include <Core/Enum/Item.hpp>
 #include <Core/Enum/Lead.hpp>
 #include <Core/Enum/Method.hpp>
 #include <Core/Parents/PersonalInfo.hpp>
@@ -29,14 +30,16 @@
 #include <Core/Util/EncounterSlot.hpp>
 #include <Core/Util/Utilities.hpp>
 
+constexpr u8 feebasSlot[] = { 2, 3, 5 };
+
 static u8 unownLetter(u32 pid)
 {
     return (((pid & 0x3000000) >> 18) | ((pid & 0x30000) >> 12) | ((pid & 0x300) >> 6) | (pid & 0x3)) % 0x1c;
 }
 
-WildGenerator3::WildGenerator3(u32 initialAdvances, u32 maxAdvances, u32 offset, Method method, Lead lead, bool feebasTile,
+WildGenerator3::WildGenerator3(u32 initialAdvances, u32 maxAdvances, u32 offset, Method method, Lead lead, bool feebasTile, Item item,
                                const EncounterArea3 &area, const Profile3 &profile, const WildStateFilter &filter) :
-    WildGenerator(initialAdvances, maxAdvances, offset, method, lead, area, profile, filter), feebasTile(feebasTile)
+    WildGenerator(initialAdvances, maxAdvances, offset, method, lead, area, profile, filter), feebasTile(feebasTile), item(item)
 {
 }
 
@@ -46,7 +49,13 @@ std::vector<WildGeneratorState> WildGenerator3::generate(u32 seed) const
 
     auto modifiedSlots = area.getSlots(lead);
     u16 rate = area.getRate() * 16;
+
     bool rock = (profile.getVersion() & Game::RSE) != Game::None && area.getEncounter() == Encounter::RockSmash;
+    if (rock && item == Item::WhiteFlute)
+    {
+        rate += rate / 2;
+    }
+
     bool feebas = area.feebasLocation(profile.getVersion()) && feebasTile;
     bool safari = area.safariZone(profile.getVersion());
     bool tanoby = area.tanobyChamber(profile.getVersion());
@@ -73,18 +82,7 @@ std::vector<WildGeneratorState> WildGenerator3::generate(u32 seed) const
         u8 encounterSlot;
         if (feebas && go.nextUShort(100) < 50)
         {
-            if (area.getEncounter() == Encounter::OldRod)
-            {
-                encounterSlot = 2;
-            }
-            else if (area.getEncounter() == Encounter::GoodRod)
-            {
-                encounterSlot = 3;
-            }
-            else
-            {
-                encounterSlot = 5;
-            }
+            encounterSlot = feebasSlot[toInt(area.getEncounter() - Encounter::OldRod)];
         }
         else
         {
@@ -183,7 +181,7 @@ std::vector<WildGeneratorState> WildGenerator3::generate(u32 seed) const
 
         WildGeneratorState state(initialAdvances + cnt, pid, ivs, pid & 1, Utilities::getGender(pid, info), level, nature,
                                  Utilities::getShiny<true>(pid, tsv), encounterSlot, 0, slot.getSpecie(), slot.getForm(), info);
-        if (filter.compareState(state))
+        if (filter.compare(state))
         {
             states.emplace_back(state);
         }

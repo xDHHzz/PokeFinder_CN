@@ -16,10 +16,10 @@ execute_process(
 
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/version.h.in
-    ${CMAKE_BINARY_DIR}/generated/version.h
+    ${CMAKE_CURRENT_BINARY_DIR}/generated/Form/version.h
 )
 
-find_package(Qt6 REQUIRED COMPONENTS Core LinguistTools Network Widgets)
+find_package(Qt6 REQUIRED COMPONENTS LinguistTools Network)
 
 set(PROJECT_TS
     i18n/PokeFinder_fr.ts
@@ -39,9 +39,11 @@ set(PROJECT_UI
     Controls/EggSettings.ui
     Controls/Filter.ui
     Controls/IDsFilter.ui
+    Controls/IVFilter.ui
     Gen3/Eggs3.ui
     Gen3/IDs3.ui
     Gen3/GameCube.ui
+    Gen3/Profile/ProfileDisplay3.ui
     Gen3/Profile/ProfileEditor3.ui
     Gen3/Profile/ProfileManager3.ui
     Gen3/Static3.ui
@@ -55,6 +57,7 @@ set(PROJECT_UI
     Gen4/Eggs4.ui
     Gen4/Event4.ui
     Gen4/IDs4.ui
+    Gen4/Profile/ProfileDisplay4.ui
     Gen4/Profile/ProfileEditor4.ui
     Gen4/Profile/ProfileManager4.ui
     Gen4/Static4.ui
@@ -70,15 +73,19 @@ set(PROJECT_UI
     Gen5/Event5.ui
     Gen5/IDs5.ui
     Gen5/Profile/ProfileCalibrator5.ui
+    Gen5/Profile/ProfileDisplay5.ui
     Gen5/Profile/ProfileEditor5.ui
     Gen5/Profile/ProfileManager5.ui
     Gen5/Static5.ui
+    Gen5/Tools/AdjacentSeeds.ui
     Gen5/Tools/IVCacheFinder.ui
+    Gen5/Tools/Phenomenon.ui
     Gen5/Tools/SHA1CacheFinder.ui
     Gen5/Wild5.ui
     Gen8/Eggs8.ui
     Gen8/Event8.ui
     Gen8/IDs8.ui
+    Gen8/Profile/ProfileDisplay8.ui
     Gen8/Profile/ProfileEditor8.ui
     Gen8/Profile/ProfileManager8.ui
     Gen8/Raids.ui
@@ -88,6 +95,7 @@ set(PROJECT_UI
     Gen8/Wild8.ui
     MainWindow.ui
     Util/EncounterLookup.ui
+    Util/AdvanceFinder.ui
     Util/IVCalculator.ui
     Util/IVToPID.ui
     Util/Researcher.ui
@@ -116,6 +124,8 @@ set(PROJECT_SOURCES
     Controls/GraphicsPixmapItem.hpp
     Controls/IDsFilter.cpp
     Controls/IDsFilter.hpp
+    Controls/IVFilter.cpp
+    Controls/IVFilter.hpp
     Controls/TableView.cpp
     Controls/TableView.hpp
     Controls/TabWidget.hpp
@@ -128,6 +138,8 @@ set(PROJECT_SOURCES
     Gen3/IDs3.hpp
     Gen3/GameCube.cpp
     Gen3/GameCube.hpp
+    Gen3/Profile/ProfileDisplay3.cpp
+    Gen3/Profile/ProfileDisplay3.hpp
     Gen3/Profile/ProfileEditor3.cpp
     Gen3/Profile/ProfileEditor3.hpp
     Gen3/Profile/ProfileManager3.cpp
@@ -154,6 +166,8 @@ set(PROJECT_SOURCES
     Gen4/Event4.hpp
     Gen4/IDs4.cpp
     Gen4/IDs4.hpp
+    Gen4/Profile/ProfileDisplay4.cpp
+    Gen4/Profile/ProfileDisplay4.hpp
     Gen4/Profile/ProfileEditor4.cpp
     Gen4/Profile/ProfileEditor4.hpp
     Gen4/Profile/ProfileManager4.cpp
@@ -184,14 +198,20 @@ set(PROJECT_SOURCES
     Gen5/IDs5.hpp
     Gen5/Profile/ProfileCalibrator5.cpp
     Gen5/Profile/ProfileCalibrator5.hpp
+    Gen5/Profile/ProfileDisplay5.cpp
+    Gen5/Profile/ProfileDisplay5.hpp
     Gen5/Profile/ProfileEditor5.cpp
     Gen5/Profile/ProfileEditor5.hpp
     Gen5/Profile/ProfileManager5.cpp
     Gen5/Profile/ProfileManager5.hpp
     Gen5/Static5.cpp
     Gen5/Static5.hpp
+    Gen5/Tools/AdjacentSeeds.cpp
+    Gen5/Tools/AdjacentSeeds.hpp
     Gen5/Tools/IVCacheFinder.cpp
     Gen5/Tools/IVCacheFinder.hpp
+    Gen5/Tools/Phenomenon.hpp
+    Gen5/Tools/Phenomenon.cpp
     Gen5/Tools/SHA1CacheFinder.cpp
     Gen5/Tools/SHA1CacheFinder.hpp
     Gen5/Wild5.cpp
@@ -202,6 +222,8 @@ set(PROJECT_SOURCES
     Gen8/Event8.hpp
     Gen8/IDs8.cpp
     Gen8/IDs8.hpp
+    Gen8/Profile/ProfileDisplay8.cpp
+    Gen8/Profile/ProfileDisplay8.hpp
     Gen8/Profile/ProfileEditor8.cpp
     Gen8/Profile/ProfileEditor8.hpp
     Gen8/Profile/ProfileManager8.cpp
@@ -220,6 +242,8 @@ set(PROJECT_SOURCES
     MainWindow.hpp
     Util/EncounterLookup.cpp
     Util/EncounterLookup.hpp
+    Util/AdvanceFinder.cpp
+    Util/AdvanceFinder.hpp
     Util/IVCalculator.cpp
     Util/IVCalculator.hpp
     Util/IVToPID.cpp
@@ -230,18 +254,20 @@ set(PROJECT_SOURCES
     Util/Settings.hpp
 )
 
+qt_add_resources(PROJECT_RESOURCES ${PROJECT_QRC})
+
+add_library(PokeFinderForm STATIC
+    ${PROJECT_UI}
+    ${PROJECT_SOURCES}
+    ${PROJECT_RESOURCES}
+)
+
 qt_add_translations(PokeFinderForm
     MERGE_QT_TRANSLATIONS
-    TS_FILES i18n/PokeFinder_fr.ts i18n/PokeFinder_es.ts i18n/PokeFinder_de.ts i18n/PokeFinder_it.ts i18n/PokeFinder_ja.ts i18n/PokeFinder_ko.ts i18n/PokeFinder_zh.ts
+    TS_FILES ${PROJECT_TS}
     NO_GENERATE_PLURALS_TS_FILE
     LRELEASE_OPTIONS -nounfinished -removeidentical
 )
 
-add_library(PokeFinderForm STATIC
-    ${PROJECT_QRC}
-    ${PROJECT_UI}
-    ${PROJECT_SOURCES}
-)
-
-target_include_directories(PokeFinderForm PRIVATE ${CMAKE_BINARY_DIR}/generated)
-target_link_libraries(PokeFinderForm PRIVATE PokeFinderCore PokeFinderModel Qt6::Core Qt6::Network Qt6::Widgets)
+target_include_directories(PokeFinderForm PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
+target_link_libraries(PokeFinderForm PRIVATE PokeFinderCore PokeFinderIncludes PokeFinderModel Qt6::Core Qt6::Network Qt6::Widgets)

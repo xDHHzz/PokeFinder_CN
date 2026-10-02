@@ -26,9 +26,16 @@
 class DreamRadarTemplate;
 class EncounterArea5;
 class HiddenGrottoArea;
+class PhenomenonArea;
 class Profile5;
 class StaticTemplate5;
 enum class Encounter : u8;
+
+struct EncounterSettings5
+{
+    bool swarm;
+    u8 season;
+};
 
 namespace Encounters5
 {
@@ -54,12 +61,12 @@ namespace Encounters5
      * @brief Gets wild encounters for the \p encounter and \p profile
      *
      * @param encounter Encounter type
-     * @param season Season modifier
+     * @param settings Settings that impact wild encounter slots
      * @param profile Profile information
      *
      * @return Vector of wild encounters
      */
-    std::vector<EncounterArea5> getEncounters(Encounter encounter, u8 season, const Profile5 *profile);
+    std::vector<EncounterArea5> getEncounters(Encounter encounter, const EncounterSettings5 &settings, const Profile5 *profile);
 
     /**
      * @brief Gets hidden grotto encounters
@@ -67,6 +74,15 @@ namespace Encounters5
      * @return Vector of grotto encounters
      */
     std::vector<HiddenGrottoArea> getHiddenGrottoEncounters();
+
+    /**
+     * @brief Gets phenomenon encounters for bridge/cave items
+     *
+     * @param profile Profile information
+     *
+     * @return Vector of phenomenon encounters
+     */
+    std::vector<EncounterArea5> getPhenomenonEncounters(const Profile5 *profile);
 
     /**
      * @brief Gets static encounters from the \p type

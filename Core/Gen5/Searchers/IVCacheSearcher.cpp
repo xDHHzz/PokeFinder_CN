@@ -22,7 +22,7 @@
 #include <Core/RNG/RNGList.hpp>
 #include <algorithm>
 #include <fstream>
-#include <thread>
+#include <variant>
 
 static u8 gen(MT &rng)
 {
@@ -35,7 +35,8 @@ static void write(std::ofstream &file, Type val)
     file.write(reinterpret_cast<char *>(&val), sizeof(val));
 }
 
-IVCacheSearcher::IVCacheSearcher(u32 initialAdvances, u32 maxAdvances) : SearcherBase<std::vector<u32>>(), initialAdvances(initialAdvances), maxAdvances(maxAdvances)
+IVCacheSearcher::IVCacheSearcher(u32 initialAdvances, u32 maxAdvances) :
+    SearcherBase<std::vector<u32>>(), initialAdvances(initialAdvances), maxAdvances(maxAdvances)
 {
     entralink.resize(maxAdvances + 5);
     results.resize(maxAdvances + 3);
@@ -44,34 +45,17 @@ IVCacheSearcher::IVCacheSearcher(u32 initialAdvances, u32 maxAdvances) : Searche
 
 void IVCacheSearcher::startSearch(int threads)
 {
-    this->searching = true;
-
-    auto *threadContainer = new std::thread[threads];
-
-    u32 split = 0x100000000 / threads;
-    u32 start = 0;
-
-    for (int i = 0; i < threads; i++, start += split)
-    {
-        if (i == threads - 1)
-        {
-            threadContainer[i] = std::thread([=] { search(start, 0xffffffff); });
-        }
-        else
-        {
-            threadContainer[i] = std::thread([=] { search(start, start + split); });
-        }
-    }
-
+    activeThreads.store(threads);
     for (int i = 0; i < threads; i++)
     {
-        threadContainer[i].join();
+        threadContainer.emplace_back([this] {
+            search(0x0, 0xffffffff);
+            activeThreads.fetch_sub(1);
+        });
     }
-
-    delete[] threadContainer;
 }
 
-void IVCacheSearcher::writeResults(const std::string &file)
+void IVCacheSearcher::writeResults(std::string_view file)
 {
     std::ofstream stream(file.data(), std::ios_base::out | std::ios_base::binary | std::ios_base::trunc);
     if (stream.is_open())
@@ -86,19 +70,19 @@ void IVCacheSearcher::writeResults(const std::string &file)
         // Write seed sizes
         for (int i = 0; i < entralink.size(); i++)
         {
-            std::sort(entralink[i].begin(), entralink[i].end());
+            std::ranges::sort(entralink[i]);
             write<u32>(stream, entralink[i].size());
         }
 
         for (int i = 0; i < results.size(); i++)
         {
-            std::sort(results[i].begin(), results[i].end());
+            std::ranges::sort(results[i]);
             write<u32>(stream, results[i].size());
         }
 
         for (int i = 0; i < roamer.size(); i++)
         {
-            std::sort(roamer[i].begin(), roamer[i].end());
+            std::ranges::sort(roamer[i]);
             write<u32>(stream, roamer[i].size());
         }
 
@@ -122,74 +106,94 @@ void IVCacheSearcher::writeResults(const std::string &file)
 
 void IVCacheSearcher::search(u32 start, u32 end)
 {
-    for (u32 seed = start;; seed++)
+    while (true)
     {
-        if (!searching)
+        if (cancelled.load(std::memory_order_relaxed))
         {
             return;
         }
 
-        RNGList<u8, MT, 32, gen> rngList(seed, initialAdvances);
-        for (u32 i = 0; i <= maxAdvances + 4; i++, rngList.advanceState())
-        {
-            // Entralink
-            rngList.advance(22);
-            u8 hp =  rngList.next();
-            u8 atk = rngList.next();
-            u8 def = rngList.next();
-            u8 spa = rngList.next();
-            u8 spd = rngList.next();
-            u8 spe = rngList.next();
-            if (hp >= 30 && def >= 30 && spd >= 30 && (atk >= 30 || spa >= 30) && (spe <= 1 || spe >= 30))
-            {
-                std::lock_guard<std::mutex> lock(mutex);
-                entralink[i].emplace_back(seed);
-            }
-
-            // Normal
-            if (i <= maxAdvances + 2)
-            {
-                rngList.resetState();
-
-                hp =  rngList.next();
-                atk = rngList.next();
-                def = rngList.next();
-                spa = rngList.next();
-                spd = rngList.next();
-                spe = rngList.next();
-
-                if (hp >= 30 && def >= 30 && spd >= 30 && (atk >= 30 || spa >= 30) && (spe <= 1 || spe >= 30))
-                {
-                    std::lock_guard<std::mutex> lock(mutex);
-                    results[i].emplace_back(seed);
-                }
-            }
-
-            // Roamer
-            if (i <= maxAdvances)
-            {
-                rngList.resetState();
-                rngList.advance(1);
-
-                hp =  rngList.next();
-                atk = rngList.next();
-                def = rngList.next();
-                spd = rngList.next();
-                spe = rngList.next();
-                spa = rngList.next();
-
-                if (hp >= 30 && def >= 30 && spd >= 30 && (atk >= 30 || spa >= 30) && spe >= 30)
-                {
-                    std::lock_guard<std::mutex> lock(mutex);
-                    roamer[i].emplace_back(seed);
-                }
-            }
-        }
-
-        progress++;
-        if (seed == end)
+        u64 idx = index.fetch_add(1, std::memory_order_relaxed);
+        if (idx > static_cast<u64>(end))
         {
             break;
         }
+
+        u32 seed = start + idx;
+
+        using RNGVariant = std::variant<RNGList<u8, MTFast, 32>, RNGList<u8, MT, 32, gen>>;
+        RNGVariant rngList = [&]() {
+            u32 size = (maxAdvances + 5) + 32;
+            if (size < 227)
+            {
+                return RNGVariant(std::in_place_type<RNGList<u8, MTFast, 32>>, seed, 0, size, true);
+            }
+            else
+            {
+                return RNGVariant(std::in_place_type<RNGList<u8, MT, 32, gen>>, seed);
+            }
+        }();
+
+        std::visit(
+            [&](auto &rng) {
+                for (u32 i = 0; i <= maxAdvances + 4; i++, rng.advanceState())
+                {
+                    // Entralink
+                    rng.advance(22);
+                    u8 hp = rng.next();
+                    u8 atk = rng.next();
+                    u8 def = rng.next();
+                    u8 spa = rng.next();
+                    u8 spd = rng.next();
+                    u8 spe = rng.next();
+                    if (hp >= 30 && def >= 30 && spd >= 30 && (atk >= 30 || spa >= 30) && (spe <= 1 || spe >= 30))
+                    {
+                        std::lock_guard<std::mutex> lock(mutex);
+                        entralink[i].emplace_back(seed);
+                    }
+
+                    // Normal
+                    if (i <= maxAdvances + 2)
+                    {
+                        rng.resetState();
+
+                        hp = rng.next();
+                        atk = rng.next();
+                        def = rng.next();
+                        spa = rng.next();
+                        spd = rng.next();
+                        spe = rng.next();
+
+                        if (hp >= 30 && def >= 30 && spd >= 30 && (atk >= 30 || spa >= 30) && (spe <= 1 || spe >= 30))
+                        {
+                            std::lock_guard<std::mutex> lock(mutex);
+                            results[i].emplace_back(seed);
+                        }
+                    }
+
+                    // Roamer
+                    if (i <= maxAdvances)
+                    {
+                        rng.resetState();
+                        rng.advance(1);
+
+                        hp = rng.next();
+                        atk = rng.next();
+                        def = rng.next();
+                        spd = rng.next();
+                        spe = rng.next();
+                        spa = rng.next();
+
+                        if (hp >= 30 && def >= 30 && spd >= 30 && (atk >= 30 || spa >= 30) && spe >= 30)
+                        {
+                            std::lock_guard<std::mutex> lock(mutex);
+                            roamer[i].emplace_back(seed);
+                        }
+                    }
+                }
+            },
+            rngList);
+
+        progress.fetch_add(1, std::memory_order_relaxed);
     }
 }

@@ -52,6 +52,7 @@ SeedToTime4::SeedToTime4(QWidget *parent) : QWidget(parent), ui(new Ui::SeedToTi
     ui->textBoxHGSSSecond->setValues(0, 59, 2, 10);
     ui->textBoxHGSSDelayCalibration->setValues(InputType::Advance32Bit);
     ui->textBoxHGSSSecondCalibration->setValues(0, 500, 3, 10);
+    ui->textBoxHGSSPlayerLocation->setValues(0, 46, 2, 10);
     ui->textBoxHGSSRaikou->setValues(0, 46, 2, 10);
     ui->textBoxHGSSEntei->setValues(0, 46, 2, 10);
     ui->textBoxHGSSLati->setValues(0, 28, 2, 10);
@@ -202,13 +203,14 @@ void SeedToTime4::hgssCalibrate()
         return;
     }
 
+    u8 playerLocation = ui->textBoxHGSSPlayerLocation->getUChar();
     std::array<bool, 3> roamers
         = { ui->checkBoxHGSSRaikou->isChecked(), ui->checkBoxHGSSEntei->isChecked(), ui->checkBoxHGSSLati->isChecked() };
     std::array<u8, 3> routes = { ui->textBoxHGSSRaikou->getUChar(), ui->textBoxHGSSEntei->getUChar(), ui->textBoxHGSSLati->getUChar() };
     const SeedTime4 &target = hgssModel->getItem(index.row());
 
     hgssCalibrateModel->clearModel();
-    auto results = SeedToTimeCalculator4::calibrate(delayCalibration, secondCalibration, roamers, routes, target);
+    auto results = SeedToTimeCalculator4::calibrate(delayCalibration, secondCalibration, playerLocation, roamers, routes, target);
     hgssCalibrateModel->addItems(results);
 
     int count = (results.size() - 1) / 2;
@@ -228,11 +230,12 @@ void SeedToTime4::hgssGenerate()
     bool forceSecond = ui->checkBoxHGSSSecond->isChecked();
     u8 forcedSecond = ui->textBoxHGSSSecond->getUChar();
 
+    u8 playerLocation = ui->textBoxHGSSPlayerLocation->getUChar();
     std::array<bool, 3> roamers
         = { ui->checkBoxHGSSRaikou->isChecked(), ui->checkBoxHGSSEntei->isChecked(), ui->checkBoxHGSSLati->isChecked() };
     std::array<u8, 3> routes = { ui->textBoxHGSSRaikou->getUChar(), ui->textBoxHGSSEntei->getUChar(), ui->textBoxHGSSLati->getUChar() };
 
-    HGSSRoamer roamer(seed, roamers, routes);
+    HGSSRoamer roamer(seed, playerLocation, roamers, routes);
 
     ui->labelHGSSElmCalls->setText(tr("Elm Calls: %1").arg(QString::fromStdString(Utilities4::getCalls(seed, roamer.getSkips()))));
     std::string str = roamer.getRouteString();
@@ -255,22 +258,19 @@ void SeedToTime4::searchCalls()
         return;
     }
 
-    std::unique_ptr<SearchCalls> search(new SearchCalls(hgssCalibrateModel->getModel()));
+    std::unique_ptr<SearchCalls> search(new SearchCalls(hgssCalibrateModel));
     if (search->exec() == QDialog::Accepted)
     {
-        ui->tableViewHGSSCalibrate->setSelectionMode(QAbstractItemView::MultiSelection);
         ui->tableViewHGSSCalibrate->clearSelection();
 
-        auto results = search->getResults();
-        for (size_t i = 0; i < results.size(); i++)
+        QItemSelection selection;
+        auto indexes = search->getIndexes();
+        for (const auto &index : indexes)
         {
-            if (results[i])
-            {
-                ui->tableViewHGSSCalibrate->selectRow(i);
-            }
+            selection.select(index, index);
         }
 
-        ui->tableViewHGSSCalibrate->setSelectionMode(QAbstractItemView::SingleSelection);
+        ui->tableViewHGSSCalibrate->selectionModel()->select(selection, QItemSelectionModel::Select | QItemSelectionModel::Rows);
         ui->tableViewHGSSCalibrate->setFocus();
     }
 }
@@ -282,22 +282,19 @@ void SeedToTime4::searchFlips()
         return;
     }
 
-    std::unique_ptr<SearchCoinFlips> search(new SearchCoinFlips(dpptCalibrateModel->getModel()));
+    std::unique_ptr<SearchCoinFlips> search(new SearchCoinFlips(dpptCalibrateModel));
     if (search->exec() == QDialog::Accepted)
     {
-        ui->tableViewDPPtCalibrate->setSelectionMode(QAbstractItemView::MultiSelection);
         ui->tableViewDPPtCalibrate->clearSelection();
 
-        auto results = search->getResults();
-        for (size_t i = 0; i < results.size(); i++)
+        QItemSelection selection;
+        auto indexes = search->getIndexes();
+        for (const auto &index : indexes)
         {
-            if (results[i])
-            {
-                ui->tableViewDPPtCalibrate->selectRow(i);
-            }
+            selection.select(index, index);
         }
 
-        ui->tableViewDPPtCalibrate->setSelectionMode(QAbstractItemView::SingleSelection);
+        ui->tableViewDPPtCalibrate->selectionModel()->select(selection, QItemSelectionModel::Select | QItemSelectionModel::Rows);
         ui->tableViewDPPtCalibrate->setFocus();
     }
 }

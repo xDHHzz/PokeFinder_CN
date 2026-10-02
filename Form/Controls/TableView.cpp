@@ -33,14 +33,14 @@ TableView::TableView(QWidget *parent) : QTableView(parent)
     auto *outputTXT = addAction(tr("Output Results to TXT"));
     auto *outputCSV = addAction(tr("Output Results to CSV"));
 
-    connect(outputTXT, &QAction::triggered, this, [=] { outputModel(); });
-    connect(outputCSV, &QAction::triggered, this, [=] { outputModel(true); });
+    connect(outputTXT, &QAction::triggered, this, [this] { outputModel(); });
+    connect(outputCSV, &QAction::triggered, this, [this] { outputModel(true); });
 
     QHeaderView *horizontal = this->horizontalHeader();
     horizontal->setSectionResizeMode(QHeaderView::Interactive);
 
     QHeaderView *vertical = this->verticalHeader();
-    vertical->setVisible(false);
+    vertical->hide();
 
     QTimer::singleShot(200, this, [horizontal] {
         QSettings setting;
@@ -51,7 +51,7 @@ TableView::TableView(QWidget *parent) : QTableView(parent)
 void TableView::setModel(QAbstractItemModel *model)
 {
     QTableView::setModel(model);
-    connect(this->model(), &QAbstractItemModel::rowsInserted, this, [=] {
+    connect(this->model(), &QAbstractItemModel::rowsInserted, this, [this] {
         QSettings setting;
         this->horizontalHeader()->resizeSections(setting.value("settings/headerSize").value<QHeaderView::ResizeMode>());
     });
@@ -61,6 +61,12 @@ void TableView::contextMenuEvent(QContextMenuEvent *event)
 {
     if (model()->rowCount() != 0)
     {
+        QModelIndex index = indexAt(event->pos());
+        if (index.isValid())
+        {
+            selectRow(index.row());
+            setCurrentIndex(index);
+        }
         QMenu::exec(actions(), event->globalPos(), nullptr, this);
     }
 }
@@ -87,8 +93,8 @@ void TableView::mouseDoubleClickEvent(QMouseEvent *event)
 
 void TableView::outputModel(bool csv) const
 {
-    QString caption = csv ? tr("Save Output to CSV") : tr("Save Output to TXT");
-    QString filter = csv ? tr("CSV File (*.csv);;All Files (*)") : tr("Text File (*.txt);;All Files (*)");
+    QString caption = tr(csv ? "Save Output to CSV" : "Save Output to TXT");
+    QString filter = tr(csv ? "CSV File (*.csv);;All Files (*)" : "Text File (*.txt);;All Files (*)");
 
     QString fileName = QFileDialog::getSaveFileName(nullptr, caption, QDir::currentPath(), filter);
 

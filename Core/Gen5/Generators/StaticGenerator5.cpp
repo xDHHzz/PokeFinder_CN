@@ -19,11 +19,13 @@
 
 #include "StaticGenerator5.hpp"
 #include <Core/Enum/Lead.hpp>
+#include <Core/Enum/PassPower.hpp>
 #include <Core/Gen5/States/State5.hpp>
 #include <Core/RNG/LCRNG64.hpp>
 #include <Core/RNG/MT.hpp>
 #include <Core/RNG/RNGList.hpp>
 #include <Core/Util/Utilities.hpp>
+#include <variant>
 
 static u8 gen(MT &rng)
 {
@@ -42,10 +44,10 @@ static u8 getPercentRand(BWRNG &rng, bool bw)
     }
 }
 
-StaticGenerator5::StaticGenerator5(u32 initialAdvances, u32 maxAdvances, u32 offset, Method method, Lead lead, u8 luckyPower,
+StaticGenerator5::StaticGenerator5(u32 initialAdvances, u32 maxAdvances, u32 offset, Method method, Lead lead, PassPower luckyPower,
                                    const StaticTemplate5 &staticTemplate, const Profile5 &profile, const StateFilter &filter) :
     StaticGenerator(initialAdvances, maxAdvances, offset, method, lead, staticTemplate, profile, filter),
-    luckyPower((profile.getVersion() & Game::BW) != Game::None ? 0 : luckyPower)
+    luckyPower((profile.getVersion() & Game::BW) != Game::None ? PassPower::None : luckyPower)
 {
     if (staticTemplate.getCurtis())
     {
@@ -60,36 +62,52 @@ StaticGenerator5::StaticGenerator5(u32 initialAdvances, u32 maxAdvances, u32 off
 std::vector<State5> StaticGenerator5::generate(u64 seed, u32 initialAdvances, u32 maxAdvances) const
 {
     bool bw = (profile.getVersion() & Game::BW) != Game::None;
+    u32 initial = initialAdvances + (bw ? 0 : 2) + ((staticTemplate.getEgg() || staticTemplate.getRoamer()) ? 1 : 0);
 
-    std::vector<std::pair<u32, std::array<u8, 6>>> ivs;
-
-    RNGList<u8, MT, 8, gen> rngList(seed >> 32, initialAdvances + (bw ? 0 : 2) + ((staticTemplate.getEgg() || staticTemplate.getRoamer()) ? 1 : 0));
-    for (u32 cnt = 0; cnt <= maxAdvances; cnt++, rngList.advanceState())
-    {
-        std::array<u8, 6> iv;
-
-        iv[0] = rngList.next();
-        iv[1] = rngList.next();
-        iv[2] = rngList.next();
-
-        if (staticTemplate.getRoamer())
+    using RNGVariant = std::variant<RNGList<u8, MTFast, 8>, RNGList<u8, MT, 8, gen>>;
+    RNGVariant rngList = [&]() {
+        u32 size = initial + (maxAdvances + 1) + 8;
+        if (size < 227)
         {
-            iv[4] = rngList.next();
-            iv[5] = rngList.next();
-            iv[3] = rngList.next();
+            return RNGVariant(std::in_place_type<RNGList<u8, MTFast, 8>>, seed >> 32, initial, size, true);
         }
         else
         {
-            iv[3] = rngList.next();
-            iv[4] = rngList.next();
-            iv[5] = rngList.next();
+            return RNGVariant(std::in_place_type<RNGList<u8, MT, 8, gen>>, seed >> 32, initial);
         }
+    }();
 
-        if (filter.compareIV(iv))
-        {
-            ivs.emplace_back(initialAdvances + cnt, iv);
-        }
-    }
+    std::vector<std::pair<u32, std::array<u8, 6>>> ivs;
+    std::visit(
+        [&](auto &rng) {
+            for (u32 cnt = 0; cnt <= maxAdvances; cnt++, rng.advanceState())
+            {
+                std::array<u8, 6> iv;
+
+                iv[0] = rng.next();
+                iv[1] = rng.next();
+                iv[2] = rng.next();
+
+                if (staticTemplate.getRoamer())
+                {
+                    iv[4] = rng.next();
+                    iv[5] = rng.next();
+                    iv[3] = rng.next();
+                }
+                else
+                {
+                    iv[3] = rng.next();
+                    iv[4] = rng.next();
+                    iv[5] = rng.next();
+                }
+
+                if (filter.compareIV(iv) && filter.compareHiddenPower(iv))
+                {
+                    ivs.emplace_back(initialAdvances + cnt, iv);
+                }
+            }
+        },
+        rngList);
 
     if (ivs.empty())
     {
@@ -147,14 +165,15 @@ std::vector<State5> StaticGenerator5::generateNonWild(u64 seed, const std::vecto
         u8 shiny = Utilities::getShiny<true>(pid, tsv);
         u8 nature = go.nextUInt(25);
 
-        u16 chatot = rng.nextUInt(0x1fff);
-        for (const auto &iv : ivs)
+        // IVs have already been pre-filtered by this point
+        // Only filter by the other data once before creating results
+        if (filter.compare(ability, gender, nature, shiny))
         {
-            State5 state(chatot, advances + initialAdvances + cnt, iv.first, pid, iv.second, ability, gender, staticTemplate.getLevel(),
-                         nature, shiny, info);
-            if (filter.compareState(static_cast<const State &>(state)))
+            u32 prng = rng.nextUInt();
+            for (const auto &iv : ivs)
             {
-                states.emplace_back(state);
+                states.emplace_back(prng, advances + initialAdvances + cnt, iv.first, pid, iv.second, ability, gender,
+                                    staticTemplate.getLevel(), nature, shiny, info);
             }
         }
     }
@@ -179,7 +198,7 @@ std::vector<State5> StaticGenerator5::generateWild(u64 seed, const std::vector<s
             shinyRolls += 2;
         }
 
-        if (luckyPower == 3)
+        if (luckyPower == PassPower::Level3)
         {
             shinyRolls++;
         }
@@ -240,14 +259,15 @@ std::vector<State5> StaticGenerator5::generateWild(u64 seed, const std::vector<s
             nature = toInt(lead);
         }
 
-        u16 chatot = rng.nextUInt(0x1fff);
-        for (const auto &iv : ivs)
+        // IVs have already been pre-filtered by this point
+        // Only filter by the other data once before creating results
+        if (filter.compare(ability, gender, nature, shiny))
         {
-            State5 state(chatot, advances + initialAdvances + cnt, iv.first, pid, iv.second, ability, gender, staticTemplate.getLevel(),
-                         nature, shiny, info);
-            if (filter.compareState(static_cast<const State &>(state)))
+            u32 prng = rng.nextUInt();
+            for (const auto &iv : ivs)
             {
-                states.emplace_back(state);
+                states.emplace_back(prng, advances + initialAdvances + cnt, iv.first, pid, iv.second, ability, gender,
+                                    staticTemplate.getLevel(), nature, shiny, info);
             }
         }
     }

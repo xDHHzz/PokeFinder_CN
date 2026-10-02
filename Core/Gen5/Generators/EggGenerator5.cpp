@@ -20,18 +20,18 @@
 #include "EggGenerator5.hpp"
 #include <Core/Enum/Game.hpp>
 #include <Core/Enum/Method.hpp>
+#include <Core/Enum/Shiny.hpp>
 #include <Core/Gen5/States/EggState5.hpp>
 #include <Core/Parents/PersonalInfo.hpp>
 #include <Core/Parents/PersonalLoader.hpp>
 #include <Core/RNG/LCRNG64.hpp>
-#include <Core/Enum/Shiny.hpp>
-#include <Core/RNG/MTFast.hpp>
+#include <Core/RNG/MT.hpp>
 #include <Core/Util/Utilities.hpp>
 #include <algorithm>
 
 EggGenerator5::EggGenerator5(u32 initialAdvances, u32 maxAdvances, u32 offset, const Daycare &daycare, const Profile5 &profile,
                              const StateFilter &filter) :
-    EggGenerator(initialAdvances, maxAdvances, offset, Method::None, 0, daycare, profile, filter),
+    EggGenerator(initialAdvances, maxAdvances, offset, Method::None, daycare, profile, filter),
     ditto(daycare.getDitto()),
     everstone(daycare.getEverstoneCount()),
     parentAbility(daycare.getParentAbility(1)),
@@ -71,9 +71,9 @@ std::vector<EggState5> EggGenerator5::generateBW(u64 seed) const
         female = PersonalLoader::getPersonal(profile.getVersion(), 314);
     }
 
-    MTFast<13, true> mt(seed >> 32, 7);
+    MTFast mt(seed >> 32, 7, 13, true);
     std::array<u8, 6> mtIVs;
-    std::generate(mtIVs.begin(), mtIVs.end(), [&mt] { return mt.next(); });
+    std::ranges::generate(mtIVs, [&mt] { return mt.next(); });
 
     u32 advances = Utilities5::initialAdvances(seed, profile);
     BWRNG rng(seed, advances + initialAdvances);
@@ -174,9 +174,10 @@ std::vector<EggState5> EggGenerator5::generateBW(u64 seed) const
 
         u8 ability = hiddenAbility ? 2 : ((pid >> 16) & 1);
 
-        EggState5 state(rng.nextUInt(0x1fff), advances + initialAdvances + cnt, pid, ivs, ability, Utilities::getGender(pid, info), nature,
-                        Utilities::getShiny<true>(pid, tsv), inheritance, info);
-        if (filter.compareState(static_cast<const State &>(state)))
+        u32 prng = rng.nextUInt();
+        EggState5 state(prng, advances + initialAdvances + cnt, pid, ivs, ability, Utilities::getGender(pid, info), nature,
+                        Utilities::getShiny<true>(pid, tsv), daycare.getCompatibility(), inheritance, info);
+        if (filter.compare(static_cast<const State &>(state)))
         {
             states.emplace_back(state);
         }
@@ -189,7 +190,7 @@ std::vector<EggState5> EggGenerator5::generateBW2(u64 seed) const
 {
     std::vector<EggState5> states;
 
-    MTFast<4> mt(seed >> 32, 2);
+    MTFast mt(seed >> 32, 2, 4);
 
     u64 eggSeed = static_cast<u64>(mt.next()) << 32;
     eggSeed |= mt.next();
@@ -218,8 +219,9 @@ std::vector<EggState5> EggGenerator5::generateBW2(u64 seed) const
                 pid = Utilities5::createPID(tsv, ability, 255, Shiny::Random, false, info->getGender(), go);
             }
 
-            state.update(rng.nextUInt(0x1fff), advances + initialAdvances + cnt, pid, Utilities::getGender(pid, info),
-                         Utilities::getShiny<true>(pid, tsv));
+            u32 prng = rng.nextUInt();
+            state.update(prng, advances + initialAdvances + cnt, pid, Utilities::getGender(pid, info), Utilities::getShiny<true>(pid, tsv),
+                         daycare.getCompatibility());
             if (filter.compareGender(state.getGender()) && filter.compareShiny(state.getShiny()))
             {
                 states.emplace_back(state);

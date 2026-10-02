@@ -33,40 +33,58 @@
  *
  * @return Array of origin seeds (Won't be higher than 6)
  */
-static RecoverySeeds<6> recoverPokeRNGIVMethod12(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe)
+static StackVector<u32, 6> recoverPokeRNGIVMethod12(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe)
 {
-    constexpr u32 add = 0x6073;
-    constexpr u32 mult = 0x41c64e6d;
-    constexpr u32 mod = 0x67d3;
-    constexpr u32 pat = 0xd3e;
-    constexpr u32 inc = 0x4034;
-
-    RecoverySeeds<6> seeds;
+    constexpr u32 LAG0 = 0x67D3;
+    constexpr u32 LAG1 = 0xC907;
+    constexpr u32 LOWER = 0x3443;
+    constexpr u32 UPPER = 0xC34E;
 
     u32 first = static_cast<u32>((hp | (atk << 5) | (def << 10)) << 16);
     u32 second = static_cast<u32>((spe | (spa << 5) | (spd << 10)) << 16);
 
-    u16 diff = (second - first * mult) >> 16;
-    u16 start1 = (((diff * mod + inc) >> 16) * pat) % mod;
-    u16 start2 = ((((diff ^ 0x8000) * mod + inc) >> 16) * pat) % mod;
+    u32 tmp = ((second - PokeRNG::getMult() * first) >> 16) * LAG1;
+    u32 lo = ((tmp + LOWER) >> 15) * LAG0;
+    u32 mi = lo + LAG0;
+    u32 up = ((tmp + UPPER) >> 15) * LAG0;
 
-    for (u32 low = start1; low < 0x10000; low += mod)
+    StackVector<u32, 6> seeds;
+    for (u32 lbits = lo % LAG1; lbits < 0x10000; lbits += LAG1)
     {
-        u32 seed = first | low;
-        if (((seed * mult + add) & 0x7fff0000) == second)
+        u32 seed = (first | lbits);
+
+        PokeRNG rng(seed);
+        if ((rng.next() & 0x7fff0000) == second)
         {
-            seeds[seeds.count++] = seed;
-            seeds[seeds.count++] = seed ^ 0x80000000;
+            seeds.push_back(seed);
+            seeds.push_back(seed ^ 0x80000000);
         }
     }
 
-    for (u32 low = start2; low < 0x10000; low += mod)
+    for (u32 lbits = mi % LAG1; lbits < 0x10000; lbits += LAG1)
     {
-        u32 seed = first | low;
-        if (((seed * mult + add) & 0x7fff0000) == second)
+        u32 seed = (first | lbits);
+
+        PokeRNG rng(seed);
+        if ((rng.next() & 0x7fff0000) == second)
         {
-            seeds[seeds.count++] = seed;
-            seeds[seeds.count++] = seed ^ 0x80000000;
+            seeds.push_back(seed);
+            seeds.push_back(seed ^ 0x80000000);
+        }
+    }
+
+    if (mi != up)
+    {
+        for (u32 lbits = up % LAG1; lbits < 0x10000; lbits += LAG1)
+        {
+            u32 seed = (first | lbits);
+
+            PokeRNG rng(seed);
+            if ((rng.next() & 0x7fff0000) == second)
+            {
+                seeds.push_back(seed);
+                seeds.push_back(seed ^ 0x80000000);
+            }
         }
     }
 
@@ -86,40 +104,46 @@ static RecoverySeeds<6> recoverPokeRNGIVMethod12(u8 hp, u8 atk, u8 def, u8 spa, 
  *
  * @return Array of origin seeds (Won't be higher than 6)
  */
-static RecoverySeeds<6> recoverPokeRNGIVMethod4(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe)
+static StackVector<u32, 6> recoverPokeRNGIVMethod4(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe)
 {
-    constexpr u32 add = 0xe97e7b6a;
-    constexpr u32 mult = 0xc2a29a69;
-    constexpr u32 mod = 0x3a89;
-    constexpr u32 pat = 0x2e4c;
-    constexpr u32 inc = 0x5831;
-
-    RecoverySeeds<6> seeds;
+    constexpr u32 LAG0 = 0x6C31;
+    constexpr u32 LAG1 = 0x2E90;
+    constexpr u32 LOWER = 0x1574621D;
+    constexpr u32 UPPER = 0x157488D6;
+    constexpr u32 MULT = PokeRNGR::getMult() * PokeRNGR::getMult();
 
     u32 first = static_cast<u32>((hp | (atk << 5) | (def << 10)) << 16);
     u32 second = static_cast<u32>((spe | (spa << 5) | (spd << 10)) << 16);
 
-    u16 diff = (second - (first * mult + add)) >> 16;
-    u16 start1 = (((diff * mod + inc) >> 16) * pat) % mod;
-    u16 start2 = ((((diff ^ 0x8000) * mod + inc) >> 16) * pat) % mod;
+    u32 tmp = ((first - second * MULT) >> 16) * LAG0;
+    u32 lo = (tmp + LOWER) >> 15;
+    u32 up = (tmp + UPPER) >> 15;
 
-    for (u32 low = start1; low < 0x10000; low += mod)
+    StackVector<u32, 6> seeds;
+    for (u32 lbits = (lo * LAG1) % LAG0; lbits < 0x10000; lbits += LAG0)
     {
-        u32 seed = first | low;
-        if (((seed * mult + add) & 0x7fff0000) == second)
+        u32 seed = second | lbits;
+
+        PokeRNGR rng(seed, 2);
+        if ((rng.getSeed() & 0x7fff0000) == first)
         {
-            seeds[seeds.count++] = seed;
-            seeds[seeds.count++] = seed ^ 0x80000000;
+            seeds.push_back(rng.getSeed());
+            seeds.push_back(rng.getSeed() ^ 0x80000000);
         }
     }
 
-    for (u32 low = start2; low < 0x10000; low += mod)
+    if (lo != up)
     {
-        u32 seed = first | low;
-        if (((seed * mult + add) & 0x7fff0000) == second)
+        for (u32 lbits = (up * LAG1) % LAG0; lbits < 0x10000; lbits += LAG0)
         {
-            seeds[seeds.count++] = seed;
-            seeds[seeds.count++] = seed ^ 0x80000000;
+            u32 seed = second | lbits;
+
+            PokeRNGR rng(seed, 2);
+            if ((rng.getSeed() & 0x7fff0000) == first)
+            {
+                seeds.push_back(rng.getSeed());
+                seeds.push_back(rng.getSeed() ^ 0x80000000);
+            }
         }
     }
 
@@ -128,72 +152,107 @@ static RecoverySeeds<6> recoverPokeRNGIVMethod4(u8 hp, u8 atk, u8 def, u8 spa, u
 
 namespace LCRNGReverse
 {
-    RecoverySeeds<12> recoverChannelIV(u32 hp, u32 atk, u32 def, u32 spa, u32 spd, u32 spe)
+    StackVector<u32, 12> recoverChannelIV(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe)
     {
-        // Mult(j) = Mult^j
-        // Add(j) = Add * (Mult^0 + Mult^1 + ... + Mult^(j-1))
-        // Using j = 3 and XDRNG gives Mult = 0x45c82be5 and Add = 0xd2f65b55
-        constexpr u32 mult = 0x45c82be5; // Modified mult
-        constexpr u32 sub = 0xcaf65b56; // Modified add - 0x7ffffff
-        constexpr u64 base = 0x22e415eea37d41a; // (Modified mult + 1) * 0x7ffffff
+        // clang-format off
 
-        constexpr u32 prime = 3;
-        constexpr u64 add = 0x300000000; // prime * 0x100000000
-        constexpr u32 rmax = 0x18000000; // prime * 0x8000000
-        constexpr u64 skip = 0x661D29; // prime * 2^32 % mult
+        // First row of the BKZ-reduced matrix
+        constexpr u32 R[] = {
+            0xFFD96A7C, // -2528644
+            0xFE8F9BCA, // -24142902
+            0x03282056, // 52961366
+            0x00737133, // 7565619
+            0x017CA524, // 24945956
+            0xFA0B0157  // -99942057
+        };
+        constexpr s64 LOWER[] = { 0x2AB966D1C2, 0x2169A3AA47, -0x5049D5FDC, -0x2AACDA387, 0xFE7FFFFFF, -0x898000001 };
+        constexpr s64 UPPER[] = { 0x2E8966D1C3, 0x23D9A3AA48, -0x3549D5FDB, -0xDACDA386, 0x1098000000, -0x7E8000000 };
 
-        RecoverySeeds<12> seeds;
+        const s64 f[] = { 
+            static_cast<s64>(-10 * hp + 23 * atk - def - 15 * spe + 52 * spa - 53 * spd) << 27,
+            static_cast<s64>(-14 * hp + 7 * atk - 18 * def - 21 * spe - 26 * spa - 24 * spd) << 27,
+            static_cast<s64>(24 * hp - 5 * atk + 22 * def + 15 * spe - 5 * spa - 15 * spd) << 27,
+            static_cast<s64>(-5 * hp - 24 * atk + 26 * def - 12 * spe + 9 * spa + 14 * spd) << 27,
+            static_cast<s64>(27 * atk - 18 * spe - 8 * spa - spd) << 27,
+            static_cast<s64>(-27 * hp + 18 * def + 8 * spe + spa) << 27
+        };
 
-        u32 first = hp << 27;
+        const u32 min[] = { 
+            static_cast<u32>((f[0] + UPPER[0]) >> 32) * R[0],
+            static_cast<u32>((f[1] + UPPER[1]) >> 32) * R[1],
+            static_cast<u32>((f[2] + LOWER[2]) >> 32) * R[2],
+            static_cast<u32>((f[3] + LOWER[3]) >> 32) * R[3],
+            static_cast<u32>((f[4] + LOWER[4]) >> 32) * R[4],
+            static_cast<u32>((f[5] + UPPER[5]) >> 32) * R[5]
+        };
 
-        u64 t = (((spe << 27) - mult * first) - sub) & 0xFFFFFFFF;
-        u64 x = (t * prime) % mult;
-        u32 kmax = (base - t) >> 32;
+        const u32 max[] = {
+            static_cast<u32>((f[0] + LOWER[0]) >> 32) * R[0] - R[0],
+            static_cast<u32>((f[1] + LOWER[1]) >> 32) * R[1] - R[1],
+            static_cast<u32>((f[2] + UPPER[2]) >> 32) * R[2] + R[2],
+            static_cast<u32>((f[3] + UPPER[3]) >> 32) * R[3] + R[3],
+            static_cast<u32>((f[4] + UPPER[4]) >> 32) * R[4] + R[4],
+            static_cast<u32>((f[5] + LOWER[5]) >> 32) * R[5] - R[5]
+        };
+        // clang-format on
 
-        for (u32 k = 0; k <= kmax;)
+        StackVector<u32, 12> seeds;
+        for (u32 x5 = min[5]; x5 != max[5]; x5 -= R[5])
         {
-            u64 r = (x + skip * k) % mult;
-
-            u8 m = r % prime;
-            if (m != 0)
+            for (u32 x4 = min[4]; x4 != max[4]; x4 += R[4])
             {
-                m = m == 1 ? 2 : 1;
-                r += m * skip;
-                k += m;
-            }
-
-            u64 tmp = t + 0x100000000 * k;
-            while (r < rmax && k <= kmax)
-            {
-                u32 seed = first | (tmp / mult);
-                XDRNG rng(seed);
-                if ((rng.next() >> 27) == atk)
+                u32 l4 = x5 + x4;
+                for (u32 x2 = min[2]; x2 != max[2]; x2 += R[2])
                 {
-                    if ((rng.next() >> 27) == def)
+                    u32 l2 = l4 + x2;
+                    for (u32 x3 = min[3]; x3 != max[3]; x3 += R[3])
                     {
-                        if ((rng.advance(2) >> 27) == spa)
+                        u32 l3 = l2 + x3;
+                        for (u32 x1 = min[1]; x1 != max[1]; x1 -= R[1])
                         {
-                            if ((rng.next() >> 27) == spd)
+                            u32 l1 = l3 + x1;
+                            for (u32 x0 = min[0]; x0 != max[0]; x0 -= R[0])
                             {
-                                seeds[seeds.count++] = seed;
+                                u32 seed = l1 + x0;
+                                if ((seed >> 27) != hp)
+                                {
+                                    continue;
+                                }
+
+                                XDRNG rng(seed);
+                                if ((rng.next() >> 27) != atk)
+                                {
+                                    continue;
+                                }
+                                if ((rng.next() >> 27) != def)
+                                {
+                                    continue;
+                                }
+                                if ((rng.next() >> 27) != spe)
+                                {
+                                    continue;
+                                }
+                                if ((rng.next() >> 27) != spa)
+                                {
+                                    continue;
+                                }
+                                if ((rng.next() >> 27) != spd)
+                                {
+                                    continue;
+                                }
+
+                                seeds.push_back(seed);
                             }
                         }
                     }
                 }
-
-                r += prime * skip;
-                k += prime;
-                tmp += add;
             }
-
-            // Rounding up without using floats
-            k += ((mult - r) + skip - 1) / skip;
         }
 
         return seeds;
     }
 
-    RecoverySeeds<6> recoverPokeRNGIV(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, Method method)
+    StackVector<u32, 6> recoverPokeRNGIV(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, Method method)
     {
         if (method == Method::Method4)
         {
@@ -202,81 +261,133 @@ namespace LCRNGReverse
         return recoverPokeRNGIVMethod12(hp, atk, def, spa, spd, spe);
     }
 
-    RecoverySeeds<3> recoverPokeRNGPID(u32 pid)
+    StackVector<u32, 3> recoverPokeRNGPID(u32 pid)
     {
-        constexpr u32 add = 0x6073;
-        constexpr u32 mult = 0x41c64e6d;
-        constexpr u32 mod = 0x67d3;
-        constexpr u32 pat = 0xd3e;
-        constexpr u32 inc = 0x4034;
+        constexpr u32 LAG0 = 0x7ED7;
+        constexpr u32 LAG1 = 0xD33;
+        constexpr u32 LOWER = 0x50F5A0B;
+        constexpr u32 UPPER = 0x50F40B4;
 
-        RecoverySeeds<3> seeds;
-        
         u32 first = pid << 16;
         u32 second = pid & 0xffff0000;
 
-        u16 diff = (second - first * mult) >> 16;
-        u16 start = (((diff * mod + inc) >> 16) * pat) % mod;
+        u32 tmp = ((second * PokeRNGR::getMult() - first) >> 16) * LAG0;
+        u32 lo = (tmp + LOWER) >> 16;
+        u32 up = (tmp + UPPER) >> 16;
 
-        for (u32 low = start; low < 0x10000; low += mod)
+        StackVector<u32, 3> seeds;
+        if (lo == up)
         {
-            u32 seed = first | low;
-            if (((seed * mult + add) & 0xffff0000) == second)
+            for (u32 lbits = (lo * LAG1) % LAG0; lbits < 0x10000; lbits += LAG0)
             {
-                seeds[seeds.count++] = seed;
+                u32 seed = (second | lbits);
+
+                PokeRNGR rng(seed);
+                if ((rng.next() & 0xffff0000) == first)
+                {
+                    seeds.push_back(rng.getSeed());
+                }
             }
         }
 
         return seeds;
     }
 
-    RecoverySeeds<6> recoverXDRNGIV(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe)
+    StackVector<u32, 6> recoverXDRNGIV(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe)
     {
-        constexpr u32 mult = 0x343fd; // XDRNG mult
-        constexpr u32 sub = 0x259ec4; // XDRNG add - 0xffff
-        constexpr u64 base = 0x343fabc02; // (XDRNG mult + 1) * 0xffff
-
-        RecoverySeeds<6> seeds;
+        constexpr u32 LAG0 = 0x44C5;
+        constexpr u32 LAG1 = 0xE8D1;
+        constexpr u32 LOWER = 0x1E694392;
+        constexpr u32 UPPER = 0x1E69FAC8;
 
         u32 first = static_cast<u32>((hp | (atk << 5) | (def << 10)) << 16);
         u32 second = static_cast<u32>((spe | (spa << 5) | (spd << 10)) << 16);
 
-        u64 t = ((second - mult * first) - sub) & 0x7FFFFFFF;
-        u32 kmax = (base - t) >> 31;
+        u64 tmp = ((XDRNGR::getMult() * second - first) >> 16) * LAG1;
+        u32 lo = ((tmp + LOWER) >> 15) * LAG0;
+        u32 mi = lo + LAG0;
+        u32 up = ((tmp + UPPER) >> 15) * LAG0;
 
-        for (u32 k = 0; k <= kmax; k++, t += 0x80000000)
+        StackVector<u32, 6> seeds;
+        for (u32 lbits = lo % LAG1; lbits < 0x10000; lbits += LAG1)
         {
-            if ((t % mult) < 0x10000)
+            u32 seed = (second | lbits);
+
+            XDRNGR rng(seed);
+            if ((rng.next() & 0x7fff0000) == first)
             {
-                u32 seed = first | static_cast<u32>(t / mult);
-                seeds[seeds.count++] = seed;
-                seeds[seeds.count++] = seed ^ 0x80000000;
+                seeds.push_back(rng.getSeed());
+                seeds.push_back(rng.getSeed() ^ 0x80000000);
+            }
+        }
+
+        for (u32 lbits = mi % LAG1; lbits < 0x10000; lbits += LAG1)
+        {
+            u32 seed = (second | lbits);
+
+            XDRNGR rng(seed);
+            if ((rng.next() & 0x7fff0000) == first)
+            {
+                seeds.push_back(rng.getSeed());
+                seeds.push_back(rng.getSeed() ^ 0x80000000);
+            }
+        }
+
+        if (mi != up)
+        {
+            for (u32 lbits = up % LAG1; lbits < 0x10000; lbits += LAG1)
+            {
+                u32 seed = (second | lbits);
+
+                XDRNGR rng(seed);
+                if ((rng.next() & 0x7fff0000) == first)
+                {
+                    seeds.push_back(rng.getSeed());
+                    seeds.push_back(rng.getSeed() ^ 0x80000000);
+                }
             }
         }
 
         return seeds;
     }
 
-    RecoverySeeds<2> recoverXDRNGPID(u32 pid)
+    StackVector<u32, 2> recoverXDRNGPID(u32 pid)
     {
-        constexpr u32 mult = 0x343fd; // XDRNG mult
-        constexpr u32 sub = 0x259ec4; // XDRNG add - 0xffff
-        constexpr u64 base = 0x343fabc02; // (XDRNG mult + 1) * 0xffff
-
-        RecoverySeeds<2> seeds;
+        constexpr u32 LAG0 = 0xE8D1;
+        constexpr u32 LAG1 = 0x5F47;
+        constexpr u32 LOWER = 0x55FF8537;
+        constexpr u32 UPPER = 0x55FFBC6D;
 
         u32 first = pid & 0xffff0000;
         u32 second = pid << 16;
 
-        u64 t = ((second - mult * first) - sub) & 0xFFFFFFFF;
-        u32 kmax = (base - t) >> 32;
+        u64 tmp = ((first - second * XDRNGR::getMult()) >> 16) * LAG0;
+        u32 lo = (tmp + LOWER) >> 16;
+        u32 up = (tmp + UPPER) >> 16;
 
-        for (u32 k = 0; k <= kmax; k++, t += 0x100000000)
+        StackVector<u32, 2> seeds;
+        for (u32 lbits = (lo * LAG1) % LAG0; lbits < 0x10000; lbits += LAG0)
         {
-            if ((t % mult) < 0x10000)
+            u32 seed = second | lbits;
+
+            XDRNGR rng(seed);
+            if ((rng.next() & 0xffff0000) == first)
             {
-                u32 seed = first | static_cast<u32>(t / mult);
-                seeds[seeds.count++] = seed;
+                seeds.push_back(rng.getSeed());
+            }
+        }
+
+        if (lo != up)
+        {
+            for (u32 lbits = (up * LAG1) % LAG0; lbits < 0x10000; lbits += LAG0)
+            {
+                u32 seed = second | lbits;
+
+                XDRNGR rng(seed);
+                if ((rng.next() & 0xffff0000) == first)
+                {
+                    seeds.push_back(rng.getSeed());
+                }
             }
         }
 

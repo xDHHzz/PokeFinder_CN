@@ -30,17 +30,21 @@
 #include <Form/Controls/Controls.hpp>
 #include <Form/Gen4/Profile/ProfileManager4.hpp>
 #include <Form/Gen4/Tools/SeedToTime4.hpp>
+#include <Form/Util/AdvanceFinder.hpp>
 #include <Model/Gen4/EventModel4.hpp>
 #include <Model/SortFilterProxyModel.hpp>
 #include <QAction>
 #include <QSettings>
-#include <QThread>
 #include <QTimer>
+
+static const QString settingPrefix = QStringLiteral("event4");
 
 Event4::Event4(QWidget *parent) : QWidget(parent), ui(new Ui::Event4)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
+
+    ui->profileDisplay->setup(settingPrefix, Game::Gen4);
 
     generatorModel = new EventGeneratorModel4(ui->tableViewGenerator);
     ui->tableViewGenerator->setModel(generatorModel);
@@ -62,10 +66,10 @@ Event4::Event4(QWidget *parent) : QWidget(parent), ui(new Ui::Event4)
     ui->comboBoxGeneratorNature->addItems(Translator::getNatures());
     ui->comboBoxSearcherNature->addItems(Translator::getNatures());
 
-    ui->filterGenerator->disableControls(Controls::Ability | Controls::EncounterSlots | Controls::Gender | Controls::Height
-                                         | Controls::Natures | Controls::Shiny | Controls::Weight);
-    ui->filterSearcher->disableControls(Controls::Ability | Controls::DisableFilter | Controls::EncounterSlots | Controls::Gender
-                                        | Controls::Height | Controls::Natures | Controls::Shiny | Controls::Weight);
+    ui->filterGenerator->disableControls(Controls::Ability | Controls::Gender | Controls::Height | Controls::Natures | Controls::Shiny
+                                         | Controls::Weight | Controls::Wild);
+    ui->filterSearcher->disableControls(Controls::Ability | Controls::Gender | Controls::Height | Controls::Searcher | Controls::Natures
+                                        | Controls::Shiny | Controls::Weight | Controls::Wild);
 
     ui->filterGenerator->enableHiddenAbility();
     ui->filterSearcher->enableHiddenAbility();
@@ -79,19 +83,22 @@ Event4::Event4(QWidget *parent) : QWidget(parent), ui(new Ui::Event4)
     auto *seedToTime = ui->tableViewSearcher->addAction(tr("Generate times for seed"));
     connect(seedToTime, &QAction::triggered, this, &Event4::seedToTime);
 
+    auto *advanceFinder = ui->tableViewGenerator->addAction(tr("Advance Finder"));
+    connect(advanceFinder, &QAction::triggered, this, &Event4::openAdvanceFinder);
+
+    connect(ui->profileDisplay, &ProfileDisplay4::profileChanged, this, &Event4::profileChanged);
+    connect(ui->profileDisplay, &ProfileDisplay4::profilesChanged, this, &Event4::profilesChanged);
     connect(ui->tabRNGSelector, &TabWidget::transferFilters, this, &Event4::transferFilters);
     connect(ui->tabRNGSelector, &TabWidget::transferSettings, this, &Event4::transferSettings);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &Event4::generate);
     connect(ui->pushButtonSearch, &QPushButton::clicked, this, &Event4::search);
-    connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &Event4::profileManager);
-    connect(ui->comboBoxProfiles, &QComboBox::currentIndexChanged, this, &Event4::profileIndexChanged);
     connect(ui->filterGenerator, &Filter::showStatsChanged, generatorModel, &EventGeneratorModel4::setShowStats);
     connect(ui->filterSearcher, &Filter::showStatsChanged, searcherModel, &EventSearcherModel4::setShowStats);
 
     updateProfiles();
 
     QSettings setting;
-    setting.beginGroup("event4");
+    setting.beginGroup(settingPrefix);
     if (setting.contains("minDelay"))
     {
         ui->textBoxSearcherMinDelay->setText(setting.value("minDelay").toString());
@@ -123,7 +130,6 @@ Event4::~Event4()
     setting.setValue("maxDelay", ui->textBoxSearcherMaxDelay->text());
     setting.setValue("minAdvance", ui->textBoxSearcherMinAdvance->text());
     setting.setValue("maxAdvance", ui->textBoxSearcherMaxAdvance->text());
-    setting.setValue("profile", ui->comboBoxProfiles->currentIndex());
     setting.setValue("geometry", this->saveGeometry());
     setting.endGroup();
 
@@ -132,21 +138,7 @@ Event4::~Event4()
 
 void Event4::updateProfiles()
 {
-    profiles = ProfileLoader4::getProfiles();
-    profiles.insert(profiles.begin(), Profile4("None", Game::Diamond, 12345, 54321, false));
-
-    ui->comboBoxProfiles->clear();
-    for (std::size_t i = 0; i < profiles.size(); i++)
-    {
-        ui->comboBoxProfiles->addItem(i == 0 ? tr("None") : QString::fromStdString(profiles[i].getName()));
-    }
-
-    QSettings setting;
-    int val = setting.value("event4/profile", 0).toInt();
-    if (val < ui->comboBoxProfiles->count())
-    {
-        ui->comboBoxProfiles->setCurrentIndex(val);
-    }
+    ui->profileDisplay->updateProfiles();
 }
 
 void Event4::generate()
@@ -172,19 +164,15 @@ void Event4::generate()
     generatorModel->addItems(states);
 }
 
-void Event4::profileIndexChanged(int index)
+void Event4::openAdvanceFinder()
 {
-    if (index >= 0)
-    {
-        currentProfile = &profiles[index];
-    }
+    auto *advanceFinder = new AdvanceFinder(generatorModel, ui->tableViewGenerator, currentProfile, this);
+    advanceFinder->show();
 }
 
-void Event4::profileManager()
+void Event4::profileChanged(const Profile4 &profile)
 {
-    auto *manager = new ProfileManager4();
-    connect(manager, &ProfileManager4::profilesModified, this, [=](int num) { emit profilesModified(num); });
-    manager->show();
+    currentProfile = &profile;
 }
 
 void Event4::search()
@@ -217,29 +205,32 @@ void Event4::search()
     }
     searcher->setMaxProgress(maxProgress);
 
-    auto *thread = QThread::create([=] {
-        searcher->startSearch(min, max, ui->comboBoxGeneratorSpecies->currentIndex() + 1, ui->comboBoxSearcherNature->currentIndex(),
-                              ui->spinBoxSearcherLevel->value());
-    });
-    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
-    connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
-
-    auto *timer = new QTimer();
-    timer->callOnTimeout(this, [=] {
-        searcherModel->addItems(searcher->getResults());
-        ui->progressBar->setValue(searcher->getProgress());
-    });
-    connect(thread, &QThread::finished, timer, &QTimer::stop);
-    connect(thread, &QThread::finished, timer, &QTimer::deleteLater);
-    connect(timer, &QTimer::destroyed, this, [=] {
-        ui->pushButtonSearch->setEnabled(true);
+    auto *timer = new QTimer(this);
+    connect(ui->pushButtonCancel, &QPushButton::clicked, timer, [this, searcher] {
+        searcher->cancelSearch();
         ui->pushButtonCancel->setEnabled(false);
+    });
+    connect(timer, &QTimer::timeout, this, [this, searcher, timer] {
         searcherModel->addItems(searcher->getResults());
         ui->progressBar->setValue(searcher->getProgress());
-        delete searcher;
+
+        if (!searcher->isSearching())
+        {
+            timer->stop();
+
+            searcherModel->addItems(searcher->getResults());
+            ui->progressBar->setValue(searcher->getProgress());
+
+            ui->pushButtonSearch->setEnabled(true);
+            ui->pushButtonCancel->setEnabled(false);
+
+            delete searcher;
+            timer->deleteLater();
+        }
     });
 
-    thread->start();
+    searcher->startSearch(min, max, ui->comboBoxGeneratorSpecies->currentIndex() + 1, ui->comboBoxSearcherNature->currentIndex(),
+                          ui->spinBoxSearcherLevel->value());
     timer->start(1000);
 }
 

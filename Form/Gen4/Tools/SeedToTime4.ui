@@ -13,15 +13,15 @@
   <property name="windowTitle">
    <string>Gen 4 Seed to Time</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <widget class="QTabWidget" name="tabWidget">
      <widget class="QWidget" name="tabDPPt">
       <attribute name="title">
        <string>DPPt</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_4">
-       <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_1">
+       <item>
         <widget class="QGroupBox" name="groupBoxDPPtSearch">
          <property name="title">
           <string>Search</string>
@@ -92,7 +92,7 @@
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item>
         <widget class="QGroupBox" name="groupBoxDPPtCalibration">
          <property name="title">
           <string>Calibration</string>
@@ -104,7 +104,7 @@
              <string notr="true">-/+</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -114,7 +114,7 @@
              <string notr="true">-/+</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -172,8 +172,8 @@
       <attribute name="title">
        <string>HGSS</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_7">
-       <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
         <widget class="QGroupBox" name="groupBoxHGSSSearch">
          <property name="title">
           <string>Search</string>
@@ -190,6 +190,20 @@
            <widget class="QLabel" name="labelHGSSSecond">
             <property name="text">
              <string>Second</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="6" colspan="2">
+           <widget class="QLabel" name="labelHGSSPlayerLocation">
+            <property name="text">
+             <string>Player Location</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="8" colspan="2">
+           <widget class="TextBox" name="textBoxHGSSPlayerLocation">
+            <property name="maxLength">
+             <number>2</number>
             </property>
            </widget>
           </item>
@@ -309,19 +323,19 @@
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item>
         <widget class="QGroupBox" name="groupBoxHGSSCalibration">
          <property name="title">
           <string>Calibration</string>
          </property>
-         <layout class="QGridLayout" name="gridLayout_6">
+         <layout class="QGridLayout">
           <item row="0" column="1">
            <widget class="QLabel" name="labelHGSSDelayCalibration">
             <property name="text">
              <string notr="true">-/+</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -331,7 +345,7 @@
              <string notr="true">-/+</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -401,6 +415,39 @@
    <header>Form/Controls/TableView.hpp</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>textBoxDPPtSeed</tabstop>
+  <tabstop>textBoxDPPtYear</tabstop>
+  <tabstop>checkBoxDPPtSecond</tabstop>
+  <tabstop>textBoxDPPtSecond</tabstop>
+  <tabstop>pushButtonDPPtGenerate</tabstop>
+  <tabstop>tableViewDPPtSearch</tabstop>
+  <tabstop>textBoxDPPtDelayCalibration</tabstop>
+  <tabstop>textBoxDPPtSecondCalibration</tabstop>
+  <tabstop>pushButtonDPPtSearchFlips</tabstop>
+  <tabstop>pushButtonDPPtCalibrate</tabstop>
+  <tabstop>tableViewDPPtCalibrate</tabstop>
+  <tabstop>textBoxHGSSSeed</tabstop>
+  <tabstop>textBoxHGSSYear</tabstop>
+  <tabstop>checkBoxHGSSSecond</tabstop>
+  <tabstop>textBoxHGSSSecond</tabstop>
+  <tabstop>pushButtonHGSSMap</tabstop>
+  <tabstop>textBoxHGSSPlayerLocation</tabstop>
+  <tabstop>checkBoxHGSSRaikou</tabstop>
+  <tabstop>textBoxHGSSRaikou</tabstop>
+  <tabstop>checkBoxHGSSEntei</tabstop>
+  <tabstop>textBoxHGSSEntei</tabstop>
+  <tabstop>checkBoxHGSSLati</tabstop>
+  <tabstop>textBoxHGSSLati</tabstop>
+  <tabstop>pushButtonHGSSGenerate</tabstop>
+  <tabstop>tableViewHGSSSearch</tabstop>
+  <tabstop>textBoxHGSSDelayCalibration</tabstop>
+  <tabstop>textBoxHGSSSecondCalibration</tabstop>
+  <tabstop>pushButtonHGSSSearchCalls</tabstop>
+  <tabstop>pushButtonHGSSCalibrate</tabstop>
+  <tabstop>tableViewHGSSCalibrate</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

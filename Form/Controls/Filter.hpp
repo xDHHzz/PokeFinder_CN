@@ -21,10 +21,10 @@
 #define FILTER_HPP
 
 #include <Core/Global.hpp>
+#include <Core/Util/StackVector.hpp>
 #include <QWidget>
 
 enum class Controls : u16;
-class QSpinBox;
 
 namespace Ui
 {
@@ -34,7 +34,7 @@ namespace Ui
 /**
  * @brief Provides settings to filter results on
  */
-class Filter : public QWidget
+class Filter final : public QWidget
 {
     Q_OBJECT
 signals:
@@ -60,13 +60,6 @@ public:
      * @brief Destroy the Filter object
      */
     ~Filter() override;
-
-    /**
-     * @brief Handles when the context menu is requested.
-     *
-     * @param event Contains context menu event information
-     */
-    void contextMenuEvent(QContextMenuEvent *event) override;
 
     /**
      * @brief Copies the values from another Filter
@@ -107,7 +100,7 @@ public:
      *
      * @return Array of encounter slots
      */
-    std::array<bool, 12> getEncounterSlots() const;
+    StackVector<bool, 13> getEncounterSlots() const;
 
     /**
      * @brief Constructs filter from the UI settings
@@ -122,13 +115,15 @@ public:
     {
         if constexpr (wild)
         {
-            return FilterType(getGender(), getAbility(), getShiny(), getHeightMin(), getHeightMax(), getWeightMin(), getWeightMax(),
-                              getDisableFilters(), getMinIVs(), getMaxIVs(), getNatures(), getHiddenPowers(), getEncounterSlots());
+            return FilterType(getGender(), getAbility(), getShiny(), getLevelMin(), getLevelMax(), getHeightMin(), getHeightMax(),
+                              getWeightMin(), getWeightMax(), getDisableFilters(), getMinIVs(), getMaxIVs(), getNatures(),
+                              getHiddenPowers(), getEncounterSlots());
         }
         else
         {
-            return FilterType(getGender(), getAbility(), getShiny(), getHeightMin(), getHeightMax(), getWeightMin(), getWeightMax(),
-                              getDisableFilters(), getMinIVs(), getMaxIVs(), getNatures(), getHiddenPowers());
+            return FilterType(getGender(), getAbility(), getShiny(), getLevelMin(), getLevelMax(), getHeightMin(), getHeightMax(),
+                              getWeightMin(), getWeightMax(), getDisableFilters(), getMinIVs(), getMaxIVs(), getNatures(),
+                              getHiddenPowers());
         }
     }
 
@@ -161,6 +156,20 @@ public:
     std::array<bool, 16> getHiddenPowers() const;
 
     /**
+     * @brief Gets max level to filter by
+     *
+     * @return Level value
+     */
+    u8 getLevelMax() const;
+
+    /**
+     * @brief Gets min level to filter by
+     *
+     * @return Level value
+     */
+    u8 getLevelMin() const;
+
+    /**
      * @brief Gets upper bound IVs to filter by
      *
      * @return Array of maximum IVs
@@ -190,8 +199,22 @@ public:
 
     /**
      * @brief Determines if Filter is valid based on current selections
+     *
+     * @return true Filter is valid
+     * @return false Filter is not valid
      */
     bool isValid() const;
+
+    /**
+     * @brief Determines if Filter is valid based on current selections. Additionally checks against input level range
+     *
+     * @param min Minimum level
+     * @param max Maximum level
+     *
+     * @return true Filter is valid
+     * @return false Filter is not valid
+     */
+    bool isValid(u32 min, u32 max) const;
 
     /**
      * @brief Unchecks all encounter slots
@@ -204,6 +227,14 @@ public:
      * @param max Number of encounter slots
      */
     void setEncounterSlots(u8 max) const;
+
+    /**
+     * @brief Sets level range
+     *
+     * @param min Minimum level
+     * @param max Maximum level
+     */
+    void setLevelRange(u32 min, u32 max);
 
     /**
      * @brief Sets encounter slots that are checked and not checked
@@ -226,43 +257,8 @@ public:
      */
     u8 getWeightMin() const;
 
-protected:
-    /**
-     * @brief Shows the combo box model when clicked
-     *
-     * @param object Object that is part of triggered event
-     * @param event Contains information about the triggered event
-     *
-     * @return true Model should be shown
-     * @return false Model should not be shown
-     */
-    bool eventFilter(QObject *object, QEvent *event) override;
-
 private:
     Ui::Filter *ui;
-
-private slots:
-    /**
-     * @brief Opens IV calculator to determine IV minimum/maximum
-     */
-    void openIVCalculator() const;
-
-    /**
-     * @brief Updates min/max IV values based upon calculation from IV Calculator
-     *
-     * @param ivs Possible IV ranges
-     */
-    void updateIVs(const std::array<std::vector<u8>, 6> &ivs);
-
-    /**
-     * @brief Sets the current IVs from the clipboard
-     */
-    void setIVsFromClipBoard();
-
-    /**
-     * @brief Sets the current IVs to the clipboard
-     */
-    void setIVsToClipBoard();
 };
 
 #endif // FILTER_HPP

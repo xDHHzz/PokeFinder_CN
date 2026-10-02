@@ -33,7 +33,6 @@
 #include <QAction>
 #include <QMessageBox>
 #include <QSettings>
-#include <QThread>
 #include <QTimer>
 
 static const QMap<QString, u8> needleMap
@@ -64,10 +63,10 @@ ProfileCalibrator5::ProfileCalibrator5(QWidget *parent) : QWidget(parent), ui(ne
                                   toInt(Language::German), toInt(Language::Japanese), toInt(Language::Korean) });
     ui->comboBoxDSType->setup({ toInt(DSType::DS), toInt(DSType::DSi), toInt(DSType::DS3) });
 
+    ui->checkListKeypresses->setFull(false);
     for (int i = 0; i < 12; i++)
     {
-        QCheckBox *check = new QCheckBox(QString::fromStdString(Translator::getKeypress(i)), ui->scrollAreaKeypresses);
-        ui->verticalLayoutKeypresses->addWidget(check);
+        ui->checkListKeypresses->addItem(Translator::getKeypress(i), 1 << i);
     }
 
     ui->listWidgetNeedles->setFlow(QListView::LeftToRight);
@@ -183,7 +182,7 @@ void ProfileCalibrator5::createProfile()
     {
         Profile5 profile = dialog->getProfile();
         ProfileLoader5::addProfile(profile);
-        emit profilesModified(5);
+        emit profilesChanged(5);
     }
 }
 
@@ -225,16 +224,7 @@ void ProfileCalibrator5::search()
     auto language = static_cast<Language>(ui->comboBoxLanguage->getCurrentInt());
     auto dsType = static_cast<DSType>(ui->comboBoxDSType->getCurrentInt());
     u64 mac = ui->textBoxMACAddress->getULong();
-
-    Buttons buttons = Buttons::None;
-    for (int i = 0; i < 12; i++)
-    {
-        auto *check = qobject_cast<QCheckBox *>(ui->verticalLayoutKeypresses->itemAt(i)->widget());
-        if (check->isChecked())
-        {
-            buttons = buttons | static_cast<Buttons>(1 << i);
-        }
-    }
+    auto buttons = ui->checkListKeypresses->getEnum<Buttons>();
 
     if (minSeconds > maxSeconds || minVCount > maxVCount || minTimer0 > maxTimer0 || minGxStat > maxGxStat || minVFrame > maxVFrame)
     {
@@ -290,26 +280,31 @@ void ProfileCalibrator5::search()
     QSettings settings;
     int threads = settings.value("settings/threads").toInt();
 
-    auto *thread = QThread::create([=] { searcher->startSearch(threads, minVFrame, maxVFrame); });
-    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
-    connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
-
-    auto *timer = new QTimer();
-    connect(timer, &QTimer::timeout, this, [=] {
-        model->addItems(searcher->getResults());
-        ui->progressBar->setValue(searcher->getProgress());
-    });
-    connect(thread, &QThread::finished, timer, &QTimer::stop);
-    connect(thread, &QThread::finished, timer, &QTimer::deleteLater);
-    connect(timer, &QTimer::destroyed, this, [=] {
-        ui->pushButtonSearch->setEnabled(true);
+    auto *timer = new QTimer(this);
+    connect(ui->pushButtonCancel, &QPushButton::clicked, timer, [this, searcher] {
+        searcher->cancelSearch();
         ui->pushButtonCancel->setEnabled(false);
+    });
+    connect(timer, &QTimer::timeout, this, [this, searcher, timer] {
         model->addItems(searcher->getResults());
         ui->progressBar->setValue(searcher->getProgress());
-        delete searcher;
+
+        if (!searcher->isSearching())
+        {
+            timer->stop();
+
+            model->addItems(searcher->getResults());
+            ui->progressBar->setValue(searcher->getProgress());
+
+            ui->pushButtonSearch->setEnabled(true);
+            ui->pushButtonCancel->setEnabled(false);
+
+            delete searcher;
+            timer->deleteLater();
+        }
     });
 
-    thread->start();
+    searcher->startSearch(threads, minVFrame, maxVFrame);
     timer->start(1000);
 }
 

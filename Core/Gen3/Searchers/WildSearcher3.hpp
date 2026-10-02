@@ -26,11 +26,12 @@
 #include <Core/Parents/Searchers/WildSearcher.hpp>
 
 class WildSearcherState;
+enum class Item : u8;
 
 /**
  * @brief Wild encounter searcher for Gen3
  */
-class WildSearcher3 : public WildSearcher<EncounterArea3, Profile3, WildStateFilter, WildSearcherState>
+class WildSearcher3 final : public WildSearcher<EncounterArea3, Profile3, WildStateFilter, WildSearcherState>
 {
 public:
     /**
@@ -39,11 +40,12 @@ public:
      * @param method Encounter method
      * @param lead Encounter lead
      * @param feebasTile Whether Feebas tiles are active
+     * @param item Selected active item
      * @param area Wild pokemon info
      * @param profile Profile Information
      * @param filter State filter
      */
-    WildSearcher3(Method method, Lead lead, bool feebasTile, const EncounterArea3 &area, const Profile3 &profile,
+    WildSearcher3(Method method, Lead lead, bool feebasTile, Item item, const EncounterArea3 &area, const Profile3 &profile,
                   const WildStateFilter &filter);
 
     /**
@@ -58,7 +60,16 @@ private:
     u16 rate;
     bool feebasTile;
     bool ivAdvance;
+    Item item;
     ModifiedSlots modifiedSlots;
+
+    /**
+     * @brief Searches for matching states from provided IVs
+     *
+     * @param min Minimum IVs
+     * @param max Maximum IVs
+     */
+    void search(const std::array<u8, 6> &min, const std::array<u8, 6> &max);
 
     /**
      * @brief Searches for matching states from provided IVs

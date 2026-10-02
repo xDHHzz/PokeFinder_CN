@@ -29,6 +29,7 @@
 class HiddenGrottoState;
 class State5;
 enum class Lead : u8;
+enum class PassPower : u8;
 
 /**
  * @brief Hidden grotto slot generator for Gen 5
@@ -42,12 +43,12 @@ public:
      * @param initialAdvances Initial number of advances
      * @param maxAdvances Maximum number of advances
      * @param offset Number of advances to offset
-     * @param powerLevel Hidden grotto encounter rate
+     * @param grottoPower Hidden grotto pass power level
      * @param encounterArea Hidden grotto information
      * @param profile Profile Information
      * @param filter State filter
      */
-    HiddenGrottoSlotGenerator(u32 initialAdvances, u32 maxAdvances, u32 offset, u8 powerLevel, const HiddenGrottoArea &encounterArea,
+    HiddenGrottoSlotGenerator(u32 initialAdvances, u32 maxAdvances, u32 offset, PassPower grottoPower, const HiddenGrottoArea &area,
                               const Profile5 &profile, const HiddenGrottoFilter &filter);
 
     /**
@@ -60,8 +61,8 @@ public:
     std::vector<HiddenGrottoState> generate(u64 seed) const;
 
 private:
-    HiddenGrottoArea encounterArea;
-    u8 powerLevel;
+    HiddenGrottoArea area;
+    PassPower grottoPower;
 };
 
 /**

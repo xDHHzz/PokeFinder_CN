@@ -45,6 +45,7 @@
 #include <Test/Gen5/EventGenerator5Test.hpp>
 #include <Test/Gen5/HiddenGrottoGeneratorTest.hpp>
 #include <Test/Gen5/IDGenerator5Test.hpp>
+#include <Test/Gen5/PhenomenonGeneratorTest.hpp>
 #include <Test/Gen5/ProfileSearcher5Test.hpp>
 #include <Test/Gen5/StaticGenerator5Test.hpp>
 #include <Test/Gen5/WildGenerator5Test.hpp>
@@ -119,6 +120,7 @@ int main()
     status += runTest<EventGenerator5Test>(fails);
     status += runTest<HiddenGrottoGeneratorTest>(fails);
     status += runTest<IDGenerator5Test>(fails);
+    status += runTest<PhenomenonGeneratorTest>(fails);
     status += runTest<ProfileSearcher5Test>(fails);
     status += runTest<StaticGenerator5Test>(fails);
     status += runTest<WildGenerator5Test>(fails);
@@ -139,8 +141,8 @@ int main()
     status += runTest<MTTest>(fails);
     status += runTest<SFMTTest>(fails);
     status += runTest<SHA1Test>(fails);
-    status += runTest<SHA1AVX2Test>(fails);
     status += runTest<SHA1SSETest>(fails);
+    status += runTest<SHA1SIMDTest>(fails);
     status += runTest<TinyMTTest>(fails);
     status += runTest<XoroshiroTest>(fails);
     status += runTest<XoroshiroBDSPTest>(fails);

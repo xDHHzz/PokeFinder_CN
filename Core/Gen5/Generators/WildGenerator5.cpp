@@ -21,6 +21,7 @@
 #include <Core/Enum/Encounter.hpp>
 #include <Core/Enum/Game.hpp>
 #include <Core/Enum/Lead.hpp>
+#include <Core/Enum/PassPower.hpp>
 #include <Core/Enum/Shiny.hpp>
 #include <Core/Gen5/States/WildState5.hpp>
 #include <Core/RNG/LCRNG64.hpp>
@@ -29,6 +30,7 @@
 #include <Core/Util/EncounterSlot.hpp>
 #include <Core/Util/Utilities.hpp>
 #include <algorithm>
+#include <variant>
 
 static u8 gen(MT &rng)
 {
@@ -56,6 +58,18 @@ static u8 getPercentRand(BWRNG &rng, bool bw)
     else
     {
         return rng.nextUInt(100);
+    }
+}
+
+static bool getSwarmProc(BWRNG &rng, bool bw)
+{
+    if (bw)
+    {
+        return rng.nextUInt(1000) <= 400;
+    }
+    else
+    {
+        return rng.nextUInt(100) <= 40;
     }
 }
 
@@ -90,29 +104,45 @@ static u16 getItem(BWRNG &rng, bool bw, Lead lead, Encounter encounter, const Pe
     return 0;
 }
 
-WildGenerator5::WildGenerator5(u32 initialAdvances, u32 maxAdvances, u32 offset, Method method, Lead lead, u8 luckyPower,
+WildGenerator5::WildGenerator5(u32 initialAdvances, u32 maxAdvances, u32 offset, Method method, Lead lead, PassPower luckyPower,
                                const EncounterArea5 &area, const Profile5 &profile, const WildStateFilter &filter) :
     WildGenerator(initialAdvances, maxAdvances, offset, method, lead, area, profile, filter),
-    luckyPower((profile.getVersion() & Game::BW) != Game::None ? 0 : luckyPower)
+    luckyPower((profile.getVersion() & Game::BW) != Game::None ? PassPower::None : luckyPower)
 {
 }
 
 std::vector<WildState5> WildGenerator5::generate(u64 seed, u32 initialAdvances, u32 maxAdvances) const
 {
     bool bw = (profile.getVersion() & Game::BW) != Game::None;
+    u32 initial = initialAdvances + (bw ? 0 : 2);
+
+    using RNGVariant = std::variant<RNGList<u8, MTFast, 8>, RNGList<u8, MT, 8, gen>>;
+    RNGVariant rngList = [&]() {
+        u32 size = initial + (maxAdvances + 1) + 8;
+        if (size < 227)
+        {
+            return RNGVariant(std::in_place_type<RNGList<u8, MTFast, 8>>, seed >> 32, initial, size, true);
+        }
+        else
+        {
+            return RNGVariant(std::in_place_type<RNGList<u8, MT, 8, gen>>, seed >> 32, initial);
+        }
+    }();
 
     std::vector<std::pair<u32, std::array<u8, 6>>> ivs;
-
-    RNGList<u8, MT, 8, gen> rngList(seed >> 32, initialAdvances + (bw ? 0 : 2));
-    for (u32 cnt = 0; cnt <= maxAdvances; cnt++, rngList.advanceState())
-    {
-        std::array<u8, 6> iv;
-        std::generate(iv.begin(), iv.end(), [&rngList] { return rngList.next(); });
-        if (filter.compareIV(iv))
-        {
-            ivs.emplace_back(initialAdvances + cnt, iv);
-        }
-    }
+    std::visit(
+        [&](auto &rng) {
+            for (u32 cnt = 0; cnt <= maxAdvances; cnt++, rng.advanceState())
+            {
+                std::array<u8, 6> iv;
+                std::ranges::generate(iv, [&rng] { return rng.next(); });
+                if (filter.compareIV(iv) && filter.compareHiddenPower(iv))
+                {
+                    ivs.emplace_back(initialAdvances + cnt, iv);
+                }
+            }
+        },
+        rngList);
 
     if (ivs.empty())
     {
@@ -139,6 +169,9 @@ std::vector<WildState5> WildGenerator5::generate(u64 seed, const std::vector<std
         rate *= 2;
     }
 
+    u8 phenomenonRate = area.getPhenomenonRate();
+    u16 phenomenonRatio = area.getPhenomenonRatio();
+
     u8 shinyRolls = 1;
     if ((profile.getVersion() & Game::BW2) != Game::None)
     {
@@ -147,21 +180,31 @@ std::vector<WildState5> WildGenerator5::generate(u64 seed, const std::vector<std
             shinyRolls += 2;
         }
 
-        if (luckyPower == 3)
+        if (luckyPower == PassPower::Level3)
         {
             shinyRolls++;
         }
     }
 
+    bool nsPokemonReleasedOffset = profile.getMemoryLink() && profile.getNsPokemonReleased()
+        && (area.getEncounter() != Encounter::SuperRod && area.getEncounter() != Encounter::SuperRodRippling);
+    bool phenomenon = area.getPhenomenonType() != PhenomenonType::None;
+
     std::vector<WildState5> states;
     for (u32 cnt = 0; cnt <= maxAdvances; cnt++)
     {
         BWRNG go(rng, jump);
+        bool valid = true;
 
         bool cuteCharm = false;
         bool magnetStatic = false;
         bool pressure = false;
         bool sync = false;
+
+        if (phenomenon)
+        {
+            valid = go.nextUInt(1000) < phenomenonRatio;
+        }
 
         if (lead != Lead::CompoundEyes && lead != Lead::SuctionCups)
         {
@@ -194,14 +237,25 @@ std::vector<WildState5> WildGenerator5::generate(u64 seed, const std::vector<std
             doubleBattle = true;
         }
 
+        if (nsPokemonReleasedOffset)
+        {
+            go.next();
+        }
+
         if (area.getEncounter() == Encounter::SuperRod && getPercentRand(go, bw) > rate)
         {
-            rng.next();
-            continue;
+            valid = false;
         }
 
         u8 encounterSlot;
-        if (magnetStatic && !modifiedSlots.empty())
+        // Check for swarm encounter
+        if (area.getPokemon(12).getSpecie() != 0 && getSwarmProc(go, bw))
+        {
+            encounterSlot = 12;
+            // Rand call to determine slot even though there is only one
+            go.next();
+        }
+        else if (magnetStatic && !modifiedSlots.empty())
         {
             encounterSlot = modifiedSlots[getEncounterRand(go, modifiedSlots.count, bw)];
         }
@@ -244,16 +298,17 @@ std::vector<WildState5> WildGenerator5::generate(u64 seed, const std::vector<std
             nature = toInt(lead);
         }
 
-        u16 item = getItem(go, bw, lead, area.getEncounter(), info);
-
-        u16 chatot = rng.nextUInt(0x1fff);
-        for (const auto &iv : ivs)
+        // IVs have already been pre-filtered by this point
+        // Only filter by the other data once before creating results
+        if (filter.compare(ability, encounterSlot, gender, level, nature, shiny))
         {
-            WildState5 state(chatot, advances + initialAdvances + cnt, iv.first, pid, iv.second, ability, gender, level, nature, shiny,
-                             encounterSlot, item, slot.getSpecie(), slot.getForm(), info);
-            if (filter.compareState(static_cast<const WildState &>(state)))
+            u16 item = getItem(go, bw, lead, area.getEncounter(), info);
+
+            u32 prng = rng.nextUInt();
+            for (const auto &iv : ivs)
             {
-                states.emplace_back(state);
+                states.emplace_back(prng, advances + initialAdvances + cnt, iv.first, pid, iv.second, ability, gender, level, nature, shiny,
+                                    encounterSlot, item, slot.getSpecie(), slot.getForm(), phenomenonRate, info, valid);
             }
         }
     }

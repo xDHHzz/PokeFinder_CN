@@ -97,23 +97,27 @@ void WildSearcher4Test::searchMethodJ()
     std::array<bool, 16> powers;
     powers.fill(true);
 
-    std::array<bool, 12> encounterSlots;
+    StackVector<bool, 13> encounterSlots;
     encounterSlots.fill(true);
 
     Profile4 profile("", version, 12345, 54321, false);
-    EncounterSettings4 settings = {};
+    EncounterSettings4 settings = { };
 
     settings.dppt.feebasTile = feebasTile;
 
-    std::vector<EncounterArea4> encounterAreas = Encounters4::getEncounters(encounter, settings, &profile);
-    auto encounterArea = std::find_if(encounterAreas.begin(), encounterAreas.end(),
-                                      [location](const EncounterArea4 &encounterArea) { return encounterArea.getLocation() == location; });
+    auto areas = Encounters4::getEncounters(encounter, settings, &profile);
+    auto area = std::ranges::find_if(areas, [location](const auto &area) { return area.getLocation() == location; });
 
-    WildStateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
+    WildStateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
     WildSearcher4 searcher(minAdvance, maxAdvance, minDelay, maxDelay, Method::MethodJ, lead, settings.dppt.feebasTile, false, false, 50,
-                           *encounterArea, profile, filter);
+                           *area, profile, filter);
 
     searcher.startSearch(min, max, 0);
+    while (searcher.isSearching())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
     auto states = searcher.getResults();
     QCOMPARE(states.size(), results);
 
@@ -121,7 +125,7 @@ void WildSearcher4Test::searchMethodJ()
     {
         // Ensure generator agrees
         WildGenerator4 generator(state.getAdvances(), 0, 0, Method::MethodJ, lead != Lead::Synchronize ? lead : lead + state.getNature(),
-                                 settings.dppt.feebasTile, false, false, 50, *encounterArea, profile, filter);
+                                 settings.dppt.feebasTile, false, false, 50, *area, profile, filter);
         auto generatorStates = generator.generate(state.getSeed(), 0);
 
         QCOMPARE(generatorStates.size(), 1);
@@ -173,7 +177,7 @@ void WildSearcher4Test::searchMethodK()
     std::array<bool, 16> powers;
     powers.fill(true);
 
-    std::array<bool, 12> encounterSlots;
+    StackVector<bool, 13> encounterSlots;
     encounterSlots.fill(true);
 
     std::array<bool, 26> unownDiscovered;
@@ -183,17 +187,22 @@ void WildSearcher4Test::searchMethodK()
     unownPuzzles.fill(true);
 
     Profile4 profile("", version, 12345, 54321, false, unownDiscovered, unownPuzzles);
-    EncounterSettings4 settings = {};
+    EncounterSettings4 settings = { };
 
-    std::vector<EncounterArea4> encounterAreas = Encounters4::getEncounters(encounter, settings, &profile);
-    auto encounterArea = std::find_if(encounterAreas.begin(), encounterAreas.end(),
-                                      [location](const EncounterArea4 &encounterArea) { return encounterArea.getLocation() == location; });
+    auto areas = Encounters4::getEncounters(encounter, settings, &profile);
+    auto area = std::ranges::find_if(areas, [location](const auto &area) { return area.getLocation() == location; });
 
-    WildStateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
-    WildSearcher4 searcher(minAdvance, maxAdvance, minDelay, maxDelay, Method::MethodK, lead, false, false, false, 50, *encounterArea,
-                           profile, filter);
+    WildStateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
+    WildSearcher4 searcher(minAdvance, maxAdvance, minDelay, maxDelay, Method::MethodK, lead, false, false, false, 50, *area, profile,
+                           filter);
 
     searcher.startSearch(min, max, 0);
+
+    while (searcher.isSearching())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
     auto states = searcher.getResults();
     QCOMPARE(states.size(), results);
 
@@ -201,7 +210,7 @@ void WildSearcher4Test::searchMethodK()
     {
         // Ensure generator agrees
         WildGenerator4 generator(state.getAdvances(), 0, 0, Method::MethodK, lead != Lead::Synchronize ? lead : lead + state.getNature(),
-                                 false, false, false, 50, *encounterArea, profile, filter);
+                                 false, false, false, 50, *area, profile, filter);
         auto generatorStates = generator.generate(state.getSeed(), 0);
 
         QCOMPARE(generatorStates.size(), 1);
@@ -255,21 +264,25 @@ void WildSearcher4Test::searchHoneyTree()
     std::array<bool, 16> powers;
     powers.fill(true);
 
-    std::array<bool, 12> encounterSlots;
+    StackVector<bool, 13> encounterSlots;
     encounterSlots.fill(true);
 
     Profile4 profile("", version, 12345, 54321, false);
-    EncounterSettings4 settings = {};
+    EncounterSettings4 settings = { };
 
-    std::vector<EncounterArea4> encounterAreas = Encounters4::getEncounters(encounter, settings, &profile);
-    auto encounterArea = std::find_if(encounterAreas.begin(), encounterAreas.end(),
-                                      [location](const EncounterArea4 &encounterArea) { return encounterArea.getLocation() == location; });
+    auto areas = Encounters4::getEncounters(encounter, settings, &profile);
+    auto area = std::ranges::find_if(areas, [location](const auto &area) { return area.getLocation() == location; });
 
-    WildStateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
+    WildStateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
     WildSearcher4 searcher(minAdvance, maxAdvance, minDelay, maxDelay, Method::HoneyTree, lead, settings.dppt.feebasTile, false, false, 50,
-                           *encounterArea, profile, filter);
+                           *area, profile, filter);
 
     searcher.startSearch(min, max, index);
+    while (searcher.isSearching())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
     auto states = searcher.getResults();
     QCOMPARE(states.size(), results);
 
@@ -277,7 +290,7 @@ void WildSearcher4Test::searchHoneyTree()
     {
         // Ensure generator agrees
         WildGenerator4 generator(state.getAdvances(), 0, 0, Method::HoneyTree, lead != Lead::Synchronize ? lead : lead + state.getNature(),
-                                 false, false, false, 50, *encounterArea, profile, filter);
+                                 false, false, false, 50, *area, profile, filter);
         auto generatorStates = generator.generate(state.getSeed(), index);
 
         QCOMPARE(generatorStates.size(), 1);
@@ -334,23 +347,27 @@ void WildSearcher4Test::searchPokeRadar()
     std::array<bool, 16> powers;
     powers.fill(true);
 
-    std::array<bool, 12> encounterSlots;
+    StackVector<bool, 13> encounterSlots;
     encounterSlots.fill(true);
 
     Profile4 profile("", version, 12345, 54321, false);
-    EncounterSettings4 settings = {};
+    EncounterSettings4 settings = { };
 
     settings.dppt.radar = true;
 
-    std::vector<EncounterArea4> encounterAreas = Encounters4::getEncounters(encounter, settings, &profile);
-    auto encounterArea = std::find_if(encounterAreas.begin(), encounterAreas.end(),
-                                      [location](const EncounterArea4 &encounterArea) { return encounterArea.getLocation() == location; });
+    auto areas = Encounters4::getEncounters(encounter, settings, &profile);
+    auto area = std::ranges::find_if(areas, [location](const auto &area) { return area.getLocation() == location; });
 
-    WildStateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
-    WildSearcher4 searcher(minAdvance, maxAdvance, minDelay, maxDelay, Method::PokeRadar, lead, false, shiny, false, 50, *encounterArea,
-                           profile, filter);
+    WildStateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers, encounterSlots);
+    WildSearcher4 searcher(minAdvance, maxAdvance, minDelay, maxDelay, Method::PokeRadar, lead, false, shiny, false, 50, *area, profile,
+                           filter);
 
     searcher.startSearch(min, max, index);
+    while (searcher.isSearching())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
     auto states = searcher.getResults();
     QCOMPARE(states.size(), results);
 
@@ -358,7 +375,7 @@ void WildSearcher4Test::searchPokeRadar()
     {
         // Ensure generator agrees
         WildGenerator4 generator(state.getAdvances(), 0, 0, Method::PokeRadar, lead != Lead::Synchronize ? lead : lead + state.getNature(),
-                                 false, shiny, false, 50, *encounterArea, profile, filter);
+                                 false, shiny, false, 50, *area, profile, filter);
         auto generatorStates = generator.generate(state.getSeed(), index);
 
         QCOMPARE(generatorStates.size(), 1);

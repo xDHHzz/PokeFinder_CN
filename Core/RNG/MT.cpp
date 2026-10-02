@@ -18,6 +18,18 @@
  */
 
 #include "MT.hpp"
+#include <Core/RNG/Jump.hpp>
+#include <cassert>
+#include <cstring>
+
+constexpr u8 POLY[] = {
+#include "MTPoly.txt"
+};
+
+MT::MT() : index(0)
+{
+    std::memset(state, 0, sizeof(state));
+}
 
 MT::MT(u32 seed) : index(624)
 {
@@ -33,12 +45,12 @@ MT::MT(u32 seed) : index(624)
 
 MT::MT(u32 seed, u32 advances) : MT(seed)
 {
-    advance(advances);
+    jump(advances);
 }
 
 void MT::advance(u32 advances)
 {
-    u64 advance = advances + index;
+    u64 advance = static_cast<u64>(advances) + index;
     while (advance >= 624)
     {
         shuffle();
@@ -68,6 +80,81 @@ u32 MT::next()
 u16 MT::nextUShort()
 {
     return next() >> 16;
+}
+
+void MT::addState(const MT *other)
+{
+    u32 *ptr = &state[0].uint32[0];
+    const u32 *ptr1 = &other->state[0].uint32[0];
+
+    int split = 624 - other->index;
+
+    int i = 0;
+    for (; i < split - (split % 4); i += 4)
+    {
+        state[i / 4] = state[i / 4] ^ v32x4_load(&ptr1[other->index + i]);
+    }
+
+    while (i < split || (i % 4) != 0)
+    {
+        ptr[i] ^= ptr1[(other->index + i) % 624];
+        i++;
+    }
+
+    for (; i < 624; i += 4)
+    {
+        state[i / 4] = state[i / 4] ^ v32x4_load(&ptr1[other->index + i - 624]);
+    }
+}
+
+void MT::jump(u32 advances)
+{
+    if (advances < 32768)
+    {
+        advance(advances);
+    }
+    else
+    {
+        // Since this is only called by the constructor we need to reset index to 0 so we can shuffle 1 at a time
+        index = 0;
+
+        auto jump = Jump::computeJumpPolynomial(POLY, sizeof(POLY), advances);
+
+        int byteCount = (jump.degree() + 8) / sizeof(u64);
+        const u8 *bytes = reinterpret_cast<const u8 *>(jump.coefficients().store());
+
+        MT temp;
+        for (int i = 0; i < byteCount; i++)
+        {
+            u8 val = bytes[i];
+            for (int bit = 0; bit < 8; bit++)
+            {
+                if (val & (1 << bit))
+                {
+                    temp.addState(this);
+                }
+                nextState();
+            }
+        }
+
+        *this = temp;
+        shuffle();
+    }
+}
+
+void MT::nextState()
+{
+    u32 *ptr = &state[0].uint32[0];
+
+    u32 y = (ptr[index] & 0x80000000) | (ptr[(index + 1) % 624] & 0x7fffffff);
+    u32 y1 = y >> 1;
+    if (y & 1)
+    {
+        y1 ^= 0x9908b0df;
+    }
+    ptr[index] = ptr[(index + 397) % 624] ^ y1;
+
+    index = (index + 1) % 624;
 }
 
 void MT::shuffle()
@@ -117,4 +204,100 @@ void MT::shuffle()
         vuint128 m2 = v32x4_load(ptr + 393);
         state[155] = mm_recursion(m0, last, m2);
     }
+}
+
+MTFast::MTFast(u32 seed, u32 advances, u16 size, bool fast) : index(advances), size(size)
+{
+    assert(size < 227);
+
+    u32 *ptr = &state[0].uint32[0];
+    for (u32 i = 1; i < size + 2; i++)
+    {
+        ptr[i - 1] = seed;
+        seed = 0x6c078965 * (seed ^ (seed >> 30)) + i;
+    }
+
+    for (u32 i = size + 2; i < 397; i++)
+    {
+        seed = 0x6c078965 * (seed ^ (seed >> 30)) + i;
+    }
+
+    vuint128 upperMask(0x80000000);
+    vuint128 lowerMask(0x7fffffff);
+    vuint128 matrix(0x9908b0df);
+    vuint128 one(1);
+    vuint128 mask1(0x9d2c5680);
+    vuint128 mask2(0xefc60000);
+
+    u32 split = size >= 4 ? size - (size % 4) : 0;
+    for (u32 i = 0; i < split; i += 4)
+    {
+        vuint128 m0 = state[i / 4];
+        vuint128 m1 = v32x4_load(ptr + i + 1);
+
+        u32 x0 = 0x6c078965 * (seed ^ (seed >> 30)) + (i + 397);
+        u32 x1 = 0x6c078965 * (x0 ^ (x0 >> 30)) + (i + 398);
+        u32 x2 = 0x6c078965 * (x1 ^ (x1 >> 30)) + (i + 399);
+        seed = 0x6c078965 * (x2 ^ (x2 >> 30)) + (i + 400);
+
+        vuint128 m2(x0, x1, x2, seed);
+
+        vuint128 y = (m0 & upperMask) | (m1 & lowerMask);
+        vuint128 y1 = y >> 1;
+        vuint128 mag01 = ((y & one) == one) & matrix;
+
+        // Temper results while shuffling
+        y = y1 ^ mag01 ^ m2;
+        y = y ^ (y >> 11);
+        y = y ^ ((y << 7) & mask1);
+        y = y ^ ((y << 15) & mask2);
+        if (fast)
+        {
+            y = y >> 27;
+        }
+        else
+        {
+            y = y ^ (y >> 18);
+        }
+
+        state[i / 4] = y;
+    }
+
+    for (u32 i = split; i < size; i++)
+    {
+        u32 m0 = ptr[i];
+        u32 m1 = ptr[i + 1];
+        seed = 0x6c078965 * (seed ^ (seed >> 30)) + (i + 397);
+
+        u32 y = (m0 & 0x80000000) | (m1 & 0x7fffffff);
+
+        u32 y1 = y >> 1;
+        if (y & 1)
+        {
+            y1 ^= 0x9908b0df;
+        }
+
+        // Temper results while shuffling
+        y = y1 ^ seed;
+        y ^= (y >> 11);
+        y ^= (y << 7) & 0x9d2c5680;
+        y ^= (y << 15) & 0xefc60000;
+        if (fast)
+        {
+            y >>= 27;
+        }
+        else
+        {
+            y ^= (y >> 18);
+        }
+
+        ptr[i] = y;
+    }
+}
+
+u32 MTFast::next()
+{
+    assert(index < size);
+    u32 *ptr = &state[0].uint32[0];
+    return ptr[index++];
 }

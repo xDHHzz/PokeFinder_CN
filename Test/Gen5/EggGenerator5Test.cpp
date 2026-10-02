@@ -37,7 +37,7 @@ static bool operator==(const EggState5 &left, const json &right)
         && left.getHiddenPowerStrength() == right["hiddenPowerStrength"].get<u8>() && left.getLevel() == right["level"].get<u8>()
         && left.getNature() == right["nature"].get<u8>() && left.getShiny() == right["shiny"].get<u8>()
         && left.getInheritance() == right["inheritance"].get<std::array<u8, 6>>() && left.getAdvances() == right["advances"].get<u32>()
-        && left.getChatot() == right["chatot"].get<u8>();
+        && left.getChatot() == right["chatot"].get<u8>() && left.getNeedle() == right["needle"].get<u8>();
 }
 
 void EggGenerator5Test::generate_data()
@@ -89,10 +89,10 @@ void EggGenerator5Test::generate()
     powers.fill(true);
 
     Profile5 profile("-", version, 12345, 54321, "", "", 0, { false, false, false, false, false, false, false, false, false }, 0, 0, 0,
-                     false, 0, 0, false, false, DSType::DS, Language::English);
+                     false, 0, 0, false, false, false, false, DSType::DS, Language::English);
 
-    Daycare daycare(parentIVs, parentAbility, parentGender, parentItem, parentNature, pokemon, true);
-    StateFilter filter(255, 255, 255, 0, 255, 0, 255, false, min, max, natures, powers);
+    Daycare daycare(parentIVs, parentAbility, parentGender, parentItem, parentNature, pokemon, true, 88);
+    StateFilter filter(255, 255, 255, 1, 100, 0, 255, 0, 255, false, min, max, natures, powers);
     EggGenerator5 generator(0, 9, 0, daycare, profile, filter);
 
     auto states = generator.generate(seed);

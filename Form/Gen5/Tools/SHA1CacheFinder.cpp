@@ -19,6 +19,7 @@
 
 #include "SHA1CacheFinder.hpp"
 #include "ui_SHA1CacheFinder.h"
+#include <Core/Enum/Game.hpp>
 #include <Core/Gen5/IVCache.hpp>
 #include <Core/Gen5/Profile5.hpp>
 #include <Core/Gen5/Searchers/SHA1CacheSearcher.hpp>
@@ -28,8 +29,9 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QSettings>
-#include <QThread>
 #include <QTimer>
+
+static const QString settingPrefix = QStringLiteral("sha1cachefinder");
 
 SHA1CacheFinder::SHA1CacheFinder(QWidget *parent) : QWidget(parent), ui(new Ui::SHA1CacheFinder)
 {
@@ -37,15 +39,17 @@ SHA1CacheFinder::SHA1CacheFinder(QWidget *parent) : QWidget(parent), ui(new Ui::
     setAttribute(Qt::WA_QuitOnClose, false);
     setAttribute(Qt::WA_DeleteOnClose);
 
-    connect(ui->comboBoxProfiles, &QComboBox::currentIndexChanged, this, &SHA1CacheFinder::profileIndexChanged);
-    connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &SHA1CacheFinder::profileManager);
+    ui->profileDisplay->setup(settingPrefix, Game::Gen5);
+
+    connect(ui->profileDisplay, &ProfileDisplay5::profileChanged, this, &SHA1CacheFinder::profileChanged);
+    connect(ui->profileDisplay, &ProfileDisplay5::profilesChanged, this, &SHA1CacheFinder::profilesChanged);
     connect(ui->pushButtonOutputFile, &QPushButton::clicked, this, &SHA1CacheFinder::updateOutputFile);
     connect(ui->pushButtonSearch, &QPushButton::clicked, this, &SHA1CacheFinder::search);
 
     updateProfiles();
 
     QSettings setting;
-    setting.beginGroup("sha1cachefinder");
+    setting.beginGroup(settingPrefix);
     if (setting.contains("startDate"))
     {
         ui->dateEditStartDate->setDate(setting.value("startDate").toDate());
@@ -60,8 +64,7 @@ SHA1CacheFinder::SHA1CacheFinder(QWidget *parent) : QWidget(parent), ui(new Ui::
 SHA1CacheFinder::~SHA1CacheFinder()
 {
     QSettings setting;
-    setting.beginGroup("sha1cachefinder");
-    setting.setValue("profile", ui->comboBoxProfiles->currentIndex());
+    setting.beginGroup(settingPrefix);
     setting.setValue("startDate", ui->dateEditStartDate->date());
     setting.setValue("endDate", ui->dateEditEndDate->date());
     setting.endGroup();
@@ -71,52 +74,17 @@ SHA1CacheFinder::~SHA1CacheFinder()
 
 bool SHA1CacheFinder::hasProfiles() const
 {
-    return !profiles.empty();
+    return ui->profileDisplay->hasProfiles();
 }
 
 void SHA1CacheFinder::updateProfiles()
 {
-    profiles = ProfileLoader5::getProfiles();
-
-    ui->comboBoxProfiles->clear();
-    for (const auto &profile : profiles)
-    {
-        ui->comboBoxProfiles->addItem(QString::fromStdString(profile.getName()));
-    }
-
-    QSettings setting;
-    int val = setting.value("sha1cachefinder/profile", 0).toInt();
-    if (val < ui->comboBoxProfiles->count())
-    {
-        ui->comboBoxProfiles->setCurrentIndex(val);
-    }
+    ui->profileDisplay->updateProfiles();
 }
 
-void SHA1CacheFinder::profileIndexChanged(int index)
+void SHA1CacheFinder::profileChanged(const Profile5 &profile)
 {
-    if (index >= 0)
-    {
-        currentProfile = &profiles[index];
-
-        ui->labelProfileTIDValue->setText(QString::number(currentProfile->getTID()));
-        ui->labelProfileSIDValue->setText(QString::number(currentProfile->getSID()));
-        ui->labelProfileMACAddressValue->setText(QString::number(currentProfile->getMac(), 16));
-        ui->labelProfileDSTypeValue->setText(QString::fromStdString(currentProfile->getDSTypeString()));
-        ui->labelProfileVCountValue->setText(QString::number(currentProfile->getVCount(), 16));
-        ui->labelProfileTimer0Value->setText(QString::number(currentProfile->getTimer0Min(), 16) + "-"
-                                             + QString::number(currentProfile->getTimer0Max(), 16));
-        ui->labelProfileGxStatValue->setText(QString::number(currentProfile->getGxStat()));
-        ui->labelProfileVFrameValue->setText(QString::number(currentProfile->getVFrame()));
-        ui->labelProfileKeypressesValue->setText(QString::fromStdString(currentProfile->getKeypressesString()));
-        ui->labelProfileGameValue->setText(QString::fromStdString(Translator::getGame(currentProfile->getVersion())));
-    }
-}
-
-void SHA1CacheFinder::profileManager()
-{
-    auto *manager = new ProfileManager5();
-    connect(manager, &ProfileManager5::profilesModified, this, [=](int num) { emit profilesModified(num); });
-    manager->show();
+    currentProfile = &profile;
 }
 
 void SHA1CacheFinder::search()
@@ -154,31 +122,39 @@ void SHA1CacheFinder::search()
     QSettings settings;
     int threads = settings.value("settings/threads").toInt();
 
-    auto *thread = QThread::create([=] { searcher->startSearch(threads); });
-    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
-    connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
-
-    auto *timer = new QTimer();
-    connect(timer, &QTimer::timeout, this, [=] { ui->progressBar->setValue(searcher->getProgress()); });
-    connect(thread, &QThread::finished, timer, &QTimer::stop);
-    connect(thread, &QThread::finished, timer, &QTimer::deleteLater);
-    connect(timer, &QTimer::destroyed, this, [=] {
-        ui->pushButtonSearch->setEnabled(true);
+    auto *timer = new QTimer(this);
+    connect(ui->pushButtonCancel, &QPushButton::clicked, timer, [this, searcher] {
+        searcher->cancelSearch();
         ui->pushButtonCancel->setEnabled(false);
+    });
+    connect(timer, &QTimer::timeout, this, [this, searcher, timer] {
         ui->progressBar->setValue(searcher->getProgress());
-        if (!searcher->cancelled())
+
+        if (!searcher->isSearching())
         {
-            searcher->writeResults(ui->lineEditOutputFile->text().toStdString());
+            timer->stop();
+
+            ui->progressBar->setValue(searcher->getProgress());
+
+            ui->pushButtonSearch->setEnabled(true);
+            ui->pushButtonCancel->setEnabled(false);
+
+            if (!searcher->isCancelled())
+            {
+                searcher->writeResults(ui->lineEditOutputFile->text().toStdString());
+            }
+
+            delete searcher;
+            timer->deleteLater();
         }
-        delete searcher;
     });
 
-    thread->start();
+    searcher->startSearch(threads);
     timer->start(1000);
 }
 
 void SHA1CacheFinder::updateOutputFile()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), QDir::currentPath(), tr("sha1cache (*.sha1cache)"));
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), QDir::currentPath(), "sha1cache (*.sha1cache)");
     ui->lineEditOutputFile->setText(fileName);
 }

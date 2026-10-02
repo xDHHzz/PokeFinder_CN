@@ -78,7 +78,7 @@ std::vector<GeneratorState> GameCubeGenerator::generateChannel(u32 seed, const S
 
         // Advance jirachi pattern
         go.advance(4);
-        if (std::any_of(std::begin(threshHolds), std::end(threshHolds), [&go](u16 thresh) { return go.nextUShort() <= thresh; }))
+        if (std::ranges::any_of(threshHolds, [&go](u16 thresh) { return go.nextUShort() <= thresh; }))
         {
             go.advance(1);
         }
@@ -114,7 +114,7 @@ std::vector<GeneratorState> GameCubeGenerator::generateChannel(u32 seed, const S
 
         GeneratorState state(initialAdvances + cnt, pid, ivs, pid & 1, 2, staticTemplate->getLevel(), pid % 25,
                              Utilities::getShiny<true>(pid, tid ^ sid), info);
-        if (filter.compareState(static_cast<const State &>(state)))
+        if (filter.compare(static_cast<const State &>(state)))
         {
             states.emplace_back(state);
         }
@@ -203,7 +203,7 @@ std::vector<GeneratorState> GameCubeGenerator::generateColoShadow(u32 seed, cons
 
         GeneratorState state(initialAdvances + cnt, pid, ivs, ability, Utilities::getGender(pid, info), shadowTemplate->getLevel(),
                              pid % 25, Utilities::getShiny<true>(pid, tsv), info);
-        if (filter.compareState(static_cast<const State &>(state)))
+        if (filter.compare(static_cast<const State &>(state)))
         {
             states.emplace_back(state);
         }
@@ -288,7 +288,7 @@ std::vector<GeneratorState> GameCubeGenerator::generateGalesShadow(u32 seed, con
 
         GeneratorState state(initialAdvances + cnt, pid, ivs, ability, Utilities::getGender(pid, info), shadowTemplate->getLevel(),
                              pid % 25, Utilities::getShiny<true>(pid, tsv), info);
-        if (filter.compareState(static_cast<const State &>(state)))
+        if (filter.compare(static_cast<const State &>(state)))
         {
             states.emplace_back(state);
         }
@@ -386,7 +386,7 @@ std::vector<GeneratorState> GameCubeGenerator::generateNonLock(u32 seed, const S
 
         GeneratorState state(initialAdvances + cnt, pid, ivs, ability, Utilities::getGender(pid, info), staticTemplate->getLevel(),
                              pid % 25, Utilities::getShiny<true>(pid, actualTSV), info);
-        if (filter.compareState(static_cast<const State &>(state)))
+        if (filter.compare(static_cast<const State &>(state)))
         {
             states.emplace_back(state);
         }

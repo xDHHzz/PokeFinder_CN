@@ -94,7 +94,6 @@ static u64 getCustom(Custom custom, const ResearcherState &state, const std::vec
  * @brief Computes the PRNG states for \p rng
  *
  * @tparam RNGType Type of RNG
- * @tparam lcrng Whether the RNGType if LCRNG/LCRNG64 or not
  * @param rng RNG object to generate numbers
  * @param initial Initial advances
  * @param max Maximum advances
@@ -106,11 +105,7 @@ static std::vector<u64> getStates(RNGType rng, u32 initial, u32 max)
 {
     std::vector<u64> states;
 
-    if constexpr (std::is_same_v<RNGType, MT> || std::is_same_v<RNGType, SFMT>)
-    {
-        rng.advance(initial);
-    }
-    else
+    if constexpr (!std::is_same_v<RNGType, MT> && !std::is_same_v<RNGType, SFMT>)
     {
         rng.jump(initial);
     }
@@ -185,7 +180,7 @@ Researcher::Researcher(QWidget *parent) : QWidget(parent), ui(new Ui::Researcher
         }
         else
         {
-            customs.insert(std::find(customs.begin(), customs.end(), toInt(Custom::Custom1) + i - 2) + 1, toInt(Custom::Custom1) + i - 1);
+            customs.insert(std::ranges::find(customs, toInt(Custom::Custom1) + i - 2) + 1, toInt(Custom::Custom1) + i - 1);
             customs.emplace_back(toInt(Custom::Previous1) + i - 1);
         }
     }
@@ -258,7 +253,7 @@ void Researcher::generate()
             rngStates = getStates(ARNGR(seed), initialAdvances, maxAdvances);
             break;
         case 6:
-            rngStates = getStates<MT>(MT(seed), initialAdvances, maxAdvances);
+            rngStates = getStates<MT>(MT(seed, initialAdvances), initialAdvances, maxAdvances);
             break;
         }
     }
@@ -278,7 +273,7 @@ void Researcher::generate()
             {
                 seed >>= 32;
             }
-            rngStates = getStates<SFMT>(SFMT(seed), initialAdvances, maxAdvances);
+            rngStates = getStates<SFMT>(SFMT(seed, initialAdvances), initialAdvances, maxAdvances);
             break;
         case 3:
             rngStates = getStates<Xoroshiro>(Xoroshiro(seed), initialAdvances, maxAdvances);

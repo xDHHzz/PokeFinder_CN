@@ -28,6 +28,7 @@
 #include <Core/Parents/Slot.hpp>
 #include <Core/Resources/EncounterData5.hpp>
 #include <Core/Util/Utilities.hpp>
+#include <algorithm>
 
 struct DynamicSlot
 {
@@ -76,9 +77,10 @@ struct WildEncounter5
 {
     u8 location;
     u8 seasonCount;
+    PhenomenonType phenomenon;
     WildEncounter5Season seasons[0];
 };
-static_assert(sizeof(WildEncounter5) == 2);
+static_assert(sizeof(WildEncounter5) == 4);
 
 struct WildEncounterGrotto
 {
@@ -88,6 +90,15 @@ struct WildEncounterGrotto
     std::array<u16, 16> hiddenItems;
 };
 static_assert(sizeof(WildEncounterGrotto) == 138);
+
+struct SwarmEncounter
+{
+    u8 location;
+    u16 specie;
+    u8 maxLevel;
+    u8 minLevel;
+};
+static_assert(sizeof(SwarmEncounter) == 6);
 
 namespace Encounters5
 {
@@ -105,7 +116,181 @@ namespace Encounters5
         return &DREAMRADAR[index];
     }
 
-    std::vector<EncounterArea5> getEncounters(Encounter encounter, u8 season, const Profile5 *profile)
+    std::vector<EncounterArea5> getEncounters(Encounter encounter, const EncounterSettings5 &settings, const Profile5 *profile)
+    {
+        u32 length;
+        const u8 *data;
+
+        u32 length_swarm;
+        const SwarmEncounter *data_swarm;
+
+        Game version = profile->getVersion();
+        if (version == Game::Black)
+        {
+            data = Utilities::decompress<u8>(BLACK.data(), BLACK.size(), length);
+            data_swarm = Utilities::decompress<SwarmEncounter>(B_SWARM.data(), B_SWARM.size(), length_swarm);
+        }
+        else if (version == Game::Black2)
+        {
+            data = Utilities::decompress<u8>(BLACK2.data(), BLACK2.size(), length);
+            data_swarm = Utilities::decompress<SwarmEncounter>(B2_SWARM.data(), B2_SWARM.size(), length_swarm);
+        }
+        else if (version == Game::White)
+        {
+            data = Utilities::decompress<u8>(WHITE.data(), WHITE.size(), length);
+            data_swarm = Utilities::decompress<SwarmEncounter>(W_SWARM.data(), W_SWARM.size(), length_swarm);
+        }
+        else
+        {
+            data = Utilities::decompress<u8>(WHITE2.data(), WHITE2.size(), length);
+            data_swarm = Utilities::decompress<SwarmEncounter>(W2_SWARM.data(), W2_SWARM.size(), length_swarm);
+        }
+
+        std::vector<EncounterArea5> encounters;
+        for (size_t offset = 0; offset < length;)
+        {
+            const auto *entry = reinterpret_cast<const WildEncounter5 *>(data + offset);
+
+            const auto *entrySeason = &entry->seasons[0];
+            bool seasons = entry->seasonCount > 1;
+            if (settings.season < entry->seasonCount)
+            {
+                entrySeason = &entry->seasons[settings.season];
+            }
+
+            std::array<Slot, 13> slots;
+            switch (encounter)
+            {
+            case Encounter::Grass:
+                if (entrySeason->grassRate != 0)
+                {
+                    for (size_t i = 0; i < 12; i++)
+                    {
+                        const auto &slot = entrySeason->grass[i];
+                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.level, slot.level,
+                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
+                    }
+                    if (settings.swarm)
+                    {
+                        auto it = std::find_if(data_swarm, data_swarm + length_swarm,
+                                               [entry](const auto &swarm) { return entry->location == swarm.location; });
+                        if (it != (data_swarm + length_swarm))
+                        {
+                            slots[12] = Slot(it->specie, it->minLevel, it->maxLevel, PersonalLoader::getPersonal(version, it->specie));
+                        }
+                    }
+                    encounters.emplace_back(entry->location, entrySeason->grassRate, seasons, PhenomenonType::None, encounter, slots);
+                }
+                break;
+            case Encounter::GrassDark:
+                if (entrySeason->grassHighRate != 0)
+                {
+                    for (size_t i = 0; i < 12; i++)
+                    {
+                        const auto &slot = entrySeason->grassHigh[i];
+                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.level, slot.level,
+                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
+                    }
+                    encounters.emplace_back(entry->location, entrySeason->grassHighRate, seasons, PhenomenonType::None, encounter, slots);
+                }
+                break;
+            case Encounter::GrassRustling:
+                if (entrySeason->grassSpecialRate != 0)
+                {
+                    for (size_t i = 0; i < 12; i++)
+                    {
+                        const auto &slot = entrySeason->grassSpecial[i];
+                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.level, slot.level,
+                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
+                    }
+                    encounters.emplace_back(entry->location, entrySeason->grassSpecialRate, seasons, entry->phenomenon, encounter, slots);
+                }
+                break;
+            case Encounter::Surfing:
+                if (entrySeason->surfRate != 0)
+                {
+                    for (size_t i = 0; i < 5; i++)
+                    {
+                        const auto &slot = entrySeason->surf[i];
+                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.minLevel, slot.maxLevel,
+                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
+                    }
+                    encounters.emplace_back(entry->location, entrySeason->surfRate, seasons, PhenomenonType::None, encounter, slots);
+                }
+                break;
+            case Encounter::SurfingRippling:
+                if (entrySeason->surfSpecialRate != 0)
+                {
+                    for (size_t i = 0; i < 5; i++)
+                    {
+                        const auto &slot = entrySeason->surfSpecial[i];
+                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.minLevel, slot.maxLevel,
+                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
+                    }
+                    encounters.emplace_back(entry->location, entrySeason->surfSpecialRate, seasons, PhenomenonType::Water, encounter,
+                                            slots);
+                }
+                break;
+            case Encounter::SuperRod:
+                if (entrySeason->fishRate != 0)
+                {
+                    for (size_t i = 0; i < 5; i++)
+                    {
+                        const auto &slot = entrySeason->fish[i];
+                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.minLevel, slot.maxLevel,
+                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
+                    }
+                    encounters.emplace_back(entry->location, entrySeason->fishRate, seasons, PhenomenonType::None, encounter, slots);
+                }
+                break;
+            case Encounter::SuperRodRippling:
+                if (entrySeason->fishSpecialRate != 0)
+                {
+                    for (size_t i = 0; i < 5; i++)
+                    {
+                        const auto &slot = entrySeason->fishSpecial[i];
+                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.minLevel, slot.maxLevel,
+                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
+                    }
+                    encounters.emplace_back(entry->location, entrySeason->fishSpecialRate, seasons, PhenomenonType::Water, encounter,
+                                            slots);
+                }
+                break;
+            default:
+                break;
+            }
+
+            offset += sizeof(WildEncounter5) + entry->seasonCount * sizeof(WildEncounter5Season);
+        }
+        delete[] data;
+        delete[] data_swarm;
+        return encounters;
+    }
+
+    std::vector<HiddenGrottoArea> getHiddenGrottoEncounters()
+    {
+        u32 length;
+        auto *data = Utilities::decompress<WildEncounterGrotto>(BW2_GROTTO.data(), BW2_GROTTO.size(), length);
+
+        const PersonalInfo *info = PersonalLoader::getPersonal(Game::BW2);
+
+        std::vector<HiddenGrottoArea> encounters;
+        for (size_t i = 0; i < length; i++)
+        {
+            std::array<HiddenGrottoSlot, 12> pokemon;
+            for (size_t j = 0; j < 12; j++)
+            {
+                const auto &slot = data[i].pokemon[j];
+                pokemon[j] = HiddenGrottoSlot(slot.specie, slot.gender, slot.minLevel, slot.maxLevel, &info[slot.specie]);
+            }
+
+            encounters.emplace_back(data[i].location, pokemon, data[i].items, data[i].hiddenItems);
+        }
+        delete[] data;
+        return encounters;
+    }
+
+    std::vector<EncounterArea5> getPhenomenonEncounters(const Profile5 *profile)
     {
         u32 length;
         const u8 *data;
@@ -134,127 +319,19 @@ namespace Encounters5
             const auto *entry = reinterpret_cast<const WildEncounter5 *>(data + offset);
 
             const auto *entrySeason = &entry->seasons[0];
-            bool seasons = entry->seasonCount > 1;
-            if (season < entry->seasonCount)
+            if (entrySeason->grassSpecialRate && (entry->phenomenon == PhenomenonType::Bridge || entry->phenomenon == PhenomenonType::Cave))
             {
-                entrySeason = &entry->seasons[season];
-            }
-
-            std::array<Slot, 12> slots;
-            switch (encounter)
-            {
-            case Encounter::Grass:
-                if (entrySeason->grassRate != 0)
+                std::array<Slot, 13> slots;
+                for (size_t i = 0; i < 12; i++)
                 {
-                    for (size_t i = 0; i < 12; i++)
-                    {
-                        const auto &slot = entrySeason->grass[i];
-                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.level, slot.level,
-                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
-                    }
-                    encounters.emplace_back(entry->location, entrySeason->grassRate, seasons, encounter, slots);
+                    const auto &slot = entrySeason->grassSpecial[i];
+                    slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.level, slot.level,
+                                    PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
                 }
-                break;
-            case Encounter::GrassDark:
-                if (entrySeason->grassHighRate != 0)
-                {
-                    for (size_t i = 0; i < 12; i++)
-                    {
-                        const auto &slot = entrySeason->grassHigh[i];
-                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.level, slot.level,
-                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
-                    }
-                    encounters.emplace_back(entry->location, entrySeason->grassHighRate, seasons, encounter, slots);
-                }
-                break;
-            case Encounter::GrassRustling:
-                if (entrySeason->grassSpecialRate != 0)
-                {
-                    for (size_t i = 0; i < 12; i++)
-                    {
-                        const auto &slot = entrySeason->grassSpecial[i];
-                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.level, slot.level,
-                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
-                    }
-                    encounters.emplace_back(entry->location, entrySeason->grassSpecialRate, seasons, encounter, slots);
-                }
-                break;
-            case Encounter::Surfing:
-                if (entrySeason->surfRate != 0)
-                {
-                    for (size_t i = 0; i < 5; i++)
-                    {
-                        const auto &slot = entrySeason->surf[i];
-                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.minLevel, slot.maxLevel,
-                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
-                    }
-                    encounters.emplace_back(entry->location, entrySeason->surfRate, seasons, encounter, slots);
-                }
-                break;
-            case Encounter::SurfingRippling:
-                if (entrySeason->surfSpecialRate != 0)
-                {
-                    for (size_t i = 0; i < 5; i++)
-                    {
-                        const auto &slot = entrySeason->surfSpecial[i];
-                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.minLevel, slot.maxLevel,
-                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
-                    }
-                    encounters.emplace_back(entry->location, entrySeason->surfSpecialRate, seasons, encounter, slots);
-                }
-                break;
-            case Encounter::SuperRod:
-                if (entrySeason->fishRate != 0)
-                {
-                    for (size_t i = 0; i < 5; i++)
-                    {
-                        const auto &slot = entrySeason->fish[i];
-                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.minLevel, slot.maxLevel,
-                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
-                    }
-                    encounters.emplace_back(entry->location, entrySeason->fishRate, seasons, encounter, slots);
-                }
-                break;
-            case Encounter::SuperRodRippling:
-                if (entrySeason->fishSpecialRate != 0)
-                {
-                    for (size_t i = 0; i < 5; i++)
-                    {
-                        const auto &slot = entrySeason->fishSpecial[i];
-                        slots[i] = Slot(slot.specie & 0x7ff, slot.specie >> 11, slot.minLevel, slot.maxLevel,
-                                        PersonalLoader::getPersonal(version, slot.specie & 0x7ff, slot.specie >> 11));
-                    }
-                    encounters.emplace_back(entry->location, entrySeason->fishSpecialRate, seasons, encounter, slots);
-                }
-                break;
-            default:
-                break;
+                encounters.emplace_back(entry->location, entrySeason->grassSpecialRate, false, entry->phenomenon, Encounter::GrassRustling, slots);
             }
 
             offset += sizeof(WildEncounter5) + entry->seasonCount * sizeof(WildEncounter5Season);
-        }
-        delete[] data;
-        return encounters;
-    }
-
-    std::vector<HiddenGrottoArea> getHiddenGrottoEncounters()
-    {
-        u32 length;
-        auto *data = Utilities::decompress<WildEncounterGrotto>(BW2_GROTTO.data(), BW2_GROTTO.size(), length);
-
-        const PersonalInfo *info = PersonalLoader::getPersonal(Game::BW2);
-
-        std::vector<HiddenGrottoArea> encounters;
-        for (size_t i = 0; i < length; i++)
-        {
-            std::array<HiddenGrottoSlot, 12> pokemon;
-            for (size_t j = 0; j < 12; j++)
-            {
-                const auto &slot = data[i].pokemon[j];
-                pokemon[j] = HiddenGrottoSlot(slot.specie, slot.gender, slot.minLevel, slot.maxLevel, &info[slot.specie]);
-            }
-
-            encounters.emplace_back(data[i].location, pokemon, data[i].items, data[i].hiddenItems);
         }
         delete[] data;
         return encounters;

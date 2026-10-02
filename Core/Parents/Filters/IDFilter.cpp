@@ -33,35 +33,35 @@ IDFilter::IDFilter(const std::vector<u16> &tidFilter, const std::vector<u16> &si
 {
 }
 
-bool IDFilter::compareState(const IDState &state) const
+bool IDFilter::compare(const IDState &state) const
 {
-    if (!tidFilter.empty() && std::find(tidFilter.begin(), tidFilter.end(), state.getTID()) == tidFilter.end())
+    if (!tidFilter.empty() && std::ranges::find(tidFilter, state.getTID()) == tidFilter.end())
     {
         return false;
     }
 
-    if (!sidFilter.empty() && std::find(sidFilter.begin(), sidFilter.end(), state.getSID()) == sidFilter.end())
+    if (!sidFilter.empty() && std::ranges::find(sidFilter, state.getSID()) == sidFilter.end())
     {
         return false;
     }
 
     if (!tidSIDFilter.empty()
-        && std::find_if(
-               tidSIDFilter.begin(), tidSIDFilter.end(),
+        && std::ranges::find_if(
+               tidSIDFilter,
                [&state](const std::pair<u16, u16> &entry) { return entry.first == state.getTID() && entry.second == state.getSID(); })
             == tidSIDFilter.end())
     {
         return false;
     }
 
-    if (!tsvFilter.empty() && std::find(tsvFilter.begin(), tsvFilter.end(), state.getTSV()) == tsvFilter.end())
+    if (!tsvFilter.empty() && std::ranges::find(tsvFilter, state.getTSV()) == tsvFilter.end())
     {
         return false;
     }
 
     if (!tidTSVFilter.empty()
-        && std::find_if(
-               tidTSVFilter.begin(), tidTSVFilter.end(),
+        && std::ranges::find_if(
+               tidTSVFilter,
                [&state](const std::pair<u16, u16> &entry) { return entry.first == state.getTID() && entry.second == state.getTSV(); })
             == tidTSVFilter.end())
     {
@@ -71,14 +71,14 @@ bool IDFilter::compareState(const IDState &state) const
     return true;
 }
 
-bool IDFilter::compareState(const IDState8 &state) const
+bool IDFilter::compare(const IDState8 &state) const
 {
-    if (!compareState(static_cast<const IDState &>(state)))
+    if (!compare(static_cast<const IDState &>(state)))
     {
         return false;
     }
 
-    if (!displayFilter.empty() && std::find(displayFilter.begin(), displayFilter.end(), state.getDisplayTID()) == displayFilter.end())
+    if (!displayFilter.empty() && std::ranges::find(displayFilter, state.getDisplayTID()) == displayFilter.end())
     {
         return false;
     }

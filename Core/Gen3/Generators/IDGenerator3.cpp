@@ -25,7 +25,7 @@ IDGenerator3::IDGenerator3(u32 initialAdvances, u32 maxAdvances, const IDFilter 
 {
 }
 
-std::vector<IDState> IDGenerator3::generateXDColo(u32 seed)
+std::vector<IDState> IDGenerator3::generateXDColo(u32 seed) const
 {
     std::vector<IDState> states;
 
@@ -39,7 +39,7 @@ std::vector<IDState> IDGenerator3::generateXDColo(u32 seed)
         u16 tsv = (tid ^ sid) >> 3;
 
         IDState state(initialAdvances + cnt, tid, sid, tsv);
-        if (filter.compareState(state))
+        if (filter.compare(state))
         {
             states.emplace_back(state);
         }
@@ -48,7 +48,7 @@ std::vector<IDState> IDGenerator3::generateXDColo(u32 seed)
     return states;
 }
 
-std::vector<IDState> IDGenerator3::generateFRLGE(u16 tid)
+std::vector<IDState> IDGenerator3::generateFRLGE(u16 tid) const
 {
     std::vector<IDState> states;
 
@@ -59,7 +59,7 @@ std::vector<IDState> IDGenerator3::generateFRLGE(u16 tid)
         u16 tsv = (tid ^ sid) >> 3;
 
         IDState state(initialAdvances + cnt, tid, sid, tsv);
-        if (filter.compareState(state))
+        if (filter.compare(state))
         {
             states.emplace_back(state);
         }
@@ -68,7 +68,7 @@ std::vector<IDState> IDGenerator3::generateFRLGE(u16 tid)
     return states;
 }
 
-std::vector<IDState> IDGenerator3::generateRS(u16 seed)
+std::vector<IDState> IDGenerator3::generateRS(u16 seed) const
 {
     std::vector<IDState> states;
 
@@ -82,7 +82,7 @@ std::vector<IDState> IDGenerator3::generateRS(u16 seed)
         u16 tsv = (tid ^ sid) >> 3;
 
         IDState state(initialAdvances + cnt, tid, sid, tsv);
-        if (filter.compareState(state))
+        if (filter.compare(state))
         {
             states.emplace_back(state);
         }

@@ -19,7 +19,7 @@
 
 #include "IDSearcher4.hpp"
 #include <Core/Gen4/States/IDState4.hpp>
-#include <Core/RNG/MTFast.hpp>
+#include <Core/RNG/MT.hpp>
 
 IDSearcher4::IDSearcher4(const IDFilter &filter) : filter(filter)
 {
@@ -27,22 +27,30 @@ IDSearcher4::IDSearcher4(const IDFilter &filter) : filter(filter)
 
 void IDSearcher4::startSearch(bool infinite, u16 year, u32 minDelay, u32 maxDelay)
 {
-    searching = true;
     maxDelay = infinite ? 0xe8ffff : maxDelay;
 
+    activeThreads.store(1);
+    threadContainer.emplace_back([this, year, minDelay, maxDelay] {
+        search(year, minDelay, maxDelay);
+        activeThreads.fetch_sub(1);
+    });
+}
+
+void IDSearcher4::search(u16 year, u32 minDelay, u32 maxDelay)
+{
     for (u32 efgh = minDelay; efgh <= maxDelay; efgh++)
     {
         for (u16 ab = 0; ab < 256; ab++)
         {
             for (u16 cd = 0; cd < 24; cd++)
             {
-                if (!searching)
+                if (cancelled.load(std::memory_order_relaxed))
                 {
                     return;
                 }
 
                 u32 seed = static_cast<u32>((ab << 24) | (cd << 16)) + efgh;
-                MTFast<2> mt(seed, 1);
+                MTFast mt(seed, 1, 2);
 
                 u32 sidtid = mt.next();
 
@@ -50,13 +58,12 @@ void IDSearcher4::startSearch(bool infinite, u16 year, u32 minDelay, u32 maxDela
                 u16 sid = sidtid >> 16;
 
                 IDState4 state(seed, efgh + 2000 - year, tid, sid);
-                if (filter.compareState(static_cast<const IDState &>(state)))
+                if (filter.compare(static_cast<const IDState &>(state)))
                 {
                     std::lock_guard<std::mutex> guard(mutex);
                     results.emplace_back(state);
                 }
-
-                progress++;
+                progress.fetch_add(1, std::memory_order_relaxed);
             }
         }
     }

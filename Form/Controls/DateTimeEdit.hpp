@@ -27,7 +27,7 @@ class DateTime;
 /**
  * @brief Utility class that converts QDateTime to internally used DateTime class
  */
-class DateTimeEdit : public QDateTimeEdit
+class DateTimeEdit final : public QDateTimeEdit
 {
     Q_OBJECT
 public:
@@ -44,6 +44,13 @@ public:
      * @return Date/time information
      */
     DateTime getDateTime() const;
+
+    /**
+     * @brief Sets the date/time
+     *
+     * @param dateTime Date/time to set
+     */
+    void setDateTime(const DateTime &dateTime);
 };
 
 #endif // DATETIMEEDIT_HPP

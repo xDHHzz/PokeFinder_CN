@@ -30,7 +30,7 @@ class ShadowTemplate;
 /**
  * @brief Wild encounter searcher for GameCube
  */
-class GameCubeSearcher : public StaticSearcher<Profile3, StateFilter, SearcherState>
+class GameCubeSearcher final : public StaticSearcher<Profile3, StateFilter, SearcherState>
 {
 public:
     /**
@@ -66,11 +66,34 @@ private:
 
     /**
      * @brief Searches for matching states from provided IVs
-     * @param minSpd
-     * @param maxSpd
+     *
+     * @param min Minimum IVs
+     * @param max Maximum IVs
+     * @param shadowTemplate Pokemon template
+     */
+    void search(const std::array<u8, 6> &min, const std::array<u8, 6> &max, const ShadowTemplate *shadowTemplate);
+
+    /**
+     * @brief Searches for matching states from provided IVs
+     *
+     * @param min Minimum IVs
+     * @param max Maximum IVs
+     * @param shadowTemplate Pokemon template
+     */
+    void search(const std::array<u8, 6> &min, const std::array<u8, 6> &max, const StaticTemplate3 *staticTemplate);
+
+    /**
+     * @brief Searches for matching states from provided IVs
+     *
+     * @param hp HP IV
+     * @param atk Atk IV
+     * @param def Def IV
+     * @param spa SpA IV
+     * @param spd SpD IV
+     * @param spe Spe IV
      * @param staticTemplate Pokemon template
      */
-    void searchChannel(u8 minSpd, u8 maxSpd, const StaticTemplate3 *staticTemplate);
+    std::vector<SearcherState> searchChannel(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, const StaticTemplate3 *staticTemplate) const;
 
     /**
      * @brief Searches for matching states from provided IVs
@@ -85,7 +108,7 @@ private:
      *
      * @return Vector of computed states
      */
-    std::vector<SearcherState> searchColoShadow(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, const ShadowTemplate *shadowTemplate);
+    std::vector<SearcherState> searchColoShadow(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, const ShadowTemplate *shadowTemplate) const;
 
     /**
      * @brief Searches for matching states from provided IVs
@@ -100,7 +123,7 @@ private:
      *
      * @return Vector of computed states
      */
-    std::vector<SearcherState> searchGalesShadow(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, const ShadowTemplate *shadowTemplate);
+    std::vector<SearcherState> searchGalesShadow(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, const ShadowTemplate *shadowTemplate) const;
 
     /**
      * @brief Searches for matching states from provided IVs
